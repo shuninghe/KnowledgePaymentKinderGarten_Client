@@ -1,0 +1,227 @@
+<view class="tabShopHome">
+  <!-- banner -->
+  <swiper class="banner" autoplay circular>
+    <swiper-item wx:for="{{bannerList}}"  wx:key="index"> 
+      <image class="banner-img" src="{{item.pic}}" bindtap="toPage" data-item="{{item}}" />
+    </swiper-item>
+  </swiper>
+  <view class="container">
+    <!-- 菜单导航 -->
+    <view class="content-wrap title-container" wx:if="{{classifyList.length}}">
+      <scroll-view class="swiper-container" scroll-x wx:if="{{meunShowType === 1}}">
+        <view class="title-item" wx:for="{{classifyList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+          <image class="title-img" src="{{item.icon}}" />
+          <view class="txt menutxt">{{item.name}}</view>
+        </view>
+      </scroll-view>
+      <view class="menu-container" wx:if="{{meunShowType === 2}}">
+        <view class="title-item" wx:for="{{classifyList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+          <image class="title-img" src="{{item.icon}}" />
+          <view class="txt menutxt">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 广告位 -->
+    <view class="ads-list" wx:if="{{newList.length}}">
+      <!-- <image class="item" mode="widthFix" src="{{item.icon}}" wx:for="{{newList}}" wx:key="index" bindtap="toPage" data-item="{{item}}"></image> -->
+      <button class="btn" open-type="contact" wx:for="{{newList}}" wx:key="index">
+        <image class="item" mode="widthFix" src="{{item.icon}}"></image>
+      </button>
+    </view>
+    <!-- 营销活动课程 -->
+    <block wx:if="{{activityList.length}}">
+      <activityList list="{{activityList}}"></activityList>
+    </block>
+    <!-- 课程配置 -->
+    <block wx:if="{{classAreasData.length}}">
+      <view class="content-wrap" wx:for="{{classAreasData}}" wx:key="index" wx:for-item="classify">
+        <view class="content">
+          <view class="flex-bew-cen">
+            <view class="flex-sta-cen">
+              <image class="icon-hot" src="{{jiGouHomeIcon.kecheng}}"></image>
+              <view class="title ellipsisOne">{{classify.name}}</view>
+            </view>
+            <view class="more" bindtap="toAllGame">查看更多</view>
+          </view>
+          <!-- 课程正常布局-正方形 -->
+          <view class="course" wx:if="{{classify.classify[0].course.length}}">
+            <view class="item" wx:for="{{classify.classify[0].course}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+              <view class="img-wrap">
+                <image class='item-img' src='{{item.square_course_pic || item.pic}}' />
+                <view class="img-mask flex-cen-cen" wx:if="{{item.skipType===7}}">
+                  <image class="play-icon" src="../../images/study/play_icon.png"></image>
+                </view>
+              </view>
+              <view class='item-name ellipsisTwo'>{{item.name}}</view>
+              <view class='item-price' wx:if="{{item.skipType===1}}">原价：{{item.price / 100}}元</view>
+              <view class='item-saleprice' wx:if="{{item.skipType===1}}">¥ {{item.selling_price / 100}}<text class="yuan"> 元</text></view>
+            </view>
+          </view>
+          <!-- 课程特殊布局-长方形 -->
+          <view class='special' wx:if="{{classify.classify[1].course.length}}">
+            <view class="item" wx:for="{{classify.classify[1].course}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+              <view class="img-wrap">
+                <image class='item-img' src='{{item.pic || item.square_course_pic }}' />
+                <view class="img-mask flex-cen-cen" wx:if="{{item.skipType===7}}">
+                  <image class="play-icon" src="../../images/study/play_icon.png"></image>
+                </view>
+              </view>
+              <view class="info-wrap">
+                <view class='item-name ellipsisOne'>{{item.name}}</view>
+                <view class="flex-bew-cen" wx:if="{{item.skipType===1}}">
+                  <view class="flex-sta-base">
+                    <view class='item-saleprice'>¥ {{filters.toFixedNum(item.selling_price / 100, 2)}}<text class="yuan"> 元</text></view>
+                    <view class='item-price'>原价：{{filters.toFixedNum(item.price / 100, 2)}}元</view>  
+                  </view>
+                  <view class="item-btn flex-cen-cen">立即购买</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 机构信息 -->
+    <block wx:for="{{moduleInfo}}" wx:key="idx" wx:for-index="idx" wx:for-item="mitem">
+      <view class="content-wrap" wx:if="{{mitem.show && (mitem.video || mitem.photoList)}}">
+        <view class="content">
+          <view class="flex-bew-cen">
+            <view class="flex-sta-cen">
+              <image class="icon-hot" src="{{mitem.icon}}"></image>
+              <view class="title ellipsisOne">{{mitem.title}}</view>
+            </view>
+            <view class="more" bindtap="toShopInfo" data-index="{{idx}}">查看更多</view>
+          </view>
+          <view class="media-wrap">
+            <video class="video" wx:if="{{mitem.video}}" src="{{mitem.video}}" controls></video>
+            <block wx:if="{{idx===1}}">
+              <block wx:for="{{mitem.photoList}}" wx:key="index">
+                <view class="item" wx:if="{{index < 4}}">
+                  <view class="img-wrap">
+                    <image class='item-img' src='{{item.pic}}' />
+                    <view class="img-name flex-cen-cen">{{item.name}}</view>
+                  </view>
+                  <view class='item-name ellipsisThree'>{{item.intro}}</view>
+                </view>
+              </block>
+            </block>
+            <block wx:elif="{{idx!==0}}">
+              <block wx:for="{{mitem.photoList}}" wx:key="index">
+                <view class="item" wx:if="{{index < 4}}">
+                  <image class='item-img' src='{{item.pic}}' />
+                  <!-- <view class='item-name ellipsisTwo'>{{item.content}}</view> -->
+                </view>
+              </block>
+            </block>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 课程配置 -->
+    <block wx:if="{{classAreasData2.length}}">
+      <view class="content-wrap" wx:for="{{classAreasData2}}" wx:key="index" wx:for-item="classify">
+        <view class="content">
+          <view class="flex-bew-cen">
+            <view class="flex-sta-cen">
+              <image class="icon-hot" src="{{jiGouHomeIcon.kecheng}}"></image>
+              <view class="title ellipsisOne">{{classify.name}}</view>
+            </view>
+            <view class="more" bindtap="toAllGame">查看更多</view>
+          </view>
+          <!-- 课程正常布局-正方形 -->
+          <view class="course" wx:if="{{classify.classify[0].course.length}}">
+            <view class="item" wx:for="{{classify.classify[0].course}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+              <view class="img-wrap">
+                <image class='item-img' src='{{item.square_course_pic || item.pic}}' />
+                <view class="img-mask flex-cen-cen" wx:if="{{item.skipType===7}}">
+                  <image class="play-icon" src="../../images/study/play_icon.png"></image>
+                </view>
+              </view>
+              <view class='item-name ellipsisTwo'>{{item.name}}</view>
+              <view class='item-price' wx:if="{{item.skipType===1}}">原价：{{item.price / 100}}元</view>
+              <view class='item-saleprice' wx:if="{{item.skipType===1}}">¥ {{item.selling_price / 100}}<text class="yuan"> 元</text></view>
+            </view>
+          </view>
+          <!-- 课程特殊布局-长方形 -->
+          <view class='special' wx:if="{{classify.classify[1].course.length}}">
+            <view class="item" wx:for="{{classify.classify[1].course}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+              <view class="img-wrap">
+                <image class='item-img' src='{{item.pic || item.square_course_pic }}' />
+                <view class="img-mask flex-cen-cen" wx:if="{{item.skipType===7}}">
+                  <image class="play-icon" src="../../images/study/play_icon.png"></image>
+                </view>
+              </view>
+              <view class="info-wrap">
+                <view class='item-name ellipsisOne'>{{item.name}}</view>
+                <view class="flex-bew-cen" wx:if="{{item.skipType===1}}">
+                  <view class="flex-sta-base">
+                    <view class='item-saleprice'>¥ {{filters.toFixedNum(item.selling_price / 100, 2)}}<text class="yuan"> 元</text></view>
+                    <view class='item-price'>原价：{{filters.toFixedNum(item.price / 100, 2)}}元</view>  
+                  </view>
+                  <view class="item-btn flex-cen-cen">立即购买</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 联系渠道 -->
+    <contactChannels 
+      mode="{{0}}"
+      phone="{{phone}}"
+      weiXin="{{weiXin}}">
+    </contactChannels>
+    <view class="bottom-text">已经到底了</view>
+  </view>
+</view>
+<wxs module="filters" >
+  module.exports = {
+    toFixedNum: function (val, num) {
+      val && (val.toFixed(num))
+      return val
+    },
+    // 查找数据对象某一值 arr对象数组 val匹配值 
+    findObj: function (arr, val) {
+      for (var i=0; i<arr.length; i++) {
+        if (arr[i].value === val) {
+          return arr[i].label.slice(0, 2)
+        }
+      }
+    },
+    findStrIndex: function (str, val) {
+      var result = str.indexOf(val) > -1;
+      return result;
+    },
+    /** 
+    * 时间戳转日期时间
+    * @param {Number} time: 13位时间戳
+    * @param {String} format: 日期时间格式
+    * 使用方式: timestampToTime(1557285692393, 'Y-M-D h:m:s') // 2019-05-08 11:21:32
+    */
+    timestampToTime: function (time, format) {
+      var timestamp = (''+time).length === 10 ? time * 1000 : time;
+      if (!format) {
+        format = "Y-M-D h:m:s";
+      }
+      var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+      var returnArr = [];
+      var date = getDate(timestamp);
+      returnArr.push(date.getFullYear());
+      var M = date.getMonth() + 1;
+      returnArr.push(M < 10 ? ('0' + M) : M);
+      var D = date.getDate();
+      returnArr.push(D < 10 ? ('0' + D) : D);
+      var h = date.getHours();
+      returnArr.push(h < 10 ? ('0' + h) : h);
+      var m = date.getMinutes();
+      returnArr.push(m < 10 ? ('0' + m) : m);
+      var s = date.getSeconds();
+      returnArr.push(s < 10 ? ('0' + s) : s);
+      for (var i=0; i<returnArr.length; i++) {
+          format = format.replace(formateArr[i], returnArr[i]);
+      }
+      return format;
+    }
+  }
+</wxs>

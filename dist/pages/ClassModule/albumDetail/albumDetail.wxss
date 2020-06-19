@@ -1,0 +1,286 @@
+page {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
+.albumDetail {
+  padding: 20rpx 24rpx;
+  padding-bottom: 140rpx;
+  background: #fff;
+}
+.albumDetail .card {
+  display: flex;
+}
+.albumDetail .card .cardImg {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 18rpx;
+}
+.albumDetail .card .info {
+  width: 616rpx;
+}
+.albumDetail .card .info .tips {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.albumDetail .card .info .tips .left .name {
+  font-size: 28rpx;
+  color: #000;
+}
+.albumDetail .card .info .tips .left .time {
+  margin-top: 6rpx;
+  color: #b1b1b1;
+  font-size: 20rpx;
+}
+.albumDetail .card .info .tips .right {
+  display: flex;
+}
+.albumDetail .card .info .tips .right .del {
+  width: 36rpx;
+  height: 37rpx;
+  margin-right: 35rpx;
+}
+.albumDetail .card .info .tips .right .share {
+  width: 35rpx;
+  height: 40rpx;
+}
+.albumDetail .card .info .title {
+  font-size: 30rpx;
+  color: #000;
+  margin-top: 24rpx;
+  margin-bottom: 10rpx;
+  font-weight: 500;
+}
+.albumDetail .card .info .content {
+  font-size: 26rpx;
+  color: #282828;
+}
+.albumDetail .card .info .phontList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.albumDetail .card .info .phontList .albmImg {
+  width: 168rpx;
+  height: 168rpx;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  margin-right: 40rpx;
+}
+.albumDetail .card .info .phontList .albmImg:nth-child(3n) {
+  margin-right: 0;
+}
+.albumDetail .card .info .status {
+  color: #ff8033;
+  font-size: 20rpx;
+  margin-top: 10rpx;
+}
+.albumDetail .card .info .click {
+  margin-top: 23rpx;
+  flex-direction: row-reverse;
+}
+.albumDetail .card .info .tip {
+  font-size: 18rpx;
+  font-family: Arial;
+  opacity: 0.8;
+  margin-left: 38rpx;
+}
+.albumDetail .card .info .icon24 {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+.albumDetail .detail {
+  margin-top: 30rpx;
+  padding: 13rpx 31rpx 0 33rpx;
+  border-radius: 10rpx;
+  background: #f4f4f4;
+}
+.albumDetail .detail .thumb {
+  display: flex;
+  justify-content: space-between;
+}
+.albumDetail .detail .thumb .thumbImg1 {
+  width: 24rpx;
+  height: 24rpx;
+  margin-top: 15rpx;
+  margin-right: 24rpx;
+}
+.albumDetail .detail .thumb .thumbUrl {
+  width: 591rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.albumDetail .detail .thumb .thumbUrl .cardImg {
+  width: 53rpx;
+  height: 53rpx;
+  border-radius: 50%;
+  margin: 0 6rpx;
+  margin-bottom: 25rpx;
+}
+.albumDetail .detail .comment .list {
+  display: flex;
+  justify-content: space-between;
+}
+.albumDetail .detail .comment .list .left {
+  margin-bottom: 20rpx;
+  max-width: 570rpx;
+}
+.albumDetail .detail .comment .list .left .comImg {
+  width: 22rpx;
+  height: 21rpx;
+  margin-right: 26rpx;
+  margin-top: 6rpx;
+}
+.albumDetail .detail .comment .list .left .name {
+  color: #76d689;
+  font-size: 24rpx;
+  font-weight: 500;
+  max-width: 80rpx;
+}
+.albumDetail .detail .comment .list .left .content {
+  max-width: 460rpx;
+  font-size: 24rpx;
+  color: #282828;
+}
+.albumDetail .detail .comment .list .delect {
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #aeaeae;
+}
+.albumDetail .detail .detailText {
+  font-size: 26rpx;
+  color: #282828;
+  padding-bottom: 13rpx;
+  text-align: center;
+  line-height: 34rpx;
+}
+.albumDetail .pubFail {
+  margin-top: 74rpx;
+  padding: 27rpx 34rpx;
+  border-radius: 10rpx;
+  background: #f4f4f4;
+}
+.albumDetail .pubFail .pubInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.albumDetail .pubFail .pubInfo .name {
+  font-size: 24rpx;
+  color: #282828;
+}
+.albumDetail .pubFail .pubInfo .send {
+  font-size: 22rpx;
+  color: #3473db;
+}
+.albumDetail .pubFail .text {
+  font-size: 22rpx;
+  color: #282828;
+  margin-left: 48rpx;
+  margin-bottom: 20rpx;
+}
+.tomessage-wrap {
+  position: fixed;
+  width: 100%;
+  height: 140rpx;
+  background: #fff;
+  padding: 0 28rpx;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tomessage-wrap .msg {
+  width: 548rpx;
+  height: 89rpx;
+  background: #eeeeee;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 33rpx;
+}
+.tomessage-wrap .msg .msg-img {
+  height: 44rpx;
+  font-size: 28rpx;
+  color: #282828;
+}
+.tomessage-wrap .send {
+  width: 112rpx;
+  height: 89rpx;
+  border-radius: 10rpx;
+  background: #dee9e9;
+  font-size: 30rpx;
+  color: #107e7d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tomessage-wrap .send.text {
+  background: #107e7d;
+  color: #fff;
+}
+.flex-sta-cen {
+  display: flex;
+  align-items: center;
+}
+.flex-cen-cen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-bet-cen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ellipsisTwo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+}
+.ellipsisOne {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+.btn {
+  font-size: 28rpx;
+  background-color: #fff;
+  margin: 0;
+  line-height: 1;
+  border: none;
+}
+.btn.userinfo-wrap {
+  background-color: transparent;
+}
+.btn::after {
+  border: none;
+}
+.mask {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mask .maskImg {
+  width: 100%;
+  height: auto;
+}
+.mask .maskVideo {
+  width: 100%;
+}

@@ -1,0 +1,162 @@
+.component-video .video {
+  width: 100%;
+  height: 422rpx;
+  vertical-align: middle;
+}
+.component-video .title-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+}
+.component-video .course-title {
+  margin-left: 32rpx;
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.8);
+}
+.component-video .line {
+  height: 26rpx;
+  background-color: #f5f5f5;
+}
+.component-video .share-wrap {
+  position: fixed;
+  width: 135rpx;
+  height: 72rpx;
+  right: 0;
+  bottom: 120rpx;
+  background: none;
+  background: linear-gradient(-90deg, #ff9d00, #ffbe00);
+  box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255, 211, 82, 0.75);
+  border-radius: 36rpx 0 0 36rpx;
+  display: flex;
+  align-items: center;
+}
+.component-video .share-wrap.mode2 {
+  width: 85rpx;
+  background: #57cf6e;
+  box-shadow: none;
+}
+.component-video .share-wrap .share-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: none;
+  padding: 10rpx 0;
+  margin-left: 10rpx;
+}
+.component-video .share-wrap .share-btn::after {
+  border: none;
+}
+.component-video .share-wrap .share-btn .icon-share {
+  width: 44rpx;
+  height: 44rpx;
+}
+.component-video .share-wrap .share-btn .icon-txt {
+  font-size: 30rpx;
+  color: #fff;
+}
+.course-tree .tree-name {
+  padding: 30rpx 32rpx 20rpx 32rpx;
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.66);
+}
+.course-tree .course-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 80rpx;
+}
+.course-tree .course-item.active .course-name {
+  color: #ff9d00;
+}
+.course-tree .course-info {
+  display: flex;
+  align-items: center;
+}
+.course-tree .course-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 15rpx;
+}
+.course-tree .course-name {
+  max-width: 490rpx;
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 54rpx;
+  margin-right: 20rpx;
+}
+.course-tree .course-name.max-w426 {
+  max-width: 426rpx;
+}
+.course-tree .course-name.max-w270 {
+  max-width: 270rpx;
+}
+.course-tree .course-name.max-w216 {
+  max-width: 200rpx;
+}
+.course-tree .course-tag {
+  display: inline-block;
+  border-radius: 4rpx;
+  padding: 3rpx;
+  margin-right: 10rpx;
+  font-size: 20rpx;
+  color: #fff;
+  line-height: 21rpx;
+  background: linear-gradient(-90deg, #ff9d00, #ffbe00);
+  box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255, 211, 82, 0.75);
+}
+.course-tree .course-tag.blue {
+  background: linear-gradient(-90deg, #58a1ff, #6edcff);
+  box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(106, 209, 255, 0.75);
+  opacity: 0.9;
+}
+.course-tree .course-tag.green {
+  background: linear-gradient(-90deg, #00c54a, #92f2b7);
+  box-shadow: 3px 5px 21px 0px rgba(47, 211, 108, 0.75);
+  opacity: 0.9;
+}
+.course-tree .course-commit {
+  font-size: 24rpx;
+  color: #6ab0ff;
+  margin-right: 22rpx;
+}
+.course-tree .course-commit .icon-right {
+  width: 20rpx;
+  height: 23rpx;
+}
+.section-wrap {
+  display: flex;
+  padding: 30rpx 10rpx 0;
+}
+.section-wrap .source {
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section-wrap .source-img {
+  width: 88rpx;
+  height: 88rpx;
+  margin-bottom: 20rpx;
+}
+.section-wrap .source-txt {
+  font-size: 22rpx;
+  color: #282828;
+}
+.section-intro {
+  padding: 24rpx;
+}
+.uploadImage {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+.ellipsisOne {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

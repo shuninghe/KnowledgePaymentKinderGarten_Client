@@ -1,0 +1,39 @@
+<view class="component-audio" style="padding-bottom:{{audioUrl?'140':'0'}}rpx;">
+  <!-- PPT -->
+  <view class="content" wx:if="{{picUrl.length}}">
+    <image class="img" animation="{{animationData}}" style="opacity:0;" bindload="showPicture" 
+      wx:for="{{picUrl}}" wx:key="index" src="{{item}}" mode="widthFix" lazy-load="{{true}}" />
+  </view>
+  <view class="content no-data" wx:else>{{courseInfo.isbuy || isComment || trees[curPlayIndex].foruse ? '暂无PPT' : ''}}</view>
+  <!-- 分享悬浮按钮 -->
+  <view class="share-wrap {{mode===2?'mode2':''}}" wx:if="{{!isComment}}" style="background:{{theme.themeColorOne}}">
+    <button class="share-btn" open-type="share">
+      <image class="icon-share" src="/images/study/share.png" />
+      <text class="icon-txt" wx:if="{{mode!==2}}">分享</text>
+    </button>
+  </view>
+</view>
+<!-- 音频 -->
+<view class="audio" wx:if="{{audioUrl}}">
+  <slider class="slider" bindchange="sliderChange" block-size="15" value="{{offset}}" max="{{max}}" activeColor="{{mode===2?(theme.themeColorOne?theme.themeColorOne:'#107E7D'):'#FF9D00'}}" backgroundColor="#bbb" />
+  <view class="time">
+    <text>{{current}}</text>
+    <text>{{duration}}</text>
+  </view>
+  <view class="control" wx:if="{{mode===1}}">
+    <image class="icon34" bindtap="lastPlay" src="/images/study/icon_last.png" />
+    <view class="control-btn" bindtap="playAudio" wx:if="{{!isPlay}}">
+      <image class="icon-play" src="/images/study/icon_play.png" />
+    </view>
+    <view class="control-btn" bindtap="pauseAudio" wx:if="{{isPlay}}">
+      <image class="icon-pause" src="/images/study/icon_pause.png" />
+    </view>
+    <image class="icon34" bindtap="nextPlay" src="/images/study/icon_next.png" />
+  </view>
+  <view class="control" wx:if="{{mode===2}}">
+    <image class="icon75" bindtap="lastPlay" src="{{theme.playIcon.prevPic || '/images/study/icon_last2.png'}}" />
+    <image class="icon75 main-btn" bindtap="playAudio" wx:if="{{!isPlay}}" src="{{theme.playIcon.playPic || '/images/study/icon_play2.png'}}" />
+    <image class="icon75 main-btn" bindtap="pauseAudio" wx:if="{{isPlay}}" src="{{theme.playIcon.pausePic || '/images/study/icon_pause2.png'}}" />
+    <image class="icon75" bindtap="nextPlay" src="{{theme.playIcon.nextPic || '/images/study/icon_next2.png'}}" />
+  </view>
+</view>

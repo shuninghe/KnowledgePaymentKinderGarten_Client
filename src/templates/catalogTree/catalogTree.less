@@ -1,0 +1,182 @@
+// 多层树结构-目录1 
+.catelog_tree_tpl {
+  // 系列
+  .series-item {
+    width: 701rpx;
+    background-color: #fff;
+    box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(224,224,224,0.75);
+    border-radius: 10rpx;
+    margin: 20rpx 0;
+    position: relative;
+    .icon-series {
+      position: absolute;
+      width: 109rpx;
+      height: 65rpx;
+      top: 30rpx;
+      left: -25rpx;
+    }
+    // 无权限
+    .item {
+      box-sizing: border-box;
+      width: 100%;
+      height: 125rpx;
+      padding: 0 30rpx 0 104rpx;
+      &-txt {
+        font-size: 32rpx;
+        line-height: 32rpx;
+        color: rgba(40,40,40,.8);
+        margin-right: 18rpx;
+      }
+      &-txt-num {
+        font-size: 32rpx;
+        line-height: 32rpx;
+        color: rgba(40,40,40,.5);
+      }
+      .icon-right {
+        width: 17rpx;
+        height: 29rpx;
+        margin-left: 20rpx;
+      }
+      .icon-arrow {
+        width: 23rpx;
+        height: 20rpx;
+        // margin-left: 17rpx;
+      }
+    } 
+    // 有权限
+    .item-buy {
+      padding: 0 30rpx 0 104rpx;
+      transform: translateY(-30rpx);
+      .item-txt-num {
+        color: rgba(40,40,40,.5);
+        margin-right: 20rpx;
+      }
+    }
+    .course-wrap {
+      padding-bottom: 20rpx;
+    }
+  }
+  // 课时
+  .course {
+    height: 72rpx;
+    padding: 15rpx 20rpx;
+    background: rgba(255,255,255,1);
+    &:first-child {
+      padding-top: 0;
+    }
+    .icon-add {
+      width: 20rpx;
+      height: 20rpx;
+      margin-left: 40rpx;
+      margin-right: 20rpx;
+    }
+    &-name {
+        font-size: 30rpx;
+        color: rgba(40,40,40,.8);
+        margin-right: 10rpx;
+    }
+    &-tag {
+        display: inline-block;
+        border-radius: 4rpx;
+        padding: 3rpx;
+        margin-right: 10rpx;
+        font-size: 20rpx;
+        color: #fff;
+        line-height: 21rpx;
+        background: linear-gradient(-90deg,rgba(255,157,0,1),rgba(255,190,0,1));
+        box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255,211,82,0.75);
+        &.blue {
+            background: linear-gradient(-90deg,rgba(88,161,255,1),rgba(110,220,255,1));
+            box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(106,209,255,0.75);
+            opacity: 0.9;
+        }
+    }
+    &-icon {
+      width: 44rpx;
+      height: 44rpx;
+      &:nth-child(2) {
+        margin-left: 20rpx;
+      }
+    }
+  }
+  .no-data {
+    font-size: 28rpx;
+    color: #aaa;
+  } 
+}
+
+// 两级树结构-目录2
+.catelog_tree2_tpl {
+  background-color: #fff;
+  .series-item {
+    .icon-point {
+      width: 10rpx;
+      height: 10rpx;
+      border-radius: 50%;
+      background-color: #E5E5E5;
+      margin-right: 22rpx;
+    }
+    .item-txt {
+      max-width: 588rpx;
+      font-size: 22rpx;
+      color: #282828;
+      line-height: 36rpx;
+    }
+  }
+  // 课时
+  .section-wrap {
+    border-radius: 10rpx;
+    box-shadow: 0 0 5px #fbfbfb;
+    .section {
+      width: 100%;
+      height: 180rpx;
+      border-bottom: 1rpx solid #f8f8f8;
+      &:last-child {
+        border: none;
+      }
+      &-img {
+        width: 195rpx;
+        height: 120rpx;
+        border-radius: 10rpx;
+        margin-right: 25rpx;
+      }
+      &-info {
+        width: 340rpx;
+        height: 120rpx;
+        padding-top: 8rpx;
+        overflow: hidden;
+        .name {
+          width: 100%;
+          font-size: 22rpx;
+          line-height: 30rpx;
+        }
+        .tag {
+          width: 48px;
+          height: 20px;
+          margin-right: 10rpx;
+        }
+        .tag.suo {
+          width: 15px;
+          height: 16rpx;
+        }
+        .tip {
+          font-size: 18rpx;
+          color: #7F7F7F;
+          opacity: 0.5
+        }
+        .tip.time {
+          color: #979797;
+        }
+      }
+      &-icon {
+        width: 57rpx;
+        height: 57rpx;
+      }
+    }
+  }
+  .no-data {
+    font-size: 22rpx;
+    color: #979797;
+    padding: 20rpx;
+  } 
+}

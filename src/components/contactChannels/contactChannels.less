@@ -1,0 +1,67 @@
+.contactChannels {
+  width: 690rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  margin: 30rpx auto;
+  .top-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30rpx;
+    .title {
+      display: flex;
+      align-items: center;
+      &-icon {
+        width: 34rpx;
+        height: 34rpx;
+        margin-right: 14rpx;
+      }
+      &-name {
+        font-size: 30rpx;
+        color: #3E3E3E;
+        font-weight: bold;
+        line-height: 42rpx;
+      }
+    }
+    .more {
+      font-size: 24rpx;
+      color: #4493FC;
+    }
+  }
+  .content {
+    display: flex;
+    justify-content: space-around;
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &-icon {
+        width: 64rpx;
+        height: 64rpx;
+        margin-bottom: 16rpx;
+      }
+      &-name {
+        font-size: 22rpx;
+        color: #3E3E3E;
+        line-height: 35rpx;
+      }
+    }
+  }
+}
+// 处理button按钮样式
+.btn {
+  font-size: 28rpx;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  border: none;
+  background-color: #fff;
+  &.userinfo-wrap {
+    background-color: transparent;
+  }
+  &::after {
+    border: none;
+  }
+}

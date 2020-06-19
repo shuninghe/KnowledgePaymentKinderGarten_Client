@@ -1,0 +1,88 @@
+.orderpay-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f6f6f6;
+}
+.orderpay-page .order-item {
+  margin: 20rpx 25rpx 0;
+  padding: 28rpx 24rpx 25rpx 28rpx;
+  width: 701rpx;
+  background: #fff;
+  box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(224, 224, 224, 0.75);
+  border-radius: 10rpx;
+}
+.orderpay-page .order-item .first-row-wrap {
+  display: flex;
+}
+.orderpay-page .order-item .first-row-wrap .img {
+  width: 327rpx;
+  height: 222rpx;
+  border-radius: 10rpx;
+  margin-right: 37rpx;
+}
+.orderpay-page .order-item .first-row-wrap .course-info-wrap {
+  width: 284rpx;
+}
+.orderpay-page .order-item .first-row-wrap .course-info-wrap .title {
+  margin: 20rpx 0;
+  font-size: 28rpx;
+  color: #282828;
+}
+.orderpay-page .order-item .first-row-wrap .course-info-wrap .pintuan-type {
+  width: 80rpx;
+  height: 38rpx;
+  background: #f36a54;
+  font-size: 24rpx;
+  color: #ffffff;
+  line-height: 1;
+  margin-right: 10rpx;
+}
+.orderpay-page .order-item .first-row-wrap .course-info-wrap .pintuan-num {
+  font-size: 20rpx;
+  color: #292929;
+}
+.orderpay-page .order-item .first-row-wrap .course-info-wrap .price,
+.orderpay-page .order-item .first-row-wrap .course-info-wrap .order-status {
+  color: #ff9900;
+  font-size: 30rpx;
+}
+.orderpay-page .order-item .first-row-wrap .course-info-wrap .original-price {
+  text-decoration: line-through;
+  font-size: 20rpx;
+  color: #979797;
+}
+.orderpay-page .order-item .first-row-wrap .course-info-wrap .order-status {
+  margin-top: 62rpx;
+  text-align: right;
+}
+.orderpay-page .order-item .last-row-wrap .line {
+  height: 1rpx;
+  background: #eeeeee;
+  margin-top: 19rpx;
+}
+.orderpay-page .order-item .last-row-wrap .pay-info-wrap .item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #1b1b1f;
+  margin-top: 40rpx;
+}
+.orderpay-page .order-item .last-row-wrap .pay-info-wrap .item .right {
+  color: #929294;
+}
+.orderpay-page .pay-btn {
+  position: fixed;
+  bottom: 22rpx;
+  left: 50%;
+  width: 701rpx;
+  height: 92rpx;
+  text-align: center;
+  line-height: 92rpx;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #ff9d00, #ffbe00);
+  color: #fff;
+  box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255, 211, 82, 0.75);
+  opacity: 0.9;
+  border-radius: 10rpx;
+}

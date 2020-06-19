@@ -1,0 +1,47 @@
+.cashRecord {
+  width: 100%;
+  height: 100%;
+  padding: 18rpx 0;
+}
+.cashList {
+  width: 100%;
+  padding-left: 46rpx;
+  background: #fff;
+}
+.list {
+  padding: 32rpx 0 27rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
+  display: flex;
+  justify-content: space-between;
+}
+.list .name {
+  color: #282828;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.list .name.fail {
+  color: #ffba00;
+}
+.list .time {
+  color: #969696;
+  font-size: 26rpx;
+}
+.right {
+  margin-right: 30rpx;
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+.right .time {
+  color: #7e7e7e;
+}
+.right .rightIcon {
+  width: 14rpx;
+  height: 23rpx;
+  margin-left: 24rpx;
+}
+.no-data {
+  color: #666;
+  margin-top: 300rpx;
+  text-align: center;
+}

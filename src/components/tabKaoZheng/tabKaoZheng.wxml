@@ -1,0 +1,69 @@
+<!-- 沃考证-首页 -->
+<view class="tabKaoZheng">
+  <!-- banner -->
+  <swiper class="banner" autoplay circular indicator-dots indicator-active-color="#ffffff">
+    <swiper-item wx:for="{{bannerList}}"  wx:key="index"> 
+      <image class="banner-img" src="{{item.pic}}" bindtap="toPage" data-item="{{item}}" />
+    </swiper-item>
+  </swiper>
+  <!-- 菜单导航 -->
+  <view class="title-container" wx:if="{{classifyList.length}}">
+    <scroll-view class="swiper-container" scroll-x wx:if="{{meunShowType === 1}}">
+      <view class="title-item" wx:for="{{classifyList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+        <image class="title-img" src="{{item.icon}}" />
+        <view class="txt menutxt">{{item.name}}</view>
+      </view>
+    </scroll-view>
+    <view class="menu-container" wx:if="{{meunShowType === 2}}">
+      <view class="title-item" wx:for="{{classifyList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+        <image class="title-img" src="{{item.icon}}" />
+        <view class="txt menutxt">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 最新推荐  -->
+  <view class="recommend" wx:if="{{recommended.show && recommendList.length}}">
+    <view class="flex-sta-cen">
+      <image class="recommend-img" src="../../images/tuijian.jpg"></image>
+      <swiper class="recommend-container" vertical circular autoplay>
+        <swiper-item class="item ellipsisOne" wx:for="{{recommendList}}" wx:key="index" bindtap="toContent" data-item="{{item}}">
+          {{ item.name }}
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="recommend-arrow"></view>
+  </view>
+  <!-- 认证项目 -->
+  <view class="course" wx:if="{{courseList.length}}">
+    <view class="course-name">
+      <text class="tip"></text>
+      <view class="txt ellipsisOne">{{courseCategory.name}}</view>
+    </view>
+    <view class="course-item" wx:for="{{courseList}}" wx:key="index" bindtap="toCourseDetail" data-id="{{item.id}}">
+      <image class="course-item-img" src="{{item.pic}}" />
+      <view class="course-item-name ellipsisOne">{{item.name}}</view>
+      <view class="course-item-footer">
+        <view class="footer-btn">{{item.buy_status ? '立即学习' : '查看'}}</view>
+        <view class="footer-price" wx:if="{{!item.buy_status && !isForceEnroll}}">
+          <view class="price">
+            <text class="money-icon">￥</text>{{filters.handleNumber(item.price, 1)}}
+          </view>
+          <view class="sellingprice">
+            <text class="money-icon">￥</text>{{filters.handleNumber(item.selling_price, 1)}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<wxs module="filters" >
+  module.exports = {
+    // 四舍五入保留n位小数
+    handleNumber: function (num, n) {
+      n = n ? parseInt(n) : 0;
+      num = Math.round(num * Math.pow(10, n)) / Math.pow(10, n); //四舍五入
+      num = Number(num).toFixed(n); //补足位数
+      return num;
+    }
+  }
+</wxs>

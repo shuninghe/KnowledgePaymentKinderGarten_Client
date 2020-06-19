@@ -1,0 +1,33 @@
+<!-- 学习-知识图谱目标页 -->
+<view class="graphTarget" bindtouchstart="touchStart" bindtouchend="touchEnd">
+  <view class="circle1"></view>
+  <view class="circle2"></view>
+  <view class="circle3"></view>
+  <swiper class="swiper">
+    <swiper-item wx:for="{{target}}" wx:key="index" style="overflow-y:scroll;">
+      <view class="content-wrap">
+        <view class="target">目标{{numWord[index]}}</view>
+        <view class="title">{{item.title}}：</view>
+        <text class="content" decode="{{true}}">{{item.content}}</text>
+        <view class="title advise-title">教育建议：</view>
+        <text class="content" decode="{{true}}">{{item.advise}}</text>
+        <!-- <view class="btn" bindtap="toCourseVideo">进入学习</view> -->
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="mask" wx:if="{{showTip}}" bindtap="closeTip">
+  <image class="icon-tip" src="/images/study/icon_tip.png" />
+</view>
+
+<!-- 购买绑定手机号弹窗 -->
+<custom-popup mode="4" wx:if="{{showPhonePopup}}" 
+  bindgetWxPhone="getWxPhone" 
+  bindtoBindPhone="toBindPhone" 
+  bindhandleCancel="closePhonePopup">
+</custom-popup>
+<!-- 未购买提示弹窗 -->
+<custom-popup mode="1" price="{{price}}" wx:if="{{showBuyPopup}}" 
+  bindhandleConfirm="confirmBuy" 
+  bindhandleCancel="cancelBuy">
+</custom-popup>  

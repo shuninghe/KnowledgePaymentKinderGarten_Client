@@ -1,0 +1,30 @@
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<view class="switchRole">
+  <!-- 切换身份（老师、家长）	 -->
+  <view class="top flex-bet-cen">
+    <view class="flex-sta-cen">
+      <text>当前身份：</text>
+      <picker bindchange="bindPickerChange" value="{{pickerIndex}}" range="{{roles}}" range-key="name">
+        <view class="role-type flex-sta-cen">
+          <text>我是{{filters.findArrObjHas(role, roles, 'id')['name']}}</text>
+          <image class="icon26" src="/images/ClassModule/c_down_26.png"></image>
+        </view>
+      </picker>
+    </view>
+    <view class="flex-sta-cen" bindtap="switchShowEdit">
+      <image class="icon26" src="/images/ClassModule/c_edit_26.png"></image>
+      <text>编辑</text>
+    </view>
+  </view>
+  <view class="item flex-bet-cen" wx:for="{{list}}" wx:key="index" bindtap="changeCurRole" data-cid="{{item.class_id}}" data-uid="{{item.class_user_id || item.baby_id}}">
+    <view class="flex-sta-cen">
+      <image class="icon40" src="/images/ClassModule/c_teacher_40.png"></image>
+      <text class="name {{item.class_id ? (item.class_user_id===curUserId?'c107E7D':'') : (item.baby_id===curUserId?'c107E7D':'')}}">{{item.name}}（{{role===1?'老师':item.relation}}）</text>
+    </view>
+    <view class="c107E7D" wx:if="{{showEdit}}" catchtap="toEditRoleInfo" data-item="{{item}}">修改</view>
+    <view class="{{item.class_id ? (item.class_user_id===curUserId?'c107E7D':'') : (item.baby_id===curUserId?'c107E7D':'')}}" wx:elif="{{item.class_id}}">{{item.class_name}}</view>
+    <view class="{{item.class_id ? (item.class_user_id===curUserId?'c107E7D':'') : (item.baby_id===curUserId?'c107E7D':'')}}" wx:else>暂无班级</view>
+  </view>
+  <view class="btn flex-cen-cen" wx:if="{{role===1}}" catchtap="toAddRole">新建班级</view>
+  <view class="btn flex-cen-cen" wx:if="{{role===2}}" catchtap="toAddRole">添加宝宝</view>
+</view>

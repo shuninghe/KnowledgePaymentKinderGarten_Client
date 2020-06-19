@@ -1,0 +1,8 @@
+
+{
+  "navigationBarTitleText": "课程详情",
+  "usingComponents": {
+    "custom-popup": "../../components/customPopup/customPopup",
+    "count-down":"../../components/countDown/countDown"
+  }
+}

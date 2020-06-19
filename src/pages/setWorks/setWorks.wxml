@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="pic-container">
+    <view class="txt-top" >
+      活动作品:
+    </view>
+    <!-- 包含所有图片 -->
+    <view class="image_content">
+      <block wx:for="{{totalArr}}" wx:key="index">
+        <view class="image-box">
+          <image src="{{item.pic}}" class="mui-image" data-index="{{index}}" bindtap="getIndex">
+            <!-- 删除符号 -->
+            <view class="cancel-photo" bindtap="cancelPhoto" data-index="{{index}}" ></view>
+          </image>  
+          <input type="text" value="{{item.name}}" bindinput="inputValue" data-index="{{index}}" class="input-txt" placeholder="点击设置名称" placeholder-style="color:rgba(255,157,0,1)"/>
+        </view>
+      </block>
+      <!-- 灰色的点击添加 -->
+      <text class="photoContainer" bindtap="uploadMyPhoto" wx:if="{{flag}}"></text> 
+    </view>
+    <view class="txt-bottom">
+      温馨提示：图片最优比例为16:9，最多可上传12张。
+    </view>
+  </view>
+  <view class="btn-bottom" bindtap="handleSubmit">
+    提交
+  </view>
+</view>

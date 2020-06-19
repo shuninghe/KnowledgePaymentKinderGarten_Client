@@ -1,0 +1,24 @@
+<view class="layout" wx:if="{{isShowPage}}">
+  <image src="https://woxue-dev.oss-cn-beijing.aliyuncs.com/1587193626937.5596bg_top.png" class="bg-top"/>
+  <image src="https://woxue-dev.oss-cn-beijing.aliyuncs.com/1587193630034.3208bg_bottom.png" class="bg-bottom"/>
+  <view class="container" >
+    <view class="opus_top"></view>
+    <view class="opus_mid">
+      <block wx:for="{{activityInfo}}" wx:key="index">
+        <view class="activity-box"> 
+        <image src="{{item.pic}}" class="activity" mode="widthFix"/>
+        <view class="txt ellipsisOne">
+          {{item.name}}
+        </view>
+      </view>
+      </block>
+    </view>
+    <view class="opus_bottom"></view>
+  </view>
+</view>
+<view class="nodata" wx:else>
+  <image src="../../images/nodata.png" class="no-pic"/>
+  <view class="no-right">
+    暂无数据
+  </view>
+</view>

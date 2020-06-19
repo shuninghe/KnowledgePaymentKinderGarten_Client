@@ -1,0 +1,136 @@
+<!--pages/friendHelp/friendHelp.wxml-->
+<view class="friendHelp" wx:if="{{countDownSecond}}">
+  <image class="helpImg" src="/images/friendHelp/bg2.jpeg" wx:if="{{helpInfo.status === 1}}"></image>
+  <image class="helpImg" src="/images/friendHelp/bg.jpeg" wx:else></image>
+  <!-- 正在助力的课程信息 -->
+  <view class="nowCourse">
+    <image class="course-pic" src="{{helpInfo.course_pic}}"></image>
+    <view class="course-info">
+      <view class="info-name">{{helpInfo.course_name}}</view>
+      <view class="info-head">
+        <view class="total to1" wx:if="{{helpInfo.avatars.length === 1}}">
+          <image src="{{helpInfo.avatars[0] === '未填写' || !helpInfo.avatars[0] ? '/images/friendHelp/head.jpeg' : helpInfo.avatars[0]}}" class="alone frist"></image>
+        </view>
+        <view class="total to2" wx:if="{{helpInfo.avatars.length === 2}}">
+          <image src="{{helpInfo.avatars[0] === '未填写' || !helpInfo.avatars[0] ? '/images/friendHelp/head.jpeg' : helpInfo.avatars[0] }}" class="alone frist"></image>
+          <image src="{{helpInfo.avatars[1] === '未填写' || !helpInfo.avatars[1] ? '/images/friendHelp/head.jpeg' : helpInfo.avatars[1] }}" class="alone second"></image>
+        </view>
+        <view class="total to3" wx:if="{{helpInfo.avatars.length >= 3}}">
+          <image src="{{helpInfo.avatars[0] === '未填写' || !helpInfo.avatars[0] ? '/images/friendHelp/head.jpeg' : helpInfo.avatars[0] }}" class="alone frist"></image>
+          <image src="{{helpInfo.avatars[1] === '未填写' || !helpInfo.avatars[1] ? '/images/friendHelp/head.jpeg' : helpInfo.avatars[1] }}" class="alone second"></image>
+          <image src="{{helpInfo.avatars[2] === '未填写' || !helpInfo.avatars[2] ? '/images/friendHelp/head.jpeg' : helpInfo.avatars[2]}}" class="alone thirsty"></image>
+        </view>
+        <view class="totalNum">{{helpInfo.study_num}}人学习</view>
+      </view>
+      <view class="info-price">
+        <image class="price-icon" src="/images/friendHelp/video_icon_price_red.jpeg"></image>
+        <view class="price">{{helpInfo.selling_price}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 倒计时 -->
+  <view class="countDown">
+    <text class="num">{{countDownHour}}</text><text class="dot">:</text><text class="num">{{countDownMinute}}</text><text class="dot">:</text><text class="num">{{countDownSecond}}</text> 
+  </view>
+  <!-- 助力信息 -->
+  <view class="helpInfo">
+    <!-- 好友助力 -->
+    <view class="friends">
+      <view class="member">
+        <image class="member-icon" src="{{helpInfo.pals[0] === '未填写' || !helpInfo.pals[0] ? '/images/friendHelp/head.jpeg' : helpInfo.pals[0]}}"></image>
+        <view class="member-info">
+          <view class="info-name">发起人：</view>
+          <view class="info-text">
+            <text class="span"></text>
+            <view class="letter">快来帮我助力领取课程了~</view>
+          </view>
+        </view>
+      </view>
+      <view class="line"></view>
+      <!-- 助力头像 -->
+      <scroll-view class="icon-box-scroll" scroll-x style="width: 100%">
+        <block wx:for="{{helpInfo.pals}}" wx:key="index">
+          <image wx:if="{{item && item !== '未填写'}}" src="{{item}}" class="avatar"></image>
+          <image wx:if="{{!item || item === '未填写'}}" src="/images/friendHelp/head.jpeg" class="avatar"></image>
+        </block>
+      </scroll-view>
+      <!-- 本人 -->
+      <block wx:if="{{helpInfo.is_self}}">
+        <view class="member-text" wx:if="{{helpInfo.status === 0}}">还差{{helpInfo.rest}}人</view>
+        <view class="member-text1" wx:if="{{helpInfo.status === -1}}">很遗憾，不过你可以再次发起助力</view>
+        <view class="member-text1" wx:if="{{helpInfo.status === 1}}" >恭喜你免费获得该课程</view>
+        <view class="btn">
+          <button class="share" open-type="share" wx:if="{{helpInfo.status === 0}}">邀请好友助力</button>
+          <button class="share" bindtap="openHelp" wx:if="{{helpInfo.status === -1}}">再次发起助力</button>
+          <button class="share" open-type="share" wx:if="{{helpInfo.status === 1}}">分享给好友</button>
+        </view>
+      </block>
+      <!-- 非本人 -->
+      <block wx:if="{{!helpInfo.is_self}}">
+        <view class="member-text" wx:if="{{helpInfo.status === 0}}">还差{{helpInfo.rest}}人</view>
+        <view class="member-text1" wx:if="{{helpInfo.status === -1}}">你来晚了，你的好友未能获得该免费课程</view>
+        <view class="member-text1" wx:if="{{helpInfo.status === 1}}">你的好友已经免费获得该课程</view>
+        <view class="btn">
+          <button class="share" bindgetuserinfo="onGotUserInfo" open-type="getUserInfo" wx:if="{{helpInfo.status === 0 && helpInfo.had_assistant === 0}}">点击助力</button>
+          <button class="share" bindtap="openHelp" wx:if="{{helpInfo.status === 0 && helpInfo.had_assistant == 1}}">我也要免费课程</button>
+          <button class="share" bindtap="openHelp" wx:if="{{helpInfo.status === -1}}">我也要免费课程</button>
+          <button class="share" bindtap="openHelp" wx:if="{{helpInfo.status === 1}}">我也要免费课程</button>
+        </view>
+      </block>
+    </view>
+    <!-- 推荐课程 -->
+    <view class="recommend">
+      <!-- title -->
+      <view class="title">
+        <image class="title-icon" src="/images/friendHelp/leftleaf.jpeg"></image>
+        <view class="title-text">推荐课程</view>
+        <image class="title-icon" src="/images/friendHelp/rightleaf.jpeg"></image>
+      </view>
+      <!-- 课程 -->
+      <view class="course" bindtap="goDetail" data-courseId="{{item.course_id}}" wx:for="{{helpInfo.courses_recommended}}" wx:key="index">
+        <image class="course-pic" src="{{item.course_pic}}"></image>
+        <view class="course-info">
+          <view class="info-name">{{item.course_name}}</view>
+          <view class="info-head">
+            <view class="total to1" wx:if="{{item.avatars.length === 1}}">
+              <image src="{{item.avatars[0] === '未填写' || !item.avatars[0] ? '/images/friendHelp/head.jpeg' : item.avatars[0]}}" class="alone frist"></image>
+            </view>
+            <view class="total to2" wx:if="{{item.avatars.length === 2}}">
+              <image src="{{item.avatars[0] === '未填写' || !item.avatars[0] ? '/images/friendHelp/head.jpeg' : item.avatars[0]}}" class="alone frist"></image>
+              <image src="{{item.avatars[1] === '未填写' || !item.avatars[1] ? '/images/friendHelp/head.jpeg' : item.avatars[1]}}" class="alone second"></image>
+            </view>
+            <view class="total to3" wx:if="{{item.avatars.length >= 3}}">
+              <image src="{{item.avatars[0] === '未填写' || !item.avatars[0] ? '/images/friendHelp/head.jpeg' : item.avatars[0]}}" class="alone frist"></image>
+              <image src="{{item.avatars[1] === '未填写' || !item.avatars[1] ? '/images/friendHelp/head.jpeg' : item.avatars[1]}}" class="alone second"></image>
+              <image src="{{item.avatars[2] === '未填写' || !item.avatars[2] ? '/images/friendHelp/head.jpeg' : item.avatars[2]}}" class="alone thirsty"></image>
+            </view>
+            <view class="totalNum">{{item.study_num}}人学习</view>
+          </view>
+          <view class="info-price">
+            <image class="price-icon" src="/images/friendHelp/video_icon_price_red.jpeg"></image>
+            <view class="price">{{item.selling_price}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 助力成功弹框 -->
+<view wx:if="{{mask}}" class="mask">
+  <view class="mask-box" catchtap="stopClick">
+    <view class="box">
+      <view class="mask-top">助力成功</view>
+      <view class="img">
+        <image class="img-icon" src="/images/friendHelp/image.jpeg"></image>
+      </view>
+      <view class="btn1">
+        <view class="click" bindtap="closeMask">确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 回到首页 -->
+<view class="goHome" bindtap="goHome">
+  <image class="icon" src="/images/friendHelp/home.jpeg"></image>
+</view>

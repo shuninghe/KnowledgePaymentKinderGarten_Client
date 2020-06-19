@@ -1,0 +1,24 @@
+.cardactivate-page {
+  width: 706rpx;
+  background: #f6f6f6;
+  margin: 22rpx 20rpx 0;
+}
+.cardactivate-page .card-num {
+  margin-bottom: 20rpx;
+  height: 106rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+  padding-left: 20rpx;
+}
+.cardactivate-page .confirm {
+  width: 701rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  margin-top: 20rpx;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(90deg, #ff9d00, #ffbe00);
+  box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255, 211, 82, 0.75);
+  opacity: 0.9;
+  border-radius: 10rpx;
+}

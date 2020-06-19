@@ -1,0 +1,33 @@
+<view class="posterList">
+  <view class="noData" wx:if="{{!posterCategoryList.length}}">暂无海报</view>
+  <!-- 分类列表 -->
+  <scroll-view scroll-y class="left" style='height:{{conHeight}}rpx;' bindscrolltolower="categoryPullUpLoading">
+    <view class="left-list {{active === index? 'active_bg':''}}" wx:for="{{posterCategoryList}}" wx:key="index" 
+    bindtap="getPosterList"  data-id="{{item.id}}" data-index="{{index}}">
+    <view class="bgline {{active === index? 'left-line':''}}"></view>
+      <view class="list-name">
+        <text class="ellipsisThree">{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 海报列表 -->
+  <scroll-view scroll-y style='height:{{conHeight}}rpx;' bindscrolltolower="posterPullUpLoading">
+    <view class='noData' wx:if="{{!posterTotal_num}}">暂无海报</view>
+    <view class="right" wx:else>
+      <view class="posterLeft" style="width:272rpx;">
+        <image class="poster-img left-img" wx:for="{{leftList}}" wx:key="index" src="{{item.pic}}"
+        bindtap="getPosterDetail" data-pic="{{item.pic}}" />
+      </view>
+      <view class="posterRight">
+        <image class="poster-img right-img {{index === 0? 'right-pad':''}}" wx:for="{{rightList}}"
+        wx:key="index" src="{{item.pic}}" bindtap="getPosterDetail" data-pic="{{item.pic}}" />
+      </view>
+    </view>
+    <view class='noMore' wx:if="{{posterIsShowNoMore}}">没有更多了</view>
+  </scroll-view>
+  <!-- 查看海报 -->
+  <view class="posterDel" wx:if="{{posterPic}}" bindtap="closePoster" catchtouchmove="true">
+    <image class="delimg" src="{{posterPic}}" />
+    <view class="usePoster" data-pic="{{posterPic}}" catchtap="saveAlbm">保存到相册</view>
+  </view>
+</view>

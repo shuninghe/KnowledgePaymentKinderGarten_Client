@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "收益统计",
+  "navigationBarBackgroundColor": "#57c36d",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
+}

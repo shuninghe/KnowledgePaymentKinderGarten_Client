@@ -1,0 +1,24 @@
+<view class="allCourse" style="padding-bottom:{{bottom}}">
+  <view class="resourceBase" wx:if="{{classifyData.length}}">
+    <scroll-view scroll-y class="left-wrap" style="height:{{conHeight}}rpx;">
+      <view class="nav-item {{classifyActive===index?'active':''}}" wx:for="{{classifyData}}" wx:key="index"
+        catchtap='chooseType' data-id="{{item._id}}" data-index="{{index}}">
+        <text class="ellipsisThree">{{item.name}}</text>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y class="right-wrap" style='height:{{conHeight}}rpx;' 
+      scroll-into-view="{{contentActive}}" scroll-with-animation 
+      bindscroll="onScroll">
+      <view class="right-content">
+        <view class="tab-content">
+          <view class='course' wx:for="{{courseData}}" wx:key="index" bindtap="toCourseDetail" data-id="{{item.course_id}}">
+            <image class="course-img" src="{{item.square_course_pic||item.course_pic}}" mode="aspectFill"></image>
+            <text class="course-name ellipsisTwo">{{item.course_name}}</text>
+          </view>
+        </view> 
+      </view>
+    </scroll-view>
+  </view>
+  <view class="no-data" wx:else>暂无分类数据</view>
+</view>
+  

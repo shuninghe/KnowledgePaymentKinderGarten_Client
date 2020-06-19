@@ -1,0 +1,15 @@
+<view class="i-progress i-progress-{{ mode }}">
+	<view class="i-progress-inner inner-{{ mode }}" style="background-color: {{ bgcolor }};width:{{width}}rpx">
+		<view class="i-progress-bar" style="width: {{percent}}%;height: {{height}}rpx; background: {{color}};" />
+	</view>
+	<view class="i-progress-text" style="color:#FFA000;padding-left:{{padLeft}}rpx;font-size:{{textSize}}rpx">
+		{{ filters.handleProgress(percent) }}%
+	</view>
+</view>
+<wxs module="filters">
+module.exports = {
+	handleProgress: function (value) {
+    return Math.floor(value);
+  }
+}
+</wxs>

@@ -1,0 +1,5 @@
+<view class="adsPost">
+  <image class="img" wx:for="{{imgs}}" wx:key="index" src="{{item}}" 
+    mode="widthFix" lazy-load="{{true}}" bindload="showPicture" bindtap="openPhoto" data-url="{{item}}" />
+</view>
+  

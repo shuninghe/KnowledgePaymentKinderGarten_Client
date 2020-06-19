@@ -1,0 +1,230 @@
+
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+
+<template name="catelog_tree_tpl">
+  <!-- 多层树结构-目录1 -->
+	<view class="catelog_tree_tpl">
+    <block wx:for="{{trees}}" wx:key="index">
+      <!-- 系列 -->
+      <block wx:if="{{item.is_series}}">
+        <!-- 子系列-已买 -->
+        <view class="series-item" wx:if="{{!item.hasCourse && isbuy}}">
+          <image class="icon-series" src="../../images/study/detail_series.png"></image>
+          <view class="item flex-bet-cen" bindtap="toTreeList" data-tree="{{item}}">
+            <view class="item-txt ellipsisOne" style="max-width:520rpx;">{{item.section_name}}</view>
+            <image class="icon-right" src="/images/study/icon_right.png" />            
+          </view>
+          <view class="item-buy flex-sta-cen">
+            <text class="item-txt-num">{{item.study_schedule.section_duration}}课时</text>
+            <progress percent="{{filters.numberToFix(item.study_schedule.study_duration / (item.study_schedule.section_duration || 1) * 100)}}" width="120" height="15" padLeft="10"></progress>            
+          </view>
+        </view>
+        <!-- 子课时-已买 -->
+        <view class="series-item" wx:if="{{item.hasCourse && isbuy}}">
+          <image class="icon-series" src="../../images/study/detail_series.png"></image>
+          <view class="item flex-bet-cen" bindtap="changeStatus" data-index="{{index}}">
+            <view class="item-txt ellipsisOne" style="max-width:520rpx;">{{item.section_name}}</view>
+            <image class="icon-arrow" wx:if="{{showList[index]}}" src="/images/study/detail_up.png" />
+            <image class="icon-arrow" wx:else src="/images/study/detail_down.png" />
+          </view>
+          <view class="item-buy flex-sta-cen">
+            <text class="item-txt-num">{{item.child_trees.length}}课时</text>
+            <progress percent="{{filters.numberToFix(item.study_schedule.study_duration / (item.study_schedule.section_duration || 1) * 100)}}" width="120" height="15" padLeft="10"></progress>            
+          </view>
+          <view class="course-wrap" wx:if="{{showList[index]}}">
+            <block wx:if="{{item.child_trees.length}}">
+              <view class="course flex-bet-cen" wx:for="{{item.child_trees}}" wx:for-item="course" wx:key="index"
+                bindtap="toCourseVideo" data-sectionid="{{item.section_id}}" data-course="{{course}}">
+                <view class="flex-sta-cen">
+                  <image class="icon-add" src="../../images/study/detail_section.png"></image>
+                  <view class="course-name ellipsisOne" style="max-width:{{course.foruse?'330':'264'}}rpx;{{course.status===0?'color:rgba(40,40,40,.5);':''}}">{{course.section_name}}</view>
+                  <view class="course-tag" wx:if="{{course.foruse}}">试听</view>
+                  <view class="course-tag blue" wx:if="{{filters.judgeObj(course.teacher_evaluation)}}">含点评</view>
+                  <!-- 学习状态 -->
+                  <block wx:if="{{!course.foruse}}">
+                    <view class="course-tag" wx:if="{{course.study_status === 0}}">未学习</view>
+                    <view class="course-tag" wx:elif="{{course.study_status === 2}}">已学完</view>
+                    <view class="course-tag" wx:elif="{{course.study_schedule.study_duration}}">
+                      剩余{{filters.formatDuration(course.study_schedule.section_duration - course.study_schedule.study_duration)}}
+                    </view>
+                  </block>
+                </view>
+                <view class="flex-sta-cen">
+                  <image class="course-icon" wx:if="{{course.video_url}}" src="../../images/study/detail_tip_video.png" />
+                  <image class="course-icon" wx:if="{{course.audio_url}}" src="../../images/study/detail_tip_audio.png" 
+                    catchtap="toCourseVideo" data-sectionid="{{item.section_id}}" data-course="{{course}}" data-type="2" />
+                </view>
+              </view>
+            </block>
+            <view wx:else class="course flex-sta-center no-data">当前系列下暂无课时</view>
+          </view>
+        </view>
+        <!-- 子系列-无权限 -->
+        <view class="series-item" wx:if="{{!item.hasCourse && !isbuy}}">
+          <image class="icon-series" src="../../images/study/detail_series.png"></image>
+          <view class="item flex-bet-cen" bindtap="toTreeList" data-tree="{{item}}">
+            <view class="flex-sta-cen">
+              <view class="item-txt ellipsisOne" style="max-width:386rpx;">{{item.section_name}}</view>
+              <text class="item-txt-num">{{item.study_schedule.section_duration}}课时</text>
+            </view>
+            <image class="icon-right" src="/images/study/icon_right.png" />
+          </view>
+        </view>
+        <!-- 子课时-无权限 -->
+        <view class="series-item" wx:if="{{item.hasCourse && !isbuy}}">
+          <image class="icon-series" src="../../images/study/detail_series.png"></image>
+          <view class="item flex-bet-cen" bindtap="changeStatus" data-index="{{index}}">
+            <view class="flex-sta-cen">
+              <view class="item-txt ellipsisOne" style="max-width:386rpx;">{{item.section_name}}</view>
+              <text class="item-txt-num">{{item.child_trees.length}}课时</text>
+            </view>
+            <image class="icon-arrow" wx:if="{{showList[index]}}" src="/images/study/detail_up.png" />
+            <image class="icon-arrow" wx:else src="/images/study/detail_down.png" />
+          </view>
+          <view class="course-wrap" wx:if="{{showList[index]}}">
+            <block wx:if="{{item.child_trees.length}}">
+              <view class="course flex-bet-cen" wx:for="{{item.child_trees}}" wx:for-item="course" wx:key="index"
+                bindtap="toCourseVideo" data-sectionid="{{item.section_id}}" data-course="{{course}}">
+                <view class="flex-sta-cen">
+                  <image class="icon-add" src="../../images/study/detail_section.png"></image>
+                  <view class="course-name ellipsisOne" style="max-width:{{course.foruse?'330':'380'}}rpx;{{course.status===0?'color:rgba(40,40,40,.5);':''}}">{{course.section_name}}</view>
+                  <view class="course-tag" wx:if="{{course.foruse}}">试听</view>
+                  <view class="course-tag blue" wx:if="{{filters.judgeObj(course.teacher_evaluation)}}">含点评</view>
+                </view>
+                <view class="flex-sta-cen">
+                  <image class="course-icon" wx:if="{{course.video_url}}" src="../../images/study/detail_tip_video.png" />
+                  <image class="course-icon" wx:if="{{course.audio_url}}" src="../../images/study/detail_tip_audio.png" 
+                    catchtap="toCourseVideo" data-sectionid="{{item.section_id}}" data-course="{{course}}" data-type="2" />
+                </view>
+              </view>
+            </block>
+            <view wx:else class="course flex-sta-center no-data">当前系列下暂无课时</view>
+          </view>
+        </view>
+        
+      </block>
+      <!-- 课时 -->
+      <view wx:else>
+        <!-- 已买 -->
+        <block wx:if="{{isbuy}}">
+          <view class="course flex-bet-cen" bindtap="toCourseVideo" data-course="{{item}}">
+            <view class="flex-sta-cen">
+              <image class="icon-add" src="../../images/study/detail_section.png"></image>
+              <view class="course-name ellipsisOne" style="max-width:{{item.foruse?'330':'264'}}rpx;{{item.status===0?'color:rgba(40,40,40,.5);':''}}">{{item.section_name}}</view>
+              <view class="course-tag" wx:if="{{item.foruse}}">试听</view>
+              <view class="course-tag blue" wx:if="{{filters.judgeObj(item.teacher_evaluation)}}">含点评</view>
+              <!-- 学习状态 -->
+              <block wx:if="{{!item.foruse}}">
+                <view class="course-tag" wx:if="{{item.study_status === 0}}">未学习</view>
+                <view class="course-tag" wx:elif="{{item.study_status === 2}}">已学完</view>
+                <view class="course-tag" wx:elif="{{item.study_schedule.study_duration}}">
+                  剩余{{filters.formatDuration(item.study_schedule.section_duration - item.study_schedule.study_duration)}}
+                </view>
+              </block>
+            </view>
+            <view class="flex-sta-cen">
+              <image class="course-icon" wx:if="{{item.video_url}}" src="../../images/study/detail_tip_video.png" />
+              <image class="course-icon" wx:if="{{item.audio_url}}" src="../../images/study/detail_tip_audio.png" 
+                catchtap="toCourseVideo" data-course="{{item}}" data-type="2" />
+            </view>
+          </view>
+        </block>
+        <!-- 无权限 -->
+        <block wx:if="{{!isbuy}}">
+          <view class="course flex-bet-cen" bindtap="toCourseVideo" data-course="{{item}}">
+            <view class="flex-sta-cen">
+              <image class="icon-add" src="../../images/study/detail_section.png"></image>
+              <view class="course-name ellipsisOne" style="max-width:{{item.foruse?'330':'380'}}rpx;{{item.status===0?'color:rgba(40,40,40,.5);':''}}">{{item.section_name}}</view>
+              <view class="course-tag" wx:if="{{item.foruse}}">试听</view>
+              <view class="course-tag blue" wx:if="{{filters.judgeObj(item.teacher_evaluation)}}">含点评</view>
+            </view>
+            <view class="flex-sta-cen">
+              <image class="course-icon" wx:if="{{item.video_url}}" src="../../images/study/detail_tip_video.png" />
+              <image class="course-icon" wx:if="{{item.audio_url}}" src="../../images/study/detail_tip_audio.png" 
+                catchtap="toCourseVideo" data-course="{{item}}" data-type="2" />
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+	</view>
+</template>
+
+<template name="catelog_tree2_tpl">
+  <!-- 两级树结构-目录2 -->
+	<view class="catelog_tree2_tpl">
+    <!-- 系列 -->
+    <block wx:if="{{is_series}}">
+      <block wx:for="{{trees}}" wx:key="index">
+        <view class="series-item" wx:if="{{item.hasCourse}}">
+          <view class="flex-sta-cen">
+            <view class="icon-point"></view>
+            <view class="item-txt ellipsisOne">{{item.section_name}}</view>
+          </view>
+          <view class="section-wrap" wx:if="{{item.child_trees.length}}">
+            <view class="section flex-bet-cen" wx:for="{{item.child_trees}}" wx:for-item="course" wx:key="index"
+              bindtap="toCourseVideo" data-sectionid="{{item.section_id}}" data-course="{{course}}">
+              <view class="flex-sta-cen">
+              <image class="section-img" src="{{course.pic || '/images/study/course-pic.png'}}"></image>
+              <view class="section-info flex-col-bew-sta">
+                <view class="name ellipsisTwo" style="{{course.status===0?'color:rgba(40,40,40,.5);':''}}">{{course.section_name}}</view>
+                <view class="flex-sta-cen">
+                  <view class="tag" wx:if="{{course.foruse}}" style="background-image: url({{backPic}});width: 48px;height: 20px;background-repeat: no-repeat;background-position: -5px -5px;"></view>
+                  <view class="tag" wx:if="{{course.pdf_url}}" style="background-image: url({{backPic}});width: 48px;height: 20px;background-repeat: no-repeat;background-position: -58px -5px;"></view>
+                  <view class="tag suo" wx:if="{{!isbuy && !course.foruse}}" style="background-image: url({{backPic}});width: 15px;height: 16px;background-repeat: no-repeat;background-position: -111px -5px;"></view>
+                  <!-- <image class="tag" wx:if="{{course.foruse}}" src="/images/study/tag_shiting.png"></image>
+                  <image class="tag" wx:if="{{course.pdf_url}}" src="/images/study/tag_wengao.png"></image>
+                  <image class="tag suo" wx:if="{{!isbuy && !course.foruse}}" src="/images/study/tag_suo.png"></image> -->
+                  <!-- 学习状态 -->
+                  <block>
+                    <view class="tip" wx:if="{{course.study_status === 0}}">未学习</view>
+                    <view class="tip" wx:elif="{{course.study_status === 2}}">已学完</view>
+                    <view class="tip time" wx:elif="{{course.study_schedule.study_duration}}">
+                      剩余{{filters.formatDuration(course.study_schedule.section_duration - course.study_schedule.study_duration)}}
+                    </view>
+                  </block>
+                </view>
+              </view>
+              </view>
+              <view class="section-icon" style="background-image: url({{backPic}});width: 29px;height: 29px;background-repeat: no-repeat;background-position: -131px -5px;"></view>
+              <!-- <image class="section-icon" src="/images/study/tree_play.png"></image> -->
+            </view>
+          </view>
+          <view wx:else class="flex-sta-center no-data">当前系列下暂无课时</view>
+        </view>
+      </block>
+    </block>
+    <!-- 课时 -->
+    <block wx:else>
+      <view class="section-wrap" wx:if="{{trees.length}}">
+        <view class="section flex-bet-cen" wx:for="{{trees}}" wx:key="index" bindtap="toCourseVideo" data-course="{{item}}">
+          <view class="flex-sta-cen">
+            <image class="section-img" src="{{item.pic || '/images/study/course-pic.png'}}"></image>
+            <view class="section-info flex-col-bew-sta">
+              <view class="name ellipsisTwo" style="{{course.status===0?'color:rgba(40,40,40,.5);':''}}">{{item.section_name}}</view>
+              <view class="flex-sta-cen">
+                  <view class="tag" wx:if="{{course.foruse}}" style="background-image: url({{backPic}});width: 48px;height: 20px;background-repeat: no-repeat;background-position: -5px -5px;"></view>
+                  <view class="tag" wx:if="{{course.pdf_url}}" style="background-image: url({{backPic}});width: 48px;height: 20px;background-repeat: no-repeat;background-position: -58px -5px;"></view>
+                  <view class="tag suo" wx:if="{{!isbuy && !course.foruse}}" style="background-image: url({{backPic}});width: 15px;height: 16px;background-repeat: no-repeat;background-position: -111px -5px;"></view>
+                  <!-- <image class="tag" wx:if="{{item.foruse}}" src="/images/study/tag_shiting.png"></image>
+                  <image class="tag" wx:if="{{item.pdf_url}}" src="/images/study/tag_wengao.png"></image>
+                  <image class="tag suo" wx:if="{{!isbuy && !item.foruse}}" src="/images/study/tag_suo.png"></image> -->
+                  <!-- 学习状态 -->
+                  <block>
+                    <view class="tip" wx:if="{{item.study_status === 0}}">未学习</view>
+                    <view class="tip" wx:elif="{{item.study_status === 2}}">已学完</view>
+                    <view class="tip time" wx:elif="{{item.study_schedule.study_duration}}">
+                      剩余{{filters.formatDuration(item.study_schedule.section_duration - item.study_schedule.study_duration)}}
+                    </view>
+                  </block>
+                </view>
+            </view>
+          </view>
+
+            <view class="section-icon" style="background-image: url({{backPic}});width: 29px;height: 29px;background-repeat: no-repeat;background-position: -131px -5px;"></view>
+          <!-- <image class="section-icon" src="/images/study/tree_play.png"></image> -->
+        </view>
+      </view>
+    </block>
+  </view>
+</template>

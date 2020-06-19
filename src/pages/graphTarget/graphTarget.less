@@ -1,0 +1,109 @@
+page {
+    background-color: #fff;
+    height: 100%;
+}
+.graphTarget {
+    height: 100%;
+    .circle1 {
+        position: fixed;
+        width: 276rpx;
+        height: 276rpx;
+        left: 563rpx;
+        top: 0;
+        border: 80rpx solid rgba(255,239,220,1);
+        border-radius: 50%;
+        z-index: -1;
+    }
+    .circle2 {
+        position: fixed;
+        width: 276rpx;
+        height: 276rpx;
+        left: 21rpx;
+        top: 619rpx;
+        border: 80rpx solid rgba(255,162,0,1);
+        opacity: 0.1;
+        border-radius: 50%;
+        z-index: -1;
+    }
+    .circle3 {
+        position: fixed;
+        width: 118rpx;
+        height: 118rpx;
+        left: 631rpx;
+        top: 1030rpx;
+        background-color: #ffefdc;
+        border-radius: 50%;
+        z-index: -1;
+    }
+    .swiper {
+        min-height: 100%;
+    }
+    .content-wrap {
+        width: auto;
+        background-color: #fff;
+        border: 3rpx solid rgba(255,162,0,1);
+        box-shadow: 1rpx 1rpx 38rpx 0rpx rgba(255,180,107,0.75);
+        border-radius: 10rpx;
+        box-sizing: border-box;
+        padding: 0 43rpx;
+        margin: 73rpx 75rpx 97rpx;
+        position: relative;
+        .target {
+            position: absolute;
+            width: 387rpx;
+            height: 59rpx;
+            left: -26rpx;
+            top: 46rpx;
+            background: linear-gradient(90deg,rgba(91,167,255,1),rgba(255,255,255,1));
+            opacity: 0.9;
+            font-size: 30rpx;
+            color: rgba(255,255,255,1);
+            line-height: 59rpx;
+            padding-left: 72rpx;
+        }
+        .title {
+            margin: 149rpx 0 19rpx;
+            font-size: 35rpx;
+            color: rgba(0,0,0,1);
+            opacity: 0.9;
+        }
+        .content {
+            font-size: 22rpx;
+            color: rgba(76,76,76,1);
+            line-height: 38rpx;
+        }
+        .advise-title {
+            margin: 48rpx 0 25rpx;
+            color: rgba(255,108,0,1);
+        }
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 275rpx;
+            height: 79rpx;
+            background: linear-gradient(-90deg,rgba(255,157,0,1),rgba(255,190,0,1));
+            box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255,211,82,0.75);
+            border-radius: 30rpx;
+            margin: 66rpx auto;
+            font-size: 30rpx;
+            color: rgba(255,255,255,1);
+        }
+    }
+}
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.5);
+  .icon-tip {
+      position: absolute;
+      width: 315rpx;
+      height: 210rpx;
+      top: 400rpx;
+      left: 50%;
+      transform: translateX(-157.5rpx);
+  }
+}

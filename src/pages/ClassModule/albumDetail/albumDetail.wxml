@@ -1,0 +1,86 @@
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<view class="albumDetail">
+  <!-- 相册动态详情（老师、家长） -->
+  <view class="card">
+    <image class="cardImg" src="{{dynamicDetail.pic ? dynamicDetail.pic : '/images/ClassModule/c_default_72.png'}}"></image> 
+    <view class="info">
+      <view class="tips">
+        <view class="left">
+          <view class="name">{{dynamicDetail.name}}</view>
+          <view class="time">{{dynamicDetail.time?filters.timestampToTime(dynamicDetail.time, 'Y.M.D h:m'):0}}</view>
+        </view> 
+        <view wx:if="{{role === 1}}" class="right">
+          <image class="del" bindtap="delNotice" src="/images/study/del_06.png"></image>
+          <button wx:if="{{dynamicDetail.status === 1 || dynamicDetail.status === 5}}" class="btn" style="padding: 0;" open-type="share"><image class="share" src="/images/study/share_03.png"></image></button>
+        </view>
+      </view> 
+      <view class="title">{{dynamicDetail.title}}</view>
+      <view class="content">{{dynamicDetail.content}}</view>
+      <view class="phontList">
+        <image wx:if="{{dynamicDetail.type === 2}}" class="albmImg" wx:for="{{dynamicDetail.urls}}" wx:key="index" bindtap="openPhoto" data-url="{{item}}" src="{{item}}" mode="aspectFill"></image>
+        <video wx:if="{{dynamicDetail.type === 3}}" class="albmImg" wx:for="{{dynamicDetail.urls}}" wx:key="index" bindtap="openVideo" data-url="{{item}}" src="{{item}}" controls="{{false}}" show-center-play-btn="{{false}}" muted></video>
+      </view>
+      <view class="status" wx:if="{{dynamicDetail.status === 2}}">审核中</view>
+      <view class="status" wx:if="{{dynamicDetail.status === 3}}">发布失败</view>
+      <view class="status" wx:if="{{dynamicDetail.status === 4}}">申诉中</view>
+      <view class="status" wx:if="{{dynamicDetail.status === 6}}">申诉失败</view>
+      <!-- <view class="status" wx:if="{{dynamicDetail.status === 3}}">{{dynamicDetail.appeal_log.length? '申诉':'发布'}}失败</view> -->
+      <view class="flex-sta-cen click">
+        <view class="tip flex-sta-cen" style="margin-right: 10rpx" catchtap="changeClick" data-status="{{dynamicDetail.status}}" data-id="{{dynamicDetail.dynamic_id}}" data-isClick="{{dynamicDetail.is_click}}">
+          <image wx:if="{{dynamicDetail.is_click}}" class="icon24" src="/images/ClassModule/pic_hd.png"></image>
+          <image wx:else class="icon24" src="/images/ClassModule/a_zan_24.png"></image>
+          <text style="color:#2D2D2D;">{{dynamicDetail.click_num}}</text>
+        </view>
+        <view class="tip flex-sta-cen">
+          <image class="icon24" src="/images/ClassModule/a_say_24.png"></image>
+          <text style="color:#2D2D2D;">{{dynamicDetail.comment_num}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- info -->
+  <view class="detail" wx:if="{{(dynamicDetail.status === 1 || dynamicDetail.status === 5) && (dynamicDetail.click_user_pics.length || dynamicDetail.comment_user.length)}}">
+    <view class="thumb" wx:if="{{dynamicDetail.click_user_pics.length}}">
+      <image class="thumbImg1" src="/images/ClassModule/a_zan_24.png"></image> 
+      <view class="thumbUrl">
+        <image wx:for="{{dynamicDetail.click_user_pics}}" wx:key="index" class="cardImg" src="{{item ? item : '/images/ClassModule/c_default_72.png'}}"></image> 
+      </view> 
+    </view>
+    <view class="comment" wx:if="{{dynamicDetail.comment_user.length}}">
+      <view class="list" wx:for="{{dynamicDetail.comment_user}}" wx:key="index">
+        <view class="left">
+          <image class="comImg" src="/images/study/ping_11.png"></image>  
+          <text class="name">{{item.name}}：</text>
+          <text class="content">{{item.content}}</text>
+        </view> 
+        <view class="delect" wx:if="{{role === 1}}" bindtap="delComment" data-id="{{item.comment_id}}" data-index="{{index}}">删除</view>
+        <view class="delect" wx:if="{{role === 2 && item.is_self}}" bindtap="delComment" data-id="{{item.comment_id}}" data-index="{{index}}">删除</view>
+      </view>
+    </view>
+  </view>
+  <!-- 发布失败 -->
+  <view class="pubFail" wx:if="{{dynamicDetail.status === 3 || dynamicDetail.status === 4 || dynamicDetail.status === 6}}">
+    <view class="pubInfo">
+      <view class="name">{{dynamicDetail.status === 3? '审核失败原因':dynamicDetail.status === 4?'申诉理由':dynamicDetail.status === 6?'申诉失败原因':''}}</view>
+      <view class="send" bindtap="appeal">申诉</view>
+    </view>
+    <view class="text">{{dynamicDetail.status === 4?dynamicDetail.appeal_log[0].content:dynamicDetail.review_log[dynamicDetail.review_log.length - 1].content }}</view>
+  </view>
+</view>
+<!-- 家长添加评论 -->
+<view class="tomessage-wrap" wx:if="{{dynamicDetail.status === 1 || dynamicDetail.status === 5}}">
+  <view class="msg">
+    <input class="msg-input" placeholder="说点什么呢..." placeholder-style="color:#bcbcbc;font-size: 28rpx" maxlength="100"
+        value="{{inputTxt}}" adjust-position="{{false}}" bindinput="bindKeyInput"
+        bindconfirm="sendMessage">
+    </input>
+  </view>
+  <view class="send {{inputTxt.length ? 'text': ''}}" bindtap="sendMessage">发表</view>
+</view>
+
+
+<!-- 点击查看图片 -->
+<view class="mask" wx:if="{{showMask}}" bindtap="CancelGrade">
+  <!-- <image class="maskImg" mode='widthFix' wx:if="{{dynamicDetail.type === 2}}" src='{{url}}'></image> -->
+  <video class="maskVideo" show-play-btn autoplay  wx:if="{{dynamicDetail.type === 3}}" src="{{url}}" catchtap='stopVideo'></video>
+</view>

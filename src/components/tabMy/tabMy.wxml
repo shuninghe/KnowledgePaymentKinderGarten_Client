@@ -1,0 +1,103 @@
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+<!-- 新版-我的 -->
+<view class="tabMy">
+  <!-- 用户信息 -->
+  <view class="my-info flex-sta-cen">
+    <view class="avatar btn" bindtap="toTypePage" data-type="0">
+      <image class="img" wx:if="{{userinfo.pic}}" src="{{userinfo.pic}}" />
+      <button class="btn" wx:else open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+        <image class="img" src="../../images/default_head.png" />
+      </button>
+    </view>
+    <view class="info flex-col-bew-sta">
+      <view class="flex-cen-cen">
+        <view class="name ellipsisOne" wx:if="{{userinfo.wx_nick_name}}">{{userinfo.wx_nick_name}}</view>
+        <button class="btn name" wx:else open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">尚未授权</button>
+        <view class="edit btn flex-sta-cen" bindtap="toTypePage" data-type="2">
+          <image class="edit-icon" src="../../images/ClassModule/my-edit.png" />编辑
+        </view>
+      </view>
+      <view class="vip-wrap flex-sta-cen" wx:if="{{userinfo.vipInfo}}">
+        <view class="vip flex-cen-cen">
+            <image class="vip-icon" src="../../images/ClassModule/my-vip.png" />
+            <text class="vip-name txt ellipsisOne">{{userinfo.vipInfo.name}}</text>
+        </view>
+        <view class="txt">{{filters.timestampToTime(userinfo.vipInfo.etime, 'Y.M.D')}} 过期</view>
+      </view>
+    </view>
+  </view>
+  <!-- 横向tab -->
+  <view class="tab flex-aro-cen">
+    <view bindtap="goMyStudy">
+      <image class="tab-icon" src="../../images/ClassModule/my-book.png" />
+      <view class="text">我的学习</view>
+    </view>
+    <navigator open-type="navigate" hover-class="none" url="/pages/myOrder/myOrder">
+      <image class="tab-icon" src="../../images/ClassModule/my-qian.png" />
+      <view class="text">我的订单</view>
+    </navigator>
+    <block wx:if="{{globalData.appName==='沃家园通' || globalData.appName==='阅读与写作大讲堂'}}">
+    <view class="btn" wx:if="{{isShowEnter}}" bindtap="toTypePage" data-type="5">
+      <image class="tab-icon" src="../../images/ClassModule/my-money.png" />
+      <view class="text">奖学金</view>
+    </view>
+    </block>
+  </view>
+  <!-- 竖项列表 -->
+  <view class="list">
+    <view class="item btn flex-bet-cen" wx:if="{{isShowEnter}}" bindtap="toTypePage" data-type="3">
+      <view class="flex-sta-cen">
+        <image class="icon" src="../../images/ClassModule/my-card.png" />
+        <text>学习卡激活</text>
+      </view>
+      <image class="right" src="../../images/ClassModule/n_arrow_20.png" />
+    </view>
+    <button class="item btn flex-bet-cen" open-type="contact">
+      <view class="flex-sta-cen">
+        <image class="icon" src="../../images/ClassModule/my-baby-1.png" />
+        <text>联系客服</text>
+      </view>
+      <image class="right" src="../../images/ClassModule/n_arrow_20.png" />
+    </button>
+    <!-- 分销系统 -->
+    <block wx:if="{{globalData.appName==='沃家园通' || globalData.appName==='阅读与写作大讲堂' || globalData.appName==='慧学知识汇' }}">
+    <view class="item btn flex-bet-cen" wx:if="{{isShowSale}}" bindtap="toTypePage" data-type="4">
+      <view class="flex-sta-cen">
+        <image class="icon" src="../../images/ClassModule/my-baby-2.png" />
+        <text>管理员入口</text>
+      </view>
+      <image class="right" src="../../images/ClassModule/n_arrow_20.png" />
+    </view>
+    <view class="item btn flex-bet-cen" wx:if="{{hasPackageId}}" bindtap="toSaleEntry">
+      <view class="flex-sta-cen">
+        <image class="icon" src="../../images/ClassModule/my-baby-3.png" />
+        <text>加入我们</text>
+      </view>
+      <image class="right" src="../../images/ClassModule/n_arrow_20.png" />
+    </view>
+    </block>
+    <!-- 加盟商 -->
+    <block wx:if="{{globalData.authorizedMode===5}}">
+    <view class="item btn flex-bet-cen" bindtap="toMyInvite">
+      <view class="flex-sta-cen">
+        <image class="icon" src="../../images/ClassModule/my-baby-3.png" />
+        <text>我的邀请</text>
+      </view>
+      <image class="right" src="../../images/ClassModule/n_arrow_20.png" />
+    </view>
+    </block>
+  </view>
+</view>
+<!-- 购买绑定手机号弹窗 -->
+<custom-popup mode="4" wx:if="{{showPhonePopup}}" 
+  styleColor="#57cf6e"
+  bindgetWxPhone="getWxPhone" 
+  bindtoBindPhone="toBindPhone" 
+  bindhandleCancel="closePhonePopup">
+</custom-popup>
+<!-- 授权个人信息弹窗 -->
+<custom-popup mode="5" wx:if="{{showUserPopup}}" 
+  styleColor="{{theme.themeColorOne}}"
+  bindhandleConfirm="getUserInfo" 
+  bindhandleCancel="closeUserPopup">
+</custom-popup> 

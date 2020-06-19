@@ -1,0 +1,7 @@
+
+{
+  "navigationBarTitleText": "邀请二维码",
+  "usingComponents": {
+    "code-poster": "../../components/codePoster/codePoster"
+  }
+}

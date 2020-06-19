@@ -1,0 +1,45 @@
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+<view class="payment">
+  <!-- 订单信息 -->
+  <view class="orderList">
+    <view class="list" wx:for="{{groupConfig}}" data-index="{{index}}"  data-checked="{{item.checked}}" bindtap="selectChecked" wx:key="index">
+      <view class="left">
+        <image class="icon" src="{{item.pic || '../../images/ydxz/group_icon.png'}}"></image>
+        <view class="order">
+          <view class="name">好友拼团 {{item.num}}</view>  
+          <view class="money">￥ {{item.finalFee }}</view> 
+        </view> 
+      </view> 
+      <view class="right {{item.checked? 'checked':''}}">
+        <image class="icon" wx:if="{{item.checked}}" src="/images/saleMagage/checked_03.png"></image> 
+      </view>  
+    </view>
+  </view>
+  <!-- 支付信息 -->
+  <view class="payInfo">
+    <!-- 支付方式 -->
+    <view class="info">
+      <view class="name">支付方式</view> 
+      <view class="text">微信</view> 
+    </view>  
+    <!-- 应付金额 -->
+    <view class="info">
+      <view class="name">应付金额</view> 
+      <view class="text pay" wx:if="{{finalFee}}">￥{{finalFee}}</view> 
+    </view>  
+    <!-- 创建时间 -->
+    <view class="info">
+      <view class="name">创建时间</view> 
+      <view class="text">{{filters.timestampToTime(nowTime,'Y.M.D h:m:s')}}</view> 
+    </view>
+    <!-- 支付按钮 -->
+    <view class="payBtn" bindtap="judgeBindPhone">立即支付</view>
+  </view>
+</view>
+<!-- 购买绑定手机号弹窗 -->
+<custom-popup mode="4" wx:if="{{showPhonePopup}}" 
+  styleColor="{{theme.themeColorOne}}"
+  bindgetWxPhone="getWxPhone" 
+  bindtoBindPhone="toBindPhone" 
+  bindhandleCancel="closePhonePopup">
+</custom-popup>

@@ -1,0 +1,101 @@
+page {
+  width: 100%;
+ height: 100%;
+}
+.payment {
+  width: 100%;
+  height: 100%;
+  padding-top: 20rpx;
+  box-sizing: border-box;
+}
+.orderList {
+  width: 100%;
+  background: #fff;
+  padding-left: 35rpx;
+  box-sizing: border-box;
+//   height: calc(100% - 519);
+}
+// 订单信息
+.orderList .list {
+  padding: 32rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #eeeeee;
+}
+.orderList .list .left {
+  display: flex;
+}
+.orderList .list .left .icon {
+  width: 147rpx;
+  height: 147rpx;
+  border-radius: 10rpx;
+  margin-right: 37rpx;
+}
+.orderList .list .left .order {
+  padding: 5rpx 0 0;
+}
+.orderList .list .left .order .name {
+  color: #000000;
+  font-size: 30rpx;
+}
+.orderList .list .left .order .money {
+  color: #107e7d;
+  font-size: 26rpx;
+  margin-top: 60rpx;
+}
+.orderList .list .right {
+  width: 40rpx;
+  height: 40rpx;
+  border: 1rpx solid #d8d8d8;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 37rpx;
+}
+.orderList .list .right.checked {
+  border: none;
+  background: #107e7d;
+}
+.orderList .list .right .icon {
+  width: 26rpx;
+  height: 16rpx;
+}
+// 支付信息
+.payInfo {
+  width: 100%;
+  padding-left: 35rpx;
+  padding-bottom: 32rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.payInfo .info {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #eeeeee;
+  padding: 32rpx 0;
+}
+.payInfo .info .text,
+.payInfo .info .name {
+  margin-right: 40rpx;
+  color: #272727;
+  font-size: 28rpx;
+}
+.payInfo .info .text.pay {
+  color: #107e7d;
+}
+.payInfo .payBtn {
+//   width: 100%;
+  height: 85rpx;
+  background: #f6d44c;
+  margin: 98rpx 40rpx 32rpx 0;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #282828;
+}

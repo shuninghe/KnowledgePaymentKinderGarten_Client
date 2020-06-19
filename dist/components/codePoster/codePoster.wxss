@@ -1,0 +1,11 @@
+.codePoster {
+  text-align: center;
+}
+.codePoster .poster-canvas {
+  width: 518rpx;
+  height: 920rpx;
+  margin: 20rpx auto;
+  z-index: 1;
+  border-radius: 8rpx;
+  overflow: hidden;
+}

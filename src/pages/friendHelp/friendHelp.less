@@ -1,0 +1,409 @@
+/* pages/friendHelp/friendHelp.wxss */
+page{
+  height: 100%;
+  width: 100%;
+  /* background: #FF7F4F; */
+  box-sizing: border-box;
+}
+.friendHelp {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.friendHelp .helpImg {
+  width: 100%;
+  height: 2686rpx; 
+  position: absolute;
+  top:0;
+  left: 0;
+}
+/* 回到首页 */
+.goHome {
+  width: 96rpx;
+  height: 96rpx;
+  background: #FFFDF5;
+  box-shadow: 0 0 17rpx 0 #FDDFA5;
+  border-radius: 50%;
+  position: fixed;
+  top: 40rpx;
+  right: 39rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.goHome .icon {
+  width: 44rpx;
+  height: 44rpx;
+}
+/* 正在助力 */
+.nowCourse {
+  width: 670rpx;
+  height: 234rpx;
+  padding: 58rpx 24rpx 32rpx;
+  box-sizing: border-box;
+  position: absolute;
+  top: 557rpx;
+  left: 0;
+  margin: 0 40rpx;
+  display: flex;
+}
+.nowCourse .course-pic {
+  width: 256rpx;
+  height: 144rpx;
+  border-radius: 8rpx;
+}
+.course-info {
+  margin-left: 24rpx;
+}
+.course-info .info-name{
+  max-width: 342rpx;
+  overflow: hidden;  
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #632511;
+  line-height: 46rpx;
+}
+.info-head {
+  height: 42rpx;
+  margin-top: 8rpx;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.total {
+  position: relative;
+  height: 42rpx;
+  display: flex;
+  margin-right: 12rpx;
+  justify-content: space-between;
+}
+.to1 {
+  width: 42rpx;
+}
+.to2 {
+  width: 63rpx;
+}
+.to3 {
+  width: 84rpx;
+}
+.alone {
+  width: 42rpx;
+  height: 42rpx;
+  border: 2rpx solid #fff;
+  border-radius: 50%;
+}
+.frist {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.second {
+  position: absolute;
+  top: 0;
+  left: 21rpx;
+  z-index: 10;
+}
+.thirsty {
+  position: absolute;
+  top: 0;
+  left: 40rpx;
+  z-index: 100;
+}
+.totalNum {
+  height: 42rpx;
+  display: flex;
+  align-items: center;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #9F837A;
+}
+.info-price {
+  height: 42rpx;
+  margin-top: 10rpx;
+  display: flex;
+  align-items: center;
+}
+.info-price .price-icon {
+  width: 14rpx;
+  height: 20rpx;
+}
+.info-price .price {
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  color: #FF6140;
+  margin-left: 10rpx;
+}
+/* 倒计时 */
+.countDown {
+  width: 382rpx;
+  height: 48rpx;
+  margin: 0 184rpx;
+  position: absolute;
+  left: 0;
+  top: 944rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #632511;
+  letter-spacing: 1.78rpx;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.countDown .num {
+  width: 42rpx;
+  height: 48rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dot {
+  margin: 0 10rpx;
+}
+/* 助力信息 */
+.helpInfo {
+  width: 690rpx;
+  /* height: 1535rpx; */
+  position: absolute;
+  left: 0;
+  top: 1085rpx;
+  margin: 0 30rpx;
+}
+/* 好友助力 */
+.friends {
+  width: 100%;
+  height: 747rpx;
+  padding: 64rpx 36rpx 56rpx;
+  box-sizing: border-box;
+  background: #FFFDF5;
+  box-shadow: 0 0 40rpx 0 #FEB85D;
+  border-radius: 12rpx;
+}
+.friends .member {
+  display: flex;
+}
+.friends .member .member-icon {
+  width: 124rpx;
+  height: 124rpx;
+  border-radius: 50%;
+}
+.friends .member .member-info {
+  margin-left: 34rpx;
+}
+.member-info .info-name {
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #632511;
+  letter-spacing: 1.78rpx;
+  margin-left: 10rpx;
+}
+.member-info .info-text {
+  margin-top: 24rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  position:relative;
+}
+.span{
+  display:block;
+  width:0;
+  height:0;
+  border-width:14rpx 14rpx 14rpx 0;
+  border-style:solid;
+  border-color:transparent #FF8735 transparent transparent;/*透明 黄 透明 透明 */
+  position:absolute;
+  top:20rpx;
+  left:0px;
+}
+.letter {
+  width: 428rpx;
+  height: 72rpx;
+  background: #FF8735;
+  box-shadow: 2rpx 8rpx 16rpx 0 #FFCDAC;
+  border-radius: 12rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  letter-spacing: 1.67rpx;
+  position:absolute;
+  top: 0px;
+  left: 14rpx;
+}
+/* 线 */
+.line {
+  width: 588rpx;
+  height: 0rpx;
+  margin: 69rpx 15rpx 0;
+  border-top: 2rpx dashed #BEBEBE;
+}
+.icon-box-scroll {
+  height: 104rpx;
+  margin-top: 70rpx;
+  display:flex;
+  flex-direction:row;
+  white-space:nowrap;
+  overflow:hidden;
+  box-sizing:border-box;
+}
+.icon-box-scroll .avatar {
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 50%;
+  margin-right: 24rpx;
+  display: inline-block;
+}
+.member-text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #9F837A;
+  letter-spacing: 1.67rpx;
+}
+.member-text1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64rpx;
+  /* font-family: PingFangSC-Medium; */
+  font-weight: 500;
+  font-size: 30rpx;
+  color: #FF6140;
+  letter-spacing: 1.67rpx;
+}
+/* 按钮 */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40rpx;
+  .share {
+    width: 360rpx;
+    height: 86rpx;
+    background-image: linear-gradient(-180deg, #FFD71B 11%, #FFAA25 100%);
+    border-radius: 46.5rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 34rpx;
+    color: #8C4A0F;
+    box-shadow: 0 8rpx 2rpx #E6880F;
+    &::after {
+      border: none;
+    }
+  }
+}
+
+/* 推荐课程 */
+.recommend {
+  width: 100%;
+  height: 768rpx;
+  padding: 64rpx 34rpx 4rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  background: #FFFDF5;
+  border-radius: 8rpx;
+}
+.recommend .title {
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: cemter;
+  margin-bottom: 50rpx;
+}
+.recommend .title .title-icon {
+  width: 50rpx;
+  height: 54rpx;
+}
+.recommend .title .title-text {
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #632511;
+  margin: 0 40rpx;
+}
+.course {
+  display: flex; 
+  margin-bottom: 52rpx;
+}
+.course .course-pic {
+  width: 256rpx;
+  height: 144rpx;
+  border-radius: 8rpx;
+}
+/* 支付弹框 */
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+}
+.mask-box {
+  width: 560rpx;
+  height: 618rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 8rpx 0;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  margin-top: -250rpx;
+  margin-left: -280rpx;
+  left: 50%;
+}
+.box {
+  position: relative;
+  width: 560rpx;
+  height: 618rpx;
+}
+.mask-top {
+  width: 100%;
+  height: 154rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 36rpx;
+  color: #202020;
+}
+.img {
+  width: 100%;
+  height: 304rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img .img-icon {
+  width: 324rpx;
+  height: 304rpx;
+}
+.btn1 {
+  width: 100%;
+  height: 80rpx;
+  margin-top: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn1 .click {
+  background: #31CC6D;
+  border-radius: 45rpx;
+  width: 252rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #FFFFFF;
+}

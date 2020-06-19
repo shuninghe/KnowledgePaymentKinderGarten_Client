@@ -1,0 +1,104 @@
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+
+<view>
+<!-- 模式1 -->
+<view class="component-video" wx:if="{{mode===1}}">
+  <!-- 视频播放器(课时&点评) -->
+  <video class="video" wx:if="{{isComment}}" src="{{curComment.video_url}}" autoplay custom-cache="{{false}}" binderror="videoError"></video>
+  <video class="video" wx:else id="videoPlayer" src="{{videoUrl}}" autoplay custom-cache="{{false}}" bindtimeupdate="timeUpdate" binderror="videoError"></video>
+  <!-- 标题 -->
+  <view class="title-wrap">
+    <view class="course-title ellipsisOne">{{isComment ? curComment.evaluation_name : trees[curPlayIndex].section_name}}</view>
+  </view>
+  <view class="line"></view>
+  <!-- 点评内容 -->
+  <view class="course-tree" wx:if="{{isComment}}" style="margin:30rpx;">{{curComment.evaluation_detail}}</view>
+  <!-- 课程目录 -->
+  <view class="course-tree" wx:else>
+    <view class="tree-name">{{sectionName}}</view>
+    <view class="course-item {{item.section_id === curPlayId ? 'active' : ''}}" wx:for="{{trees}}" wx:key="index">
+      <view class="course-info" bindtap="changeVideoCurPlay" data-item="{{item}}">
+        <image class="course-icon" src="/images/study/course-tip.jpg"></image>
+        <view class="course-name ellipsisOne {{item.foruse ? 'max-w216' : 'max-w270'}}" style="{{item.status===0?'color:rgba(40,40,40,.5);':''}}"
+          wx:if="{{filters.judgeObj(item.teacher_evaluation)}}">{{item.section_name}}</view>
+        <view class="course-name ellipsisOne {{item.foruse ? 'max-w426' : ''}}" style="{{item.status===0?'color:rgba(40,40,40,.5);':''}}"
+          wx:else>{{item.section_name}}</view>
+
+        <view class="course-tag" wx:if="{{item.foruse}}">试听</view>
+        <view class="course-tag blue" wx:if="{{filters.judgeObj(item.teacher_evaluation)}}">含点评</view>
+        <view class="course-tag" wx:if="{{item.foruse && item.section_id === curPlayId}}">正在播放</view>
+        <!-- 有权限 -->
+        <block wx:if="{{courseInfo.isbuy && !item.foruse}}">
+          <view class="course-tag" wx:if="{{item.section_id === curPlayId}}">正在播放</view>
+          <block wx:else>
+            <view class="course-tag" wx:if="{{item.study_status === 0}}">未学习</view>
+            <view class="course-tag" wx:elif="{{item.study_status === 2}}">已学完</view>
+            <view class="course-tag" wx:elif="{{item.study_schedule.study_duration}}">
+              剩余{{filters.formatDuration(item.study_schedule.section_duration - item.study_schedule.study_duration)}}
+            </view>
+          </block>
+        </block>
+      </view>
+      <!-- 查看点评 -->
+      <view class="course-commit" wx:if="{{(courseInfo.isbuy || item.foruse) && filters.judgeObj(item.teacher_evaluation)}}"
+        bindtap="toComment" data-item="{{item}}">查看点评
+        <image class="icon-right" src="/images/study/icon_two_right.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 分享悬浮按钮 -->
+  <view class="share-wrap" wx:if="{{!isComment}}">
+    <button class="share-btn" open-type="share">
+      <image class="icon-share" src="/images/study/share.png" />
+      <text class="icon-txt">分享</text>
+    </button>
+  </view>
+</view>
+<!-- 模式2-家园通 -->
+<view class="component-video" wx:if="{{mode===2}}">
+  <!-- 视频播放器(课时&点评) -->
+  <video class="video" wx:if="{{isComment}}" src="{{curComment.video_url}}" autoplay custom-cache="{{false}}" binderror="videoError"></video>
+  <video class="video" wx:else id="videoPlayer" src="{{videoUrl}}" autoplay custom-cache="{{false}}" bindtimeupdate="timeUpdate" binderror="videoError"></video>
+  <!-- 标题 -->
+  <view class="title-wrap">
+    <view class="course-title ellipsisOne">{{isComment ? curComment.evaluation_name : trees[curPlayIndex].section_name}}</view>
+  </view>
+  <view class="line"></view>
+  <!-- 点评内容 -->
+  <!-- <view class="course-tree" wx:if="{{isComment}}" style="margin:30rpx;">{{curComment.evaluation_detail}}</view> -->
+  <view class="section-wrap" wx:if="{{isComment}}">
+    <view class="source" wx:if="{{curComment.audio_url || curComment.pic_url.length}}" bindtap="changeType" data-type="2">
+      <image class="source-img" src="/images/study/course_audio.png"></image>
+      <text class="source-txt">音频点评</text>
+    </view>
+  </view>
+  <!-- 课时资源 -->
+  <view class="section-wrap" wx:else>
+    <view class="source" wx:if="{{trees[curPlayIndex].audio_url || trees[curPlayIndex].pic_url.length}}" bindtap="changeType" data-type="2">
+      <image class="source-img" src="{{theme.classIcon.audioIcon || '/images/study/course_audio.png'}}"></image>
+      <text class="source-txt">音频课程</text>
+    </view>
+    <view class="source" wx:if="{{trees[curPlayIndex].pdf_url || trees[curPlayIndex].text_img_url}}" bindtap="changeType" data-type="{{trees[curPlayIndex].pdf_url?'3':'4'}}">
+      <image class="source-img" src="{{theme.classIcon.fileIcon || '/images/study/course_pdf.png'}}"></image>
+      <text class="source-txt">文稿资料</text>
+    </view>
+    <view class="source" wx:if="{{filters.judgeObj(trees[curPlayIndex].teacher_evaluation)}}"
+      bindtap="toComment" data-item="{{trees[curPlayIndex]}}">
+      <image class="source-img" src="{{theme.classIcon.expertIcon || '/images/study/course_teacher.png'}}"></image>
+      <text class="source-txt">专家点评</text>
+    </view>
+  </view>
+  <!-- 课时详情 -->
+  <view class="section-intro" wx:if="{{trees[curPlayIndex].intro}}">
+    <rich-text nodes="{{filters.replaceImgSize(trees[curPlayIndex].intro)}}"></rich-text>
+  </view>
+  <!-- 分享悬浮按钮 -->
+  <view class="share-wrap {{mode===2?'mode2':''}}" style="background:{{theme.themeColorOne}}" wx:if="{{!isComment}}">
+    <button class="share-btn" open-type="share">
+      <image class="icon-share" src="/images/study/share.png" />
+      <text class="icon-txt" wx:if="{{mode!==2}}">分享</text>
+    </button>
+  </view>
+</view>
+
+</view>

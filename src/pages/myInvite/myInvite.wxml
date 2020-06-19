@@ -1,0 +1,29 @@
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+<view class="myInvite">
+    <view class="header">
+      <view class="head-item {{item.type === type ? 'item-line':''}}" bindtap="changeTab" data-type="{{item.type}}"
+        wx:for="{{myList}}" wx:key="index" >
+            {{item.name}}
+      </view>
+    </view>
+    <view class="main">
+        <view class="main-top" wx:if="{{type === 1}}">
+            <view class="main-name {{index === nameIndex? 'name-bg':''}}" wx:for="{{inviteList}}" wx:key="index"
+            bindtap="nameTab" data-index="{{index}}">
+                {{item.name}}
+            </view>
+        </view>
+        <block wx:if="{{inviteList[nameIndex].list.length || inviteList.length}}">
+          <view class="card" wx:for="{{inviteList[nameIndex].list || inviteList}}" wx:key="index">
+              <image class="avator" src="{{item.pic || '/images/saleMagage/home_03.png'}}" />
+              <view class="userInfo">
+                  <view class="name">{{item.userName}}</view>
+                  <view class="time">{{filters.timestampToTime(item.date,'Y.M.D h:m')}}</view>
+              </view>
+              <image wx:if="{{type===1 && nameIndex === 0}}" class="phone" src="../../images/jiayuantong/phone.png"
+              bindtap="call" data-phone="{{item.phone}}" />
+          </view>
+        </block>
+        <view class="no-data" wx:if="{{(inviteList[nameIndex].list&&!inviteList[nameIndex].list.length) || !inviteList.length}}">暂无数据</view>
+    </view>
+</view>

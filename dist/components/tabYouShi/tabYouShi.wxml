@@ -1,0 +1,76 @@
+<!-- 沃园所-首页 -->
+<view class="tabYouShi">
+  <!-- banner -->
+  <swiper class="banner" autoplay circular indicator-dots indicator-active-color="#ffffff">
+    <swiper-item wx:for="{{bannerList}}"  wx:key="index"> 
+      <image class="banner-img" src="{{item.pic}}" bindtap="toPage" data-item="{{item}}" />
+    </swiper-item>
+  </swiper>
+  <!-- 菜单导航 -->
+  <view class="title-container {{meunShowType===1?'pt50':''}}" wx:if="{{classifyList.length}}">
+    <scroll-view class="swiper-container" scroll-x wx:if="{{meunShowType === 1}}">
+      <view class="title-item" wx:for="{{classifyList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+        <image class="title-img" src="{{item.icon}}" />
+        <view class="txt menutxt">{{item.name}}</view>
+      </view>
+    </scroll-view>
+    <view class="menu-container" wx:if="{{meunShowType === 2}}">
+      <view class="title-item" wx:for="{{classifyList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+        <image class="title-img" src="{{item.icon}}" />
+        <view class="txt menutxt">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 限时优惠 -->
+  <!-- <block wx:if="{{!isForceEnroll}}">
+    <view class="index-title-container" wx:if="{{helpCourseList.length}}">
+      <image class="left" src="/images/index_titlte_left-ico.png"></image>
+      <view class="txt ellipsisOne">助力一起学习</view>
+      <image class="right" src="/images/index_titlte_right-ico.png"></image>
+    </view>
+    <course-list 
+      wx:if="{{helpCourseList.length}}" 
+      list="{{helpCourseList}}" 
+      mode="1" 
+      isHelp="true">
+    </course-list>
+  </block> -->
+  <!-- 新限时优惠 -->
+  <block wx:if="{{!isForceEnroll}}">
+    <view class="index-title-container" wx:if="{{helpCourseList.length}}">
+      <text class="tip"></text>
+      <view class="txt ellipsisOne">助力一起学</view>
+    </view>
+    <course-list 
+      wx:if="{{helpCourseList.length}}" 
+      list="{{helpCourseList}}" 
+      mode="1" 
+      isHelp="true">
+    </course-list>
+  </block>
+
+  <!-- 园长原始分类数据 -->
+  <!-- <course-list 
+    wx:for="{{classAreasData}}" 
+    wx:key="key" 
+    showtype="{{item.showType}}" 
+    name="{{item.name}}" 
+    contentshowtype="{{item.contentShowType}}" 
+    list="{{item.classify}}" 
+    mode="2">
+  </course-list> -->
+
+  <!-- 园长新分类数据 -->
+  <view class="courseList {{index?'':'mt20'}}" wx:for="{{classAreasData}}" wx:key="index" wx:for-item="classify">
+    <view class="course-name">
+      <text class="tip"></text>
+      <view class="txt ellipsisOne">{{classify.name}}</view>
+    </view>
+    <view class="course">
+      <view class="item" wx:for="{{classify.classify[0].course}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+        <image class='item-img' src='{{item.pic || item.square_course_pic}}' />
+        <view class='item-name ellipsisTwo'>{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+</view>

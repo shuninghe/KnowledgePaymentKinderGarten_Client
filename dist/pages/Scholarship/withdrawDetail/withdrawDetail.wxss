@@ -1,0 +1,56 @@
+page {
+  background: #fff;
+}
+page .withdrawDetail {
+  padding: 0 28rpx;
+}
+page .withdrawDetail .top {
+  text-align: center;
+  height: 250rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+page .withdrawDetail .top .wallet-icon {
+  width: 38rpx;
+  height: 38rpx;
+  margin-right: 16rpx;
+  vertical-align: middle;
+}
+page .withdrawDetail .top .withdraw-msg {
+  font-size: 28rpx;
+}
+page .withdrawDetail .top .withdraw-money {
+  font-size: 42rpx;
+  font-weight: bold;
+  margin-top: 24rpx;
+}
+page .main .list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid #eeeeee;
+  height: 100rpx;
+}
+page .main .list:nth-of-type(3) {
+  border-bottom: 0rpx solid #eeeeee;
+}
+page .main .list .fail-color {
+  color: #ff4141;
+}
+page .main .list .exam-color {
+  color: #0a6cd0;
+}
+page .footer {
+  width: 700rpx;
+  height: 84rpx;
+  background: #eeeeee;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 84rpx;
+  border-radius: 10rpx;
+  position: fixed;
+  bottom: 30rpx;
+}

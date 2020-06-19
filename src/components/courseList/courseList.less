@@ -1,0 +1,186 @@
+.index-title-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20rpx;
+  margin-left: 50%;
+  margin-top: 20rpx;
+  margin-bottom: 33rpx;
+  transform: translateX(-50%);
+  .left,.right{
+    width: 130rpx;
+    height: 45rpx;
+  }
+  .txt {
+    max-width: 375rpx;
+    font-size:32rpx;
+    font-weight: bold;
+    font-family:Microsoft YaHei;
+    margin: 0 18rpx;
+    color: #282828;
+    text-align: center;
+  }
+}
+.tab-contaienr {
+  padding: 14rpx 80rpx 34rpx;
+  position: relative;
+  .tab-scroll {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    .item-wrap {
+        &:last-child{
+            margin-right: 0;
+        }
+      position: relative;
+      font-size: 30rpx;
+      color: #292929;
+      display: inline-block;
+      margin-right: 40rpx;
+      .tab-item-text {
+        font-size: 30rpx;
+        color: #888888;
+      }
+      .text-cur{
+          font-size: 32rpx;
+          color: #292929;
+      }
+      .tab-line {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background: linear-gradient(
+          238deg,
+          rgba(255, 157, 0, 1),
+          rgba(255, 190, 0, 1)
+        );
+        opacity: 0.9;
+        height: 8rpx;
+      }
+    }
+    .cur {
+      border-width: 8rpx;
+      border-image: linear-gradient(
+        238deg,
+        rgba(255, 157, 0, 1),
+        rgba(255, 190, 0, 1)
+      );
+    }
+  }
+  .more {
+    position: absolute;
+    right: 10rpx;
+    top: 25rpx;
+    font-size: 20rpx;
+    color: rgba(150, 150, 150, 1);
+  }
+}
+.course-container::-webkit-scrollbar,
+.tab-scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+// 好友助力
+.course-container {
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding-bottom: 20rpx;
+  .item {
+    width: 220rpx;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 22rpx;
+    border-radius: 10rpx 10rpx 0 0;
+    overflow: hidden;
+    position: relative;
+    &:nth-of-type(3n+1) {
+      margin-left: 22rpx;
+    }
+    .img {
+      width: 220rpx;
+      height: 144rpx;
+      vertical-align: top;
+      border-radius: 10rpx;
+    }
+    .txt {
+      max-height: 70rpx;
+      margin-top: 20rpx;
+      font-size: 24rpx;
+      color: #292929;
+    }
+    .triangle-tip {
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: 0;
+      left: 0;
+      border-top: 54rpx solid #ff7519;
+      border-right: 54rpx solid transparent;
+    }
+    .icon-tip {
+      position: absolute;
+      width: 54rpx;
+      height: 54rpx;
+      left: 0;
+      top: 0;
+    }
+  }
+  &.index5_style {
+    flex-wrap: wrap;
+    padding-bottom: 0;
+    .item {
+      margin-top: 30rpx;
+      &:nth-of-type(3n) {
+        margin-right: 0rpx;
+      }
+    }
+  }
+}
+
+.onerow {
+  max-height: 198rpx;
+  white-space: nowrap;
+  .item {
+    &:nth-of-type(3n+1) {
+      margin-left: 0rpx;
+    }
+    &:nth-of-type(1) {
+      margin-left: 22rpx;
+    }
+  }
+}
+.circular {
+  .item {
+    width: 220rpx;
+    border-radius: 10rpx;
+    .img {
+      width: 220rpx;
+      height: 144rpx;
+    }
+  }
+}
+.multirow{
+  .item{
+    margin-bottom: 30rpx;
+    
+  }
+}
+.ellipsisTwo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+}
+.ellipsisOne {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

@@ -1,0 +1,20 @@
+<view class="authorized {{mode===3?'ydxz':''}} {{mode===4?'wkz':''}}">
+  <view class="mid-wrap">
+    <image class="mid-img" src="{{allData[mode].midImg}}" mode="widthFix" lazy-load></image>
+    <view class="mid-text" style="top:{{mode?100:200}}rpx;">
+      <text class="message" wx:for="{{allData[mode].textList}}" wx:key="index">{{item}}</text>
+      <view class="subtitle" wx:if="{{allData[mode].subtitle}}" style="color:{{allData[mode].color}};">{{allData[mode].subtitle}}</view>
+      <view class="message-wrap" wx:if="{{allData[mode].textList2}}">
+        <text class="message" wx:for="{{allData[mode].textList2}}" wx:key="index">{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <image class="top-img" src="{{allData[mode].topImg}}" mode="widthFix" lazy-load></image>
+  <view class="bt-wrap">
+    <image class="bt-img" src="{{allData[mode].botImg}}" mode="widthFix" lazy-load></image>
+    <button class="bt-btn btn" wx:if="{{scene===1}}" open-type="getUserInfo" style="background-color:{{allData[mode].color}};" bindgetuserinfo="onGotUserInfo">立即授权</button>
+    <button class="bt-btn btn" wx:else open-type="getUserInfo" style="background-color:{{allData[mode].color}};" bindgetuserinfo="onGotUserInfo">立即授权</button>
+    <view class="next-btn" wx:if="{{scene===1}}" bindtap="chooseNext">暂不授权</view>
+  </view>
+</view>
+  

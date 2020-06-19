@@ -1,0 +1,127 @@
+// 音频
+.component-audio {
+  background-color: #fff;
+  .content {
+    padding: 10rpx 20rpx;
+    .img {
+        width: 100%;
+        height: auto; 
+        margin-bottom: 65rpx;
+        vertical-align: middle;
+        &:last-child {
+            margin-bottom: 20rpx;
+        }
+    }
+    &.no-data {
+        font-size: 30rpx;
+        color: rgba(40,40,40,.8);
+        text-align: center;
+        margin-top: 400rpx;
+    }
+  }
+  // 分享悬浮按钮
+  .share-wrap {
+    position: fixed;
+    width: 135rpx;
+    height: 72rpx;
+    right: 0;
+    bottom: 290rpx;
+    border-radius: 36rpx 0 0 36rpx;
+    background: none;
+    background: linear-gradient(-90deg,rgba(255,157,0,1),rgba(255,190,0,1));
+    box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255,211,82,0.75);
+    display: flex;
+    align-items: center;
+    &.mode2 {
+      width: 85rpx;
+      background: #107E7D;
+      box-shadow: none;
+    }
+    .share-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: none;
+      padding: 10rpx 0;
+      margin-left: 10rpx;
+      &::after {
+        border: none;
+      }
+      .icon-share {
+        width: 44rpx;
+        height: 44rpx;
+      }
+      .icon-txt {
+        font-size: 30rpx;
+        color: #fff;
+      }
+    }
+  }
+}
+// 音频-播放器
+.audio {
+  position: fixed;
+  width: 100%;
+  height: 140rpx;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  .slider {
+      padding: 0 15rpx;
+      margin: 0;
+      transform: translateY(-18rpx);
+  }
+  .time {
+      position: absolute;
+      top: 24rpx;
+      left: 20rpx;
+      right: 20rpx;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20rpx;
+      font-size: 28rpx;
+      color: rgba(0, 0, 0, .8);
+  }
+  .control {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      height: 128rpx;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      .icon75 {
+        width: 75rpx;
+        height: 75rpx;
+      }
+      .main-btn {
+        margin: 0 102rpx;
+      }
+      .icon34 {
+        width: 34rpx;
+        height: 34rpx;
+      }
+      &-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 88rpx;
+        height: 88rpx;
+        border-radius: 50%;
+        margin: 0 120rpx;
+        background: linear-gradient(-90deg,rgba(255,157,0,1),rgba(255,190,0,1));
+        box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255,211,82,0.75);
+        .icon-play {
+          width: 48rpx;
+          height: 48rpx;
+        }
+        .icon-pause {
+          width: 26rpx;
+          height: 34rpx;
+        }
+      }
+  }
+}

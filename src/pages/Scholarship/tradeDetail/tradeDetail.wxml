@@ -1,0 +1,37 @@
+<view class="cashRecord">
+  <view class="navbar" style="{{'height: ' + navigationBarHeight}}">
+    <view style="{{'height: ' + statusBarHeight}}"></view>
+    <view class='navbar-container'>
+      <image wx:if="{{fromShare}}" bindtap="goBack" class="icon-back" src="/images/study/icon_back.png" />
+      <image wx:else class="icon-back" src="" />
+      <view bindtap="showTabs" style="display:flex;align-items: center;font-size: 28rpx;color:#000;">
+        <view class="">{{type === 1?'全部交易':type===2? '收入交易':type===3?'提现交易':''}}</view>
+        <image wx:if="{{tabs}}" class="icon-home" src="/images/saleMagage/arrow_top_34.jpg" />
+        <image wx:else class="icon-home" src="/images/saleMagage/arrow_down_34.jpg" />
+      </view>
+      <view class="right"></view>
+    </view>
+    <view class="navbar-tips" wx:if="{{tabs}}">
+        <view class="name {{type === 2? 'current':''}}" data-type="2" bindtap="changeType">收入</view>
+        <view class="name {{type === 3? 'current':''}}" data-type="3" bindtap="changeType">提现</view>
+        <view class="name {{type === 1? 'current':''}}" data-type="1" bindtap="changeType">全部</view>
+      </view>
+  </view>
+  <view class="line"></view>
+  <view class="cashList" wx:if="{{cashList.length}}">
+    <view class="list" wx:for="{{cashList}}" wx:key="index">
+      <view class="left">
+        <view class="name">{{item.message}}</view>
+        <view class="time">{{item.date}}</view>
+      </view>
+      <view class="name {{item.type === 1?'fail':''}}">{{item.type === 1?'+':'-'}}{{item.money}}</view>
+    </view>
+  </view>
+  <view wx:else class="no-data">暂无交易明细</view>
+</view>
+<!-- 收益统计 -->
+<view class="profit" bindtap="goProgit">
+  <image class="icon" src="/images/saleMagage/c_record.png"></image>
+  <text class="name">收益统计</text>
+</view>
+<view wx:if="{{tabs}}" class="mask"></view>

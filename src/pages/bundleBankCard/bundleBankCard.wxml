@@ -1,0 +1,42 @@
+<view class="container" >
+  <view class="list">
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title">持卡人</view>
+      </view>
+      <view class="item-right" >
+        <input type="text" placeholder="请输入持卡人姓名" class="input-txt" value="{{userName}}"
+          bindinput="inputText" data-name="userName" />
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title">银行卡号</view>
+      </view>
+      <view class="item-right" >
+        <input type="number" placeholder="请输入银行卡号" class="input-txt" value="{{bankNumber}}"
+          bindinput="inputText" data-name="bankNumber" bindblur="openBank" maxlength="19" />
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title">开户行</view>
+      </view>
+      <view class="item-right" >
+        <span class="input-txt">{{openBankName}}</span>
+        <!-- <input type="text" bindinput="openBank" value="{{openBankName}}"  class="input-txt"/> -->
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title">开户网点</view>
+      </view>
+      <view class="item-right" >
+        <input placeholder="请输入开户网点" class="input-txt" value="{{openAccount}}"
+          bindinput="inputText" data-name="openAccount" maxlength="19" />
+      </view>
+    </view>
+    <view class="footer c107e7d" wx:if="{{disabled}}">绑定</view>
+    <view class="footer" wx:else bindtap="saveBankCard">绑定</view>
+  </view>
+</view>

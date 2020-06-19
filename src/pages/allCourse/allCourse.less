@@ -1,0 +1,80 @@
+.resourceBase {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.left-wrap {
+  width: 182rpx;
+  background: #f8f8f8;
+  .nav-item {
+    width: 182rpx;
+    padding: 30rpx;
+    background: #f8f8f8;
+    font-size: 24rpx;
+    text-align: center;
+    color: #636363;
+    line-height: 32rpx;
+    &.active {
+      border-left: 12rpx solid #107E7D;
+      padding-left: 18rpx;
+      color: #107E7D;
+      background-color: #fff;
+    }
+  }
+}
+.right-wrap {
+  .tab-content {
+    width: 554rpx;
+    padding: 28rpx 20rpx 20rpx;
+    &-title {
+      font-size: 26rpx;
+      font-weight: bold;
+      color: #282828;
+      line-height: 32rpx;
+    }
+    .course {
+      display: inline-flex;
+      flex-direction: column;
+      width: 148rpx;
+      margin-top: 28rpx;
+      margin-right: 32rpx;
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &-img {
+        width: 148rpx;
+        height: 148rpx;
+        border-radius: 10rpx;
+      }
+      &-name {
+        font-size: 20rpx;
+        line-height: 30rpx;
+        color: #282828;
+        margin-top: 10rpx;
+      }
+    }
+  }
+}
+.no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #8C8C8C;
+  padding-top: 500rpx;
+}
+.ellipsisTwo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+}
+.ellipsisOne {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

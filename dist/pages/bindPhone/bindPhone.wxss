@@ -1,0 +1,54 @@
+.bindphone-page {
+  width: 706rpx;
+  background: #f6f6f6;
+  margin: 22rpx 20rpx 0;
+}
+.bindphone-page .phone {
+  height: 106rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+  padding-left: 20rpx;
+}
+.bindphone-page .code-wrap {
+  display: flex;
+  align-items: center;
+}
+.bindphone-page .code-wrap .code {
+  padding-left: 20rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+  width: 445rpx;
+  height: 106rpx;
+  margin-right: 14rpx;
+  margin-top: 20rpx;
+}
+.bindphone-page .code-wrap .get-code-btn {
+  margin-top: 20rpx;
+  width: 245rpx;
+  height: 92rpx;
+  background: linear-gradient(90deg, #ff9d00, #ffbe00);
+  box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255, 211, 82, 0.75);
+  opacity: 0.9;
+  border-radius: 10rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bindphone-page .code-wrap .sec {
+  background: linear-gradient(90deg, #ff9d00, #ffbe00);
+  box-shadow: 3rpx 5rpx 21rpx 0px rgba(255, 211, 82, 0.75);
+  opacity: 0.4;
+}
+.bindphone-page .confirm {
+  width: 701rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  margin-top: 20rpx;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(90deg, #ff9d00, #ffbe00);
+  box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255, 211, 82, 0.75);
+  opacity: 0.9;
+  border-radius: 10rpx;
+}

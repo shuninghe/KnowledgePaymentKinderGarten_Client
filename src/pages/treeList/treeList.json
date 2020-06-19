@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "目录",
+  "usingComponents": {
+    "progress": "../../components/progress/progress",
+    "custom-popup": "../../components/customPopup/customPopup"
+  }
+}

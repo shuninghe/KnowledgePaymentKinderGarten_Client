@@ -1,0 +1,22 @@
+<!-- 奖学金-我的邀请 -->
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<view class="myInvite">
+    <view class="header">
+      <view class="head-item {{item.type === type ? 'item-line':''}}" bindtap="changeTab" data-type="{{item.type}}"
+        wx:for="{{myList}}" wx:key="index" >
+            {{item.name}}
+      </view>
+    </view>
+    <view class="main">
+        <block wx:if="{{inviteList.length}}">
+          <view class="card" wx:for="{{inviteList}}" wx:key="index">
+              <image class="avator" src="{{item.pic || '/images/saleMagage/home_03.png'}}" />
+              <view class="userInfo">
+                  <view class="name">{{item.userName}}</view>
+                  <view class="time">{{filters.timestampToTime(item.date,'Y.M.D h:m')}}</view>
+              </view>
+          </view>
+        </block>
+        <view class="no-data" wx:if="{{!inviteList.length}}">暂无数据</view>
+    </view>
+</view>

@@ -1,0 +1,51 @@
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<view class="study">
+  <view class="noData" wx:if="{{!userInfo.length}}">班级暂无学生</view>
+  <block wx:else>
+    <!-- tab栏 -->
+    <view class="tabs">
+      <view class="tab {{activeTab===index ? 'active' : ''}}" wx:for="{{type}}" wx:key="index" 
+        bindtap="changeTab" data-index="{{index}}">
+          {{item}}
+      </view>      
+    </view>
+    <!-- 统计栏 -->
+    <view class="total">
+      <view class="total-time">
+        <view class="all">{{filters.handleNumber(total_time/60000, 2)}}<text class="unit">min</text></view>
+        <view class="word">总时长</view>
+      </view>
+      <view class="total-num">
+        <view class="all">{{total_num}}<text class="unit">人</text></view>
+        <view class="word">学习</view>
+      </view>
+    </view>
+    <!-- 家长信息栏 -->
+    <view class="userInfo">
+      <view class="list" wx:for="{{userInfo}}" wx:key="index" data-userid="{{item.user_id}}" data-courses="{{item.courses}}" data-classuserid="{{item.class_user_id}}" bindtap="toDetail">
+        <view class="order">
+          <image class="order-con" wx:if="{{index === 0}}" src="../../../images/ClassModule/first.png" />
+          <image class="order-con" wx:if="{{index === 1}}" src="../../../images/ClassModule/second.png" />
+          <image class="order-con" wx:if="{{index === 2}}" src="../../../images/ClassModule/three.png" />
+          <view class="order-con" wx:if="{{index > 2}}">{{index + 1}}</view>
+        </view>
+        <view class="avatar">
+          <image style="width:34rpx;height:34rpx;" wx:if="{{!item.pic}}" src="../../../images/ClassModule/man.png" />
+          <image style="width:72rpx;height:72rpx;border-radius:50%;" wx:if="{{item.pic}}" src="{{item.pic}}" />
+        </view>
+        <view class="info">
+          <view class="name">{{item.name}}</view>
+          <view class="study-time">
+            <image style="width:18rpx;height:18rpx;margin-right:13rpx;" src="../../../images/ClassModule/time.png" />
+            <text style="font-size:20rpx;margin-right:35rpx;"> 学习 {{filters.handleNumber(item.study_time/60000, 2)}} 分钟 </text>
+            <image style="width:18rpx;height:18rpx;margin-right:13rpx;" src="../../../images/ClassModule/book.png" />
+            <text style="font-size:20rpx;"> {{item.course_num}} 门课程</text>
+          </view>
+        </view>
+        <view class="right" wx:if="{{curRoleInfo.type === 1 || curRoleInfo.type===2 && curRoleInfo.class_user_id === item.class_user_id}}">
+          <image style="width:18rpx;height:29rpx;" src="../../../images/ClassModule/study_right.png" />
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

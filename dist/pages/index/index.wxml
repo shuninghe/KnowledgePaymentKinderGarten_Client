@@ -1,0 +1,90 @@
+<view class="index">
+  <!-- 沃幼师 -->
+  <tab-youshi 
+    wx:if="{{selected === 1}}" 
+    isForceEnroll="{{functionConfig.isForceEnroll}}"
+    classAreasData="{{homeData.classAreasData}}"
+    bannerList="{{homeData.bannerList}}"
+    classifyList="{{homeData.classifyList}}"
+    meunShowType="{{homeData.meunShowType}}"
+    helpCourseList="{{helpCourseList}}">
+  </tab-youshi>
+  <!-- 沃园长(园所) \ 招聘求职(职教) -->
+  <tab-adspost 
+    wx:if="{{selected === 2}}"
+    pic="{{tabAdsPostData.pic}}"
+    positions="{{tabAdsPostData.positions}}">
+  </tab-adspost>
+  <!-- 我的 -->
+  <tab-my wx:if="{{selected === 3}}"></tab-my>
+  <!-- 沃考证-首页 -->
+  <tab-kaozheng 
+    wx:if="{{selected === 4}}"
+    isForceEnroll="{{functionConfig.isForceEnroll}}"
+    bannerList="{{homeData.bannerList}}"
+    classifyList="{{homeData.classifyList}}"
+    meunShowType="{{homeData.meunShowType}}"
+    recommended="{{homeData.recommended}}"
+    courseCategory="{{homeData.courseCategory}}">
+  </tab-kaozheng>
+  <!-- 认证考试 -->
+  <tab-renzhengexam
+    wx:if="{{selected === 5}}">
+  </tab-renzhengexam>
+  <!-- 沃职教-首页 -->
+  <tab-zhijiao
+    wx:if="{{selected === 6}}"
+    isForceEnroll="{{functionConfig.isForceEnroll}}"
+    bannerList= "{{homeData.bannerList}}"
+    meunShowType="{{homeData.meunShowType}}"
+    classifyList="{{homeData.classifyList}}"
+    classAreasData="{{homeData.classAreasData}}"
+    helpCourseList="{{helpCourseList}}">
+  </tab-zhijiao>
+  <!-- 沃家园通-首页todo -->
+  <tab-jiayuantong
+    wx:if="{{selected === 7}}" 
+    isForceEnroll="{{functionConfig.isForceEnroll}}"
+    classAreasData="{{homeData.classAreasData}}"
+    bannerList="{{homeData.bannerList}}"
+    classifyList="{{homeData.classifyList}}"
+    newList="{{homeData.newList}}"
+    meunShowType="{{homeData.meunShowType}}"
+    helpCourseList="{{helpCourseList}}"
+    bind:changeTab="changeTab" >
+  </tab-jiayuantong>
+  <!-- 沃家园通-游戏库 -->
+  <tab-allgame wx:if="{{selected === 8}}"></tab-allgame>
+  <!-- 沃家园通-班级圈 -->
+  <tab-class wx:if="{{selected === 9}}"></tab-class>
+  <!-- 机构 -->
+  <tab-shopHome
+    wx:if="{{selected === 10}}"
+    isForceEnroll="{{functionConfig.isForceEnroll}}"
+    classAreasData="{{homeData.classAreasData}}"
+    activityData="{{homeData.activityData}}"
+    classAreasData2="{{homeData.classAreasData2}}"
+    bannerList="{{homeData.bannerList}}"
+    classifyList="{{homeData.classifyList}}"
+    newList="{{homeData.newList}}"
+    moduleInfoCheck="{{homeData.moduleInfoCheck}}"
+    meunShowType="{{homeData.meunShowType}}"
+    helpCourseList="{{helpCourseList}}"
+    bind:changeTab="changeTab" 
+  ></tab-shopHome>
+  <!-- 机构-活动 -->
+  <tab-activity wx:if="{{selected === 11}}"></tab-activity>
+  <!-- 机构-知识库 -->
+  <tab-allcourse wx:if="{{selected === 12}}"></tab-allcourse>
+  <!-- 慧学-分销入口 -->
+  <tab-saleentrance wx:if="{{selected === 13}}"></tab-saleentrance>
+</view>
+
+<!-- 底部tab-bar -->
+<cover-view class="tab-bar">
+  <cover-view class="tab-bar-border"></cover-view>
+  <cover-view wx:for="{{tabBarList}}" wx:key="index" class="tab-bar-item" bindtap="changeTab" data-item="{{item}}">
+    <cover-image src="{{selected === item.type ? item.selectedIconPath : item.iconPath}}"></cover-image>
+    <cover-view style="color: {{selected === item.type ? selectedColor : color}}">{{item.name}}</cover-view>
+  </cover-view>
+</cover-view>

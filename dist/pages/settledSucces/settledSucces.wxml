@@ -1,0 +1,12 @@
+<view class="settled" wx:if="{{mode}}">
+  <image class="succes" src="/images/saleMagage/success_03.png"></image>
+  <view class="succesText">恭喜您，提交成功！</view>
+</view>
+<view class="settled" wx:else>
+  <image class="succes" src="/images/saleMagage/success_03.png"></image>
+  <view class="succesText">恭喜您，入驻成功！</view>
+  <view class="setId">您的园所编码是：{{cdk}}</view>
+  <view class="tips">请牢记！教师注册时请务必填写哦~</view>
+  <view class="copyId" data-cdk="{{cdk}}" bindtap="copyBtn">点击复制编码</view>
+  <button class="btn" style="padding: 0;" open-type="share">马上邀请老师</button>
+</view>

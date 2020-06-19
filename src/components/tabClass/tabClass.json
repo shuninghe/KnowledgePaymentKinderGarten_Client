@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "classHome": "../../components/ClassModule/classHome/classHome",
+    "notice": "../../components/ClassModule/notice/notice",
+    "album": "../../components/ClassModule/album/album",
+    "study": "../../components/ClassModule/study/study",
+    "posterList": "../../components/ClassModule/posterList/posterList"
+  }
+}

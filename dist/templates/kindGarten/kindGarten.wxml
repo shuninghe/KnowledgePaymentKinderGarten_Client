@@ -1,0 +1,8 @@
+
+<template name="kindGarten">
+  <view class="top-box">
+      <image class="head-pic" src="{{url}}" bindtap="changeHeaderpic"/>
+
+	
+  </view>
+</template>

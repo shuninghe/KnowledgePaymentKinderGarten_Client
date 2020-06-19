@@ -1,0 +1,71 @@
+/* components/countDown/countDown.wxss */
+.cd-container {
+    width: 100%;
+    height: 34rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.txt {
+    height: 34rpx;
+    font-size: 26rpx;
+    color: #282423;
+}
+.num,.num-white{
+    position: relative;
+    height: 34rpx;
+    background: #282423;
+    border-radius: 4rpx;
+    border-radius: 4rpx;
+    font-size: 20rpx;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20rpx;
+}
+.pad-4 {
+    padding: 0 4rpx;
+    margin-left: 0;
+}
+.width-34 {
+    width: 34rpx;
+}
+.num::before,.num-white::before{
+    content: ':';
+    color: #000;
+    position: absolute;
+    left: -12rpx;
+}
+.num-white {
+    background-color: #fff;
+    color:#FF4A27;
+}
+.num-first::before {
+    content: '';
+}
+.num-white::before {
+    color: white;
+}
+.cd-container-color {
+    width: 628rpx;
+    height: 80rpx;
+    display: flex;
+    background-color: #fff;
+    background: url('https://woxue-dev.oss-cn-beijing.aliyuncs.com/1590650059550.098624141590649702_.pic_hd.png') no-repeat;
+    justify-content: center;
+    background-size: 100% 100%;
+    align-items: center;
+    border-radius: 0 38px 38px 38px;
+    margin: 0 auto;
+    background-color: pink;
+    padding-left: 200rpx;
+}
+.txt-color {
+    font-size: 28rpx;
+    color: #FFFFFF;
+}
+.only-txt {
+    font-size: 20rpx;
+    color: #999999
+}

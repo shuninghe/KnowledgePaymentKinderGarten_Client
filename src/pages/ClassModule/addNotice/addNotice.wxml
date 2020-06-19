@@ -1,0 +1,31 @@
+<view class="addNotice">
+    <input class="addTitle" type="text" value="{{title}}" bindinput="inputTitle" placeholder="标题" placeholder-style="color:#272727;font-size: 30rpx"/>
+    <textarea class="addContent" placeholder="通知内容" maxlength="-1" placeholder-style="color:#939393;font-size: 30rpx" value="{{content}}"  bindinput="inputContent"></textarea>
+    <view class="photoList">
+      <view class="list" wx:for="{{pics}}" wx:key="index">
+        <image bindtap="openPhoto" data-url="{{item}}" class="albmImg" src="{{item}}" mode="aspectFill"></image>
+        <image data-index="{{index}}" bindtap="delPhoto" class="delIcon" src='/images/ClassModule/delBtn.png'></image>
+      </view> 
+      <view class="addAlbm" wx:if="{{pics.length < 6}}" bindtap="uploadAlbm"><image class="icon" src='/images/ClassModule/add_03.png'></image></view>
+    </view>
+    <view class="replay">
+      <view class="line"></view>
+      <view class="left">
+        <image class="reImg" src='/images/ClassModule/share_03.png'></image>
+        <text class="retext">是否需要回复</text>
+      </view>
+      <image wx:if="{{is_review}}" bindtap="changeReview" class="swich" src='/images/ClassModule/n_open.png'></image>
+      <image wx:else class="swich" bindtap="changeReview" src='/images/ClassModule/n_close.png'></image>
+    </view>
+    <view class="replay" style="margin-bottom: 140rpx">
+      <view class="line"></view>
+      <view class="left">
+        <image class="faImg" src='/images/ClassModule/view_07.png'></image>
+        <text class="retext">家长回复相互不可见</text>
+      </view>
+      <image wx:if="{{!is_watch}}" bindtap="changeWatch" class="swich" src='/images/ClassModule/n_open.png'></image>
+      <image wx:else class="swich" bindtap="changeWatch" src='/images/ClassModule/n_close.png'></image>
+    </view>
+</view>
+<!-- 发布 -->
+<view class="subBtn"><view class="btn" bindtap="submitPhoto">发布</view></view>

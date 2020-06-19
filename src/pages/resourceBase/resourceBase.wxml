@@ -1,0 +1,28 @@
+<!-- 沃职教-资源库 -->
+<view class="resourceBase" wx:if="{{classData.length}}">
+  <scroll-view scroll-y class="left-wrap" style='height:{{conHeight}}rpx;'>
+    <view class="nav-classify" wx:for="{{classData}}" wx:key="index">
+      <view class="nav-item ellipsisOne">
+        {{item.name}}
+      </view>
+      <view class="nav-item content ellipsisOne {{tab.index === navActive ? 'active':''}}" 
+        wx:for="{{item.tab}}" wx:key="index" wx:for-item="tab" 
+        catchtap='chooseType' data-i="{{tab.i}}" data-index="{{tab.index}}">
+        {{tab.name}}
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-y class="right-wrap" style='height:{{conHeight}}rpx;' 
+    scroll-into-view="{{contentActive}}" scroll-with-animation 
+    bindscroll="onScroll">
+    <view class='tab-content contlist' wx:for="{{classData[classifyActive].tab}}" wx:key="index" 
+      wx:for-item="courseList" id='type{{courseList.index}}'>
+      <view class='tab-content-title'>{{courseList.name}}</view>
+      <view class='course' wx:for="{{courseList.course}}" wx:key="index">
+        <image class="course-img" src="{{item.pic}}" mode="aspectFill"></image>
+        <text class="course-name ellipsisTwo">{{item.name}}</text>
+      </view>
+    </view> 
+  </scroll-view>
+</view>
+<view class="no-data" wx:else>暂无分类数据</view>

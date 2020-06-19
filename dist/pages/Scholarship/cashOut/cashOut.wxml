@@ -1,0 +1,43 @@
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<view class="cashOut">
+  <!-- 银行卡 -->
+  <view class="bankCard" wx:if="{{cashInfo.name}}" bindtap="selectBank">
+    <view class="left">
+      <view class="card-logo" style="background-image: url({{cashInfo.logoUrl}})"></view>
+      <view class="leftText">
+        <view class="name">{{cashInfo.name}}</view>
+        <view class="card">{{filters.handleCard(cashInfo.card)}}</view>
+      </view>
+    </view>
+    <image class="rightIcon" src="/images/saleMagage/icon_left.png"></image>
+  </view>
+  <!-- 添加银行卡 -->
+  <view class="addCard" wx:else bindtap="addBank">
+    <view class="left">
+      <image class="iconcard" src="/images/saleMagage/c_card_07.png"></image>
+      <text class="name">点击添加银行卡</text>
+    </view>
+    <image class="rightIcon" src="/images/saleMagage/icon_left.png"></image>
+  </view>
+  <!-- 提现金额 -->
+  <view class="cashMoney">
+    <view class="left">
+      <view class="money">提现金额</view>
+      <view class="cashInput">
+        <image class="inputIcon" src="/images/saleMagage/c_money_03.png"></image> 
+        <input type="number" value="{{money}}" bindblur="bindblurNum" placeholder="请输入金额" placeholder-style="font-size: 26rpx"/>
+      </view>
+      <view class="userCash">可用金额 {{filters.handlePrice(balanceMoney)}} 元</view>
+    </view>
+    <view class="allCash" data-money="{{filters.handlePrice(balanceMoney)}}" bindtap="allCash">全部提现</view>
+  </view>
+  <!-- 注释 -->
+  <view class="tips">注：每月10日、20日系统统一审批提现</view>
+  <!-- 提现按钮 -->
+  <view class="cashbtn" bindtap="succesCash">提现</view>
+  <!-- 提现记录 -->
+  <view class="cashRecord" bindtap="goCashRecord">
+    <image class="icon" src="/images/saleMagage/c_record.png"></image>
+    <text class="name">提现记录</text>
+  </view>
+</view>

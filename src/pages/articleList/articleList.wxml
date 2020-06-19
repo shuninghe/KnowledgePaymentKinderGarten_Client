@@ -1,0 +1,22 @@
+<import src="../../templates/infoList/infoList.wxml"/>
+<!-- 图文分类列表页 -->
+<view class="articleList">
+  <!-- tabs -->
+  <scroll-view scroll-x class="tabs" scroll-with-animation bindscroll="scroll">
+    <view class="tip left-tip" wx:if="{{showLeftTip}}">
+      <image class="tip-icon" src="../../images/db_arr.png" />
+    </view>
+    <block wx:for="{{tabsData}}" wx:key="index">
+      <view class="tab ellipsisOne {{activeTab===index ? 'active' : ''}} {{'tabsLen-' + tabsData.length}}" 
+        bindtap="changeTab" data-id="{{item.id}}" data-index="{{index}}">{{item.name}}</view>
+    </block>    
+    <view class="tip right-tip" wx:if="{{showRightTip}}">
+      <image class="tip-icon" src="../../images/db_arr.png" />
+    </view>
+  </scroll-view>
+  <!-- 列表 -->
+  <view wx:if="{{list.length}}" style="margin-top: 108rpx;">
+    <template is="info-list-2" data="{{list}}"></template>
+  </view>
+  <view class="no-data" wx:else>暂无数据</view>
+</view>

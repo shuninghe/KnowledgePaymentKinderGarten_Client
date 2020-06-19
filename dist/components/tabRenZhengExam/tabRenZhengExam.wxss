@@ -1,0 +1,36 @@
+.tabRenZhengExam {
+  width: 100%;
+  padding-bottom: 97rpx;
+  overflow: hidden;
+  background: #fff;
+}
+.tabRenZhengExam .renZhengExam .header {
+  width: 100%;
+  height: 380rpx;
+}
+.tabRenZhengExam .renZhengExam .container {
+  padding: 0 93rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tabRenZhengExam .renZhengExam .container .container-item {
+  margin-bottom: 35rpx;
+}
+.tabRenZhengExam .renZhengExam .container .container-item:nth-of-type(2n) {
+  margin-left: 27rpx;
+}
+.tabRenZhengExam .renZhengExam .container .container-item .exam-pic {
+  width: 270rpx;
+  height: 184rpx;
+}
+.tabRenZhengExam .renZhengExam .container .container-item .exam-name {
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tabRenZhengExam .renZhengExam .container .container-item .exam-type {
+  font-size: 18rpx;
+  color: #8f8f8f;
+  display: inline-block;
+}

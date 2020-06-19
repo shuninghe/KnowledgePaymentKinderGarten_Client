@@ -1,0 +1,25 @@
+<!-- 学习-课程列表页 -->
+<view class="courseList">
+  <!-- tabs -->
+  <scroll-view scroll-x class="tabs" scroll-with-animation bindscroll="scroll">
+    <view class="tip left-tip" wx:if="{{showLeftTip}}">
+      <image class="tip-icon" src="../../images/db_arr.png" />
+    </view>
+    <block wx:for="{{tabsData}}" wx:key="index">
+      <view class="tab ellipsisOne {{activeTab===index ? 'active' : ''}} {{'tabsLen-' + tabsData.length}}" 
+        bindtap="changeTab" data-index="{{index}}">{{item.category_name}}</view>
+    </block>    
+    <view class="tip right-tip" wx:if="{{showRightTip}}">
+      <image class="tip-icon" src="../../images/db_arr.png" />
+    </view>
+  </scroll-view>
+  <!-- 列表 -->
+  <view class="list" wx:if="{{tabsData[activeTab].courses.length}}">
+    <view class="item" wx:for="{{tabsData[activeTab].courses}}" wx:key="index" 
+      bindtap="toCourseDetail" data-id="{{item.course_id}}">
+      <image class="item-img" src="{{item.course_pic}}" />
+      <view class="item-name">{{item.course_name}}</view>
+    </view>
+  </view>
+  <view class="no-data" wx:else>暂无数据</view>
+</view>

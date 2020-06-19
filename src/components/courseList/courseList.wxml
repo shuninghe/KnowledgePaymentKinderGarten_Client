@@ -1,0 +1,58 @@
+<!-- 园所原始助力 -->
+<!-- <scroll-view wx:if="{{isHelp}}" class="course-container {{mode === 3?'multirow':''}} {{mode !== 3?'onerow':''}} {{mode!==2?'circular':''}}" scroll-x>
+	<view class="item" wx:for="{{list}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+    <image class="img" src="{{item.pic}}" />
+    <view class="triangle-tip" wx:if="{{isHelp}}"></view>
+    <image class="icon-tip" wx:if="{{isHelp}}" src="../../images/icon_help.png" />
+    <view class="txt {{mode === 2 ||isHelp ?'ellipsisOne':'ellipsisTwo'}}">{{item.name}}</view>
+  </view>
+</scroll-view> -->
+<!-- 园所新助力 -->
+<view wx:if="{{isHelp}}" class="course-container index5_style">
+	<view class="item" wx:for="{{list}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+    <image class="img" src="{{item.pic}}" />
+    <view class="triangle-tip" wx:if="{{isHelp}}"></view>
+    <image class="icon-tip" wx:if="{{isHelp}}" src="../../images/icon_help.png" />
+    <view class="txt {{mode === 2 ||isHelp ?'ellipsisOne':'ellipsisTwo'}}">{{item.name}}</view>
+  </view>
+</view>
+
+<!-- 1 带圆角 2 不带圆角只支持单行 3 带圆角最多两行  -->
+<view class="index-title-container" wx:else>
+	<image class="left" src="/images/index_titlte_left-ico.png"></image>
+	<view class="txt">{{name}}</view>
+	<image class="right" src="/images/index_titlte_right-ico.png"></image>
+</view>
+<block wx:if="{{showtype === 2}}" data-index="{{index}}" wx:for="{{list}}" wx:key="this">
+	<view class="tab-contaienr" wx:if="{{item.name !== '暂无'}}">
+		<scroll-view class="tab-scroll">
+			<view class="item-wrap">
+				<text class='tab-item-text text-cur'>{{item.name === '暂无' ? '' : item.name}}</text>
+				<view class="tab-line"></view>
+			</view>
+		</scroll-view>
+	</view>
+	<scroll-view class="course-container {{mode === 3?'multirow':''}} {{mode !== 3?'onerow':''}} {{mode!==2?'circular':''}}" scroll-x>
+		<view class="item" wx:for="{{item.course}}" wx:for-item="sitem" wx:for-index="sindex" wx:key="key" bindtap="toPage" data-item="{{sitem}}">
+			<image class="img" src="{{sitem.pic}}" />
+			<view class="txt {{(mode === 2||mode === 1)?'ellipsisOne':'ellipsisTwo'}}">{{sitem.name}}</view>
+		</view>
+	</scroll-view>
+</block>
+<view wx:if="{{showtype === 1}}">
+	<view class="tab-contaienr" wx:if="{{isShow}}">
+		<scroll-view class="tab-scroll">
+			<view class="item-wrap" bindtap='changeTab' data-index="{{index}}" wx:for="{{list}}" wx:key="this">
+				<text class='tab-item-text {{index === classTabIndex?"text-cur":""}}'>{{item.name === '暂无' ? '' : item.name }}</text>
+				<view class="tab-line" wx:if='{{index === classTabIndex?"text-cur":""}}'></view>
+			</view>
+		</scroll-view>
+	</view>
+	<scroll-view wx:for="{{list}}" wx:if="{{index === classTabIndex}}" wx:key="this" scroll-x
+		class="course-container {{mode === 3?'multirow':''}} {{mode !== 3?'onerow':''}} {{mode!==2?'circular':''}}">
+		<view class="item" wx:for="{{item.course}}" wx:for-item="sitem"	wx:for-index="sindex" wx:key="this" bindtap="toPage" data-item="{{sitem}}">
+			<image class="img" src="{{sitem.pic}}" />
+			<view class="txt {{mode === 2?'ellipsisOne':'ellipsisTwo'}}">{{sitem.name}}</view>
+		</view>
+	</scroll-view>
+</view>

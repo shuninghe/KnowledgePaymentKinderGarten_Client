@@ -1,0 +1,21 @@
+<view class="container">
+   <view class="line">
+     <view class="left">
+       <view class="city">
+       {{region}}
+      </view>
+      <input type="text" placeholder="您的地址" class="input-box" bindinput="getsuggest" value="{{backfill}}"/>
+     </view>
+     <view class="right" bindtap="handleCancel">
+       取消
+     </view>
+   </view>
+    <view wx:for="{{suggestion}}" wx:key="index">
+        <!--绑定回填事件-->
+        <view class="item" id="{{index}}" bindtap="backfill">
+          <view id="{{index}}" class="title">{{item.title}}</view>
+          <view class="addr">{{item.addr}}</view>
+        </view>
+    </view>
+</view>
+  

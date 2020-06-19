@@ -1,0 +1,41 @@
+<!--components/countDown/countDown.wxml-->
+<!-- 黑色 已成团未成团页面和首页 -->
+<view class="cd-container" wx:if="{{ dark===1 }}">
+    <view class="txt" wx:if="{{ !isIndex }}">
+        距结束还剩：{{days}}天
+    </view>
+    <view class="txt" wx:if="{{ isIndex }}">
+        剩余：{{days}}天
+    </view>
+    <view class="num width-34">
+        {{hour}}
+    </view>
+    <view class="num width-34">
+        {{minute}}
+    </view>
+    <view class="num width-34">
+        {{second}}
+    </view>
+</view>
+<!-- 彩色 详情页使用 -->
+<view class="cd-container-color" wx:if="{{ dark===2 }}">
+    <view class="txt-color">
+       距结束还剩：
+    </view>
+    <view class="num-white pad-4 num-first">
+        {{days}}天
+    </view>
+    <view class="num-white width-34">
+        {{hour}}
+    </view>
+    <view class="num-white width-34">
+        {{minute}}
+    </view>
+    <view class="num-white width-34">
+        {{second}}
+    </view>
+</view>
+<!-- 纯文本 详情页列表 -->
+<view class="only-txt" wx:if="{{ dark===3 }}">
+    剩余{{days}}天：{{hour}}：{{minute}}：{{second}}
+</view>

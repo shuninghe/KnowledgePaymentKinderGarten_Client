@@ -1,0 +1,17 @@
+{
+  "usingComponents": {
+    "tab-youshi": "../../components/tabYouShi/tabYouShi",
+    "tab-adspost": "../../components/tabAdsPost/tabAdsPost",
+    "tab-my": "../../components/tabMy/tabMy",
+    "tab-kaozheng": "../../components/tabKaoZheng/tabKaoZheng",
+    "tab-renzhengexam": "../../components/tabRenZhengExam/tabRenZhengExam",
+    "tab-zhijiao": "../../components/tabZhiJiao/tabZhiJiao",
+    "tab-jiayuantong": "../../components/tabJiaYuanTong/tabJiaYuanTong",
+    "tab-allgame": "../../components/tabAllGame/tabAllGame",
+    "tab-class": "../../components/tabClass/tabClass",
+    "tab-shopHome": "../../components/tabShopHome/tabShopHome",
+    "tab-activity": "../../components/tabActivity/tabActivity",
+    "tab-allcourse": "../../components/tabAllCourse/tabAllCourse",
+    "tab-saleentrance": "../../components/tabSaleEntrance/tabSaleEntrance"
+  }
+} 

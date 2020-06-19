@@ -1,0 +1,97 @@
+.resourceBase {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.left-wrap {
+  .nav-classify:nth-child(4n+1) {
+    background: rgba(254,169,24,.4);
+  }
+  .nav-classify:nth-child(4n+2) {
+    background: rgba(254,116,24,.4);
+  }
+  .nav-classify:nth-child(4n+3) {
+    background: rgba(182,230,113,.4);
+  }
+  .nav-classify:nth-child(4n+4) {
+    background: rgba(204,157,212,.4);
+  }
+  .nav-classify {
+    width: 180rpx;
+    color: rgba(51,51,51,1);
+    margin: 20rpx 0 30rpx;
+    border-radius: 0rpx 20rpx 20rpx 0rpx;
+    .nav-item:last-child {
+      border-radius: 0rpx 0rpx 20rpx 0rpx;
+    }
+  }
+  .nav-item {
+    width: 180rpx;
+    height: 90rpx;
+    font-size: 26rpx;
+    font-family: Source Han Sans SC;
+    text-align: center;
+    line-height: 90rpx;
+    &.content {
+      background: rgba(248,248,248,1);
+      color: rgba(115,115,115,1);
+    }
+    &.active {
+      width: 172rpx;
+      height: 90rpx;
+      margin-left: 8rpx;
+      background: rgba(255,255,255,1);
+      font-size: 30rpx;
+      font-family: Source Han Sans SC;
+      font-weight: bold;
+      color: rgba(51,51,51,1);
+    }
+  }
+}
+.right-wrap {
+  .tab-content {
+    width: 530rpx;
+    background-color: #fff;
+    box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(224,224,224,0.75);
+    border-radius: 20rpx;
+    padding: 28rpx 20rpx 20rpx;
+    margin: 20rpx;
+    &-title {
+      font-size: 26rpx;
+      line-height: 26rpx;
+      font-family: Source Han Sans SC;
+      font-weight: 500;
+      color: rgba(51,51,51,1);
+    }
+    .course {
+      display: inline-flex;
+      flex-direction: column;
+      width: 144rpx;
+      margin-top: 30rpx;
+      margin-right: 29rpx;
+      &:nth-of-type(3n+4) {
+        margin-right: 0;
+      }
+      &-img {
+        width: 144rpx;
+        height: 144rpx;
+        border-radius: 14rpx;
+      }
+      &-name {
+        font-size: 20rpx;
+        line-height: 24rpx;
+        font-family: Source Han Sans SC;
+        color: rgba(51,51,51,1);
+        margin-top: 18rpx;
+      }
+    }
+  }
+}
+.no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #8C8C8C;
+  margin-top: 500rpx;
+}

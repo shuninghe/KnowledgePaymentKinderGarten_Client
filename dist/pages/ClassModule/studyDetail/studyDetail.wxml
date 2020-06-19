@@ -1,0 +1,45 @@
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<view class="studyDetail">
+  <block wx:if="{{studyInfo.length}}">
+    <view class="detail" style="{{item.status? 'background-image: url(../../../images/ClassModule/courseDetail.jpg)': ''}}" wx:for="{{studyInfo}}" wx:key="index">
+      <view style="display: flex;justify-content: start;align-items: center;">
+        <image class="course-pic" src="{{item.square_course_pic || item.course_pic}}" />
+        <!-- 课程封面 -->
+        <view class="course-info">
+          <view class="name">{{item.name}}</view>
+          <view style="display:flex;align-items: center;margin-bottom: 12rpx;">
+            <progress class="progress" percent="{{item.study_scale * 100}}" color="#439C9B" padLeft="20"></progress>
+            <text class="done"> 已完成</text>
+            <text class="baifenbi">{{(item.study_scale * 1000)/10}}%</text>
+          </view>
+          <view class="info-bottom">
+            <view class="time">
+              <image style="width:18rpx;height:18rpx;margin-right:10rpx;" src="{{item.status? '../../../images/ClassModule/detailTime.png':'../../../images/ClassModule/study_detail_time2.png'}}" />
+              累计学习： {{filters.handleNumber(item.study_time/60000, 2)}} 分钟
+            </view>
+            <view style="display:flex;align-items: center;" data-index="{{index}}" bindtap="showDetail">
+              <view class="status">{{!item.status? '展开':'收起'}}</view>
+              <image style="width:14rpx;height:10rpx;" src="{{item.status? '../../../images/ClassModule/detailup.png':'../../../images/ClassModule/detaildown.png'}}" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 课程列表 -->
+      <view style="padding:32rpx;" wx:if="{{item.status}}">
+        <view class="section" wx:for="{{item.section}}" wx:for-item="option" wx:for-index="key" wx:key="key">
+          <view class="title">
+            <view class="line" wx:if="{{key !== 0}}"></view>
+            <text class="dot"></text>
+            <text class="text-title">{{option.title}}</text>
+          </view>
+          <view class="section-time">
+            <image style="width:20rpx;height:20rpx;margin-right:14rpx;" src="../../../images/ClassModule/time.png" />
+            {{filters.handleNumber(option.time/60000, 2)}} min
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="no-study" wx:else>暂无学习课程</view>
+</view>
+  

@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="map">
+    <map
+      id="myMap"
+      style="width: 100%; height: 100%;"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      scale="14" 
+      show-location
+      bindtap="clickMap"
+    ></map>
+
+  </view>
+  <view class="content" >
+    <view class="name">
+        {{name}}
+    </view>
+    <view class="line">
+      <image src="../../images/laba.png" class="laba"/>
+      <view >
+        {{teacher}}
+      </view>
+    </view>
+    <view class="line">
+      <image src="../../images/phone.png" class="phone"/>
+      <view >
+        {{phone}}
+      </view>
+    </view>
+    <view class="line">
+      <image src="../../images/position.png" class="position"/>
+      <view >
+        {{address}}
+      </view>
+    </view>
+  </view>
+</view>

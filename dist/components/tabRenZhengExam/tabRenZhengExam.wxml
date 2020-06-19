@@ -1,0 +1,17 @@
+<!-- 沃考证-认证考试 -->
+<view class="tabRenZhengExam">
+  <view class="renZhengExam">
+    <image class="header" 
+    src="https://woxue-dev.oss-cn-beijing.aliyuncs.com/1587441180829.2039exam_bg.jpg">
+    </image>
+    <view class="container">
+      <view class="container-item" wx:for="{{examList}}" wx:key="index">
+        <image class="exam-pic" src="{{item.pic}}"></image>
+        <view class="exam-name">
+          <text>{{item.name}}</text>
+          <text class="exam-type" wx:if="{{item.type === 2}}">（模考）</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

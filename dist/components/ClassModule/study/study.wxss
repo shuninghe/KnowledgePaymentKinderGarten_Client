@@ -1,0 +1,107 @@
+.study {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 97rpx;
+}
+.study .noData {
+  padding-top: 40%;
+  padding-right: 36rpx;
+  font-family: PingFangSC-Thin;
+  font-size: 30rpx;
+  color: #888888;
+  text-align: center;
+}
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 24rpx 0;
+}
+.tabs .tab {
+  font-size: 26rpx;
+  width: 132rpx;
+  text-align: center;
+  height: 49rpx;
+  line-height: 49rpx;
+  border-radius: 25rpx;
+  color: #282828;
+}
+.tabs .tab.active {
+  background: #C3DFDF;
+}
+.total {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 38rpx 0;
+}
+.total .all {
+  color: #107E7D;
+  font-size: 53rpx;
+  font-weight: bold;
+  line-height: 42rpx;
+}
+.total .unit {
+  margin-left: 10rpx;
+  color: #717171;
+  font-size: 20rpx;
+  line-height: 42rpx;
+  opacity: 0.5;
+}
+.total .word {
+  color: rgba(40, 40, 40, 0.86);
+  font-size: 24rpx;
+  text-align: center;
+}
+.userInfo {
+  background: #fff;
+  margin: 0 22rpx 22rpx 22rpx;
+  border-radius: 20rpx;
+}
+.userInfo .list {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 120rpx;
+}
+.userInfo .list .order {
+  margin-left: 39rpx;
+  text-align: center;
+}
+.userInfo .list .order .order-con {
+  width: 46rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 60rpx;
+}
+.userInfo .list .avatar {
+  margin-left: 26rpx;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  border: 1rpx solid #FBF8F9;
+  text-align: center;
+  line-height: 72rpx;
+}
+.userInfo .list .info {
+  margin-left: 24rpx;
+  width: 440rpx;
+}
+.userInfo .list .info .name {
+  font-size: 26rpx;
+  color: #313131;
+  margin-bottom: 17rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.userInfo .list .info .study-time {
+  display: flex;
+  align-items: center;
+  color: #717171;
+  font-size: 20rpx;
+  height: 20rpx;
+}

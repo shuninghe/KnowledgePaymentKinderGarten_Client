@@ -1,0 +1,132 @@
+<import src="../../templates/catalogTree/catalogTree.wxml"/>
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+
+<!-- 旧版-学习-课程详情页 -->
+<view class="courseDetail">
+  <video class="video" wx:if="{{showForuseVideo}}" id="video" src="{{foruse_url}}" autoplay bindended="videoEnd" binderror="videoError"></video>
+  <!-- 课程信息 -->
+  <view class="course-content">
+    <image class="img" wx:if="{{!showForuseVideo}}" src="{{pic}}" mode="widthFix" bindtap="playForuseVideo" >
+      <view class="wrap" wx:if="{{foruse_url}}">
+        <image class="icon-play" src="../../images/icon-play.png" />
+      </view>
+    </image>
+    <view class="title">
+      <view class="flex-cen-cen">
+        <text class="ellipsisOne" style="max-width:532rpx;">{{name}}</text>
+        <view class="section-num">
+          <view class="circle"></view>共{{sections_num}}课时
+        </view>
+      </view>
+    </view>
+    <text class="txt" decode="{{true}}" wx:if="{{course_resume}}">{{course_resume}}</text>
+  </view>
+  <!-- tab栏 -->
+  <view class="tabs">
+    <view class="tab {{activeTab === 0 ? 'active' : ''}}" bindtap="changeTab" data-index="0">课程目录<view class="tag"></view></view>
+    <view class="tab {{activeTab === 1 ? 'active' : ''}}" bindtap="changeTab" data-index="1">课程介绍<view class="tag"></view></view>
+    <view  wx:if="{{commentConfig}}" class="tab {{activeTab === 2 ? 'active' : ''}}" bindtap="changeTab" data-index="2">课程评价<view class="tag"></view></view>
+  </view>
+  <!-- 课程目录 -->
+  <view class="course-tree" wx:if="{{activeTab === 0}}" style="padding-top:{{is_series?'':'30rpx'}};">
+    <template is="catelog_tree_tpl" data="{{trees, isbuy, showList}}"></template>
+  </view>
+  <!-- 课程介绍 -->
+  <view class="course-intro" wx:if="{{activeTab === 1}}">
+    <rich-text nodes="{{filters.replaceImgSize(course_detail)}}"></rich-text>
+  </view>
+  <!-- 课程评价 -->
+  <view class="comment-list" wx:if="{{activeTab === 2 && dynamicList.length && commentConfig}}">
+    <block wx:for="{{dynamicList}}" wx:key="index">
+      <view class="item">
+        <view class="item-title">
+          <view class="item-title-left" hover-class="none" hover-stop-propagation="false">
+            <image class="head-pic" src="{{item.head_pic || '/images/default_head.png'}}" />
+            <view class="head-name">{{item.remark_name}}</view>
+            <view class="culling" wx:if="{{item.type === 1}}">精选</view>
+          </view>
+          <view class="item-title-right">{{filters.timestampToTime(item.ctime,'Y-M-D')}}</view>
+        </view>
+        <view class="item-content">{{item.content}}</view>
+        <view class="item-delete-btn" data-index="{{index}}" data-id="{{item._id}}" bindtap="deleteComment" wx:if="{{item.status === 1}}">[删除]</view>
+      </view> 
+    </block>
+  </view>
+  <view class="no-list-data" wx:if="{{!dynamicList.length && activeTab === 2}}">暂无评价</view>
+  <!-- 分享悬浮按钮 -->
+  <view class="share-wrap">
+    <button class="share-btn" open-type="getUserInfo" bindgetuserinfo="toSharePost">
+      <image class="icon-share" src="/images/study/share.png" />
+      <text class="icon-txt">海报分享</text>
+    </button>
+  </view>
+</view>
+<!-- 底部按钮-助力课程 -->
+<view class="bottom-btn" wx:if="{{isHelp}}">
+  <navigator class="btn" open-type="reLaunch" url="/pages/index/index" hover-class="none">返回首页</navigator>
+  <!-- 没买\未报名 && (IOS机型&&开启IOS报名 || 安卓机型&&开启安卓报名) && (未完成助力 || 已助力\助力价格>0) -->
+  <block wx:if="{{!isbuy && !hasSignUp}}">
+    <navigator class="btn price f32" open-type="navigate" url="/pages/signUpInfo/signUpInfo?id={{course_id}}" hover-class="none"
+      wx:if="{{(isIOS && iosConfig || !isIOS && androidConfig) && (pal_assistant.status!==2 || pal_assistant.status===2 && pal_assistant.price>0)}}">
+      立即报名
+    </navigator>
+  </block>
+  <!-- 已买 || 已助力\助力价格=0 || 没买\IOS机型\关闭IOS报名\隐藏IOS价格 || IOS机型\开启IOS报名\已报名\隐藏IOS价格\(未完成助力 || 已助力\助力价格>0) -->
+  <navigator class="btn price f32" open-type="redirect" url="/pages/studyCenter/studyCenter" hover-class="none" 
+    wx:if="{{isbuy || pal_assistant.status===2 && pal_assistant.price===0 || !isbuy && isIOS && !iosConfig || isIOS && iosConfig && hasSignUp && (pal_assistant.status!==2 || pal_assistant.status===2 && pal_assistant.price>0)}}">
+    学习中心
+  </navigator>
+  <!-- 没买\(未完成助力 || 已助力\助力价格>0) && ( 安卓机型\(开启安卓报名\已报名 || 关闭安卓报名) || IOS机型\显示IOS价格\(开启IOS报名\已报名 || 关闭IOS报名) ) -->
+  <block wx:if="{{!isbuy && (pal_assistant.status!==2 || pal_assistant.status===2 && pal_assistant.price>0) && ( !isIOS && (androidConfig && hasSignUp || !androidConfig) || isIOS && (iosConfig && hasSignUp || !iosConfig) )}}">
+    <view class="buy-btn" bindtap="judgeBindPhone">
+      <view class="price" wx:if="{{price}}">¥{{filters.handlePrice(price)}}</view>
+      <view class="txt {{price?'':'f32'}}">{{price? '直接购买' : '立即学习'}}</view>
+    </view>
+    <view class="buy-btn large" bindtap="needFriendHelp">
+      <view class="price">¥{{filters.handlePrice(pal_assistant.price) || 0}}</view>
+      <view class="txt">助力优惠</view>
+    </view>
+  </block>
+</view>
+<!-- 底部按钮-普通课程 -->
+<view class="bottom-btn" wx:if="{{!isHelp && (activeTab !== 2 && isbuy) || (!isHelp && !isbuy)}}">
+  <navigator class="btn" open-type="reLaunch" url="/pages/index/index" hover-class="none">返回首页</navigator>
+  <!-- 没买\IOS机型\开启IOS报名\未报名 || 没买\安卓机型\开启安卓报名\未报名 -->
+  <block wx:if="{{!isbuy && !hasSignUp}}">
+    <navigator class="btn price f32" open-type="navigate" url="/pages/signUpInfo/signUpInfo?id={{course_id}}" hover-class="none"
+      wx:if="{{isIOS && iosConfig || !isIOS && androidConfig}}">
+      立即报名
+    </navigator>
+  </block>
+  <!-- 没买\IOS机型\显示IOS价格\(开启IOS报名&已报名||关闭IOS报名) || 没买\安卓机型\(开启安卓报名&已报名||关闭安卓报名) -->
+  <block wx:if="{{!isbuy}}">
+    <view class="btn price {{price?'':'f32'}}" bindtap="judgeBindPhone" 
+      wx:if="{{isIOS && (iosConfig && hasSignUp || !iosConfig) || !isIOS && (androidConfig && hasSignUp || !androidConfig)}}">
+      {{price ? '¥'+filters.handlePrice(price) : '立即学习'}}
+    </view>
+  </block>
+  <!-- 已买 || 没买\IOS机型\隐藏IOS价格\(开启IOS报名&已报名||关闭IOS报名) -->
+  <navigator class="btn price f32" open-type="redirect" url="/pages/studyCenter/studyCenter" hover-class="none"
+    wx:if="{{isbuy || !isbuy && isIOS && (iosConfig && hasSignUp || !iosConfig)}}">
+    学习中心
+  </navigator>
+</view> 
+<!-- input输入框 -->
+<view class="input-bottom-mask {{isShowMask ? 'input-bottom-mask-active' : ''}}" wx:if="{{activeTab === 2 && isbuy }}">
+  <view class="input-bottom {{isShowMask ? 'input-bottom-active': ''}}">
+    <input type="text" class="comment-input" value="{{contentValue}}" placeholder-style="#B3B3B3" placeholder="说点什么呢..."
+      confirm-type="search" cursor-spacing="10" bindinput="setInputValue" bindfocus="setInputClass" bindblur="blurInput"/>
+    <view class="send-btn" bindtap="publishDynamic">发表</view>
+  </view>
+</view>
+<!-- 购买绑定手机号弹窗 -->
+<custom-popup mode="4" wx:if="{{showPhonePopup}}" 
+  bindgetWxPhone="getWxPhone" 
+  bindtoBindPhone="toBindPhone" 
+  bindhandleCancel="closePhonePopup">
+</custom-popup>
+<!-- 未购买提示弹窗 -->
+<custom-popup mode="1" price="{{price}}" wx:if="{{showBuyPopup}}" 
+  bindhandleConfirm="confirmBuy" 
+  bindhandleCancel="cancelBuy">
+</custom-popup> 

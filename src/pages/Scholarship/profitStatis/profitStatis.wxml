@@ -1,0 +1,58 @@
+<view class="profitStatis">
+  <view class="title">
+    <view class="time" bindtap='showDates'>
+      <text class="yearMonth" wx:if="{{type === 1}}">{{year}}年</text>
+      <text class="yearMonth" wx:else>{{year}}年{{month}}月</text>
+      <image class="icon" src="/images/saleMagage/icon_calendar_32.png"></image>
+    </view>   
+    <view class="income">总收入（元）</view> 
+    <view class="money">{{totalMoney}}</view> 
+  </view> 
+  <view class="conts">
+    <!-- <view class="content">
+      <ec-canvas id="mychart-dom-line" canvas-id="ec" ec="{{ ec }}"></ec-canvas>
+    </view> -->
+    <view class="ranking">
+      <view class="top">
+        <image class="icon" src="/images/saleMagage/rank_15.png"></image>
+        <text class="text">创收排行榜</text>
+      </view>
+      <block wx:if="{{list.length}}">
+        <view class='detail-text' wx:for="{{list}}" wx:key="index">
+          <view class="left">
+            <view class='leftLine'>
+              <view class='cricle'></view>
+              <view class='dashed'></view> 
+            </view>
+            <view class='text'>
+              <view class='message'>{{item.message}}</view>
+              <view class='time'>{{item.date}}</view>
+            </view>
+          </view>
+          <view class='rightText'>+{{item.money}}</view>
+        </view>
+      </block>
+      <view wx:if="{{!list.length}}" class="noList">暂无排行榜</view>
+    </view>
+  </view>
+</view>
+<!-- 组件选择日期弹出框  -->
+<view class="chooseBox" wx:if="{{showMask}}" bindtap="CancelGrade">
+  <view class="btnBox clearfix" catchtap='stopClick'>
+    <text class="btnL" bindtap="CancelGrade">取消</text>
+    <text class='btnName'>选择要查询的时间</text>
+    <text class="btnR" bindtap="ConfirmGrade">完成</text>
+  </view>
+  <view class="selectBtn" catchtap='stopClick'>
+    <text class="btn btnl {{type === 1?'select':''}}" data-type="1" bindtap="selectBtn">按年</text>
+    <text class="btn btnr {{type === 2?'select':''}}" data-type="2" bindtap="selectBtn">按月</text>
+  </view>
+  <picker-view class="popBox" indicator-class="gradePop" value="{{value}}" bindchange="gradeChange">
+    <picker-view-column>
+      <view class="chooseItem {{index == value[0]?'chooseItem1':''}}" wx:for="{{years}}" wx:key="*this">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column wx:if="{{type === 2}}">
+      <view class="chooseItem {{index == value[1]?'chooseItem1':''}}" wx:for="{{months}}" wx:key="*this">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>

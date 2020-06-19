@@ -1,0 +1,17 @@
+<!-- 课程详情分享海报页 -->
+<view class="sharePost">
+  <image class="bg-pic" src="{{othersImage.post_page_bg}}" mode="widthFix" />
+  <view class="tip">长按上方图片保存，邀请好友学习</view>
+  <!-- 海报组件 -->
+  <poster id="poster" activityId="{{activityId}}" activityType="{{activityType}}" postBgIndex="{{selectedIndex}}"></poster>
+  <view class="bottom-content">
+    <view class="select-wrap">
+      <view class="style-imgs" wx:for="{{styleImg}}" wx:key="index">
+        <image class="style-img" bindtap="changeStyle" data-index="{{index}}" src="{{item}}" />
+        <image class="selected" wx:if="{{index === selectedIndex}}" src="../../images/post_selected.jpg" />
+      </view>
+    </view>
+    <button class="share-btn" open-type="share">直接分享</button>
+  </view>
+</view>
+  

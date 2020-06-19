@@ -1,0 +1,22 @@
+<view class="bindphone-page">
+  <block  wx-if="{{!id}}">
+      <view class="code-wrap" >
+          <input type="text" value="{{name}}" bindinput="bindinput" class="code" placeholder="请输入院校/园所名称或编码" placeholder-class="phc">
+          </input>
+          <view class="search-btn" bindtap="search" >搜索</view>
+        </view>
+        <view class="result-wrap" >
+          <view wx:for="{{kindergartens}}" wx:key="index" class="item" bindtap="selectSchool" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</view>
+        </view>
+  </block>
+  <!-- 已经绑定 -->
+  <view class="code-wrap" wx:else>
+      <input type="text" value="{{onlyReadname}}" disabled="{{!!onlyReadname}}" class="code" placeholder="请输入院校/园所名称或编码" placeholder-class="phc">
+      </input>
+    </view>
+</view>
+<!-- 已经绑定 -->
+<view class="btn-wrap" wx-if="{{id}}">
+  <view class="left-btn" bindtap="relieve">解除绑定</view>
+  <view class="right-btn" bindtap="modification">修改</view>
+</view>

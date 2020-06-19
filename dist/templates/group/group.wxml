@@ -1,0 +1,118 @@
+<!--  这里为模版的wxml  -->
+<!-- 使用说明：
+    简介：这里是公用的模版，负责使用导入的数据，展现页面的样式。
+    描述：当页面中需要该模版的时候可以通过下述方式引入，js之类的操作逻辑，需要在被引入的页面里写。
+    使用方式：
+        页面的wxml引入：
+          <import src="../../common/template.wxml" />
+          <template wx:if = "{{show_maskLayer}}" is="mask_layer"></template>  
+            // example: 蒙层引入，用is属性对应该文件里的name属性，从而判断使用的具体template
+        app.js增加：
+          @import 'common/template.wxss';
+            // 为方便起见，将样式引入到公共里
+}
+-->
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+
+<!-- 正在拼团轮播 -->
+<template name="assemble_doing_view">
+  <view class="assemble_doing_view" wx:if="{{allPintuanNum}}">
+    <view class="title">
+      <text>{{allPintuanNum}}人在拼团，您可以直接加入拼团</text>
+      <view wx:if="{{allPintuanNum > 2}}" class="more" bindtap="setShowWinwos" data-flag="3">查看全部<image class="arrow" src="../../images/right-arrow.png"></image></view>
+    </view>
+    <swiper style="height:{{ pintuanList.length <=1 ? 70: 170  }}rpx;" autoplay="{{true}}" vertical="{{true}}" circular="{{true}}">
+      <block wx:for="{{allPintuanList}}" wx:key="index" wx:for-item="list">
+        <swiper-item>
+          <view class="item" wx:for="{{list}}" wx:key="id" >
+            <view class="item-left flex-row-start">
+              <image class="avatar" src="{{item.head_pic || '../../images/ydxz/head_pic.png'}}"></image>
+              <text class="name">{{item.name || item.phone }}</text>
+            </view>
+            <view class="item-right flex-row-start">
+              <view>
+                <view class="info">还差<text class="num">{{item.surplus_person}}</text>人拼团成功</view>
+                <count-down time="{{item.surplus_time}}" dark="3"></count-down>
+              </view>
+              <view class="btn" bindtap="{{!buttonClicked ? 'handleApply' : ''}}" data-cloudid="{{item.cloud_id}}" data-btntype="2" data-num="{{item.num}}">去拼团</view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</template>
+
+<!-- 紧急拼团栏 -->
+<template name="assemble_urgent_view">
+  <view class="assemble_urgent_view assemble_doing_view" wx:if="{{urgent.length}}">
+    <view class="item-left flex-row-start">
+      <image class="avatar" src="{{urgent[0].head_pic || '../../images/ydxz/head_pic.png'}}"></image>
+      <text class="name">{{urgent[0].name || urgent[0].phone}}</text>
+    </view>
+    <view class="item-right flex-row-start">
+      <view>
+        <view class="info">还差<text class="num">{{urgent[0].surplus_person}}人</text>拼单成功</view>
+        <count-down time="{{urgent[0].surplus_time}}" dark="3"></count-down>
+      </view>
+      <view class="btn" data-btntype="2" data-cloudId="{{urgent[0].cloud_id}}" bindtap="{{!buttonClicked ? 'handleApply' : ''}}" data-num="{{urgent[0].num}}">去拼团</view>
+    </view>
+  </view>
+</template>
+
+<!-- 完成拼团轮播 -->
+<template name="assemble_finish_view">
+  <swiper class="assemble_finish_view" wx:if="{{finishList.length}}" autoplay="{{true}}" vertical="{{true}}" circular="{{true}}">
+    <block wx:for="{{finishList}}" wx:key="index">
+      <swiper-item>
+        <view class="item flex-row-start">
+          <image class="avatar" src="{{item.head_pic || '../../images/ydxz/head_pic.png'}}"></image>
+          <view>{{filters.timestampDiffer(nowTimestamp, item.surplus_time)}}拼单成功</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</template>
+
+<!-- 正在拼团分页列表 -->
+<template name="assemble_more_view">
+  <scroll-view class="assemble_more_view" scroll-y bindscrolltolower="getPintuanList" >
+    <view class="item assemble_doing_view" wx:for="{{pintuanList}}" wx:key="index">
+      <view class="item-left flex-row-start">
+        <image class="avatar" src="{{item.head_pic || '../../images/ydxz/head_pic.png'}}"></image>
+        <text class="name">{{item.name || item.phone}}</text>
+      </view>
+      <view class="item-right flex-row-start">
+        <view>
+          <view class="info">还差<text class="num">{{item.surplus_person}}人</text>拼单成功</view>
+          <count-down time="{{item.surplus_time}}" dark="3"></count-down>
+        </view>
+        <view class="btn" data-cloudid="{{item.cloud_id}}" data-btntype="2" bindtap="{{!buttonClicked ? 'handleApply' : ''}}" data-num="{{item.num}}">去拼团</view>
+      </view>
+    </view>
+  </scroll-view>
+</template>
+
+<!-- 参与好友的拼团 -->
+<template name="assemble_join_view">
+  <view class="assemble_join_view {{smallJoin ? 'assemble_join_small': ''}}">
+    <view class="tip">{{num}}人团</view>
+    <count-down time="{{end_time}}" dark="1" wx:if="{{status !== 2}}"></count-down>
+    <view wx:else style="height:34rpx;"></view>
+    <view class="headpic-box">
+        <block wx:for="{{headpicList}}" wx:key="index">
+            <view class="headpic-wrap" >
+                    <image src="{{item.head_pic || '../../images/ydxz/head_pic.png'}}" class="headpic"  wx:if="{{item != undefined}}">
+                    </image> 
+                    <image src="../../images/ydxz/tuanzhang_logo.png" class="hot-logo" wx:if="{{item.is_head}}"/>
+            </view>
+            <view class="headpic-blank" wx:if="{{item == undefined}}">?</view> 
+        </block>
+    </view>
+    <!-- tips文本 -->
+    <view class="msg-box flex-row-center" wx:if="{{status === 2}}">拼团成功</view>
+    <view class="msg-box flex-row-center" wx:if="{{status === 1}}">
+        还差<text class="people-num">{{surplus_num}}人，</text>赶快邀请好友来拼单吧
+    </view>
+  </view>
+</template>

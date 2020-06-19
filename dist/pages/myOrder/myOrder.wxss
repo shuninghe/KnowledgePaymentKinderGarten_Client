@@ -1,0 +1,126 @@
+.orderlist-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.orderlist-page .order-item {
+  margin: 20rpx 25rpx;
+  padding: 28rpx 24rpx 25rpx 28rpx;
+  width: 701rpx;
+  background: #fff;
+  box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(224, 224, 224, 0.75);
+  border-radius: 10rpx;
+}
+.orderlist-page .order-item .first-row-wrap {
+  display: flex;
+}
+.orderlist-page .order-item .first-row-wrap .img {
+  width: 327rpx;
+  height: 222rpx;
+  border-radius: 10rpx;
+  margin-right: 37rpx;
+}
+.orderlist-page .order-item .first-row-wrap .course-info-wrap {
+  width: 284rpx;
+}
+.orderlist-page .order-item .first-row-wrap .course-info-wrap .title {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #282828;
+}
+.orderlist-page .order-item .first-row-wrap .course-info-wrap .price,
+.orderlist-page .order-item .first-row-wrap .course-info-wrap .order-status {
+  color: #ff9900;
+  font-size: 30rpx;
+}
+.orderlist-page .order-item .first-row-wrap .course-info-wrap .cancle {
+  color: #8d8d8f;
+}
+.orderlist-page .order-item .first-row-wrap .course-info-wrap .price {
+  margin-top: 20rpx;
+}
+.orderlist-page .order-item .first-row-wrap .course-info-wrap .order-status {
+  margin-top: 62rpx;
+  text-align: right;
+}
+.orderlist-page .order-item .line {
+  height: 2rpx;
+  background: #eeeeee;
+  margin-top: 19rpx;
+}
+.orderlist-page .order-item .last-row-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.orderlist-page .order-item .last-row-wrap .order-bottom {
+  width: 100%;
+  padding-top: 25rpx;
+}
+.orderlist-page .order-item .last-row-wrap .order-bottom-left {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #282828;
+}
+.orderlist-page .order-item .last-row-wrap .order-bottom-left .num {
+  color: #F36A54;
+}
+.orderlist-page .order-item .last-row-wrap .order-bottom-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.orderlist-page .order-item .last-row-wrap .order-bottom-right .cancle,
+.orderlist-page .order-item .last-row-wrap .order-bottom-right .topay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 151rpx;
+  height: 68rpx;
+  border-radius: 34rpx;
+  font-size: 26rpx;
+}
+.orderlist-page .order-item .last-row-wrap .order-bottom-right .cancle {
+  color: #282828;
+  background: #f0f0f0;
+}
+.orderlist-page .order-item .last-row-wrap .order-bottom-right .topay {
+  margin-left: 25rpx;
+  color: #fff;
+  background: linear-gradient(90deg, #ff9d00, #ffbe00);
+}
+.orderlist-page .order-item .last-row-wrap .order-bottom-right .pic-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.orderlist-page .order-item .last-row-wrap .order-bottom-right .pic-wrap-item {
+  display: block;
+  width: 55rpx;
+  height: 55rpx;
+  border: 2rpx solid #fff;
+  border-radius: 50%;
+  margin-right: -18rpx;
+}
+.no-order {
+  height: 100%;
+  background: #f6f6f6;
+  color: #8d8d8f;
+  text-align: center;
+  padding-top: 200rpx;
+}
+.btn {
+  font-size: 28rpx;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  border: none;
+  background-color: #fff;
+}
+.btn.userinfo-wrap {
+  background-color: transparent;
+}
+.btn::after {
+  border: none;
+}

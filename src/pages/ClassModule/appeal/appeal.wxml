@@ -1,0 +1,18 @@
+<view class="addPhoto">
+  <view class="photo">
+    <textarea class="photo-input" placeholder="请填写申诉理由" maxlength="-1" placeholder-style="color:#939393;font-size: 30rpx" value="{{content}}" adjust-position="{{false}}" bindblur="inputValue"></textarea>
+  </view>
+  <view class="photoList">
+    <view class="list" wx:for="{{urls}}" wx:key="index">
+      <image bindtap="openPhoto" data-url="{{item}}" class="albmImg" src="{{item}}" mode="aspectFill"></image>
+      <image data-index="{{index}}" bindtap="delPhoto" class="delIcon" src='/images/ClassModule/delBtn.png'></image>
+    </view> 
+    <view class="addAlbm" wx:if="{{urls.length < 1}}" bindtap="uploadAlbm"><image class="icon" src='/images/ClassModule/add_03.png'></image></view>
+  </view>
+</view>
+<!-- 发布 -->
+<view class="subBtn"><view class="btn" bindtap="submitPhoto">提交</view></view>
+<!-- 点击查看图片 -->
+<view class="mask" wx:if="{{showBigpic}}" bindtap="CancelPhoto">
+  <image class="maskImg" src='{{url}}'></image>
+</view>

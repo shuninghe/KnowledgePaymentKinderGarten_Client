@@ -1,0 +1,10 @@
+<import src="../../templates/infoList/infoList.wxml"/>
+<view class="layout" wx:if="{{list.length}}">
+  <template is="info-list" data="{{list}}"></template>
+</view>
+<view class="nodata" wx:else>
+  <image src="../../images/nodata.png" class="no-pic"/>
+  <view class="no-right">
+    暂无数据
+  </view>
+</view>

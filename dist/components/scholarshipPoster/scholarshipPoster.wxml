@@ -1,0 +1,5 @@
+<!-- 奖学金-邀请家长海报 -->
+<view class="c-poster">
+  <image wx:if="{{bgImg}}" class="poster-canvas" src="{{bgImg}}" mode="widthFix" bindlongpress="savePostImg" data-url='{{bgImg}}'></image>
+  <canvas wx:else canvas-id="posterCanvas" class="poster-canvas"></canvas>
+</view>

@@ -1,0 +1,8 @@
+
+{
+  "navigationBarTitleText": "邀请二维码",
+  "usingComponents": {
+    "poster": "../../../components/scholarshipPoster/scholarshipPoster",
+    "custom-popup": "../../../components/customPopup/customPopup"
+  }
+}

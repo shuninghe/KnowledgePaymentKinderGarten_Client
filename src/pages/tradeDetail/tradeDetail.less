@@ -1,0 +1,155 @@
+// 自定义导航栏
+page {
+  width: 100%;
+  height: 100%;
+}
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 999;
+  &-container {
+    display: flex;
+    align-items: center;
+    padding: 0 10rpx;
+    justify-content: space-between;
+    height: 89rpx;
+    .icon-home {
+      width: 34rpx;
+      height: 34rpx;
+      margin-left: 18rpx;
+      // margin: 0 20rpx;
+    }
+    .icon-back {
+      width: 40rpx;
+      height: 40rpx;
+    }
+    .right {
+      width: 88rpx;
+      height: 90rpx;
+    }
+  }
+  &-tips {
+    width: 100%;
+    height: 123rpx;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 36rpx;
+    .name {
+      padding: 0 64rpx;
+      font-size: 28rpx;
+      display: flex;
+      align-items: center;
+      background: #eeeeee;
+      border-radius: 100rpx;
+      height: 64rpx;
+    }
+    .name.current {
+      background: #48c05f;
+      color: #fff;
+    }
+  }
+}
+.cashRecord {
+  width: 100%;
+  height: 100%;
+  padding: 0 0 18rpx;
+}
+.cashList.showdow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 128rpx;
+  left: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 10000;
+  // background: #000;
+  // opacity: .5;
+  // z-index: 20;
+}
+.mask{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 80rpx;
+  box-sizing: border-box;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cashList {
+  width: 100%;
+  margin-top: 120rpx;
+  padding-left: 46rpx;
+  background: #fff;
+}
+.list {
+  padding: 32rpx 0 27rpx 0;
+  border-bottom: 1rpx solid #eeeeee; 
+  display: flex;
+  justify-content: space-between;
+}
+.line {
+  width: 100%;
+  height: 20rpx;
+  background: #f5f5f5;
+}
+.list .left .name {
+  color: #282828; 
+  font-size: 28rpx;
+  font-weight: 500;  
+}
+.list .left .time {
+  color: #969696;
+  font-size: 26rpx;
+}
+.list .name {
+  color: #282828; 
+  font-size: 28rpx;
+  font-weight: 500; 
+  margin-right: 38rpx;
+}
+.list .name.fail {
+  color: #ffba00;
+}
+// 收益统计
+.profit {
+    display: flex;
+    background: #76d689;
+    width: 239rpx;
+    height: 62rpx;
+    padding: 0 38rpx 0 34rpx;
+    align-items: center;
+    border-top-left-radius: 100rpx;
+    border-bottom-left-radius: 100rpx;
+    position: fixed;
+    right: 0;
+    bottom: 159rpx;
+  }
+  .profit .icon {
+    width: 30rpx;
+    height: 36rpx;
+    margin-right: 14rpx;
+  }
+  .profit .name {
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 500;;
+  }
+// 暂无提现记录
+.no-data {
+  color: #666;
+  margin-top: 120rpx;
+  padding-top: 300rpx;
+  text-align: center;
+}

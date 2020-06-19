@@ -1,0 +1,52 @@
+.switchRole {
+  background-color: #f3f3f3;
+  padding-bottom: 120rpx;
+}
+.switchRole .top {
+  padding: 30rpx 38rpx;
+  font-size: 22rpx;
+  color: #929292;
+}
+.switchRole .top .role-type {
+  font-size: 30rpx;
+  color: #107E7D;
+}
+.switchRole .top .icon26 {
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 15rpx;
+  margin-right: 10rpx;
+}
+.switchRole .item {
+  width: 694rpx;
+  min-height: 94rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 20rpx 38rpx;
+  margin: 0 auto 22rpx;
+  font-size: 30rpx;
+  color: #272727;
+}
+.switchRole .item .icon40 {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 25rpx;
+}
+.switchRole .item .name {
+  max-width: 400rpx;
+}
+.switchRole .item .c107E7D {
+  color: #107E7D;
+}
+.switchRole .btn {
+  position: fixed;
+  width: 694rpx;
+  height: 85rpx;
+  bottom: 26rpx;
+  left: 50%;
+  transform: translateX(-347rpx);
+  background: #107E7D;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: #fff;
+}

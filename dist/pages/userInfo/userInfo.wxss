@@ -1,0 +1,90 @@
+page {
+  height: 100%;
+}
+page .container {
+  position: relative;
+  height: 100%;
+}
+page .container .list {
+  padding: 0 20rpx;
+  background-color: #fff;
+  border-bottom: 2rpx solid rgba(229, 229, 229, 0.6);
+}
+page .container .list .list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 96rpx;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid rgba(229, 229, 229, 0.6);
+}
+page .container .list .list-item:last-child {
+  border-bottom: none;
+}
+page .container .list .list-item .item-left .title {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 30rpx;
+  color: #6b6b6b;
+}
+page .container .list .list-item .item-left .title .star {
+  position: absolute;
+  right: -12rpx;
+  top: 0;
+  width: 13rpx;
+  height: 12rpx;
+}
+page .container .list .list-item .item-right {
+  display: flex;
+  align-items: center;
+}
+page .container .list .list-item .item-right .input-txt {
+  font-size: 24rpx;
+  color: rgba(40, 40, 40, 0.45);
+  text-align: right;
+}
+page .container .list .list-item .item-right .address-input {
+  font-size: 24rpx;
+  color: rgba(40, 40, 40, 0.65);
+  text-align: right;
+}
+page .container .list .list-item .item-right .txt {
+  font-size: 24rpx;
+  color: rgba(40, 40, 40, 0.65);
+  text-align: right;
+}
+page .container .list .list-item .item-right .picker-icon {
+  margin-left: 16rpx;
+  width: 20rpx;
+  height: 23rpx;
+}
+page .container .list .bordernone {
+  border-bottom: none;
+}
+page .container .btn-bottom {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 30rpx;
+  left: 25rpx;
+  width: 700rpx;
+  height: 92rpx;
+  opacity: 0.9;
+  background: linear-gradient(90deg, #ff9d00, #ffbe00);
+  box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255, 211, 82, 0.75);
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+page .tips {
+  height: 81rpx;
+  line-height: 96rpx;
+  font-size: 20rpx;
+  color: #3b3b3b;
+  padding-left: 20rpx;
+}

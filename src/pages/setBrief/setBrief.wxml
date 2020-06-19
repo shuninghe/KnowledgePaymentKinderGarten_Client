@@ -1,0 +1,25 @@
+<view class="container">
+  <textarea class="text" name="textarea" value="{{inputValue}}" bindinput="inputValue" maxlength="10000" placeholder="请输入{{type_name}}介绍..."/>
+  <view class="pic-container">
+    <view class="txt-top" >
+      {{type_name}}照片:
+    </view>
+    <!-- 包含所有图片 -->
+    <view class="image_content">
+      <block wx:for="{{totalArr}}" wx:key="index">
+        <image src="{{item}}" class="mui-image" data-index="{{index}}" bindtap="getIndex">
+          <!-- 删除符号 -->
+          <view class="cancel-photo" bindtap="cancelPhoto" data-index="{{index}}" ></view>
+        </image>  
+      </block>
+      <!-- 灰色的点击添加 -->
+      <text class="photoContainer" bindtap="uploadMyPhoto" wx:if="{{flag}}"></text> 
+    </view>
+    <view class="txt-bottom">
+      温馨提示：图片最优比例为16:9，最多可上传6张。
+    </view>
+  </view>
+  <view class="btn-bottom" bindtap="handleSubmit">
+    提交
+  </view>
+</view>

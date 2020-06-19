@@ -1,0 +1,39 @@
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+
+<!-- 学习-知识图谱页 -->
+<view class="knowledgeGraph">
+  <view class="circle1"></view>
+  <view class="circle2"></view>
+  <!-- 黄色圆圈 -->
+  <view class="big-circle">
+    <view class="circle">
+      <view class="field-title">{{name}}</view>
+      <view class="field-num">（{{courseNum}}课时）</view>
+    </view>
+  </view>
+  <!-- 蓝色圆圈 -->
+  <view class="small-circle" wx:for="{{fields}}" wx:key="index" 
+    bindtap="toGraphField" data-title="{{item.title}}" data-id="{{item.sectionId}}" 
+    style="left:{{item.position[0]}}rpx; top:{{item.position[1]}}rpx;">
+    <view class="circle">
+      <view>{{item.title}}</view>
+      <!-- <view class="field-num">（{{item.num}}课时）</view> -->
+    </view>
+    <image class="arrow" src="/images/study/graph_arrow.png"
+      style="left:{{item.arrowPos[0]}}rpx; top:{{item.arrowPos[1]}}rpx; transform: rotate({{item.arrowDeg}}deg);" />
+  </view>
+  <!-- 底部按钮 -->
+  <view class="bottom-btn">
+    <navigator class="btn" open-type="reLaunch" url="/pages/index/index" hover-class="none">返回首页</navigator>
+    <navigator class="btn price f32" wx:if="{{(!isbuy && iosConfig && isIOS && !hasSignUp) || (!isbuy && androidConfig && !isIOS && !hasSignUp)}}" open-type="navigate" url="/pages/signUpInfo/signUpInfo?id={{course_id}}" hover-class="none">立即报名</navigator>
+    <view class="btn price {{price?'':'f32'}}" wx:if="{{(!isbuy && iosConfig && isIOS && hasSignUp) || (!isbuy && !iosConfig && isIOS) || (!isbuy && !isIOS && !androidConfig) || (!isbuy && !isIOS && androidConfig && hasSignUp)}}" bindtap="judgeBindPhone">{{price ? '¥'+filters.handlePrice(price) : '立即学习'}}</view>
+    <navigator class="btn price f32" wx:if="{{isbuy || (!isbuy && iosConfig && isIOS && hasSignUp) || (!isbuy && !iosConfig && isIOS)}}" open-type="redirect" url="/pages/studyCenter/studyCenter" hover-class="none">学习中心</navigator>
+  </view> 
+</view>
+
+<!-- 购买绑定手机号弹窗 -->
+<custom-popup mode="4" wx:if="{{showPhonePopup}}" 
+  bindgetWxPhone="getWxPhone" 
+  bindtoBindPhone="toBindPhone" 
+  bindhandleCancel="closePhonePopup">
+</custom-popup>

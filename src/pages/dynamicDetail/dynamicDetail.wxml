@@ -1,0 +1,11 @@
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+
+<view class="container">
+    <view class="title">
+        {{title}}
+    </view>
+    <view class="ctime">
+        {{filters.timestampToTime(ctime,'Y.M.D h:m')}}
+    </view>
+    <rich-text nodes="{{filters.replaceImgSize(content)}}"></rich-text>
+</view>

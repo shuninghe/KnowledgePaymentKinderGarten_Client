@@ -1,0 +1,170 @@
+.tabYouShi {
+  width: 100%;
+  padding-bottom: 97rpx;
+  overflow: hidden;
+  background: #fff;
+}
+.tabYouShi .banner {
+  width: 100%;
+  height: 300rpx;
+}
+.tabYouShi .banner-img {
+  width: 750rpx;
+  height: 300rpx;
+}
+.tabYouShi .index-title-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  margin-left: 50%;
+  margin-top: 45rpx;
+  transform: translateX(-50%);
+}
+.tabYouShi .index-title-container .tip {
+  width: 8rpx;
+  height: 35rpx;
+  border-radius: 6rpx;
+  background-color: #ffa32b;
+  margin-right: 14rpx;
+}
+.tabYouShi .index-title-container .txt {
+  max-width: 375rpx;
+  font-size: 34rpx;
+  color: #282828;
+}
+.tabYouShi .title-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 48rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.tabYouShi .title-container.pt50 {
+  padding-top: 50rpx;
+}
+.tabYouShi .title-container .menu-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tabYouShi .title-container .menu-container .title-item {
+  width: 96rpx;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 40rpx;
+  margin-top: 20px;
+}
+.tabYouShi .title-container .menu-container .title-item:nth-of-type(5n) {
+  margin-right: 0rpx;
+}
+.tabYouShi .title-container .menu-container .title-item .title-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.tabYouShi .title-container .menu-container .title-item .txt {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #292929;
+  max-width: 96rpx;
+  max-height: 30rpx;
+  overflow: hidden;
+  text-align: center;
+}
+.tabYouShi .title-container .menu-container .title-item .menuitem {
+  max-width: 48rpx;
+  overflow: hidden;
+}
+.tabYouShi .title-container .swiper-container {
+  position: relative;
+  height: 130rpx;
+  padding-bottom: 20rpx;
+  white-space: nowrap;
+}
+.tabYouShi .title-container .swiper-container .title-item {
+  width: 96rpx;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+.tabYouShi .title-container .swiper-container .title-item .title-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.tabYouShi .title-container .swiper-container .title-item .txt {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #292929;
+  max-width: 96rpx;
+  max-height: 30rpx;
+  overflow: hidden;
+  text-align: center;
+}
+.tabYouShi .courseList {
+  background: #fff;
+  padding: 0 22rpx;
+}
+.tabYouShi .courseList.mt20 {
+  margin-top: 20px;
+}
+.tabYouShi .courseList .course-name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 36rpx;
+  font-size: 34rpx;
+}
+.tabYouShi .courseList .course-name .tip {
+  width: 8rpx;
+  height: 34rpx;
+  border-radius: 6rpx;
+  background-color: #ffa32b;
+  margin-right: 14rpx;
+}
+.tabYouShi .courseList .course-name .txt {
+  width: 98%;
+}
+.tabYouShi .courseList .course {
+  margin: 0 auto;
+}
+.tabYouShi .courseList .course .item {
+  width: 220rpx;
+  display: inline-flex;
+  margin-right: 22rpx;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.tabYouShi .courseList .course .item:nth-of-type(3n) {
+  margin-right: 0;
+}
+.tabYouShi .courseList .course .item-img {
+  width: 220rpx;
+  height: 144rpx;
+  border-radius: 16rpx;
+  vertical-align: middle;
+}
+.tabYouShi .courseList .course .item-name {
+  font-size: 23rpx;
+  width: 200rpx;
+  margin-top: 20rpx;
+}
+.ellipsisTwo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+}
+.ellipsisOne {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

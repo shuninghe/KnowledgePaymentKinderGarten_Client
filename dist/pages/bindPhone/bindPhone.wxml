@@ -1,0 +1,11 @@
+<view class="bindphone-page">
+<input type="text" class="phone" bindinput='phoneInput' type="number" placeholder="请输入手机号" >  
+</input>
+<view class="code-wrap">
+  <input type="text" class="code"  bindinput="codeInput"   type="number" placeholder="请输入验证码" >  
+</input>
+  <view class="get-code-btn {{disabled?'sec':''}}" bindtap="getCode" disable="{{disabled}}">{{text}}</view>
+</view>
+<view class="confirm" bindtap="confirm">确定</view>
+</view>
+  

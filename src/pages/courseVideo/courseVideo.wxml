@@ -1,0 +1,27 @@
+<!-- 沃家园通课时详情 -->
+<view>
+  <!-- 视频 -->
+  <component-video wx:if="{{sourceType === 1}}"
+    id="component-video"
+    mode="{{2}}"
+    isComment="{{isComment}}"
+    curComment="{{curComment}}"
+    trees="{{trees}}"
+    sectionName="{{section_name}}"
+    bind:record="addStudyRecord"
+    bind:judgeType="judgeType"
+    bind:changeType="changeType"
+    ></component-video>
+
+  <!-- 音频 & PPT -->
+  <component-audio wx:if="{{sourceType === 2}}" 
+    id="component-audio"
+    mode="{{2}}"
+    isComment="{{isComment}}"
+    curComment="{{curComment}}"
+    trees="{{trees}}"
+    bind:record="addStudyRecord" 
+    bind:judgeType="judgeType"
+    ></component-audio>
+
+</view>

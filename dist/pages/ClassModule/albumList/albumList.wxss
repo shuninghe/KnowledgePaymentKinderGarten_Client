@@ -1,0 +1,64 @@
+page {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.albumList {
+  padding: 0 46rpx 22rpx 36rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.albumList .list {
+  margin: 40rpx 13.5rpx 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.albumList .list .delIcon {
+  width: 45rpx;
+  height: 45rpx;
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+}
+.albumList .list .albmImg {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+}
+.albumList .list .albmText {
+  width: 140rpx;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+  text-align: center;
+  color: #282828;
+}
+.albumList .addAlbm {
+  width: 140rpx;
+  height: 140rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40rpx 13.5rpx 0;
+  border-radius: 10rpx;
+  background: #f6f6f6;
+}
+.albumList .addAlbm .icon {
+  width: 70rpx;
+  height: 70rpx;
+}
+.albumList .delAlbm {
+  width: 140rpx;
+  height: 140rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40rpx 13.5rpx 0;
+  border-radius: 10rpx;
+  background: #f6f6f6;
+}
+.albumList .delAlbm .icon {
+  width: 70rpx;
+  height: 70rpx;
+}

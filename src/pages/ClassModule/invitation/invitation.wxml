@@ -1,0 +1,68 @@
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<view class="invitation">
+  <!-- 邀请老师 -->
+  <view wx:if="{{role === 1}}" class="content-wrap teacher">
+    <view class="title">欢迎您加入{{class_name}}</view>
+    <view class="sub-title">加入后可一起管理该班级啦</view>
+    <view class="input flex-sta-cen">
+      <image class="input-icon" src="../../../images/ClassModule/y_teacher_40.png"/>
+      <input class="input-text" type="text" placeholder="老师姓名" bindinput="inputText" data-name="teacherName" value="{{teacherName}}"></input>
+    </view>
+  </view>
+  <!-- 邀请家长 -->
+  <scroll-view wx:if="{{role === 2}}" class="content-wrap" scroll-y>
+    <view class="title">欢迎您加入{{class_name}}</view>
+    <view class="sub-title">加入后可及时查看班级动态</view>
+    <view class="input flex-bet-cen">
+      <view class="flex-sta-cen">
+        <image class="input-icon" src="../../../images/ClassModule/y_teacher_40.png"/>
+        <input class="input-text" type="text" placeholder="宝宝姓名" bindinput="inputText" data-name="babyList[0].name" value="{{babyList[0].name}}"></input>
+      </view>
+      <picker wx:if="{{canChooseBaby.length}}" bindchange="pickerChooseBaby" value="{{chooseBabyIndex}}" range="{{canChooseBaby}}" range-key="name">
+        <view class="choise flex-cen-cen">选择</view>
+      </picker>
+    </view>
+    <picker bindchange="pickerRelation" value="{{relationIndex}}" range="{{relations}}" range-key="name">
+      <view class="input flex-sta-cen">
+        <image class="input-icon" src="../../../images/ClassModule/y_qinshu_40.png"/>
+        <input type="text" class="input-text" value="{{filters.findArrObjHas(babyList[0].relation_id, relations, '_id')['name']}}" placeholder="亲属关系" disabled />
+      </view>
+    </picker>
+    <!-- 添加的孩子 -->
+    <view class="tip flex-bet-cen">
+      <view class="flex-sta-cen">
+        <image class="tip-icon" src="../../../images/ClassModule/y_add_40.png" />
+        <text class="tip-text">在该班级还有一个宝宝</text>
+      </view>
+      <view class="add-btn flex-cen-cen" bindtap="addBabyBtn">添加</view>
+    </view>
+    <view wx:for="{{babyList}}" wx:key="index" hidden="{{index===0}}">
+      <view class="add-baby">
+        <view class="input add-input flex-sta-cen">
+          <image class="input-icon" src="../../../images/ClassModule/y_teacher_40.png"/>
+          <input class="input-text" type="text" placeholder="宝宝姓名" bindinput="inputText" data-name="babyList[{{index}}].name" value="{{babyList[index].name}}" value="{{item.name}}"></input>
+        </view>
+        <text class="del-baby" bindtap="delMoreBaby" data-index="{{index}}">删除</text>
+      </view>
+    </view>
+    <!-- 已在该班级的孩子 -->
+    <view class="tip flex-bet-cen">
+      <view class="flex-sta-cen">
+        <image class="tip-icon" src="../../../images/ClassModule/y_teacher_40.png" />
+        <text class="tip-text">已在该班级的宝宝，点击进入班级主页</text>
+      </view>
+    </view>
+    <view class="has-baby">
+      <view class="item" wx:for="{{classUserBaby}}" wx:key="index" bindtap="changeCurRole" data-uid="{{item.class_user_id}}">
+        <image class="item-icon" src="../../../images/ClassModule/y_baby_40.png" />
+        <text class="item-text ellipsisOne">{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 提交信息 -->
+  <view class="bottom-btn flex-cen-cen">
+    <view class="save flex-cen-cen" bindtap="save">保存并加入</view>
+  </view>
+</view>
+
+  

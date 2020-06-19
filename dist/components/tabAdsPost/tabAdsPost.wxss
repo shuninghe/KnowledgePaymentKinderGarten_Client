@@ -1,0 +1,13 @@
+.tabAdsPost {
+  position: relative;
+  padding-bottom: 97rpx;
+  background: #fff;
+}
+.tabAdsPost .img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+.tabAdsPost .click-wrap {
+  position: absolute;
+}

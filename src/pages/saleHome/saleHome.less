@@ -1,0 +1,278 @@
+.saleHome {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0 28rpx 90rpx;
+  background: url('https://woxue-dev.oss-cn-beijing.aliyuncs.com/1587193799053.3591saleHome-Bg.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: #fff;
+  background-position: center bottom;
+  overflow: scroll;
+}
+// 个人信息
+.personInfo {
+  width: 100%;
+  padding: 30rpx 0 26rpx;
+  box-sizing: border-box;
+  display: flex;
+  .img {
+    width: 102rpx;
+    height: 102rpx;
+    border-radius: 50%;
+    margin-right: 30rpx;
+  }
+  .name {
+    max-width: 470rpx; 
+    overflow: hidden;  
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    color: #000000;
+    font-size: 34rpx;
+    font-weight: bold;
+  }
+  .info {
+    position: relative;
+    width: 149rpx;
+    height: 38rpx;
+    margin-top: 6rpx;
+    &-bg {
+      width: 149rpx;
+      height: 38rpx;
+    }
+    &-txt {
+      position: absolute;
+      width: 149rpx;
+      height: 38rpx;
+      top: 0;
+      left: 0;
+      color: #fff;
+      font-size: 24rpx;
+      font-style: italic;
+    }
+  }
+  .share {
+    height: 52rpx;
+    padding: 0 20rpx;
+    background-color: #FFBF00;
+    border-radius: 10rpx;
+    &-icon {
+      width: 28rpx;
+      height: 33rpx;
+      margin-right: 10rpx;
+    }
+    &-txt {
+      font-size: 24rpx;
+      color: #fff;
+    }
+  }
+}
+// 今日收益
+.todayTrade {
+  background: url('https://woxue-dev.oss-cn-beijing.aliyuncs.com/1587193802488.9197saleHome-img.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 220rpx;
+  display: flex;
+  padding: 50rpx 0 80rpx 16rpx;
+  box-sizing: border-box;
+}
+.tixian {
+  position: fixed;
+  right: 0;
+}
+.tixian .icon {
+  width: 169rpx;
+  height: 78rpx;
+}
+.tixian .text {
+  position: absolute;
+  width: 169rpx;
+  height: 78rpx;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffe9e3;
+  font-size: 32rpx;
+}
+.todayTrade .line {
+ width: 1rpx;
+ height: 86rpx;
+ background: #63d279;
+}
+.today {
+  width: 250rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.today .money {
+  color: #fff;
+  font-weight: bold;
+  font-size: 53rpx;
+  font-family:Arial;
+}
+.today .text {
+  color: #338a45;
+  font-size: 26rpx;
+}
+// 今日详情
+.todayDetail {
+  width: 100%;
+  background: #fff;
+  padding: 36rpx 30rpx 20rpx;
+  border-radius: 20rpx;
+}
+.todayDetail .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.todayDetail .title .icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 12rpx;
+}
+.todayDetail .title .text {
+  color: #282828;
+  font-size: 30rpx;
+}
+.content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.content .list {
+  width: 50%;
+  padding: 34rpx 0 37rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content .horLine {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 1rpx;
+    background: linear-gradient(
+    to right,
+    rgba(242, 242, 242,0) 0%,
+    rgba(242, 242, 242,0.5) 20%,
+    rgba(242, 242, 242,1) 40%,
+    rgba(242, 242, 242,1) 50%,
+    rgba(242, 242, 242,1) 60%,
+    rgba(242, 242, 242,0.5) 80%,
+    rgba(242, 242, 242,0) 100%)
+}
+.content .verLine {
+    position: absolute;
+    left: 50%;
+    width: 2rpx;
+    height: 100%;
+    background: linear-gradient(
+    to top,
+    rgba(242, 242, 242,0) 0%,
+    rgba(242, 242, 242,0.5) 20%,
+    rgba(242, 242, 242,1) 40%,
+    rgba(242, 242, 242,1) 50%,
+    rgba(242, 242, 242,1) 60%,
+    rgba(242, 242, 242,0.5) 80%,
+    rgba(242, 242, 242,0) 100%)
+}
+.content .list .money {
+  color: #FFBF00;
+  font-size: 38rpx;
+  font-weight: 500;
+  font-family: AcuminConcept;
+}
+.content .list .text {
+  font-size: 26rpx;
+  color: #4d4d4d; 
+  margin-top: 2rpx;  
+}
+// 历史
+.todayDetail.history {
+  margin-top: 35rpx;
+}
+// 更多
+.more {
+  width: 108rpx;
+  height: 108rpx;
+  position: fixed;
+  right: 50rpx;
+  bottom: 230rpx;
+  z-index: 10;
+}
+.moreList {
+  width: 267rpx;
+  padding: 15rpx 32rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  position: fixed;
+  right: 28rpx;
+  bottom: 370rpx;
+  z-index: 1;
+}
+.moreList .list {
+  padding: 16rpx 0;
+  display: flex;
+  align-items: center;
+}
+.moreList .list .icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 22rpx;
+}
+.moreList .list .pass {
+  width: 25rpx;
+  height: 30rpx;
+  margin-left: 5rpx;
+  margin-right: 27rpx;
+}
+.moreList .list .text {
+  color: #000;
+  font-size: 28rpx;
+}
+.moreList .topLeft {
+  width: 0;
+  height: 0;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+  border-top: 20rpx solid #fff;
+  position: absolute;
+  right: 60rpx;
+  bottom: -20rpx;
+}
+
+// 处理button按钮样式
+.btn {
+  font-size: 28rpx;
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  border: none;
+  &.userinfo-wrap {
+    background-color: transparent;
+  }
+  &::after {
+    border: none;
+  }
+}
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.3);
+}

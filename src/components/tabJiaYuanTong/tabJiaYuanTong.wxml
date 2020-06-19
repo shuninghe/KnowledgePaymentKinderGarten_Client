@@ -1,0 +1,107 @@
+<!-- 沃家园通-首页 -->
+<view class="tabJiaYuanTong">
+  <!-- banner -->
+  <swiper class="banner" autoplay circular bindchange="changeBanner">
+    <swiper-item wx:for="{{bannerList}}"  wx:key="index"> 
+      <image class="banner-img" src="{{item.pic}}" bindtap="toPage" data-item="{{item}}" />
+    </swiper-item>
+  </swiper>
+  <view class="container">
+    <!-- 菜单导航 -->
+    <view class="content-wrap title-container" wx:if="{{classifyList.length}}">
+      <view class="top-line"></view>
+      <scroll-view class="swiper-container" scroll-x wx:if="{{meunShowType === 1}}">
+        <view class="title-item" wx:for="{{classifyList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+          <image class="title-img" src="{{item.icon}}" />
+          <view class="txt menutxt">{{item.name}}</view>
+        </view>
+      </scroll-view>
+      <view class="menu-container" wx:if="{{meunShowType === 2}}">
+        <view class="title-item" wx:for="{{classifyList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+          <image class="title-img" src="{{item.icon}}" />
+          <view class="txt menutxt">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 最新更新 -->
+    <view class="content-wrap" wx:if="{{newList.length}}" style="margin-top:0;">
+      <view class="top flex-cen-cen">
+        <image class="icon-new" src="/images/study/icon_new.png"></image>
+        <text>最新更新 / NEWS</text>
+      </view>
+      <view class="list">
+        <view class="item flex-bew-cen" wx:for="{{newList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+          <view class="flex-sta-cen">
+            <text class="item-type flex-cen-cen">{{filters.findObj(skipTypeList, item.skipType)}}</text>
+            <text class="item-title ellipsisOne">{{item.name}}</text>
+          </view>
+          <image class="item-new" src="/images/study/icon_new.png"></image>
+        </view>
+      </view>
+    </view>
+    <!-- 助力课程 -->
+    <view class="content-wrap" wx:if="{{!isForceEnroll && helpCourseList.length}}">
+      <view class="top-line"></view>
+      <view class="content">
+        <view class="flex-bew-cen">
+          <view class="title ellipsisOne">助力一起学</view>
+          <view class="point"></view>
+        </view>
+        <view class="title-line"></view>
+        <view class="course">
+          <view class="item" wx:for="{{helpCourseList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+            <image class='item-img' src='{{item.square_course_pic || item.pic}}' />
+            <view class='item-name ellipsisTwo'>{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 课程配置 -->
+    <block wx:if="{{classAreasData.length}}">
+    <view class="content-wrap" wx:for="{{classAreasData}}" wx:key="index" wx:for-item="classify">
+      <view class="top-line"></view>
+      <view class="content">
+        <view class="flex-bew-cen">
+          <view class="flex-sta-cen">
+            <image class="icon-hot" wx:if="{{filters.findStrIndex(classify.name, '本周推荐')}}" src="/images/study/icon_hot.png"></image>
+            <view class="title ellipsisOne {{filters.findStrIndex(classify.name, '本周推荐') ? 'w580':''}}">{{classify.name}}</view>
+          </view>
+          <view class="point"></view>
+        </view>
+        <view class="title-line"></view>
+        <!-- 课程正常布局-正方形 -->
+        <view class="course" wx:if="{{classify.classify[0].course.length}}">
+          <view class="item" wx:for="{{classify.classify[0].course}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+            <image class='item-img' src='{{item.square_course_pic || item.pic}}' />
+            <view class='item-name ellipsisTwo'>{{item.name}}</view>
+          </view>
+        </view>
+        <!-- 课程特殊布局-长方形 -->
+        <view class='special' wx:if="{{classify.classify[1].course.length}}">
+          <view class="item" wx:for="{{classify.classify[1].course}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+            <image class='item-img' src='{{item.pic || item.square_course_pic }}' />
+            <view class='item-name ellipsisOne'>{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="all-btn flex-cen-cen" wx:if="{{isShowEnter}}" bindtap="toAllGame">查看全部{{getApp().globalData.authorizedMode===0?'游戏':'资源'}}</view>
+    </block>
+  </view>
+</view>
+<wxs module="filters" >
+  module.exports = {
+    // 查找数据对象某一值 arr对象数组 val匹配值 
+    findObj: function (arr, val) {
+      for (var i=0; i<arr.length; i++) {
+        if (arr[i].value === val) {
+          return arr[i].label.slice(0, 2)
+        }
+      }
+    },
+    findStrIndex: function (str, val) {
+      var result = str.indexOf(val) > -1;
+      return result;
+    }
+  }
+</wxs>

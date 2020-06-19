@@ -1,0 +1,211 @@
+page {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.addPhoto {
+  background-color: #fff;
+  padding: 40rpx 28rpx 140rpx;
+}
+.addPhoto .photo {
+  padding: 0 19rpx 0 8rpx;
+}
+.addPhoto .photo .photo-input {
+  margin: 0 20rpx;
+  font-size: 30rpx;
+  width: 100%;
+  color: #282828;
+  line-height: 26rpx;
+}
+.addPhoto .photoList {
+  padding: 40rpx 0 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.addPhoto .photoList .list {
+  margin: 0 17.5rpx 40rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.addPhoto .photoList .list .delIcon {
+  width: 45rpx;
+  height: 45rpx;
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+}
+.addPhoto .photoList .list .albmImg {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+}
+.addPhoto .photoList .addAlbm {
+  width: 140rpx;
+  height: 140rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 17.5rpx 40rpx;
+  border-radius: 10rpx;
+  background: #f6f6f6;
+}
+.addPhoto .photoList .addAlbm .icon {
+  width: 70rpx;
+  height: 70rpx;
+}
+.addPhoto .pushAlbm {
+  margin-top: 180rpx;
+  padding: 0 11rpx 0 28rpx;
+  margin-bottom: 140rpx;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.addPhoto .pushAlbm .line {
+  width: 624rpx;
+  height: 2rpx;
+  background: #eeeeee;
+  position: absolute;
+  top: 72rpx;
+  right: -26rpx;
+}
+.addPhoto .pushAlbm .albm {
+  display: flex;
+  align-items: center;
+}
+.addPhoto .pushAlbm .albm .albmImg {
+  width: 38rpx;
+  height: 34rpx;
+}
+.addPhoto .pushAlbm .albm .albmText {
+  color: #272727;
+  font-size: 26rpx;
+  margin-left: 30rpx;
+}
+.addPhoto .pushAlbm .selAlbm {
+  display: flex;
+  align-items: center;
+}
+.addPhoto .pushAlbm .selAlbm .selText {
+  font-size: 26rpx;
+  color: #676767;
+  margin-right: 27rpx;
+}
+.addPhoto .pushAlbm .selAlbm .pushImg {
+  width: 14rpx;
+  height: 23rpx;
+}
+.subBtn {
+  position: fixed;
+  background: #fff;
+  width: 100%;
+  height: 140rpx;
+  padding: 0 28rpx;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.subBtn .btn {
+  width: 100%;
+  height: 86rpx;
+  background: #107e7d;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #fff;
+}
+.mask {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mask .maskImg {
+  width: 100%;
+}
+.mask .maskVideo {
+  width: 100%;
+}
+/* 组件 */
+.chooseBox {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+.btnBox {
+  width: 100%;
+  height: 88rpx;
+  background: #fff;
+  font-size: 30rpx;
+  line-height: 88rpx;
+  position: absolute;
+  bottom: 351rpx;
+}
+.btnBox .btnL {
+  color: #4773B2;
+  float: left;
+  margin-left: 32rpx;
+}
+.btnBox .btnName {
+  font-family: PingFangSC-Regular;
+  color: #000000;
+}
+.btnBox .btnR {
+  float: right;
+  color: #4773B2;
+  margin-right: 32rpx;
+}
+.popBox {
+  width: 100%;
+  padding: 0 150rpx;
+  box-sizing: border-box;
+  height: 350rpx;
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 999999;
+}
+.chooseBox .gradePop {
+  height: 90rpx;
+}
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  display: block;
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+.chooseItem {
+  height: 90rpx!important;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 90rpx;
+  font-weight: 500;
+  color: #868383;
+  letter-spacing: 2.04rpx;
+}
+.chooseItem1 {
+  font-size: 34rpx;
+  color: #76d689;
+  letter-spacing: 2.18rpx;
+}

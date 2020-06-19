@@ -1,0 +1,72 @@
+.editClassInfo {
+  position: fixed;
+  width: 100%;
+  top: 18rpx;
+  bottom: 0;
+  background-color: #fff;
+}
+.editClassInfo .item {
+  height: 100rpx;
+  border-bottom: 2rpx solid #eeeeee;
+  padding: 0 38rpx;
+}
+.editClassInfo .item-left {
+  font-size: 28rpx;
+  color: #000000;
+  line-height: 42rpx;
+}
+.editClassInfo .item-right {
+  display: flex;
+  align-items: center;
+}
+.editClassInfo .item-right .input-txt {
+  font-size: 24rpx;
+  color: #272727;
+  text-align: right;
+  width: 500rpx;
+}
+.editClassInfo .choise-wrap {
+  padding: 30rpx;
+}
+.editClassInfo .choise-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 217rpx;
+  height: 67rpx;
+  background: #eeeeee;
+  opacity: 0.8;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  margin-right: 20rpx;
+  font-size: 28rpx;
+  color: #282828;
+}
+.editClassInfo .choise-btn:nth-child(3n) {
+  margin-right: 0;
+}
+.editClassInfo .choise-btn.active {
+  background: #E0F0F0;
+  border: 2rpx solid #107E7D;
+  border-radius: 10rpx;
+  color: #107E7D;
+}
+.editClassInfo .btn {
+  width: 694rpx;
+  height: 85rpx;
+  background: #107E7D;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: #fff;
+  margin: 0 auto 26rpx;
+}
+.editClassInfo .small-btn {
+  width: 180rpx;
+  height: 59rpx;
+  background: #eeeeee;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: #282828;
+  opacity: 0.6;
+  margin: 0 auto;
+}

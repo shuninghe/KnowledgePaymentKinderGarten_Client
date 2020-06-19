@@ -1,0 +1,109 @@
+// 营销活动课程
+.activityList {
+  .item {
+    width: 690rpx;
+    background-color: #fff;
+    box-shadow: 2rpx 2rpx 7rpx 0rpx rgba(0, 0, 0, 0.14);
+    border-radius: 20rpx;
+    margin: 30rpx auto;
+    .img-wrap {
+      position: relative;
+      width: 100%;
+      height: 300rpx;
+      border-radius: 20rpx 20rpx 0 0;
+      .img-name {
+        position: absolute;
+        width: 100%;
+        height: 60rpx;
+        bottom: 0;
+        left: 0;
+        padding: 0 20rpx;
+        background: rgba(0,0,0,.5);
+        font-size: 18rpx;
+        color: #fff;
+      }
+      .avatar {
+        width: 36rpx;
+        height: 36rpx;
+        border-radius: 50%;
+        margin-right: 12rpx;
+      }
+    }
+    &-img {
+      width: 100%;
+      height: 300rpx;
+      border-radius: 20rpx 20rpx 0 0;
+      vertical-align: middle;
+    }
+    .info-wrap {
+      padding: 20rpx;
+    }
+    &-name {
+      font-size: 26rpx;
+      color: #3e3e3e;
+      margin-bottom: 12rpx;
+    }
+    &-time {
+      font-size: 22rpx;
+      color: #999;
+      margin-bottom: 12rpx;
+    }
+    &-price {
+      font-size: 20rpx;
+      text-decoration: line-through;
+      color: #999;
+    }
+    &-saleprice {
+      font-size: 30rpx;
+      font-weight: bold;
+      color: #4493FC;
+      margin-right: 14rpx;
+      .yuan {
+        font-size: 20rpx;
+      }
+    }
+    &-btn {
+      width: 172rpx;
+      height: 60rpx;
+      background: #4493FC;
+      border-radius: 30rpx;
+      font-size: 26rpx;
+      color: #fff;
+    }
+  }
+}
+.flex-sta-cen {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-cen-cen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-bet-cen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-sta-base {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+.ellipsisTwo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+}
+.ellipsisOne {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

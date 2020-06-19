@@ -1,0 +1,74 @@
+.sharePost {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0b0916;
+}
+.sharePost .bg-pic {
+  width: 100%;
+}
+.sharePost .tip {
+  position: fixed;
+  width: 100%;
+  height: 64rpx;
+  left: 0;
+  bottom: 126rpx;
+  background-color: #49ba2c;
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 64rpx;
+}
+.sharePost .bottom-content {
+  position: fixed;
+  width: 100%;
+  height: 126rpx;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sharePost .bottom-content .select-wrap {
+  display: flex;
+  align-items: center;
+}
+.sharePost .bottom-content .select-wrap .style-imgs {
+  position: relative;
+  width: 95rpx;
+  height: 95rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.sharePost .bottom-content .select-wrap .style-imgs .style-img {
+  width: 95rpx;
+  height: 95rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.sharePost .bottom-content .select-wrap .style-imgs .selected {
+  position: absolute;
+  width: 42rpx;
+  height: 42rpx;
+  left: 26.5rpx;
+  top: 26.5rpx;
+  border-radius: 50%;
+}
+.sharePost .bottom-content .share-btn {
+  width: 172rpx;
+  height: 75rpx;
+  background: none;
+  border: 2rpx solid #49ba2c;
+  border-radius: 37.5rpx;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #49ba2c;
+}

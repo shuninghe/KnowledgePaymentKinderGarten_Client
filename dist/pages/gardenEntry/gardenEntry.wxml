@@ -1,0 +1,78 @@
+<view class="gardenEntry">
+  <block wx:if="{{mode}}">
+    <image class="mini-logo" src="{{logoPic}}"></image>
+    <image class="logo-info" src="https://woxue-dev.oss-cn-beijing.aliyuncs.com/1590413373214.9255wojiaoyu.png"></image>
+  </block>
+  <image class="logo" wx:else src="{{logoPic}}"> </image>
+  <view class="content">
+    <!-- 姓名 -->
+    <view class="item flex-sta-cen">
+      <image class="item-icon" src="../../images/jiayuantong/login_user_54.png"></image>
+      <input class="item-input" placeholder="姓名" type="text" value="{{liable}}" bindinput="inputText" data-name="liable" />
+    </view>
+    <!-- 手机号 -->
+    <view class="item flex-bet-cen">
+      <view class="flex-sta-cen">
+        <image class="item-icon" src="../../images/jiayuantong/login_phone_54.png"></image>
+        <input class="item-input w250" type="number" placeholder="手机号" maxlength="11" value="{{phone}}" bindinput="inputText" data-name="phone" />
+      </view>
+      <button class="item-txt flex-cen-cen default-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">一键获取</button>
+    </view>
+    <!-- 机构名称 -->
+    <view class="item flex-sta-cen" wx:if="{{mode===1}}">
+      <image class="item-icon" src="../../images/jiayuantong/login_school_54.png"></image>
+      <input class="item-input" placeholder="机构名称" type="text" value="{{name}}" bindinput="inputText" data-name="name" />
+    </view>
+    <!-- 园所名称 -->
+    <view class="item flex-sta-cen" wx:if="{{mode===0}}">
+      <image class="item-icon" src="../../images/jiayuantong/login_school_54.png"></image>
+      <input class="item-input" placeholder="园所名称" type="text" value="{{name}}" bindinput="inputText" data-name="name" />
+    </view>
+    <!-- 所在地区 -->
+    <view class="item flex-sta-cen">
+      <image class="item-icon" src="../../images/jiayuantong/login_location_54.png"></image>
+      <!-- <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+        <view wx:if="{{region.length}}" class="item-input">{{region[0]}} {{region[1]}} {{region[2]}}</view>
+        <input wx:else class="item-input" placeholder="所在地区" disabled type="text" />
+      </picker> -->
+      <picker mode="multiSelector" bindchange="bindPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="{{'name'}}">
+        <view wx:if="{{region.length}}" class="item-input">{{region[0]}} {{region[1]}} {{region[2]}}</view>
+        <view wx:else class="item-input">{{multiArray[0][multiIndex[0]].name}} {{ multiArray[1][multiIndex[1]].name }} {{multiArray[2][multiIndex[2]].name}}</view> 
+      </picker>
+    </view>
+    <!-- 详细地址 -->
+    <view class="item flex-sta-cen" wx:if="{{mode===0 || mode===1}}">
+      <image class="item-icon" src="../../images/jiayuantong/login_location_54.png"></image>
+      <!-- <input class="item-input" placeholder="详细地址" type="text" value="{{address}}" bindinput="inputText" data-name="address" /> -->
+      <view class="item-input gray" bindtap="goAddressDetail" wx:if="{{!address.length}}">详细地址</view>
+      <view class="item-input" bindtap="goAddressDetail" wx:else>{{address}}</view>
+    </view>
+    <!-- 邀请人 -->
+    <view class="item flex-sta-cen" wx:if="{{mode===2}}">
+      <image class="item-icon" src="../../images/jiayuantong/login_invite_54.png"></image>
+      <input class="item-input" placeholder="邀请人" type="text" value="邀请人：{{parent_name}}" disabled />
+    </view>
+    <!-- 密码 -->
+    <block wx:if="{{!mode}}">
+      <view class="item flex-sta-cen">
+        <image class="item-icon" src="../../images/jiayuantong/login_password_54.png"></image>
+        <input class="item-input" placeholder="请设置密码" password type="text" value="{{password}}" bindinput="inputText" data-name="password" />
+      </view>
+      <view class="item flex-sta-cen">
+        <image class="item-icon" src="../../images/jiayuantong/login_password_54.png"></image>
+        <input class="item-input" placeholder="请再次输入密码" password type="text" value="{{passwordAgain}}" bindinput="inputText" data-name="passwordAgain" />
+      </view>
+      <view class="tip flex-sta-cen">
+        <text class="tip-txt c107e7d">注：此密码用于登录营销系统，请熟记</text>
+      </view>
+    </block>
+  </view>
+  <block wx:if="{{mode}}">
+    <view class="btn c107e7d flex-cen-cen" bindtap="handleSubmit">提交</view>
+  </block>
+  <block wx:else>
+    <view class="btn c107e7d disabled flex-cen-cen" wx:if="{{disabled}}">提交</view>
+    <view class="btn c107e7d flex-cen-cen" wx:else bindtap="onSubmit" loading="{{btnLoading}}">提交</view>
+  </block>
+</view>
+  

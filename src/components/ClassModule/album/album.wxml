@@ -1,0 +1,102 @@
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<scroll-view class="album" scroll-y style='height:{{conHeight}}rpx;' bindscrolltolower="pullUpLoading" enable-back-to-top>
+  <!-- 相册列表 -->
+  <view class="albumList">
+    <view class="list" wx:if="{{index <= 3}}" data-id="{{item.album_id}}" bindtap="goPhoto" wx:for="{{albumList}}" wx:key="index">
+      <image class="albmImg" wx:if="{{item.type === 1}}" src="{{albumWxs.findFirstPhoto(albmPhoto) || '/images/ClassModule/pic_03.png'}}"></image>
+      <image class="albmImg" wx:else src="{{item.pic ? item.pic : '/images/ClassModule/pic_03.png'}}"></image>
+      <view class="albmText">{{item.name}}</view>
+    </view>
+    <view class="allAlbm" bindtap="goAllalbm">
+      <view class="allText">全部</view>
+      <view class="allText">相册</view>
+    </view>
+  </view>
+  <!-- 相册动态 -->
+  <view class="classHome">
+    <view class="noData" wx:if="{{!dateList.length}}">暂无动态数据</view>
+    <view class="list" wx:for="{{dateList}}" wx:key="index" wx:for-item="dateListItem">
+      <view class="date flex-sta-cen">
+        <view class="point"></view>
+        <text class="day" wx:if="{{filters.isToday(dateListItem.date)}}">今日</text>
+        <text class="day" wx:if="{{filters.isToday(dateListItem.date + 24 * 60 * 60 * 1000)}}">昨日</text>
+        <block wx:if="{{!filters.isToday(dateListItem.date) && !filters.isToday(dateListItem.date + 24 * 60 * 60 * 1000)}}">
+          <text class="day">{{filters.timestampToTime(dateListItem.date, 'M月D日')}}</text>
+        </block>
+      </view>
+      <view class="card" wx:for="{{dateListItem.list}}" wx:key="index">
+        <image class="icon72" src="{{item.pic ? item.pic : '/images/ClassModule/c_default_72.png'}}"></image>
+        <view class="w526" bindtap="toDetail" data-type="{{item.type}}" data-id="{{item._id}}">
+          <view class="name">{{item.name}}</view>
+          <view class="time">{{filters.timestampToTime(item.time, 'h:m')}}</view>
+          <!-- 相册动态 -->
+          <block wx:if="{{item.type===2 || item.type ===3}}">
+            <view class="name ellipsisOne">{{item.content}}</view>
+            <view class="content flex-sta-cen">
+              <block wx:if="{{item.urls[0]}}">
+                <image class="w90" wx:if="{{item.type === 2}}" src="{{item.urls[0]}}" mode="aspectFill"></image>
+                <video class="w90" wx:else src="{{item.urls[0]}}" controls="{{false}}" show-center-play-btn="{{false}}" muted></video>
+              </block>
+              <block wx:if="{{item.urls[1]}}">
+                <image class="w90" wx:if="{{item.type === 2}}" src="{{item.urls[1]}}" mode="aspectFill"></image>
+                <video class="w90" wx:else src="{{item.urls[1]}}" controls="{{false}}" show-center-play-btn="{{false}}" muted></video>
+              </block>
+              <block wx:if="{{item.urls[2]}}">
+                <image class="w90" wx:if="{{item.type === 2}}" src="{{item.urls[2]}}" mode="aspectFill"></image>
+                <video class="w90" wx:else src="{{item.urls[2]}}" controls="{{false}}" show-center-play-btn="{{false}}" muted></video>
+              </block>
+              <block wx:if="{{item.urls[3]}}">
+                <image class="w90" wx:if="{{item.type === 2}}" src="{{item.urls[3]}}" mode="aspectFill"></image>
+                <video class="w90" wx:else src="{{item.urls[3]}}" controls="{{false}}" show-center-play-btn="{{false}}" muted></video>
+              </block>
+              <block wx:if="{{item.urls.length === 5}}">
+                <image class="w90" wx:if="{{item.type === 2}}" src="{{item.urls[4]}}" mode="aspectFill"></image>
+                <video class="w90" wx:else src="{{item.urls[4]}}" controls="{{false}}" show-center-play-btn="{{false}}" muted></video>
+              </block>
+              <view class="w90 flex-cen-cen" wx:if="{{item.urls.length > 5}}">
+                <text>共 {{item.urls.length}} {{item.type === 2?'张':'个'}}</text>
+              </view>
+            </view>
+            <view class="handle flex-bet-cen">
+              <view class="flex-sta-cen">
+                <text class="del-btn" style="margin-right:36rpx;" catchtap="delDynamic" data-id="{{item._id}}">{{role === 1?'删除':''}}</text>
+                <text class="del-btn" style="color:#0453D5;" wx:if="{{item.status===2}}">审核中</text>
+                <text class="del-btn" style="color:#FF6000;" wx:if="{{item.status===3}}">审核失败</text>
+                <text class="del-btn" style="color:#0453D5;" wx:if="{{item.status===4}}">申诉中</text>
+                <text class="del-btn" style="color:#FF6000;" wx:if="{{item.status===6}}">申诉失败</text>
+              </view>
+              <view class="flex-sta-cen">
+                <view class="tip flex-sta-cen" catchtap="changeClick" data-status="{{item.status}}" data-id="{{item._id}}" data-isClick="{{item.is_click}}">
+                  <image wx:if="{{item.is_click}}" class="icon24" src="/images/ClassModule/pic_hd.png"></image>
+                  <image wx:else class="icon24" src="/images/ClassModule/a_zan_24.png"></image>
+                  <text style="color:#2D2D2D;">{{item.click_num}}</text>
+                </view>
+                <view class="tip flex-sta-cen">
+                  <image class="icon24" src="/images/ClassModule/a_say_24.png"></image>
+                  <text style="color:#2D2D2D;">{{item.comment_num}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="tag flex-cen-cen" style="background:#FFC824;">
+              <image class="icon28" src="/images/ClassModule/h_album_28.png"></image>
+              <text>相册</text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class='noMore' wx:if="{{isShowNoMore}}">没有更多了</view>
+  </view>
+</scroll-view>
+<wxs module="albumWxs">
+module.exports = {
+  // 寻找相册中第一个照片
+  findFirstPhoto: function (arr) {
+    for (var i=0; i<arr.length; i++) {
+      if (arr[i].type === 1) {
+        return arr[i].url;
+      }
+    }
+  }
+};
+</wxs>

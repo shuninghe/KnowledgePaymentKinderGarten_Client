@@ -1,0 +1,123 @@
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+<view class="saleHome">
+  <!-- 个人信息 -->
+  <view class="personInfo flex-bet-cen">
+    <view class="flex-sta-sta">
+      <image class="img" src="{{saleHome.pic?saleHome.pic:'/images/saleMagage/home_03.png'}}"></image>
+      <view>
+        <view class="name">{{saleHome.nick_name}}</view>
+        <view class="info">
+          <image class="info-bg" src="/images/saleMagage/home_co_03.png"></image>
+          <text class="info-txt flex-cen-cen">{{saleHome.level_name}}</text>
+        </view>   
+      </view>
+    </view>
+    <view>
+      <view class="share flex-cen-cen" bindtap="goJump" data-type="3" hidden="{{saleHome.level_name === '园长'}}">
+        <image class="share-icon" src="../../images/study/course-share.png"></image>
+        <text class="share-txt">立即推广</text>
+      </view>
+    </view>
+  </view> 
+  <!-- 今日收益 -->
+  <view class="todayTrade">
+    <view class="tixian" bindtap="goCash">
+      <image class="icon" src="/images/saleMagage/tixian_03.png"></image>
+      <text class="text">提现</text>
+    </view>
+    <view class="today" bindtap="goJump" data-type="2">
+      <view class="money">{{filters.handlePriceTwo(saleHome.today.earnings_money)}}</view>
+      <view class="text">今日收益（元）</view>  
+    </view> 
+    <view class="line"></view>
+    <view class="today" bindtap="goCash">
+      <view class="money">{{filters.handlePriceTwo(saleHome.balance_money)}}</view>
+      <view class="text">待提现（元）</view>  
+    </view> 
+  </view>
+  <!-- 今日详情 -->
+  <view class="todayDetail">
+    <view class="title">
+      <image class="icon" src="/images/saleMagage/t_money_48.png"></image>
+      <text class="text">今日</text>
+    </view>
+    <view class="content">
+      <view class="horLine"></view>
+      <view class="verLine"></view>
+      <view class="list" bindtap="goJump" data-type="2">
+        <view class="money">{{filters.handlePriceTwo(saleHome.today.earnings_money)}}</view>
+        <view class="text">收益金额(元)</view>   
+      </view>
+      <view class="list" bindtap="goJump" data-type="2">
+        <view class="money">{{saleHome.today.count}}</view>
+        <view class="text">收益笔数(笔)</view>   
+      </view>
+      <view class="list" bindtap="goJump" data-type="2">
+        <view class="money">{{filters.handlePriceTwo(saleHome.today.child_earnings_money)}}</view>
+        <view class="text">下级收益(元)</view>   
+      </view>
+      <!-- <view class="list" bindtap="goJump" data-type="2">
+        <view class="money">{{filters.handlePriceTwo(saleHome.today.kin_leder_money)}}</view>
+        <view class="text">园长收益(元)</view>   
+      </view> -->
+    </view>
+  </view>
+  <!-- 历史详情 -->
+  <view class="todayDetail history">
+    <view class="title">
+      <image class="icon" src="/images/saleMagage/t_history_48.png"></image>
+      <text class="text">历史</text>
+    </view>
+    <view class="content">
+      <view class="horLine"></view>
+      <view class="verLine"></view>
+      <view class="list" bindtap="goJump" data-type="2">
+        <view class="money">{{filters.handlePriceTwo(saleHome.history.earnings_money)}}</view>
+        <view class="text">收益金额(元)</view>   
+      </view>
+      <view class="list" bindtap="goJump" data-type="2">
+        <view class="money">{{saleHome.history.count}}</view>
+        <view class="text">收益笔数(笔)</view>   
+      </view>
+      <view class="list" bindtap="goJump" data-type="2">
+        <view class="money">{{filters.handlePriceTwo(saleHome.history.child_earnings_money)}}</view>
+        <view class="text">下级收益(元)</view>   
+      </view>
+      <!-- <view class="list" bindtap="goJump" data-type="2">
+        <view class="money">{{filters.handlePriceTwo(saleHome.history.kin_leder_money)}}</view>
+        <view class="text">园长收益(元)</view>   
+      </view> -->
+    </view>
+  </view>
+  <!-- 更多 -->
+  <image class="more" src="/images/saleMagage/t_memu_108.png" bindtap="showMask"></image>
+  <view class="mask" wx:if="{{showMask}}" catchtap="showMask"></view>
+  <view class="moreList" wx:if="{{showMask}}">
+    <view class="list" data-type="1" bindtap="goJump">
+      <image class="icon" src="/images/saleMagage/t_yaoqing_36.png"></image>  
+      <text class="text">我的邀请</text>
+    </view>
+    <view class="list" data-type="2" bindtap="goJump">
+      <image class="icon" src="/images/saleMagage/t_jiaoyi_36.png"></image>  
+      <text class="text">交易明细</text>
+    </view>
+    <view class="list" data-type="3" bindtap="goJump" wx:if="{{saleHome.level_name !== '园长'}}">
+      <image class="icon" src="/images/saleMagage/t_qrcode_36.png"></image>  
+      <text class="text">我的二维码</text>
+    </view>
+    <view class="list" data-type="4" bindtap="goJump">
+      <image class="icon" src="/images/saleMagage/t_mycard_36.png"></image>  
+      <text class="text">我的银行卡</text>
+    </view>
+    <view class="list" data-type="5" bindtap="goJump">
+      <image class="pass" src="/images/saleMagage/password_03.png"></image>  
+      <text class="text">忘记密码</text>
+    </view>
+    <button class="btn list" open-type="contact">
+      <image class="icon" src="/images/saleMagage/t_kefu_36.png"></image>  
+      <text class="text">联系客服</text>
+    </button>
+    <view class="topLeft"></view>
+  </view>
+  <view class="maskbg" wx:if="{{showMask}}" bindtap="showMask"></view>
+</view>

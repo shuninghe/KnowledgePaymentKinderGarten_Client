@@ -1,0 +1,71 @@
+<view class="orderpay-page">
+  <!-- 0、用户取消 1、成功提交（待付款） 2、确认到账（已付款） -->
+  <view class="order-item">
+    <view class="first-row-wrap">
+      <image class="img" src="{{pic}}"></image>
+      <view class="course-info-wrap">
+        <view class="title">{{name}}</view>
+        <block wx:if="{{activityType }}">
+          <view class="flex-sta-cen" wx:if="{{activityType === 1}}">
+            <view class="pintuan-type flex-cen-cen">{{selectNum}}人团</view>
+            <!-- <view class="pintuan-num">已拼3456件</view> -->
+          </view>
+          <view class="flex-bet-end">
+            <view class="flex-col-cen-sta">
+              <view class="price">¥{{payPrice}}</view>
+              <view class="original-price" wx:if="{{price}}">¥{{price}}</view>
+            </view>
+            <view class="order-status" wx:if="{{type=== 1}}">等待支付</view>
+            <view class="order-status" wx:elif="{{type=== 0}}">交易取消</view>
+            <view class="order-status" wx:elif="{{type=== 2}}">交易成功</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="price">¥{{payPrice}} <text class="original-price" wx:if="{{price}}"> ¥{{price}}</text></view>
+          <view class="order-status" wx:if="{{type=== 1}}">等待支付</view>
+          <view class="order-status" wx:elif="{{type=== 0}}">交易取消</view>
+          <view class="order-status" wx:elif="{{type=== 2}}">交易成功</view>
+        </block>
+      </view>
+    </view>
+    <view class="last-row-wrap">
+      <view class="line"></view>
+      <view class="pay-info-wrap">
+        <view class="item" wx:if="{{activityType}}">
+          <view class="left">订单类型</view>
+          <view class="right">
+            <text wx:if="{{activityType === 1}}">好友拼团</text>
+            <text wx:if="{{activityType === 2}}">限时秒杀</text>
+          </view>
+        </view>
+        <view class="item">
+          <view class="left">支付方式</view>
+          <view class="right">微信</view>
+        </view>
+        <view class="item">
+          <view class="left" wx:if="{{type === 2}}">商品金额</view>
+          <view class="left" wx:else>应付金额</view>
+          <view class="right">￥{{payPrice}}</view>
+        </view>
+        <view class="item" wx:if="{{type === 2}}">
+          <view class="left" >实付金额</view>
+          <view class="right">￥{{payPrice}}</view>
+        </view>
+        <!-- <view class="item">
+          <view class="left">订单编号</view>
+          <view class="right">{{orderId}}</view>
+        </view> -->
+        <view class="item">
+          <view class="left">创建时间</view>
+          <view class="right">{{creatDate}}</view>
+        </view>
+        <!-- <view class="item" wx:if="{{type === 2}}">
+          <view class="left">付款时间</view>
+          <view class="right">{{payTime}}</view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <view class="pay-btn" bindtap="toPay" wx:if="{{type===1}}">立即支付</view>
+</view>
+  

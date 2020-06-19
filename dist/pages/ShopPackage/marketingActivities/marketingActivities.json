@@ -1,0 +1,8 @@
+
+{
+  "navigationBarTitleText": "活动",
+  "usingComponents": {
+    "contactChannels": "../../../components/contactChannels/contactChannels",
+    "activityList": "../../../components/activityList/activityList"
+  }
+}

@@ -1,0 +1,99 @@
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<!-- 班级主页tab -->  
+<scroll-view class="classHome" scroll-y style='height:{{conHeight}}rpx;' bindscrolltolower="pullUpLoading">
+  <view class="noData" wx:if="{{!dateList.length}}">暂无动态数据</view>
+  <view class="list" wx:for="{{dateList}}" wx:key="index" wx:for-item="dateListItem">
+    <view class="date flex-sta-cen">
+      <view class="point"></view>
+      <text class="day" wx:if="{{filters.isToday(dateListItem.date)}}">今日</text>
+      <text class="day" wx:if="{{filters.isToday(dateListItem.date + 24 * 60 * 60 * 1000)}}">昨日</text>
+      <block wx:if="{{!filters.isToday(dateListItem.date) && !filters.isToday(dateListItem.date + 24 * 60 * 60 * 1000)}}">
+        <text class="day">{{filters.timestampToTime(dateListItem.date, 'M月D日')}}</text>
+      </block>
+    </view>
+    <view class="card" wx:for="{{dateListItem.list}}" wx:key="index">
+      <image class="icon72" src="{{item.pic ? item.pic : '/images/ClassModule/c_default_72.png'}}"></image>
+      <view class="w526" bindtap="toDetail" data-type="{{item.type}}" data-id="{{item._id}}">
+        <view class="name">{{item.name}}</view>
+        <view class="time">{{filters.timestampToTime(item.time, 'h:m')}}</view>
+        <!-- 通知动态 -->
+        <block wx:if="{{item.type===1}}">
+          <view class="name flex-bet-cen">
+            <view class="w500 ellipsisOne">{{item.title}}</view>
+            <image class="icon20" src="../../../images/ClassModule/n_arrow_20.png"></image>
+          </view>
+          <view class="content ellipsisOne">{{item.content}}</view>
+          <view class="handle">
+            <text class="del-btn" wx:if="{{role === 1}}" catchtap="delDynamic" data-id="{{item._id}}">删除</text>
+            <view class="tip flex-sta-cen">
+              <image class="icon24" src="/images/ClassModule/n_see_24.png"></image>
+              <text style="color:#5EA804;">{{item.watch_num}}人已查看</text>
+            </view>
+            <view wx:if="{{item.is_review}}" class="tip flex-sta-cen">
+              <image class="icon24" src="/images/ClassModule/n_say_24.png"></image>
+              <text style="color:#5EA804;">{{item.comment_num}}人已回复</text>
+            </view>
+          </view>
+          <view class="tag flex-cen-cen" style="background:#107E7D;">
+            <image class="icon28" src="/images/ClassModule/h_notice_28.png"></image>
+            <text>通知</text>
+          </view>
+        </block>
+        <!-- 相册动态 -->
+        <block wx:if="{{item.type===2 || item.type===3}}">
+          <view class="name ellipsisOne">{{item.content}}</view>
+          <view class="content flex-sta-cen">
+            <block wx:if="{{item.urls[0]}}">
+              <image class="w90" wx:if="{{item.type === 2}}" src="{{item.urls[0]}}" mode="aspectFill"></image>
+              <video class="w90" wx:else src="{{item.urls[0]}}" controls="{{false}}" show-center-play-btn="{{false}}" muted></video>
+            </block>
+            <block wx:if="{{item.urls[1]}}">
+              <image class="w90" wx:if="{{item.type === 2}}" src="{{item.urls[1]}}" mode="aspectFill"></image>
+              <video class="w90" wx:else src="{{item.urls[1]}}" controls="{{false}}" show-center-play-btn="{{false}}" muted></video>
+            </block>
+            <block wx:if="{{item.urls[2]}}">
+              <image class="w90" wx:if="{{item.type === 2}}" src="{{item.urls[2]}}" mode="aspectFill"></image>
+              <video class="w90" wx:else src="{{item.urls[2]}}" controls="{{false}}" show-center-play-btn="{{false}}" muted></video>
+            </block>
+            <block wx:if="{{item.urls[3]}}">
+              <image class="w90" wx:if="{{item.type === 2}}" src="{{item.urls[3]}}" mode="aspectFill"></image>
+              <video class="w90" wx:else src="{{item.urls[3]}}" controls="{{false}}" show-center-play-btn="{{false}}" muted></video>
+            </block>
+            <block wx:if="{{item.urls.length === 5}}">
+              <image class="w90" wx:if="{{item.type === 2}}" src="{{item.urls[4]}}" mode="aspectFill"></image>
+              <video class="w90" wx:else src="{{item.urls[4]}}" controls="{{false}}" show-center-play-btn="{{false}}" muted></video>
+            </block>
+            <view class="w90 flex-cen-cen" wx:if="{{item.urls.length > 5}}">
+              <text>共 {{item.urls.length}} {{item.type === 2?'张':'个'}}</text>
+            </view>
+          </view>
+          <view class="handle flex-bet-cen">
+            <view class="flex-sta-cen">
+              <text class="del-btn" style="margin-right:36rpx;" catchtap="delDynamic" data-id="{{item._id}}">{{role === 1?'删除':''}}</text>
+              <text class="del-btn" style="color:#0453D5;" wx:if="{{item.status===2}}">审核中</text>
+              <text class="del-btn" style="color:#FF6000;" wx:if="{{item.status===3}}">审核失败</text>
+              <text class="del-btn" style="color:#0453D5;" wx:if="{{item.status===4}}">申诉中</text>
+              <text class="del-btn" style="color:#FF6000;" wx:if="{{item.status===6}}">申诉失败</text>
+            </view>
+            <view class="flex-sta-cen">
+              <view class="tip flex-sta-cen" catchtap="changeClick" data-status="{{item.status}}" data-id="{{item._id}}" data-isClick="{{item.is_click}}">
+                <image wx:if="{{item.is_click}}" class="icon24" src="/images/ClassModule/pic_hd.png"></image>
+                <image wx:else class="icon24" src="/images/ClassModule/a_zan_24.png"></image>
+                <text style="color:#2D2D2D;">{{item.click_num}}</text>
+              </view>
+              <view class="tip flex-sta-cen">
+                <image class="icon24" src="/images/ClassModule/a_say_24.png"></image>
+                <text style="color:#2D2D2D;">{{item.comment_num}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="tag flex-cen-cen" style="background:#FFC824;">
+            <image class="icon28" src="/images/ClassModule/h_album_28.png"></image>
+            <text>相册</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='noMore' wx:if="{{isShowNoMore}}">没有更多了</view>
+</scroll-view>

@@ -1,0 +1,6 @@
+
+{
+  "usingComponents": {
+    "contactChannels": "../../../components/contactChannels/contactChannels"
+  }
+}

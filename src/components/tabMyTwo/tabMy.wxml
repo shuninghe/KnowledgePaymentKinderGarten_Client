@@ -1,0 +1,60 @@
+<!-- 老版-我的 -->
+<view class="tabMy">
+  <image class="banner" src="/images/mybg.png" />
+  <view class="my-center-container">
+    <button class="btn userinfo-wrap" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" data-type="0">
+      <image class="photo" wx:if="{{userData}}" src="{{userData.avatarUrl}}" />
+      <image class="photo" wx:else src="/images/default_head.png" />
+      <view class="user-text" wx:if="{{userData}}">{{userData.nickName}}</view>
+      <view class="user-text" wx:else>尚未授权</view>
+    </button>
+    <view class="first-row-container">
+      <button class="btn myinfo" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" data-type="2">个人信息</button>
+      <button class="btn join" wx:if="{{isShowBindGarden}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" data-type="1">
+        {{liable_kindergarten > 0?type_name+'管理':type_name+'入驻'}}
+      </button>
+    </view>
+    <view class="last-row-container">
+      <view class="study-center-wrap" bindtap="goMyStudy">
+        <image class="study-ico" src="/images/mystudy-ico.png" />
+        <view class="txt">我的学习</view>
+      </view>
+      <navigator open-type="navigate" hover-class="none" url="/pages/myOrder/myOrder">
+        <view class="study-center-wrap">
+          <image class="study-ico" src="/images/myorder-ico.png" />
+          <view class="txt">我的订单</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class="link-container">
+    <button class="btn item" wx:if="{{isShowEnter}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" data-type="3">
+      <image class="left" src="/images/my-card-ico.png" />
+      <view class="right">
+        <view class="txt">学习卡激活</view>
+        <image class="ico" src="/images/right-arrow.png" />
+      </view>
+    </button>
+    <button class="btn item" wx:if="{{isShowSale}}" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" data-type="4">
+      <image class="left" src="/images/info.png" />
+      <view class="right">
+        <view class="txt">营销中心</view>
+        <image class="ico" src="/images/right-arrow.png" />
+      </view>
+    </button>
+    <button class="btn item" open-type="contact">
+      <image class="left" src="/images/linkserver.png" />
+      <view class="right">
+        <view class="txt">联系客服</view>
+        <image class="ico" src="/images/right-arrow.png" />
+      </view>
+    </button>
+  </view>
+</view>
+<!-- 购买绑定手机号弹窗 -->
+<custom-popup mode="4" wx:if="{{showPhonePopup}}" 
+  styleColor="#57cf6e"
+  bindgetWxPhone="getWxPhone" 
+  bindtoBindPhone="toBindPhone" 
+  bindhandleCancel="closePhonePopup">
+</custom-popup>

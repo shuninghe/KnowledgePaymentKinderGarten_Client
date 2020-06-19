@@ -1,0 +1,132 @@
+.invitation {
+  background-image: url('https://woxue-dev.oss-cn-beijing.aliyuncs.com/1587441404876.9028c_invitation_bg.png');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  width: 100%;
+  min-height: 100%;
+  .content-wrap {
+    width: 560rpx;    
+    padding-top: 107rpx;
+    padding-bottom: 140rpx;
+    margin: 0 auto;
+  }
+  // 主标题
+  .title {
+    font-size: 45rpx;
+    font-weight: bold;
+    color: #107E7D;
+    text-align: center;
+  }
+  // 副标题
+  .sub-title {
+    font-size: 24rpx;
+    color: #282828;
+    text-align: center;
+    padding-top: 30rpx;
+    padding-bottom: 84rpx;
+  }
+  .teacher .sub-title {
+    padding-top: 52rpx;
+    padding-bottom: 119rpx;
+  }
+  // input框样式
+  .input {
+    width: 558rpx;
+    height: 110rpx;
+    border: 1rpx solid #107E7D;
+    padding-left: 44rpx;
+    padding-right: 25rpx;
+    border-radius: 10rpx;
+    margin-bottom: 22rpx;
+    &-icon {
+      width: 40rpx;
+      height: 40rpx;
+      margin-right: 26rpx;
+    }
+    &-text {
+      width: 335rpx;
+      font-size: 26rpx;
+      color: #282828;
+    }
+    .choise {
+      width: 82rpx;
+      height: 52rpx;
+      border-radius: 10rpx;
+      background-color: #E7F2F2;
+      font-size: 24rpx;
+      color: #107E7D;
+    }
+  }
+  // 邀请家长时，添加宝宝部分样式
+  .tip {
+    font-size: 24rpx;
+    margin: 32rpx 0;
+    .tip-icon {
+      width: 40rpx;
+      height: 40rpx;
+      margin-right: 18rpx;
+    }
+    .tip-text {
+      color: #282828;
+    }
+    .add-btn {
+      width: 99rpx;
+      height: 52rpx;
+      background-color: #107E7D;
+      border-radius: 10rpx;
+      color: #fff;
+    }
+  }
+  .add-baby {
+    // width: 558rpx;
+    display: flex;
+    align-items:center;
+    .add-input {
+      width:440rpx;
+      margin-right:48rpx;
+    }
+    .del-baby {
+      font-size:24rpx;
+      color:#107E7D;
+      margin-top:-22rpx;
+    }
+  }
+  .has-baby {
+    padding: 0 50rpx;
+    .item {
+      width: 50%;
+      display: inline-flex;
+      padding: 15rpx 0;
+      &-icon {
+        width: 40rpx;
+        height: 40rpx;
+        margin-right: 10rpx;
+      }
+      &-text {
+        display: inline-block;
+        max-width: 170rpx;
+        font-size: 26rpx;
+        color: #107E7D;
+      } 
+    }
+  }
+
+  // 提交信息
+  .bottom-btn {
+    position: fixed;
+    width: 100%;
+    height: 140rpx;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    .save {
+      width: 694rpx;
+      height: 84rpx;
+      border-radius: 10rpx;
+      background-color: #107E7D;
+      font-size: 30rpx;
+      color: #fff;
+    }
+  }
+}

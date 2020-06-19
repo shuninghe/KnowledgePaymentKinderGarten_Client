@@ -1,0 +1,24 @@
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+<view class="myCard">
+    <view class="card-top" wx:if="{{cardList.length}}">
+        <image class="card-icon" src="/images/saleMagage/c_card_07.png" />
+        <view class="num">共 {{cardList.length}} 张</view>
+        <image class="delete-icon" src="../../images/jiayuantong/deleteIcon.png" bindtap="showDeleteBtn" />
+    </view>
+    <block wx:if="{{cardList.length}}">
+      <view class="card" wx:for="{{cardList}}" wx:key="index">
+          <view class="flex-sta-cen {{showDelBtn? 'card-mgleft':''}}">
+            <view class="card-logo" style="background-image: url({{item.logoUrl}})"></view>
+            <view class="cardInfo">
+                <view class="name">{{item.name}}</view>
+                <view class="number">{{filters.handleCard(item.card)}}</view>
+            </view>
+          </view>
+          <image class="delete-btn" wx:if="{{showDelBtn}}" bindtap="delBankCard" data-id="{{item.id}}" src="../../images/jiayuantong/deleteButton.jpg" />
+      </view>
+    </block>
+    <view class="no-data" wx:else>暂无银行卡</view>
+    <view class="footer" bindtap="toBundleBankCard">
+        + 添加银行卡
+    </view>
+</view>

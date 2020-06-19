@@ -1,0 +1,194 @@
+/**
+ * 使用说明:
+ * wxs是小程序的一套脚本语言
+ * 通过使用wxs文件，实现在wxml页面中调用自定义的JavaScript函数
+ * 
+ * 使用方式:
+ * 1. 创建函数导出函数
+    var filters = {
+      numberToFix: function (value) {
+        return value.toFixed(0)
+      }
+    }
+    module.exports = {
+      numberToFix: filters.numberToFix
+    }
+ * 2.在需要使用numberToFix函数的页面引入numbertofix.wxs文件
+ * <wxs module="filters" src="../../utils/common.wxs"></wxs>
+ * 3.调用即可
+ * <text class="vote-item-data-percent">{{filters.numberToFix(num)}}</text>
+ */
+var filters = {
+  // 处理银行卡号
+  handleCard: function (card) {
+    return card.replace(getRegExp('\s', 'g'), '').replace(getRegExp('(\d{4})\d+(\d{4})$', 'g'), '**** **** **** $2');
+  },
+  // 处理价格
+  handlePrice: function (value) {
+    return parseFloat(value / 100);
+  },
+  // 处理价格
+  handlePriceTwo: function (value) {
+    if (value) {
+      return parseFloat(value / 100);
+    } else {
+      return '0.0'
+    }
+  },
+  // 取整
+  numberToFix: function (value) {
+    return value.toFixed(0);
+  },
+  // 四舍五入保留n位小数
+  handleNumber: function (num, n) {
+    n = n ? parseInt(n) : 0;
+    if(n <= 0) {
+        return Math.round(num);
+    }
+    num = Math.round(num * Math.pow(10, n)) / Math.pow(10, n); //四舍五入
+    num = Number(num).toFixed(n); //补足位数
+    return Number(num);
+  },
+  // 毫秒计算时长
+  calaDuration: function (duration) {
+    var s, m, h;
+    s = Math.floor(duration / 1000);
+    if (s < 60) {
+        return s + '秒';
+    } else {
+        m = Math.floor(s / 60);
+        s = s % 60;
+        if (m < 60) {
+            return m + '分钟' + s + '秒';
+        } else {
+            h = Math.floor(m / 60);
+            m = m % 60;
+            if (m && s) return h + '小时' + m + '分钟' + s + '秒';                              
+            if (m && !s) return h + '小时' + m + '分钟';       
+            if (!m && s) return h + '小时' + s + '秒';                                                  
+            if (!m && !s) return h + '小时';                                                  
+        }
+    }
+  },
+  // 毫秒转分钟
+  formatDuration: function (duration) {
+    var s, m;
+    s = Math.floor(duration / 1000);
+    m = Math.floor(s / 60);
+    return m + 'min';
+  },
+  // 富文本图片宽撑满高自适应(配合固定类名uploadImage使用)
+  replaceImgSize: function (content) {
+    if (content) {
+      var reg = getRegExp("\<img", "ig");
+      return content.replace(reg, "<img class='uploadImage' ");
+    }
+  },
+  // 求两个时间戳的差
+  differ: function (today, time) {
+    var temp = Math.floor((today / 1000) - time);
+    var day = Math.floor(temp / 86400);
+    var hour = Math.floor(temp % 86400 / 3600);
+    if (day) {
+      return day + '天前';
+    } else {
+      if (hour) {
+        return hour + '小时前';
+      } else {
+        return '刚刚';
+      }
+    }
+  },
+  // 判断数组是否存在某一个元素
+  judgeArr: function (arr, element) {
+    if (arr.indexOf(element) >= 0) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  // 判断是否为非空对象
+  judgeObj: function (obj) {
+    if (JSON.stringify(obj) !== '{}') {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  // 判断是否为字符串
+  judgeStr: function (str) {
+    if (typeof(str) === 'string') {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  /** 
+  * 根据数组对象中的属性值查找某一对象
+  * @param {String, Number...} val: 某一对象的属性值
+  * @param {Array} arr: 数组对象
+  * @param {String} attr: 数组对象的属性名
+  */
+  findArrObjHas: function (val, arr, attr) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i][attr] === val) {
+        return arr[i]
+      }
+    }
+  },
+  /** 
+  * 时间戳转日期时间
+  * @param {Number} time: 13位时间戳
+  * @param {String} format: 日期时间格式
+  * 使用方式: timestampToTime(1557285692393, 'Y-M-D h:m:s') // 2019-05-08 11:21:32
+  */
+  timestampToTime: function (time, format) {
+    var timestamp = (''+time).length === 10 ? time * 1000 : time;
+    if (!format) {
+      format = "Y-M-D h:m:s";
+    }
+    var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+    var returnArr = [];
+    var date = getDate(timestamp);
+    returnArr.push(date.getFullYear());
+    var M = date.getMonth() + 1;
+    returnArr.push(M < 10 ? ('0' + M) : M);
+    var D = date.getDate();
+    returnArr.push(D < 10 ? ('0' + D) : D);
+    var h = date.getHours();
+    returnArr.push(h < 10 ? ('0' + h) : h);
+    var m = date.getMinutes();
+    returnArr.push(m < 10 ? ('0' + m) : m);
+    var s = date.getSeconds();
+    returnArr.push(s < 10 ? ('0' + s) : s);
+    for (var i=0; i<returnArr.length; i++) {
+        format = format.replace(formateArr[i], returnArr[i]);
+    }
+    return format;
+  },
+  // 根据时间戳判断(str星期、周)几
+  weekday: function (timestamp, str) {
+    var arr = ['日','一','二','三','四','五','六']
+    var index = getDate(timestamp).getDay()
+    return str + arr[index];
+  },
+  // 判断时间戳是否为今天
+  isToday: function (timestamp) {
+    var newTime = getDate(timestamp).setHours(0, 0, 0, 0);
+    var todayTime = getDate().setHours(0, 0, 0, 0);
+    if (newTime === todayTime) {
+      return true;
+    } else {
+      return false;      
+    }
+  },
+  // 判断时间戳是否为过去时间
+  isTimeAgo: function (timestamp) {
+    if (timestamp < getDate().getTime()) {
+      return true;
+    } else {
+      return false;      
+    }
+  }
+}
+module.exports = filters;

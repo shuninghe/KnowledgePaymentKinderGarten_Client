@@ -1,0 +1,40 @@
+<import src="../../templates/kindGarten/kindGarten.wxml" />
+<view class="container">
+  <template is="kindGarten" data="{{url}}"></template>
+  <view class="list-box" >
+    <view class="list-item" data-num="1" bindtap="handleClick">
+      <view>
+        基本信息
+      </view>
+      <image src="../../images/db_arr.png" class="arr"/>
+    </view>
+    <view class="list-item" data-num="2" bindtap="handleClick">
+      <view>
+        {{type_name}}介绍
+      </view>
+      <image src="../../images/db_arr.png" class="arr"/>
+    </view>
+    <view class="list-item" data-num="3" bindtap="handleClick">
+      <view>
+        活动作品
+      </view>
+      <image src="../../images/db_arr.png" class="arr"/>
+    </view>
+    <view class="list-item" data-num="4" bindtap="handleClick">
+      <view>
+        主题风格
+      </view>
+      <view class="list-item-right">
+        <view class="blank"></view>
+        <image src="../../images/db_arr.png" class="arr"/>
+      </view>
+    </view>
+    <view class="list-item" data-num="5" bindtap="handleClick">
+      <view>
+        解除管理员身份
+      </view>
+      <image src="../../images/db_arr.png" class="arr"/>
+    </view>
+  </view>
+</view>
+<coustom-popup mode="3" wx:if="{{isShowPopup}}" bindhandleConfirm="handleConfirm" bindhandleCancel="handleCancel"></coustom-popup>

@@ -1,0 +1,7 @@
+
+{
+  "navigationBarTitleText": "知识图谱",
+  "usingComponents": {
+    "custom-popup": "../../components/customPopup/customPopup"
+  }
+}

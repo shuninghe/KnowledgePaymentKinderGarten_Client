@@ -1,0 +1,77 @@
+.saleLogin {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  padding-top: 85rpx;
+  padding-bottom: 60rpx;
+}
+.saleLogin .logo {
+  display: block;
+  width: 186rpx;
+  height: 186rpx;
+  margin: 0 auto;
+}
+.saleLogin .content {
+  width: 506rpx;
+  margin: 62rpx auto 0;
+}
+.saleLogin .item {
+  padding: 30rpx 0 20rpx 6rpx;
+  border-bottom: 2rpx solid #f1f1f1;
+}
+.saleLogin .item-icon {
+  width: 54rpx;
+  height: 54rpx;
+  margin-right: 10rpx;
+}
+.saleLogin .item-input.w250 {
+  width: 250rpx;
+}
+.saleLogin .item-txt {
+  width: 140rpx;
+  font-size: 26rpx;
+  color: #282828;
+}
+.saleLogin .item-txt.time {
+  color: #7e7e7e;
+}
+.saleLogin .item-txt.default-btn {
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+.saleLogin .item-txt.default-btn::after {
+  border: none;
+}
+.saleLogin .tip {
+  margin: 30rpx 0 20rpx;
+}
+.saleLogin .tip-txt {
+  font-size: 24rpx;
+  color: #48c05f;
+}
+.saleLogin .tip-txt.c107e7d {
+  color: #107e7d;
+}
+.saleLogin .tip-icon {
+  width: 20rpx;
+  height: 24rpx;
+}
+.saleLogin .btn {
+  width: 505rpx;
+  height: 85rpx;
+  background-color: #48c05f;
+  border-radius: 8rpx;
+  margin: 30rpx auto 0;
+  font-size: 28rpx;
+  color: #fff;
+}
+.saleLogin .btn.c107e7d {
+  background-color: #107e7d;
+}
+.saleLogin .btn.disabled {
+  background-color: #e4e4e4;
+}

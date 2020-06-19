@@ -1,0 +1,52 @@
+<view class="classManage">
+  <!-- 班级管理 -->
+  <view class="card flex-bet-cen" bindtap="toEditClassInfo">
+    <view class="flex-sta-cen">
+      <image class="icon40 mr22" src="/images/ClassModule/c_home_40.png"></image>
+      <text class="title">我的班级</text>
+    </view>
+    <view class="flex-sta-cen">
+      <text class="title c107E7D">{{name}}</text>
+      <image hidden="{{role===2}}" class="icon40" src="/images/ClassModule/c_arrow_40.png"></image>
+    </view>
+  </view>
+  <view class="card">
+    <view class="flex-sta-cen mb20">
+      <image class="icon40 mr22" src="/images/ClassModule/c_teacher_40.png"></image>
+      <text class="title">老师 {{teacher_num}} 人</text>
+    </view>
+    <view class="item flex-bet-cen" wx:for="{{teachers}}" wx:key="index" bindtap="toEditRoleInfo" data-type="1" data-item="{{item}}">
+      <view class="flex-sta-cen">
+        <image class="icon72" src="{{item.pic || '/images/ClassModule/c_default_72.png'}}"></image>
+        <text class="name">{{item.name}}</text>
+      </view>
+      <image hidden="{{role===2}}" class="icon40" src="/images/ClassModule/c_arrow_40.png"></image>
+    </view>
+    <view class="line"></view>
+    <view class="flex-sta-cen mb20">
+      <image class="icon40 mr22" src="/images/ClassModule/c_student_40.png"></image>
+      <text class="title">学生 {{baby_num}} 人</text>
+    </view>
+    <view class="item flex-bet-cen" wx:for="{{babys}}" wx:key="index" bindtap="toEditRoleInfo" data-type="2" data-item="{{item}}">
+      <view class="flex-sta-cen">
+        <image class="icon72" src="{{item.pic || '/images/ClassModule/c_default_72.png'}}"></image>
+        <text class="name">{{item.remark || item.name + item.relation_name}}</text>
+      </view>
+      <image hidden="{{role===2 && item.class_user_id !== class_user_id}}" class="icon40" src="/images/ClassModule/c_arrow_40.png"></image>
+    </view>
+  </view>
+  <view class="btn flex-cen-cen" wx:if="{{role===1}}" bindtap="openMask">邀请成员</view>
+</view>
+<!-- modal弹窗 -->
+<view class='modal-mask' wx:if="{{showModal}}" bindtap="closeMask">
+  <view class='modal-content-timeout' catchtap='stopClick'>
+    <scroll-view scroll-y class='main-content'>
+      <view class="title">提示</view>
+      <view class="txt">请选择邀请老师或家长</view>
+    </scroll-view>
+    <view class='modal-footer'>
+      <button class='btn cancel-btn' open-type="share" data-role="1" bindtap='chooseRole'>邀请老师</button>
+      <button class='btn confirm-btn' open-type="share" data-role="2" bindtap='chooseRole'>邀请家长</button>
+    </view>
+  </view>
+</view>

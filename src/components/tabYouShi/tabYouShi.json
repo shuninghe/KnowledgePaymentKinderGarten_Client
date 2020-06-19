@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "course-list": "../../components/courseList/courseList"
+  }
+}

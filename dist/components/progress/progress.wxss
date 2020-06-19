@@ -1,0 +1,41 @@
+.i-progress {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  color: #858585;
+}
+.i-progress-round {
+  box-sizing: border-box;
+}
+.i-progress-inner {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  border: 1rpx solid #FFA300;
+}
+.i-progress-bar {
+  transition: all 1s linear;
+  position: relative;
+}
+.i-progress-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #858585;
+  min-width: 80rpx;
+}
+.i-progress .inner-round {
+  border-radius: 1000rpx;
+  overflow: hidden;
+}
+@keyframes i-progress-active {
+  0% {
+    opacity: .3;
+    width: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}

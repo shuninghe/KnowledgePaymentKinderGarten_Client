@@ -1,0 +1,18 @@
+<view class="cashRecord">
+  <view class="cashList" wx:if="{{cashList.length}}">
+    <view class="list" data-id="{{item.id}}" bindtap="goApplyDetail" wx:for="{{cashList}}" wx:key="index">
+      <view class="left">
+        <view class="name">提现</view>
+        <view class="time">{{item.date}}</view>
+      </view>
+      <view class="right">
+        <view>
+          <view class="name {{item.status?'':'fail'}}">{{item.status === 0?'+':'-'}}{{item.money}}</view>
+          <view class="time">{{item.status === 0?'提现失败':item.status === 1?'审核中':item.status === 2?'已到账':''}}</view>
+        </view>
+      <image class="rightIcon" src="/images/saleMagage/icon_left.png"></image>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="no-data">暂无提现记录</view>
+</view>

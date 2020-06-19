@@ -1,0 +1,34 @@
+page {
+  background-color: #fff;
+}
+page .container {
+  border-top: 2rpx solid rgba(229, 229, 229, 0.6);
+  padding: 42rpx 30rpx 80rpx;
+}
+page .container .title {
+  font-size: 30rpx;
+  color: rgba(40, 40, 40, 0.8);
+}
+page .container .ctime {
+  color: rgba(40, 40, 40, 0.6);
+  font-size: 24rpx;
+  line-height: 36rpx;
+  margin-top: 10rpx;
+}
+page .container .init-content {
+  max-width: 690rpx;
+  margin-top: 30rpx;
+  font-size: 22rpx;
+  color: #414141;
+}
+page .container .init-txt {
+  font-size: 22rpx;
+  text-indent: 2em;
+  color: #414141;
+  margin: 30 0rpx;
+}
+page .container .uploadImage {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}

@@ -1,0 +1,141 @@
+.classManage .card {
+  width: 700rpx;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin: 22rpx auto;
+}
+.classManage .card .icon40 {
+  width: 40rpx;
+  height: 40rpx;
+}
+.classManage .card .icon40.mr22 {
+  margin-right: 22rpx;
+}
+.classManage .card .title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #282828;
+  line-height: 42rpx;
+}
+.classManage .card .title.c107E7D {
+  color: #107E7D;
+}
+.classManage .card .item {
+  margin-top: 25rpx;
+}
+.classManage .card .item .icon72 {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 18rpx;
+}
+.classManage .card .item .name {
+  font-size: 28rpx;
+  color: #282828;
+  line-height: 42rpx;
+  max-width: 500rpx;
+}
+.classManage .line {
+  width: 638rpx;
+  height: 2rpx;
+  background: #eeeeee;
+  opacity: 0.5;
+  margin: 24rpx auto 34rpx;
+}
+.classManage .mb20 {
+  margin-bottom: 20rpx;
+}
+.classManage .btn {
+  width: 700rpx;
+  height: 89rpx;
+  background: #107E7D;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  color: #fff;
+  font-weight: bold;
+  margin: 28rpx auto;
+}
+.btn {
+  background-color: #fff;
+  border-radius: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  border: none;
+}
+.btn.userinfo-wrap {
+  background-color: transparent;
+}
+.btn::after {
+  border: none;
+}
+/*遮罩层*/
+.modal-mask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+/*中间内容*/
+.main-content {
+  box-sizing: border-box;
+  padding: 48rpx 0;
+  overflow-y: hidden;
+}
+/*遮罩内容*/
+.modal-content-timeout {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background-color: #fff;
+  border-radius: 10rpx;
+  text-align: center;
+  overflow-y: hidden;
+}
+/*底部按钮*/
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 12rpx;
+  margin-bottom: 48rpx;
+}
+.cancel-btn,
+.confirm-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 210rpx;
+  height: 74rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  font-size: 30rpx;
+  padding: 12rpx;
+}
+.cancel-btn {
+  background: #EEEEEE;
+  color: #7D7D7D;
+  margin-right: 24rpx;
+}
+.confirm-btn {
+  background: #107E7D;
+  color: #FFFFFF;
+  margin-left: 24rpx;
+}
+/* 模态对话框 */
+.main-content .title {
+  font-size: 36rpx;
+  color: #333333;
+  margin-bottom: 40rpx;
+  font-weight: bold;
+}
+.main-content .txt {
+  font-size: 32rpx;
+  color: #4A4A4A;
+}

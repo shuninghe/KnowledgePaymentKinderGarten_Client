@@ -1,0 +1,102 @@
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<view class="noticeDetail">
+  <!-- 通知详情（老师、家长） -->
+  <view class="card">
+    <view class="tips">
+      <view class="left">
+        <image class="img" src="{{dynamicDetail.pic ? dynamicDetail.pic : '/images/ClassModule/c_default_72.png'}}"></image>
+        <view class="text">
+          <view class="name">{{dynamicDetail.name}}</view>
+          <view class="time">{{dynamicDetail.time ? filters.timestampToTime(dynamicDetail.time, 'Y.M.D h:m'): 0}}</view>
+        </view>
+      </view>
+      <view wx:if="{{role === 1}}" class="right">
+        <image class="del" bindtap="delNotice" src="/images/study/del_06.png"></image>
+        <button class="btn" style="padding: 0;" open-type="share"><image class="share" src="/images/study/share_03.png"></image></button>
+      </view>
+    </view>
+    <view class="title">{{dynamicDetail.title}}</view>
+    <view class="content {{is_open ? '': 'open'}}">{{dynamicDetail.content}}</view>
+    <view class="phontList" wx:if="{{is_open}}">
+      <image wx:for="{{dynamicDetail.urls}}" bindtap="openPhoto" data-url="{{item}}" wx:key="index" class="albmImg" src="{{item}}" mode="aspectFill"></image>
+    </view>
+    <view class="showText">
+      <view class="show" bindtap="changeShow" wx:if="{{is_open}}">
+        <text class="text">点击收起</text>
+        <image class="del" src="/images/study/down_06.png"></image>
+      </view>
+      <view class="show" bindtap="changeShow" wx:else>
+        <text class="text">查看全部</text>
+        <image class="del" src="/images/study/upshipt_03.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 教师回复信息 -->
+  <view class="container" wx:if="{{role === 1}}">
+    <!-- tabs栏 -->
+    <view class="tabs">
+      <view class="tab {{activeTab === 0 ? 'active' : ''}}" bindtap="changeTab" data-index="0">{{dynamicDetail.watch_num}}人已查看<view class="tag"></view></view>
+      <view wx:if="{{dynamicDetail.is_review}}" class="tab {{activeTab === 1 ? 'active' : ''}}" bindtap="changeTab" data-index="1">{{dynamicDetail.comment_num}}人已回复<view class="tag"></view></view>
+      <view wx:if="{{dynamicDetail.is_review}}" class="tab {{activeTab === 2 ? 'active' : ''}}" bindtap="changeTab" data-index="2">{{dynamicDetail.uncomment_num}}人未回复<view class="tag"></view></view>
+    </view>
+    <!-- 查看内容 -->
+    <view class="watch" wx:if="{{activeTab === 0}}">
+      <view class="list" wx:for="{{dynamicDetail.watch_user}}" wx:key="index">
+        <image class="img" src="{{item.pic ? item.pic : '/images/ClassModule/c_default_72.png'}}"></image>
+        <view class="text ellipsisTwo">{{item.name}}</view>
+      </view>
+    </view>
+    <!-- 评论列表 -->
+    <view class="comment" wx:if="{{activeTab === 1 && dynamicDetail.is_review}}">
+      <image class="comImg" wx:if="{{dynamicDetail.comment_user.length}}" src="/images/study/ping_11.png"></image>
+      <view class="right">
+        <view class="list" wx:for="{{dynamicDetail.comment_user}}" wx:key="index">
+          <view class="ment">
+            <view class="name">{{item.name}} </view>：
+            <view class="content">{{item.content}}</view>
+          </view>
+          <view class="delect" bindtap="delComment" data-id="{{item.comment_id}}" data-index="{{index}}">删除</view>
+        </view>
+      </view>
+    </view>
+    <!-- 未评论内容 -->
+    <view class="watch" wx:if="{{activeTab === 2 && dynamicDetail.is_review}}">
+      <view class="list" wx:for="{{dynamicDetail.uncomment_user}}" wx:key="index">
+        <image class="img" src="{{item.pic ? item.pic : '/images/ClassModule/c_default_72.png'}}"></image>
+        <text class="text">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 家长回复信息 -->
+  <view class="container" style="padding-top: 0;" wx:elif="{{dynamicDetail.comment_user.length}}">
+    <view class="comment">
+      <image class="comImg" src="/images/study/ping_11.png"></image>
+      <view class="right">
+        <view class="list" wx:for="{{dynamicDetail.comment_user}}" wx:key="index" wx:if="{{dynamicDetail.is_watch || (!dynamicDetail.is_watch && item.is_self)}}">
+            <view class="ment">
+              <view class="name">{{item.name}} </view>：
+              <view class="content">{{item.content}}</view>
+            </view>
+            <view class="delect" wx:if="{{role === 2 && item.is_self}}" bindtap="delComment" data-id="{{item.comment_id}}" data-index="{{index}}">删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<button wx:if="{{role === 1}}" class="btn subBtn" open-type="share"><view class="btn">转发到班级群</view></button>
+<!-- 添加评论 -->
+<view wx:if="{{role === 2 && dynamicDetail.is_review}}" class="tomessage-wrap">
+  <view class="msg">
+    <input class="msg-input" placeholder="说点什么呢..." placeholder-style="color:#bcbcbc;font-size: 28rpx" maxlength="100"
+        value="{{inputTxt}}" adjust-position="{{false}}" bindinput="bindKeyInput"
+        bindconfirm="sendMessage">
+    </input>
+  </view>
+  <view class="send {{inputTxt.length ? 'text': ''}}" bindtap="sendMessage">发表</view>
+</view>
+
+<!-- 点击查看图片 -->
+<!-- <view class="mask" wx:if="{{showMask}}" bindtap="CancelGrade">
+  <image class="maskImg" mode='widthFix' src='{{url}}'></image>
+</view> -->
+  

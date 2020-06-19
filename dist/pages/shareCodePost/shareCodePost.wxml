@@ -1,0 +1,25 @@
+<!-- 分销系统-我的二维码 -->
+<!-- <view class="shareCodePost {{level_name!=='业务员' ? 'pt103' : ''}}">
+  <view class="top flex-aro-cen" wx:if="{{level_name!=='业务员'}}">
+    <view class="top-tab {{type===0?'active':''}}" bindtap="changeType" data-type="0">邀请下级</view>
+    <view class="top-tab {{type===1?'active':''}}" bindtap="changeType" data-type="1">邀请园长</view>
+  </view>
+  <scroll-view scroll-y class="{{level_name!=='业务员' ? 'hasTab' : 'noTab'}}"> -->
+<view class="shareCodePost">
+  <scroll-view scroll-y class="noTab">
+    <!-- 海报组件 -->
+    <code-poster id="codePoster" type="{{type}}" postBgIndex="{{selectedIndex}}"></code-poster>
+  </scroll-view>
+  <view class="tip">长按上方图片保存</view>
+  <view class="bottom-content">
+    <view class="select-wrap">
+      <view class="style-imgs" wx:for="{{styleImg[type]}}" wx:key="index">
+        <image class="style-img" bindtap="changeStyle" data-index="{{index}}" src="{{item}}" />
+        <image class="selected" wx:if="{{index === selectedIndex}}" src="../../images/post_selected.jpg" />
+      </view>
+    </view>
+    <button class="share-btn" open-type="share">直接分享</button>
+  </view>
+</view>
+  
+  

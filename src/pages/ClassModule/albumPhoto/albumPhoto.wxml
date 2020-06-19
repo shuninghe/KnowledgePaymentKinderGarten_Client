@@ -1,0 +1,28 @@
+<view class="albumPhoto">
+  <!-- 相册照片 -->
+  <view wx:if="{{role === 1}}" bindtap="upload" class="addAlbm"><image class="icon" src='/images/ClassModule/add_03.png'></image></view>
+  <view wx:if="{{role === 1}}" class="delAlbm" bindtap="changeBtn"><image class="icon" src='/images/ClassModule/del_05.png'></image></view>
+  <view class="list" wx:for="{{photoList}}" wx:key="index">
+    <image wx:if="{{item.type === 1}}" bindtap="openPhoto" data-url="{{item.url}}" class="albmImg" src="{{item.url}}" mode="aspectFill"></image>
+    <video wx:else bindtap="openVideo" data-type="{{item.type}}" data-url="{{item.url}}" class="albmImg" src="{{item.url}}" controls="{{false}}" initial-time show-center-play-btn muted></video>
+    <image wx:if="{{delBtn}}" data-type="{{item.type}}" data-id="{{item.pic_id}}" data-index="{{index}}" bindtap="delPhoto" class="delIcon" src='/images/ClassModule/delBtn.png'></image>
+  </view> 
+</view>
+<!-- 点击查看图片 -->
+<view class="mask" wx:if="{{showMask}}" bindtap="CancelGrade">
+  <!-- <image class="maskImg" mode='widthFix' wx:if="{{type === 1}}" src='{{url}}'></image> -->
+  <video class="maskVideo" id="video" show-play-btn autoplay wx:if="{{type === 2}}" src="{{url}}" catchtap='stopVideo'></video>
+</view>
+<!-- modal弹窗 -->
+<view class='modal-mask' wx:if="{{showModal}}" bindtap="closeMask">
+  <view class='modal-content-timeout' catchtap='stopClick'>
+    <scroll-view scroll-y class='main-content'>
+      <view class="title">提示</view>
+      <view class="txt">请选择添加图片或视频</view>
+    </scroll-view>
+    <view class='modal-footer'>
+      <view class='cancel-btn' data-type="1" bindtap='addPic'>添加图片</view>
+      <view class='confirm-btn' data-type="2" bindtap='addPic'>添加视频</view>
+    </view>
+  </view>
+</view>

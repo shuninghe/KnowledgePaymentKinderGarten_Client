@@ -1,0 +1,39 @@
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<view class="editRoleInfo">
+  <!-- 身份编辑（添加宝宝、宝宝信息、老师信息） -->
+  <view class="item flex-bet-cen" wx:if="{{role===1}}">
+    <view class="item-left">老师姓名</view>
+    <view class="item-right">
+      <input type="text" placeholder="请输入老师姓名" class="input-txt" value="{{uname}}" bindinput="inputText" data-name="uname" />
+    </view>
+  </view>
+  <block wx:if="{{role===2}}">
+    <view class="item flex-bet-cen">
+      <view class="item-left">宝宝姓名</view>
+      <view class="item-right">
+        <input type="text" placeholder="请输入宝宝姓名" class="input-txt" value="{{uname}}" bindinput="inputText" data-name="uname" />
+      </view>
+    </view>
+    <view class="item flex-bet-cen">
+      <view class="item-left">亲属关系</view>
+      <view wx:if="{{mode=== 2 && cuId !== uid}}" class="item-right">
+        <input type="text" class="input-txt" value="{{filters.findArrObjHas(rid, relations, '_id')['name']}}" disabled />
+      </view>
+      <picker wx:else bindchange="bindPickerChange" value="{{pickerIndex}}" range="{{relations}}" range-key="name">
+        <view class="item-right">
+          <input type="text" class="input-txt" value="{{filters.findArrObjHas(rid, relations, '_id')['name']}}" disabled />
+        </view>
+      </picker>
+    </view>
+    <view class="item flex-bet-cen">
+      <view class="item-left">所在班级</view>
+      <view class="item-right">
+        <input type="text" class="input-txt" value="{{cname || '暂无班级'}}" disabled />
+      </view>
+    </view>
+  </block>
+
+  <view class="btn flex-cen-cen" bindtap="saveInfo">保存</view>
+  <view class="small-btn flex-cen-cen" wx:if="{{mode===2&&role===2&&cuId===uid}}" bindtap="deleteClassBaby">退出所在班级</view>
+  <view class="small-btn flex-cen-cen" wx:elif="{{mode!==3}}" bindtap="delRole">删除{{role===1?'老师':'宝宝'}}</view>
+</view>

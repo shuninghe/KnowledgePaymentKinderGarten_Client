@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "component-video": "../../components/video/video",
+    "component-audio": "../../components/audio/audio"
+  }
+}

@@ -1,0 +1,22 @@
+<!-- 学习-知识图谱领域页 -->
+<view class="graphField">
+  <view class="circle1"></view>
+  <view class="circle2"></view>
+  <view class="circle3"></view>
+  <view class="select">
+    <view class="select-label">年龄段：</view>
+    <view class="select-value" bindtap="switchSelect" >{{selectValue}}</view>
+    <view class="select-arr-box" bindtap="switchSelect" >
+        <image class="arrow {{showSelect ? 'arrow-up' : ''}}" src="/images/study/field_arrow.png" />
+    </view>
+  </view>
+  <view class="title">{{fieldTitle}}</view>
+  <view class="list">
+    <view class="item {{itemIndex===index ? 'active' : ''}}" wx:for="{{list}}" wx:key="index" bindtap="toGraphTarget" data-index="{{index}}" data-id="{{item.secondId}}">{{item.name}}</view>
+  </view>
+  <!-- 下拉选择器 -->
+  <view class="select-content" wx:if="{{showSelect}}">
+    <view class="item {{selectValue===item ? 'active' : ''}}" wx:for="{{selectContent}}" wx:key="index" bindtap="changeValue" data-index="{{index}}">{{item.name}}</view>
+  </view>
+  <view class="mask" wx:if="{{showSelect}}"></view>
+</view>

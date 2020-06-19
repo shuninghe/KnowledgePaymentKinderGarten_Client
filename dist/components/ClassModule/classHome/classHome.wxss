@@ -1,0 +1,159 @@
+.classHome {
+  background-color: #f3f3f3;
+  padding-left: 36rpx;
+  margin-bottom: 96rpx;
+  box-sizing: border-box;
+  padding-top: 36rpx;
+}
+.classHome .list {
+  width: 678rpx;
+}
+.classHome .date {
+  margin-bottom: 20rpx;
+}
+.classHome .date .point {
+  width: 12rpx;
+  height: 12rpx;
+  background: #76D689;
+  border-radius: 50%;
+  margin-right: 14rpx;
+}
+.classHome .date .day {
+  font-size: 28rpx;
+  color: #282828;
+}
+.classHome .card {
+  background: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  padding: 28rpx 30rpx;
+  margin-bottom: 25rpx;
+  position: relative;
+}
+.classHome .card .icon72 {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 18rpx;
+}
+.classHome .card .w526 {
+  width: 526rpx;
+}
+.classHome .card .w526 .name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #000;
+  line-height: 42rpx;
+}
+.classHome .card .w526 .name .w500 {
+  width: 500rpx;
+}
+.classHome .card .w526 .name .icon20 {
+  width: 20rpx;
+  height: 20rpx;
+}
+.classHome .card .w526 .time {
+  font-size: 24rpx;
+  font-family: Arial;
+  color: #9A9A9A;
+  line-height: 40rpx;
+  margin-bottom: 16rpx;
+}
+.classHome .card .w526 .content {
+  font-size: 26rpx;
+  color: #282828;
+  line-height: 42rpx;
+  margin-top: 16rpx;
+  margin-bottom: 20rpx;
+}
+.classHome .card .w526 .content .w90 {
+  width: 90rpx;
+  height: 90rpx;
+  background: #eeeeee;
+  border-radius: 10rpx;
+  margin-right: 15rpx;
+  font-size: 18rpx;
+  color: #9A9A9A;
+}
+.classHome .card .w526 .handle {
+  display: flex;
+}
+.classHome .card .w526 .handle .del-btn {
+  font-size: 18rpx;
+  color: #9a9a9a;
+  opacity: 0.8;
+}
+.classHome .card .w526 .handle .tip {
+  font-size: 18rpx;
+  font-family: Arial;
+  opacity: 0.8;
+  margin-left: 38rpx;
+}
+.classHome .card .w526 .handle .icon24 {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+.classHome .card .tag {
+  position: absolute;
+  width: 100rpx;
+  height: 39rpx;
+  top: 0;
+  right: 0;
+  background: #107e7d;
+  border-radius: 0 10rpx;
+  font-size: 20rpx;
+  color: #fff;
+}
+.classHome .card .tag .icon28 {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 8rpx;
+}
+.classHome .noMore {
+  height: 102rpx;
+  padding-right: 36rpx;
+  font-family: PingFangSC-Thin;
+  font-size: 30rpx;
+  color: #888888;
+  text-align: center;
+  line-height: 102rpx;
+}
+.classHome .noData {
+  padding-top: 40%;
+  padding-right: 36rpx;
+  font-family: PingFangSC-Thin;
+  font-size: 30rpx;
+  color: #888888;
+  text-align: center;
+}
+.flex-sta-cen {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-cen-cen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-bet-cen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ellipsisTwo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+}
+.ellipsisOne {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

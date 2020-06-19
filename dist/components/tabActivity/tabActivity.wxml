@@ -1,0 +1,29 @@
+<view class="tabActivity">
+  <block wx:if="{{pintuan.length}}">
+    <view class="flex-sta-cen">
+      <image class="icon-hot" src="{{jiGouHomeIcon.activity}}"></image>
+      <view class="title ellipsisOne">好友拼团</view>
+    </view>
+    <activityList list="{{pintuan}}"></activityList>
+  </block>
+  <block wx:if="{{zhulike.length}}">
+    <view class="flex-sta-cen">
+      <image class="icon-hot" src="{{jiGouHomeIcon.activity}}"></image>
+      <view class="title ellipsisOne">好友助力</view>
+    </view>
+    <activityList list="{{zhulike}}"></activityList>
+  </block>
+  <block wx:if="{{miaosha.length}}">
+    <view class="flex-sta-cen">
+      <image class="icon-hot" src="{{jiGouHomeIcon.activity}}"></image>
+      <view class="title ellipsisOne">限时秒杀</view>
+    </view>
+    <activityList list="{{miaosha}}"></activityList>
+  </block>
+  <!-- 联系渠道 -->
+  <contactChannels 
+    mode="{{0}}"
+    phone="{{phone}}"
+    weiXin="{{weiXin}}">
+  </contactChannels>
+</view>

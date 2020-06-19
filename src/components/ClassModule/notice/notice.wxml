@@ -1,0 +1,45 @@
+<wxs module="filters" src="../../../utils/common.wxs"></wxs>
+<!-- 通知tab -->
+<scroll-view class="notice" scroll-y style='height:{{conHeight}}rpx;' bindscrolltolower="pullUpLoading">
+  <view class="noData" wx:if="{{!dateList.length}}">暂无动态数据</view>
+  <view class="list" wx:for="{{dateList}}" wx:key="index" wx:for-item="dateListItem">
+    <!-- 日期 -->
+    <view class="date flex-sta-cen">
+      <view class="point"></view>
+      <text class="day" wx:if="{{filters.isToday(dateListItem.date)}}">今日</text>
+      <text class="day" wx:if="{{filters.isToday(dateListItem.date + 24 * 60 * 60 * 1000)}}">昨日</text>
+      <block wx:if="{{!filters.isToday(dateListItem.date) && !filters.isToday(dateListItem.date + 24 * 60 * 60 * 1000)}}">
+        <text class="day">{{filters.timestampToTime(dateListItem.date, 'M月D日')}}</text>
+      </block>
+    </view>
+    <!-- 通知动态 -->
+    <view class="card" wx:for="{{dateListItem.list}}" wx:key="index">
+      <image class="icon72" src="{{item.pic ? item.pic : '/images/ClassModule/c_default_72.png'}}"></image>
+      <view class="w526" bindtap="toDetail" data-type="{{item.type}}" data-id="{{item._id}}">
+        <view class="name">{{item.name}}</view>
+        <view class="time">{{filters.timestampToTime(item.time, 'h:m')}}</view>
+        <view class="name flex-bet-cen">
+          <view class="w500 ellipsisOne">{{item.title}}</view>
+          <image class="icon20" src="../../../images/ClassModule/n_arrow_20.png"></image>
+        </view>
+        <view class="content ellipsisOne">{{item.content}}</view>
+        <view class="handle">
+          <text class="del-btn" wx:if="{{role === 1}}" catchtap="delDynamic" data-id="{{item._id}}">删除</text>
+          <view class="tip flex-sta-cen">
+            <image class="icon24" src="/images/ClassModule/n_see_24.png"></image>
+            <text style="color:#5EA804;">{{item.watch_num}}人已查看</text>
+          </view>
+          <view wx:if="{{item.is_review}}" class="tip flex-sta-cen">
+            <image class="icon24" src="/images/ClassModule/n_say_24.png"></image>
+            <text style="color:#5EA804;">{{item.comment_num}}人已回复</text>
+          </view>
+        </view>
+        <view class="tag flex-cen-cen" style="background:#107E7D;">
+          <image class="icon28" src="/images/ClassModule/h_notice_28.png"></image>
+          <text>通知</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='noMore' wx:if="{{isShowNoMore}}">没有更多了</view>
+</scroll-view>

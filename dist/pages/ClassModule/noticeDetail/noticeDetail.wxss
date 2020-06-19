@@ -1,0 +1,289 @@
+.noticeDetail {
+  padding: 20rpx 25rpx;
+  padding-bottom: 140rpx;
+}
+.noticeDetail .card {
+  width: 100%;
+  padding: 26rpx 34rpx;
+  border-radius: 10rpx;
+  background: #fff;
+}
+.noticeDetail .card .tips {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.noticeDetail .card .tips .left {
+  display: flex;
+}
+.noticeDetail .card .tips .left .img {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 18rpx;
+}
+.noticeDetail .card .tips .left .text .name {
+  font-size: 28rpx;
+  color: #000;
+}
+.noticeDetail .card .tips .left .text .time {
+  margin-top: 6rpx;
+  color: #b1b1b1;
+  font-size: 20rpx;
+}
+.noticeDetail .card .tips .right {
+  display: flex;
+}
+.noticeDetail .card .tips .right .del {
+  width: 36rpx;
+  height: 37rpx;
+  margin-right: 35rpx;
+}
+.noticeDetail .card .tips .right .share {
+  width: 35rpx;
+  height: 40rpx;
+}
+.noticeDetail .card .title {
+  font-size: 30rpx;
+  color: #000;
+  margin-top: 24rpx;
+  margin-bottom: 10rpx;
+  font-weight: 500;
+}
+.noticeDetail .card .content {
+  font-size: 26rpx;
+  color: #282828;
+}
+.noticeDetail .card .content.open {
+  max-width: 600rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.noticeDetail .card .phontList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.noticeDetail .card .phontList .albmImg {
+  width: 175rpx;
+  height: 175rpx;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  margin-right: 40rpx;
+}
+.noticeDetail .card .phontList .albmImg:nth-child(3n) {
+  margin-right: 0;
+}
+.noticeDetail .card .showText {
+  display: flex;
+  justify-content: center;
+  margin-top: 26rpx;
+}
+.noticeDetail .card .showText .show {
+  display: flex;
+  align-items: center;
+}
+.noticeDetail .card .showText .show .text {
+  font-size: 20rpx;
+  color: #107e7d;
+}
+.noticeDetail .card .showText .show .del {
+  width: 17rpx;
+  height: 10rpx;
+  margin-left: 16rpx;
+}
+.noticeDetail .container {
+  padding: 32rpx 26rpx 22rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  width: 100%;
+  margin-top: 16rpx;
+}
+.noticeDetail .container .tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1rpx solid #eeeeee;
+  padding-bottom: 30rpx;
+}
+.noticeDetail .container .tabs .tab {
+  font-size: 26rpx;
+  color: #282828;
+}
+.noticeDetail .container .tabs .tab.active {
+  color: #107e7d;
+  font-weight: bold;
+  position: relative;
+}
+.noticeDetail .container .tabs .tab.active .tag {
+  position: absolute;
+  width: 100%;
+  height: 4rpx;
+  left: 0;
+  bottom: -32rpx;
+  border-radius: 7rpx;
+  background-color: #107e7d;
+}
+.noticeDetail .container .watch {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30rpx 15rpx 0;
+}
+.noticeDetail .container .watch .list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 50rpx;
+  margin-bottom: 33rpx;
+}
+.noticeDetail .container .watch .list:nth-child(3n) {
+  margin-right: 0;
+}
+.noticeDetail .container .watch .list .img {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  margin-right: 18rpx;
+}
+.noticeDetail .container .watch .list .text {
+  width: 84rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.noticeDetail .container .comment {
+  width: 100%;
+  display: flex;
+  padding: 30rpx 10rpx 0;
+}
+.noticeDetail .container .comment .comImg {
+  width: 22rpx;
+  height: 21rpx;
+  margin-right: 26rpx;
+  margin-top: 6rpx;
+}
+.noticeDetail .container .comment .right {
+  width: 100%;
+}
+.noticeDetail .container .comment .right .list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.noticeDetail .container .comment .right .list .ment {
+  display: flex;
+  color: #107e7d;
+  font-size: 24rpx;
+}
+.noticeDetail .container .comment .right .list .ment .name {
+  color: #107e7d;
+  font-size: 24rpx;
+  font-weight: 500;
+  max-width: 120rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.noticeDetail .container .comment .right .list .ment .content {
+  max-width: 420rpx;
+  font-size: 24rpx;
+  color: #282828;
+}
+.noticeDetail .container .comment .right .list .delect {
+  font-size: 24rpx;
+  color: #aeaeae;
+}
+.subBtn {
+  position: fixed;
+  width: 100%;
+  height: 140rpx;
+  padding: 0 28rpx;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.subBtn .btn {
+  width: 100%;
+  height: 89rpx;
+  background: #107e7d;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #fff;
+}
+.tomessage-wrap {
+  position: fixed;
+  width: 100%;
+  height: 140rpx;
+  padding: 0 28rpx;
+  background: #fff;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tomessage-wrap .msg {
+  width: 548rpx;
+  height: 89rpx;
+  background: #eeeeee;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 33rpx;
+}
+.tomessage-wrap .msg .msg-img {
+  height: 44rpx;
+  font-size: 28rpx;
+  color: #282828;
+}
+.tomessage-wrap .send {
+  width: 112rpx;
+  height: 89rpx;
+  border-radius: 10rpx;
+  background: #dee9e9;
+  font-size: 30rpx;
+  color: #107e7d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tomessage-wrap .send.text {
+  background: #107e7d;
+  color: #fff;
+}
+.mask {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mask .maskImg {
+  width: 100%;
+  height: auto;
+}
+.mask .maskVideo {
+  width: 100%;
+}
+.btn {
+  font-size: 28rpx;
+  background-color: #fff;
+  margin: 0;
+  line-height: 1;
+  border: none;
+}
+.btn.userinfo-wrap {
+  background-color: transparent;
+}
+.btn::after {
+  border: none;
+}

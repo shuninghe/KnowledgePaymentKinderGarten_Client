@@ -1,0 +1,65 @@
+.contactChannels {
+  width: 690rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  margin: 30rpx auto;
+}
+.contactChannels .top-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.contactChannels .top-wrap .title {
+  display: flex;
+  align-items: center;
+}
+.contactChannels .top-wrap .title-icon {
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 14rpx;
+}
+.contactChannels .top-wrap .title-name {
+  font-size: 30rpx;
+  color: #3E3E3E;
+  font-weight: bold;
+  line-height: 42rpx;
+}
+.contactChannels .top-wrap .more {
+  font-size: 24rpx;
+  color: #4493FC;
+}
+.contactChannels .content {
+  display: flex;
+  justify-content: space-around;
+}
+.contactChannels .content .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contactChannels .content .item-icon {
+  width: 64rpx;
+  height: 64rpx;
+  margin-bottom: 16rpx;
+}
+.contactChannels .content .item-name {
+  font-size: 22rpx;
+  color: #3E3E3E;
+  line-height: 35rpx;
+}
+.btn {
+  font-size: 28rpx;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  border: none;
+  background-color: #fff;
+}
+.btn.userinfo-wrap {
+  background-color: transparent;
+}
+.btn::after {
+  border: none;
+}

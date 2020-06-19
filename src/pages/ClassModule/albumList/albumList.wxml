@@ -1,0 +1,26 @@
+<view class="albumList">
+  <!-- 全部相册 -->
+  <view wx:if="{{role === 1}}" class="addAlbm" bindtap="uploadAlbm"><image class="icon" src='/images/ClassModule/add_03.png'></image></view>
+  <view wx:if="{{role === 1}}" class="delAlbm" bindtap="changeBtn"><image class="icon" src='/images/ClassModule/del_05.png'></image></view>
+  <view class="list" wx:for="{{albmList}}" wx:key="index">
+    <image data-id="{{item.album_id}}" bindtap="goPhoto" class="albmImg" wx:if="{{item.type === 1}}" src="{{albumWxs.findFirstPhoto(albmPhoto) || '/images/ClassModule/pic_03.png'}}"></image>
+    <image data-id="{{item.album_id}}" bindtap="goPhoto" class="albmImg" wx:else src="{{item.pic ? item.pic : '/images/ClassModule/pic_03.png'}}"></image>
+
+    <!-- <image data-id="{{item.album_id}}" bindtap="goPhoto" class="albmImg" src="{{item.pic ? item.pic : '/images/ClassModule/pic_03.png'}}" mode="aspectFill"></image> -->
+    <view class="albmText" wx:if="{{item.type === 1 || role === 2}}">{{item.name}}</view>
+    <input wx:else type="text" value="{{item.name}}" bindblur="inputValue" data-index="{{index}}" class="albmText" placeholder="设置相册名" placeholder-style="color:rgba(255,157,0,1)"/>
+    <image wx:if="{{item.type === 2 && delBtn}}" data-index="{{index}}" data-id="{{item.album_id}}" bindtap="delAlbm" class="delIcon" src='/images/ClassModule/delBtn.png'></image>
+  </view>
+</view> 
+<wxs module="albumWxs">
+module.exports = {
+  // 寻找相册中第一个照片
+  findFirstPhoto: function (arr) {
+    for (var i=0; i<arr.length; i++) {
+      if (arr[i].type === 1) {
+        return arr[i].url;
+      }
+    }
+  }
+};
+</wxs>

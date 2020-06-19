@@ -1,0 +1,43 @@
+
+.i-progress{
+    @transition-time: 1s;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    color: #858585;
+    &-round {
+        box-sizing: border-box;
+    }
+    &-inner {
+        display: inline-flex;
+        width: 100%;
+        align-items: center;
+        border: 1rpx solid #FFA300;
+    }
+    &-bar {
+        transition: all @transition-time linear;
+        position: relative;
+    }
+    &-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #858585;
+        min-width: 80rpx;
+    }
+    .inner-round{
+        border-radius: 1000rpx;
+        overflow: hidden;
+    }
+}
+@keyframes i-progress-active {
+    0% {
+        opacity: .3;
+        width: 0;
+    }
+    100% {
+        opacity: 0;
+        width: 100%;
+    }
+}

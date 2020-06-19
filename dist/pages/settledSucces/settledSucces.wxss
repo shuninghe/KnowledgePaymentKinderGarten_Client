@@ -1,0 +1,62 @@
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.settled {
+  width: 100%;
+  height: 90%;
+  padding: 0 33rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.settled .succes {
+  width: 92rpx;
+  height: 92rpx;
+}
+.settled .succesText {
+  color: #282828;
+  font-size: 36rpx;
+  margin-top: 36rpx;
+}
+.settled .setId {
+  height: 64rpx;
+  padding: 0 46rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1rpx solid #107e7d;
+  color: #107e7d;
+  font-size: 28rpx;
+  border-radius: 100rpx;
+  margin-top: 28rpx;
+}
+.settled .tips {
+  font-size: 26rpx;
+  color: #928f91;
+  margin-top: 18rpx;
+}
+.settled .copyId {
+  color: #ffbf59;
+  font-size: 30rpx;
+  border-bottom: 2rpx solid #ffbf59;
+  margin-top: 60rpx;
+}
+.settled .btn {
+  width: 686rpx;
+  margin: 0 33rpx;
+  height: 85rpx;
+  background: #107e7d;
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 500;
+  font-size: 28rpx;
+  position: absolute;
+  left: 0;
+  bottom: 35rpx;
+}

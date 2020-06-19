@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "订单信息",
+  "usingComponents": {
+    "custom-popup": "../../components/customPopup/customPopup"
+  }
+}

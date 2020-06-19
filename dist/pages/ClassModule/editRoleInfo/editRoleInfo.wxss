@@ -1,0 +1,46 @@
+.editRoleInfo {
+  position: fixed;
+  width: 100%;
+  top: 18rpx;
+  bottom: 0;
+  background-color: #fff;
+}
+.editRoleInfo .item {
+  height: 100rpx;
+  border-bottom: 2rpx solid #eeeeee;
+  padding: 0 38rpx;
+}
+.editRoleInfo .item-left {
+  font-size: 28rpx;
+  color: #000000;
+  line-height: 42rpx;
+}
+.editRoleInfo .item-right {
+  display: flex;
+  align-items: center;
+}
+.editRoleInfo .item-right .input-txt {
+  font-size: 24rpx;
+  color: #272727;
+  text-align: right;
+  width: 500rpx;
+}
+.editRoleInfo .btn {
+  width: 694rpx;
+  height: 85rpx;
+  background: #107E7D;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: #fff;
+  margin: 32rpx auto 34rpx;
+}
+.editRoleInfo .small-btn {
+  width: 180rpx;
+  height: 59rpx;
+  background: #eeeeee;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: #282828;
+  opacity: 0.6;
+  margin: 0 auto;
+}

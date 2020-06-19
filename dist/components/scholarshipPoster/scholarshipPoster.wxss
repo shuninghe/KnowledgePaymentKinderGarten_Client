@@ -1,0 +1,11 @@
+.c-poster {
+  text-align: center;
+}
+.c-poster .poster-canvas {
+  width: 518rpx;
+  height: 920rpx;
+  margin: 40rpx auto 0;
+  z-index: 1;
+  border-radius: 8rpx;
+  overflow: hidden;
+}

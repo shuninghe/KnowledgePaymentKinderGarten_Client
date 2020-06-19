@@ -1,0 +1,41 @@
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+
+<view class="studyCenter">
+  <!-- tab栏 -->
+  <view class="tabs">
+    <view class="tab {{activeTab===index ? 'active' : ''}}" wx:for="{{type}}" wx:key="index" 
+      bindtap="changeTab" data-index="{{index}}">
+        {{item}}<view class="tag"></view>
+    </view>      
+  </view>
+  <view class="tip">学习<text class="num">{{filters.handleNumber(duration/60000, 2)}}</text>分钟</view>
+  <view class="list-title">
+    <view class="label">我的课程</view>
+    <!-- <view class="flex-end-cen">
+      <text class="all-num">{{coursesTotal}}</text>
+      <image class="arrow" src="/images/study/icon_right.png" />
+    </view> -->
+  </view>
+  <!-- 列表 -->
+  <view class="list" wx:if="{{courses.length}}">
+    <view class="item" wx:for="{{courses}}" wx:key="index" bindtap="toCourseDetail" 
+      data-id="{{item.id}}" data-ismap="{{item.is_knowledge_map}}" data-validity="{{item.validity}}">
+      <image src="{{item.pic}}" class="item-left"/>
+      <view class="item-right">
+        <view class="txt ellipsisOne">{{item.name}}</view>
+        <progress percent="{{item.progress * 100}}" width="300" height="15" padLeft="20"></progress>
+        <view class="time">有效期至{{filters.timestampToTime(item.validity, 'Y-M-D')}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="no-data" wx:else>暂无数据</view>
+</view>
+<!-- 底部按钮 -->
+<view class="bottom-btn">
+  <navigator class="btn" open-type="reLaunch" url="/pages/index/index" hover-class="none">
+    <image class="btn-icon" src="/images/center_home.png" />首页
+  </navigator>
+  <navigator class="btn my" open-type="reLaunch" url="/pages/index/index?selected=3" hover-class="none">
+    <image class="btn-icon" src="/images/center_my.png" />我的
+  </navigator>
+</view>

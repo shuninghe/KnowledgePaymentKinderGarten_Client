@@ -1,0 +1,38 @@
+<view class="addPhoto">
+  <view class="photo">
+    <textarea class="photo-input" auto-height placeholder="说点什么呢..." maxlength="-1" placeholder-style="color:#939393;font-size: 30rpx" value="{{content}}" adjust-position="{{false}}" bindinput="inputValue"></textarea>
+  </view>
+  <view class="photoList">
+    <view class="list" wx:for="{{urls}}" wx:key="index">
+      <image bindtap="openPhoto" data-url="{{item}}" class="albmImg" src="{{item}}" mode="aspectFill"></image>
+      <image data-index="{{index}}" bindtap="delPhoto" class="delIcon" src='/images/ClassModule/delBtn.png'></image>
+    </view> 
+    <view class="addAlbm" wx:if="{{urls.length < 20}}" bindtap="uploadAlbm"><image class="icon" src='/images/ClassModule/add_03.png'></image></view>
+  </view>
+  <view class="pushAlbm">
+    <view class="line"></view>
+    <view class="albm">
+      <image class="albmImg" src='/images/ClassModule/pic_icon_03.png'></image>
+      <text class="albmText">加入到相册</text>
+    </view>
+    <view class="selAlbm" bindtap="showClick">
+      <text class="selText">{{albmList[index].name}}</text>
+      <image class="pushImg" src='/images/ClassModule/arrer_03.png'></image>
+    </view>
+  </view>
+</view>
+<view class="subBtn"><view class="btn" bindtap="submitPhoto">发布</view></view>
+
+<!-- 选择相册组件 -->
+<view class="chooseBox" wx:if="{{showMask}}" bindtap="CancelGrade">
+  <view class="btnBox clearfix" catchtap='stopClick'>
+    <text class="btnL" bindtap="CancelGrade">取消</text>
+    <text class="btnR" bindtap="ConfirmGrade">完成</text>
+  </view>
+  <picker-view class="popBox" indicator-class="gradePop" value="{{value}}" bindchange="gradeChange">
+    <picker-view-column>
+      <view class="chooseItem {{index == value[0]?'chooseItem1':''}}" wx:for="{{albmList}}" wx:key="*this">{{item.name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+  

@@ -1,0 +1,114 @@
+page {
+    background-color: #fff;
+}
+.knowledgeGraph {
+    .circle1 {
+        position: fixed;
+        width: 276rpx;
+        height: 276rpx;
+        top: -105rpx;
+        left: 507rpx;
+        border: 80rpx solid rgba(255,239,220,1);
+        border-radius: 50%;
+    }
+    .circle2 {
+        position: fixed;
+        width: 276rpx;
+        height: 276rpx;
+        top: 669rpx;
+        left: 556rpx;
+        border: 80rpx solid rgba(255,239,220,1);
+        opacity: 0.5;
+        border-radius: 50%;
+    }
+}
+// 黄色圆圈
+.big-circle {
+    position: fixed;
+    width: 296rpx;
+    height: 296rpx;
+    left: 235rpx;
+    top: 389rpx;
+    background: rgba(254,169,24,.2);
+    border-radius: 50%;
+    padding: 23rpx;
+    z-index: 9;
+    .circle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 250rpx;
+        height: 250rpx;
+        background: rgba(254,169,24,1);
+        border-radius: 50%;
+        font-size: 28rpx;
+        color: rgba(255,255,255,1);
+        line-height: 39rpx;
+        .field-title {
+            width: 180rpx;
+            text-align: center;
+        } 
+        .field-num {
+            font-size: 24rpx;
+        }
+    }
+}
+// 蓝色圆圈
+.small-circle {
+    position: fixed;
+    width: 140rpx;
+    height: 140rpx;
+    background: rgba(91,167,255,.2);
+    border-radius: 50%;
+    padding: 11rpx;
+    .circle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 118rpx;
+        height: 118rpx;
+        background: rgba(91,167,255,1);
+        border-radius: 50%;
+        font-size: 24rpx;
+        color: rgba(255,255,255,1);
+        line-height: 39rpx;
+        .field-num {
+            font-size: 20rpx;
+        }
+    }
+    .arrow {
+        position: absolute;
+        width: 13rpx;
+        height: 119rpx;
+        z-index: 2;
+    }
+}
+// 底部按钮
+.bottom-btn {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 97rpx;
+    left: 0;
+    bottom: 0;
+    border-top: 2rpx solid #e5e5e5;
+    .btn {
+        width: 50%;
+        height: 96rpx;
+        background-color: #fff;
+        font-size: 32rpx;
+        color: rgba(0, 0, 0, .8);
+        text-align: center;
+        line-height: 96rpx;
+        &.price {
+            font-size: 40rpx;
+            color: #fff;
+            background: linear-gradient(-90deg,rgba(255,157,0,1),rgba(255,190,0,1));
+            &.f32 {
+                font-size: 32rpx;
+            }
+        }
+    }
+}

@@ -1,0 +1,134 @@
+.orderlist-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .order-item {
+    margin: 20rpx 25rpx;
+    padding: 28rpx 24rpx 25rpx 28rpx;
+    width: 701rpx;
+    background: #fff;
+    box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(224, 224, 224, 0.75);
+    border-radius: 10rpx;
+    .first-row-wrap {
+      display: flex;
+      .img {
+        width: 327rpx;
+        height: 222rpx;
+        border-radius: 10rpx;
+        margin-right: 37rpx;
+      }
+      .course-info-wrap {
+        width: 284rpx;
+        .title {
+          margin-top: 20rpx;
+          font-size: 28rpx;
+          color: #282828;
+        }
+        .price,
+        .order-status {
+          color: #ff9900;
+          font-size: 30rpx;
+        }
+        .cancle{
+          color: #8d8d8f;
+        }
+        .price {
+          margin-top: 20rpx;
+        }
+        .order-status {
+          margin-top: 62rpx;
+          text-align: right;
+        }
+      }
+    }
+    .line {
+      height: 2rpx;
+      background: rgba(238, 238, 238, 1);
+      margin-top: 19rpx;
+    }
+    .last-row-wrap {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .order-bottom {
+        width: 100%;
+        padding-top: 25rpx;
+        &-left {
+          display: flex;
+          align-items: center;
+          font-size: 28rpx;
+          color: #282828;
+          .num{
+            color: #F36A54;
+          }
+        }
+        &-right {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          .cancle,
+          .topay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 151rpx;
+            height: 68rpx;
+            border-radius: 34rpx;
+            font-size: 26rpx;
+          }
+          .cancle {
+            color: rgba(40, 40, 40, 1);
+            background: rgba(240, 240, 240, 1);
+          }
+          .topay {
+            margin-left: 25rpx;
+            color: #fff;
+            background: linear-gradient(
+              90deg,
+              rgba(255, 157, 0, 1),
+              rgba(255, 190, 0, 1)
+            );
+          }
+          .pic-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &-item {
+              display: block;
+              width: 55rpx;
+              height: 55rpx;
+              border: 2rpx solid #fff;
+              border-radius: 50%;
+              margin-right: -18rpx;
+            }
+          }
+          
+        }
+      }
+      
+    }
+  }
+}
+.no-order {
+  height: 100%;
+  background: #f6f6f6;
+  color: #8d8d8f;
+  text-align: center;
+  padding-top: 200rpx;
+}
+// 处理button按钮样式
+.btn {
+  font-size: 28rpx;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  border: none;
+  background-color: #fff;
+  &.userinfo-wrap {
+    background-color: transparent;
+  }
+  &::after {
+    border: none;
+  }
+}

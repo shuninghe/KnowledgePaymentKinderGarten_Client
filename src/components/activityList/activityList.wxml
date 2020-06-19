@@ -1,0 +1,62 @@
+<view class='activityList' wx:if="{{list.length}}">
+  <view class="item" wx:for="{{list}}" wx:key="index" bindtap="toCourseDetail" data-item="{{item}}">
+    <view class="img-wrap">
+      <image class='item-img' src='{{item.pic}}' />
+      <view class="img-name flex-sta-cen">
+        <image class="avatar" wx:for="{{item.onlookers.pics}}" wx:key="index" src="{{item || '../../images/avatar.png'}}"></image>
+        <text>等{{item.onlookers.num}}人围观</text>
+      </view>
+    </view>
+    <view class="info-wrap">
+      <view class='item-name ellipsisTwo'>{{item.activitys[0].title}}</view>
+      <view class='item-time ellipsisOne' wx:if="{{item.activitys[0].end_time}}">活动截止时间：{{filters.timestampToTime(item.activitys[0].end_time, "Y年M月D日 h:m:s")}}</view>
+      <view class="flex-bet-cen">
+        <view class="flex-sta-base">
+          <view class='item-saleprice'>¥ {{filters.toFixedNum(item.activitys[0].price / 100, 2)}}<text class="yuan"> 元</text></view>
+          <view class='item-price'>原价：{{filters.toFixedNum(item.selling_price / 100, 2)}}元</view>  
+        </view>
+        <view class="item-btn flex-cen-cen" wx:if="{{item.activitys[0].type ===1}}">立即拼团</view>
+        <view class="item-btn flex-cen-cen" wx:if="{{item.activitys[0].type ===2}}">立即秒杀</view>
+        <view class="item-btn flex-cen-cen" wx:if="{{item.activitys[0].type ===3}}">助力免费学</view>
+      </view>
+    </view>
+  </view>
+</view>
+<wxs module="filters" >
+  module.exports = {
+    toFixedNum: function (val, num) {
+      val && (val.toFixed(num))
+      return val
+    },
+    /** 
+    * 时间戳转日期时间
+    * @param {Number} time: 13位时间戳
+    * @param {String} format: 日期时间格式
+    * 使用方式: timestampToTime(1557285692393, 'Y-M-D h:m:s') // 2019-05-08 11:21:32
+    */
+    timestampToTime: function (time, format) {
+      var timestamp = (''+time).length === 10 ? time * 1000 : time;
+      if (!format) {
+        format = "Y-M-D h:m:s";
+      }
+      var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+      var returnArr = [];
+      var date = getDate(timestamp);
+      returnArr.push(date.getFullYear());
+      var M = date.getMonth() + 1;
+      returnArr.push(M < 10 ? ('0' + M) : M);
+      var D = date.getDate();
+      returnArr.push(D < 10 ? ('0' + D) : D);
+      var h = date.getHours();
+      returnArr.push(h < 10 ? ('0' + h) : h);
+      var m = date.getMinutes();
+      returnArr.push(m < 10 ? ('0' + m) : m);
+      var s = date.getSeconds();
+      returnArr.push(s < 10 ? ('0' + s) : s);
+      for (var i=0; i<returnArr.length; i++) {
+          format = format.replace(formateArr[i], returnArr[i]);
+      }
+      return format;
+    }
+  }
+</wxs>

@@ -1,0 +1,113 @@
+.studyDetail {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 97rpx;
+  background-color: #F6F6F6;
+  padding-top: 24rpx;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+}
+.studyDetail .detail {
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  background-size: 100% 200rpx;
+  background-repeat: no-repeat;
+}
+.studyDetail .detail .course-pic {
+  width: 154rpx;
+  height: 154rpx;
+  margin-left: 26rpx;
+  margin-right: 30rpx;
+  margin-top: 22rpx;
+  margin-bottom: 22rpx;
+  border-radius: 10rpx;
+  border: 4rpx solid #fff;
+}
+.course-info .name {
+  font-size: 30rpx;
+  margin-bottom: 13rpx;
+  font-weight: bold;
+  margin-top: 10rpx;
+}
+.course-info .progress {
+  border-radius: 100rpx;
+  overflow: hidden;
+  width: 254rpx;
+  height: 12rpx;
+  margin-right: 28rpx;
+}
+.course-info .done {
+  color: #107E7D;
+  font-size: 20rpx;
+  margin-right: 6rpx;
+}
+.course-info .baifenbi {
+  color: #107E7D;
+  font-size: 20rpx;
+}
+.course-info .time {
+  font-size: 22rpx;
+  color: #282828;
+  display: flex;
+  align-items: center;
+}
+.course-info .status {
+  font-size: 18rpx;
+  color: #107E7D;
+  margin-right: 10rpx;
+}
+.course-info .info-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 450rpx;
+}
+.section {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22rpx;
+  margin-bottom: 40rpx;
+}
+.section .title {
+  color: #282828;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.section .title .dot {
+  width: 10rpx;
+  height: 10rpx;
+  background: #E5E5E5;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.section .title .text-title {
+  width: 400rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.section .title .line {
+  width: 2rpx;
+  height: 60rpx;
+  background-color: #EEEEEE;
+  position: absolute;
+  top: -50rpx;
+  left: 4rpx;
+}
+.section .section-time {
+  color: #107E7D;
+  display: flex;
+  align-items: center;
+}
+.no-study {
+  text-align: center;
+  font-size: 28rpx;
+  color: #282828;
+  margin-top: 100rpx;
+}
+.section:last-of-type {
+  margin-bottom: 0;
+}

@@ -1,0 +1,5 @@
+<view class="cardactivate-page">
+  <input type="text" class="card-num" bindinput="pswinput" placeholder="请输入学习卡密码" placeholder-class="phc">
+  </input>
+  <view class="confirm" bindtap="confirm">激活</view>
+</view>

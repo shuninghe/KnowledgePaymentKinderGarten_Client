@@ -1,0 +1,65 @@
+<!-- 旧版-学习-课程视频、音频页 -->
+<view>
+  <!-- 自定义导航栏 -->
+  <view class="navbar" style="{{'height: ' + navigationBarHeight}}">
+    <view style="{{'height: ' + statusBarHeight}}"></view>
+    <view class='navbar-container'>
+      <navigator wx:if="{{fromShare}}" open-type="reLaunch" url="/pages/index/index" style="display:flex;">
+        <image class="icon-home" src="/images/friendHelp/home.jpeg" />
+      </navigator>
+      <navigator wx:else open-type="navigateBack" style="display:flex;">
+        <image class="icon-back" src="/images/study/icon_back.png" />
+      </navigator>
+      <!-- 资源icon -->
+      <block wx:if="{{filters.findTrueNum(sourceList) >= 2}}">
+        <image wx:if="{{sourceList[0]}}" class="icon" bindtap="{{sourceType===1?'':'changeType'}}" data-type="1"
+          src="{{sourceType===1 ? '/images/study/icon_video_selected.png' : '/images/study/icon_video.png'}}" />
+        <image wx:if="{{sourceList[1]}}" class="icon" bindtap="{{sourceType===2?'':'changeType'}}" data-type="2"
+          src="{{sourceType===2 ? '/images/study/icon_audio_selected.png' : '/images/study/icon_audio.png'}}" />
+        <image wx:if="{{sourceList[2]}}" class="icon" bindtap="changeType" data-type='3'
+          src="/images/study/icon_pdf.png" /> 
+        <image wx:if="{{sourceList[3]}}" class="icon" bindtap="changeType" data-type='4'
+          src="/images/study/icon_url.png" />             
+      </block>
+    </view>
+  </view>
+  <view style="{{'height: ' + navigationBarHeight}};background: white;"></view>
+
+  <!-- 视频 -->
+  <component-video wx:if="{{sourceType === 1}}"
+    id="component-video"
+    mode="{{1}}"
+    isComment="{{isComment}}"
+    curComment="{{curComment}}"
+    trees="{{trees}}"
+    sectionName="{{section_name}}"
+    bind:record="addStudyRecord"
+    bind:judgeType="judgeType"
+    ></component-video>
+  <!-- 音频 & PPT -->
+  <component-audio wx:if="{{sourceType === 2}}" 
+    id="component-audio"
+    mode="{{1}}"
+    isComment="{{isComment}}"
+    curComment="{{curComment}}"
+    trees="{{trees}}"
+    bind:record="addStudyRecord" 
+    bind:judgeType="judgeType"
+    ></component-audio>
+
+</view>
+
+
+
+<wxs module="filters">
+	module.exports = {
+    // 计算数组中值为true的数量
+    findTrueNum: function (arr) {
+      var num = 0;
+      for (var i=0; i<arr.length; i++) {
+        arr[i] ? num++ : num;
+      }
+      return num;
+    }
+	}
+</wxs>

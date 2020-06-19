@@ -1,0 +1,98 @@
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+<view class="container" >
+  <view class="list">
+    <!-- <view class="list-item">
+      <view class="item-left">
+        <view class="title">用户昵称</view>
+      </view>
+      <view class="item-right" >
+        <input type="text" placeholder="待补全" bindinput="nickinput" value="{{nickName}}" class="input-txt"/>
+      </view>
+    </view> -->
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title">真实姓名</view>
+      </view>
+      <view class="item-right" >
+        <input type="text" placeholder="待补全" bindinput="realinput" value="{{realName}}"  class="input-txt"/>
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title">性别</view>
+      </view>
+      <view class="item-right" >
+        <picker bindchange="bindSexPickerChange" value="{{sexIndex}}" range="{{sexList}}">
+            <text class="address-input">{{sexList[sexIndex]}}</text>
+          <image class="picker-icon" src="../../images/db_arr.png"></image>
+        </picker>
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title">出生日期</view>
+      </view>
+      <view class="item-right" >
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange" start="1940-01-01" end="{{dateEnd}}">
+          <text class="address-input">{{date}}</text>
+          <image class="picker-icon" src="../../images/db_arr.png"></image>
+        </picker>
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title">地区</view>
+      </view>
+      <view class="item-right" >
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+          <text wx:if="{{filters.judgeStr(region)}}" class="address-input">{{region}}</text>
+          <text wx:else class="address-input">{{region[0]}} {{region[1]}} {{region[2]}}</text>
+          <image class="picker-icon" src="../../images/db_arr.png"></image>
+        </picker>
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title">详细地址</view>
+      </view>
+      <view class="item-right" >
+        <input type="text" value="{{detailedAddress}}" placeholder="待补全" bindinput="addressinput" class="input-txt"/>
+      </view>
+    </view>
+    <!-- <view class="list-item">
+      <view class="item-left">
+        <view class="title">职业</view>
+      </view>
+      <view class="item-right" >
+        <picker  bindchange="bindOccupationPickerChange" value="{{occupationIndex}}" range="{{occupationList}}">
+          <text class="address-input">{{occupationList[occupationIndex]}}</text>
+          <image class="picker-icon" src="../../images/db_arr.png"></image>
+        </picker>
+      </view>
+    </view>  -->
+    <!-- <view class="list-item" wx:if="{{isShowBindGarden}}" bindtap="toBindKindergarten">
+      <view class="item-left">
+        <view class="title">院校/园所</view>
+      </view>
+      <view class="item-right" >
+        <text class="address-input" data-id='{{kindergarten_id}}'>{{kindergarten}}</text>
+        <image class="picker-icon" src="../../images/db_arr.png"></image>
+      </view>
+    </view> -->
+  </view>
+  <view class="tips">手机号用于标识身份，请谨慎填写</view>
+  <view class="list">
+    <navigator hover-class="none" url="/pages/bindPhone/bindPhone">
+      <view class="list-item bordernone" >
+        <view class="item-left">
+          <view class="title">手机号</view>
+        </view>
+        <view class="item-right" >
+          <view class="address-input">{{phone}} {{phone?'更换':'绑定'}}</view>
+          <image class="picker-icon" src="../../images/db_arr.png" />
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="btn-bottom" bindtap="confirm">提交</view>
+</view>

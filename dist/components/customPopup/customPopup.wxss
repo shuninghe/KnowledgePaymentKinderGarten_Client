@@ -1,0 +1,108 @@
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+.mask .custom-popup {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 124rpx;
+  top: 300rpx;
+  width: 502rpx;
+  height: 422rpx;
+  background: #ffffff;
+  border-radius: 30rpx;
+  padding: 0 50rpx;
+}
+.mask .custom-popup-active {
+  width: 620rpx;
+  left: 65rpx;
+  padding: 0 45rpx;
+}
+.mask .custom-popup .popup-people {
+  width: 181rpx;
+  height: 179rpx;
+}
+.mask .custom-popup .popup-amaz {
+  width: 103rpx;
+  height: 102rpx;
+}
+.mask .custom-popup .tips {
+  margin-top: 24rpx;
+  margin-bottom: 15rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.8);
+}
+.mask .custom-popup .tips .line {
+  line-height: 42rpx;
+  width: 320rpx;
+  text-align: center;
+}
+.mask .custom-popup .btn-box {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+}
+.mask .custom-popup .btn-box-center {
+  justify-content: center;
+}
+.mask .custom-popup .btn-box .default-btn {
+  width: 255rpx;
+  height: 76rpx;
+  color: #fff;
+  border-radius: 60rpx;
+  background: linear-gradient(90deg, #ff9d00, #ffbe00);
+  padding: 0!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0!important;
+  line-height: 84rpx!important;
+  font-size: 34rpx!important;
+  border: none!important;
+}
+.mask .custom-popup .btn-box .default-btn:after {
+  width: 0!important;
+  height: 0!important;
+}
+.mask .custom-popup .btn-box .btn {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180rpx;
+  padding: 0 15rpx;
+  font-size: 32rpx;
+  color: #fff;
+  height: 76rpx;
+  border-radius: 38rpx;
+}
+.mask .custom-popup .btn-box .btn-yellow-left {
+  background: linear-gradient(90deg, #ff9d00, #ffbe00);
+}
+.mask .custom-popup .btn-box .btn-gray-right {
+  background: #e0e0e0;
+}
+.mask .custom-popup .btn-box .btn-large {
+  width: 255rpx;
+}
+.mask .custom-popup .close {
+  position: absolute;
+  left: 50%;
+  margin-left: -34rpx;
+  bottom: -96rpx;
+  width: 68rpx;
+  height: 68rpx;
+}

@@ -1,0 +1,19 @@
+<import src="../../templates/catalogTree/catalogTree.wxml"/>
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+
+<!-- 学习-目录章节页 -->
+<view class="treeList">
+  <template is="catelog_tree_tpl" data="{{trees, isbuy, showList}}"></template>      
+</view>
+
+<!-- 购买绑定手机号弹窗 -->
+<custom-popup mode="4" wx:if="{{showPhonePopup}}" 
+  bindgetWxPhone="getWxPhone" 
+  bindtoBindPhone="toBindPhone" 
+  bindhandleCancel="closePhonePopup">
+</custom-popup>
+<!-- 未购买提示弹窗 -->
+<custom-popup mode="1" price="{{price}}" wx:if="{{showBuyPopup}}" 
+  bindhandleConfirm="confirmBuy" 
+  bindhandleCancel="cancelBuy">
+</custom-popup>  

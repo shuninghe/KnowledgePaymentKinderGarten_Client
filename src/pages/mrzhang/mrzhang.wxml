@@ -1,0 +1,191 @@
+<view class='mrzhang'>
+  <view class='top'>
+    <view class='top_one top_item'>
+      <image mode='widthFix' src='https://ks3-slw.yunxiao.com/slwimage/KnowledgePaymentKinderGarten_Client/mrzhang/mr_01.jpg'></image>
+    </view>
+    <view class='top_two top_item'>
+      <image mode='widthFix' src='https://ks3-slw.yunxiao.com/slwimage/KnowledgePaymentKinderGarten_Client/mrzhang/mr_02.jpg'></image>
+    </view>
+    <view class='top_three top_item'>
+      <image mode='widthFix' src='https://ks3-slw.yunxiao.com/slwimage/KnowledgePaymentKinderGarten_Client/mrzhang/mr_03.jpg'></image>
+    </view>
+  </view>
+
+  <view class='con'>
+    <view class='type'>
+      <view class='type_title'>
+        <view class='type_title_con'>
+          <view class='type_title_con_con'>张雪门的儿童观</view>
+        </view>
+      </view>
+      <view class='word'>
+        张雪门认为儿童是生长约有机体。儿童的全部生活都是由不同的生长阶段构成的。儿童在任何一段时期内都有自己的生理和心理状态。他们用自己当时的生理、心理与当时的环境相接忽,发生交互的反应,得以逐渐生长,以完成这一阶段的生命,并维持已有的生长,继续将来的生长。这才是儿童的本体。
+      </view>
+      <view class='type_titletwo'>
+        <view class='type_titletwo_left type_titletwo_item'></view>
+        <view class='type_titletwo_center'>专家解读</view>
+        <view class='type_titletwo_right type_titletwo_item'></view>
+      </view>
+      <view class='type_video'>
+        <view class='type_video_con'>
+          <block wx:for="{{jiedulist}}" wx:key="this">
+            <view class='type_video_con_item'  data-src="{{item.vidoe_src}}"  data-id="{{item.id}}" catchtap='click'>
+              <view class='type_video_con_item_img'>
+                <image src="{{item.img}}"></image>
+                <view class='ceng'>
+                  <image src='https://ks3-slw.yunxiao.com/slwimage/KnowledgePaymentKinderGarten_Client/mrzhang/play.png'></image>
+                </view>
+              </view>
+              <view class='note'>{{item.text}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+
+    <view class='type'>
+      <view class='type_title'>
+        <view class='type_title_con'>
+          <view class='type_title_con_con'>张雪门的幼儿课程观</view>
+        </view>
+      </view>
+      <view class='word'>
+       张雪门这样定义行为课程:"生活就是教育,五六岁的孩子们在幼稚园生活的实践,就是行为课程。"行为课程注重幼儿的实际行动。在幼稚园中,凡是幼儿力所能及的,都应让他们亲力亲为。从行动中得到的认识才是真实的知识,在行动中遇到的困难才是真实的问题,从行动中所获得的胜利才是真实的驾驭环境的能力。
+      </view>
+      <view class='type_titletwo'>
+        <view class='type_titletwo_left type_titletwo_item'></view>
+        <view class='type_titletwo_center'>专家解读</view>
+        <view class='type_titletwo_right type_titletwo_item'></view>
+      </view>
+      <view class='type_video'>
+        <view class='type_video_con'>
+          <block wx:for="{{gdlist}}" wx:key="this">
+            <view class='type_video_con_item' data-src="{{item.vidoe_src}}"  data-id="{{item.id}}" catchtap='click'>
+              <view class='type_video_con_item_img'>
+                <image src="{{item.img}}"></image>
+                <view class='ceng'>
+                  <image src='https://ks3-slw.yunxiao.com/slwimage/KnowledgePaymentKinderGarten_Client/mrzhang/play.png'></image>
+                </view>
+              </view>
+              <view class='note'>{{item.text}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+
+
+    <view class='type'>
+      <view class='type_title'>
+        <view class='type_title_con'>
+          <view class='type_title_con_con'>张雪门的幼师教育观</view>
+        </view>
+      </view>
+      <view class='word'>
+      张雪门认为,要办好幼儿教育,首先要有良好的幼教师资。张雪门建议在师范学校设立“幼稚教育实验区“作为师范生实习的基地,使师范生能够学以致用,达到理论联系实际的效果。实习也要遵循“教、学、做合一”的方法，在做好准备的前提下，确定目的，制定计划，然后进行有系统的组织。
+      </view>
+      <view class='type_titletwo'>
+        <view class='type_titletwo_left type_titletwo_item'></view>
+        <view class='type_titletwo_center'>专家解读</view>
+        <view class='type_titletwo_right type_titletwo_item'></view>
+      </view>
+      <view class='type_video'>
+        <view class='type_video_con'>
+          <block wx:for="{{Alist}}" wx:key="this">
+            <view class='type_video_con_item' data-src="{{item.vidoe_src}}"  data-id="{{item.id}}" catchtap='click'>
+              <view class='type_video_con_item_img'>
+                <image src="{{item.img}}"></image>
+                <view class='ceng'>
+                  <image src='https://ks3-slw.yunxiao.com/slwimage/KnowledgePaymentKinderGarten_Client/mrzhang/play.png'></image>
+                </view>
+              </view>
+              <view class='note'>{{item.text}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+
+
+     <view class='type yanshghi'>
+      <view class='type_title'>
+        <view class='type_title_con yangshi1'>
+          <view class='type_title_con_con yangshi2'>张雪门思想解读</view>
+        </view>
+      </view>
+      <view class='type_video'>
+        <view class='type_video_con'>
+          <block wx:for="{{Clist}}" wx:key="this">
+            <view class='type_video_con_item' data-src="{{item.vidoe_src}}"  data-id="{{item.id}}" catchtap='click'>
+              <view class='type_video_con_item_img'>
+                <image src="{{item.img}}"></image>
+                <view class='ceng'>
+                  <image src='https://ks3-slw.yunxiao.com/slwimage/KnowledgePaymentKinderGarten_Client/mrzhang/play.png'></image>
+                </view>
+              </view>
+              <view class='note yangshi4'>{{item.text}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+
+
+
+    <view class='type'>
+      <view class='type_title'>
+        <view class='type_title_con'>
+          <view class='type_title_con_con'>张雪门行为课程</view>
+        </view>
+      </view>
+      <view class='type_video'>
+        <view class='type_video_con'>
+          <block wx:for="{{Dlist}}" wx:key="this">
+            <view class='type_video_con_item' data-src="{{item.vidoe_src}}"  data-id="{{item.id}}" catchtap='click'>
+              <view class='type_video_con_item_img'>
+                <image src="{{item.img}}"></image>
+                <view class='ceng'>
+                  <image src='https://ks3-slw.yunxiao.com/slwimage/KnowledgePaymentKinderGarten_Client/mrzhang/play.png'></image>
+                </view>
+              </view>
+              <view class='note'>{{item.text}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+
+
+     <view class='type'>
+      <view class='type_title'>
+        <view class='type_title_con'>
+          <view class='type_title_con_con'>专家团队</view>
+        </view>
+      </view>
+      <view class='type_video'>
+        <view class='type_video_con'>
+          <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+            <block wx:for="{{groupList}}" wx:key="this">
+              <view class='discount_item2' data-id="{{item.id}}">
+                <view class='discount_item2_img'>
+                  <image src='{{item.img}}'></image>
+                  <view class='people_name'>{{item.people_name}}</view>
+                </view>
+                <view class='discount_item_name1'>{{item.text}}</view>
+              </view>
+            </block>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+
+<view class="video_box" wx:if="{{isvideo}}">
+  <view class="video_box_con">
+    <video src="{{src}}"  autoplay="true" object-fit="fill"  controls ></video>
+    <view class="close" catchtap="clsoe"><image src="https://ks3-slw.yunxiao.com/slwimage/KnowledgePaymentKinderGarten_Client/mrzhang/close.png"></image></view>
+  </view>
+  </view>

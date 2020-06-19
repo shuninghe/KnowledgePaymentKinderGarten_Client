@@ -1,0 +1,10 @@
+<view class="tabAdsPost">
+  <image class="img" src="{{pic}}" mode="widthFix" lazy-load="{{true}}" bindload="showPicture" />
+
+  <block wx:if="{{positions.length}}">
+    <view class="click-wrap" wx:for="{{positions}}" wx:key="index"
+      bindtap="toPage" data-skipType="{{item.skipType}}" data-url="{{item.url}}"
+      style="left:{{item.position[0]}}rpx;top:{{item.position[1]}}rpx;width:{{item.position[2]}}rpx;height:{{item.position[3]}}rpx;">
+    </view>    
+  </block>
+</view>

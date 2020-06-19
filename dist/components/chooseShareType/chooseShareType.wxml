@@ -1,0 +1,15 @@
+<view class="c-chooseShareType" catchtouchmove="true">
+  <view class="share-box">
+    <view class="share-con">
+      <button open-type="share" class="share-wx">
+        <image class="btn-pic" src="/images/study/share-weixin.png" /> 
+        <view class="btn-txt">微信好友</view>
+      </button>
+      <button class="share-wx" open-type='getUserInfo' catchtap="clickPoster">
+        <image class="btn-pic" src="/images/study/share-poster.png"/>
+        <view class="btn-txt">生成海报</view>
+      </button>
+    </view>
+    <view class="txt-bottom" catchtap="clickCancelBtn">取消</view>
+  </view>
+</view>

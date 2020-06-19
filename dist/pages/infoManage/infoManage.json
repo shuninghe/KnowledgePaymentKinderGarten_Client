@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "coustom-popup": "../../components/customPopup/customPopup"
+  }
+}

@@ -1,0 +1,301 @@
+page {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
+.albumDetail {
+  padding: 20rpx 24rpx;
+  padding-bottom: 140rpx;
+  background: #fff;
+  .card {
+    display: flex;
+    .cardImg {
+      width: 72rpx;
+      height: 72rpx;
+      border-radius: 50%;
+      margin-right: 18rpx;
+    }
+    .info {
+      width: 616rpx;
+      .tips {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left {
+          .name {
+            font-size: 28rpx;
+            color: #000;
+          }
+          .time {
+            margin-top: 6rpx;
+            color: #b1b1b1;
+            font-size: 20rpx;
+          }
+        }
+        .right {
+          display: flex;
+          .del {
+            width: 36rpx;
+            height: 37rpx;
+            margin-right: 35rpx;
+          }
+          .share {
+            width: 35rpx;
+            height: 40rpx;
+          }
+        }
+      }
+      .title {
+        font-size: 30rpx;
+        color: #000;
+        margin-top: 24rpx;
+        margin-bottom: 10rpx;
+        font-weight: 500;
+      }
+      .content {
+        // max-width: 540rpx;
+        font-size: 26rpx;
+        color: #282828;
+      }
+      .phontList {
+        display: flex;
+        flex-wrap: wrap;
+        .albmImg {
+          width: 168rpx;
+          height: 168rpx;
+          border-radius: 10rpx;
+          margin-top: 20rpx;
+          margin-right: 40rpx;
+          &:nth-child(3n) {
+            margin-right: 0;
+          }
+        }
+      }
+      .status {
+        color: #ff8033;
+        font-size: 20rpx;
+        margin-top: 10rpx;
+      }
+      .click {
+        margin-top: 23rpx;
+        flex-direction: row-reverse;
+      }
+      .tip {
+        font-size: 18rpx;
+        font-family: Arial;
+        opacity: 0.8;
+        margin-left: 38rpx;
+      }
+      .icon24 {
+        width: 24rpx;
+        height: 24rpx;
+        margin-right: 10rpx;
+      }
+    }
+  }
+  .detail {
+    margin-top: 30rpx;
+    padding: 13rpx 31rpx 0 33rpx;
+    border-radius: 10rpx;
+    background: #f4f4f4;
+    .thumb {
+      display: flex;
+      justify-content: space-between;
+      .thumbImg1 {
+        width: 24rpx;
+        height: 24rpx;
+        margin-top: 15rpx;
+        margin-right: 24rpx;
+      }
+      .thumbUrl {
+        width: 591rpx;
+        display: flex;
+        flex-wrap: wrap;
+        .cardImg {
+          width: 53rpx;
+          height: 53rpx;
+          border-radius: 50%;
+          margin: 0 6rpx;
+          margin-bottom: 25rpx;
+        }
+      }
+    }
+    .comment {
+      .list {
+        display: flex;
+        justify-content: space-between;
+        .left {
+          // display: flex;
+          // align-items: center;
+          margin-bottom: 20rpx;
+          max-width: 570rpx;
+          .comImg {
+            width: 22rpx;
+            height: 21rpx;
+            margin-right: 26rpx;
+            margin-top: 6rpx;
+          }
+          .name {
+            color: #76d689;
+            font-size: 24rpx;
+            font-weight: 500;
+            max-width: 80rpx;
+          }
+          .content {
+            max-width: 460rpx;
+            font-size: 24rpx;
+            color: #282828;
+          }
+        }
+        .delect {
+          line-height: 50rpx;
+          font-size: 24rpx;
+          color: #aeaeae;
+        }
+      }
+    }
+    .detailText {
+      font-size: 26rpx;
+      color: #282828;
+      padding-bottom: 13rpx;
+      text-align: center;
+      line-height: 34rpx;
+    }
+  }
+//   发布失败
+  .pubFail {
+    margin-top: 74rpx;
+    padding: 27rpx 34rpx;
+    border-radius: 10rpx;
+    background: #f4f4f4;
+    .pubInfo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20rpx;
+      .name {
+        font-size: 24rpx;
+        color: #282828;
+      }
+      .send {
+        font-size: 22rpx;
+        color: #3473db;
+      }
+    }
+    .text {
+      font-size: 22rpx;
+      color: #282828;
+      margin-left: 48rpx;
+      margin-bottom: 20rpx;
+    }
+  }
+}
+// 添加评论
+.tomessage-wrap {
+    position: fixed;
+    width: 100%;
+    height: 140rpx;
+    background: #fff;
+    padding: 0 28rpx;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .msg {
+      width: 548rpx;
+      height: 89rpx;
+      background: #eeeeee;
+      border-radius: 10rpx;
+      display: flex;
+      align-items: center;
+      padding: 0 33rpx;
+      .msg-img {
+        height: 44rpx;
+        font-size: 28rpx;
+        color: #282828;
+      }
+    }
+    .send {
+      width: 112rpx;
+      height: 89rpx;
+      border-radius: 10rpx;
+      background: #dee9e9;
+      font-size: 30rpx;
+      color: #107e7d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &.text {
+        background: #107e7d;
+        color: #fff;
+      }
+    }
+  }
+.flex-sta-cen {
+    display: flex;
+    // 
+    // justify-content: flex-start;
+    align-items: center;
+  }
+  .flex-cen-cen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .flex-bet-cen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ellipsisTwo {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-break: break-all;
+  }
+  .ellipsisOne {
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+// 处理button按钮样式
+.btn {
+  font-size: 28rpx;
+  background-color: #fff;
+  border: none;
+  margin: 0;
+  line-height: 1;
+  border: none;
+  &.userinfo-wrap {
+    background-color: transparent;
+  }
+  &::after {
+    border: none;
+  }
+}
+.mask {
+  // background: rgba(0,0,0,0.3);
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  bottom:0;
+  left:0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .maskImg {
+    width: 100%;
+    height: auto;
+  }
+  .maskVideo {
+    width: 100%;
+  }
+}
+  

@@ -1,0 +1,31 @@
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+<!-- 招生、动态列表 -->
+<template name="info-list">
+  <view class="list" >
+		<block wx:for="{{ list }}" wx:key="index">
+			<view class="list-item" bindtap="handleDetail" data-id="{{item.id}}" data-type="{{item.content_type}}" data-content="{{item.content}}">
+			<view class="item-left">
+				<view class="txt ellipsisTwo">{{item.name}}</view>
+				<view class="time">{{filters.timestampToTime(item.ctime,'Y.M.D h:m')}}</view>
+			</view>
+			<image class="item-right" mode="aspectFill" src="{{item.pic}}" />
+		</view>
+		</block>
+	</view>
+</template>
+<!-- 图文分类列表 -->
+<template name="info-list-2">
+  <view class="list" >
+		<block wx:for="{{ list }}" wx:key="index">
+			<view class="list-item" bindtap="handleDetail" data-id="{{item.id}}" data-type="{{item.content_type}}" data-content="{{item.content}}">
+			<view class="item-left">
+				<view class="txt ellipsisTwo">{{item.title}}</view>
+				<view class="time">来源：{{item.source}}</view>
+				<view class="time">{{filters.timestampToTime(item.ctime,'Y.M.D h:m')}}</view>
+			</view>
+			<image class="item-right" mode="aspectFill" src="{{item.picurl}}" />
+		</view>
+		</block>
+	</view>
+</template>
+

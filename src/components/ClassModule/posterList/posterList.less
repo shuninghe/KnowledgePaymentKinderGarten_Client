@@ -1,0 +1,121 @@
+.posterList {
+  height: 100%;
+  display: flex;
+  padding-bottom: 97rpx;
+  // 分类列表
+  .left {
+      width: 182rpx;
+      .left-list {
+          font-size: 24rpx;
+          color: #636363;
+          width: 182rpx;
+          padding: 31rpx 12rpx;
+          position: relative;
+          text-align: center;
+          background-color: #F8F8F8;
+      }
+      .active_bg {
+          background-color: #fff;
+          color: #107E7D;
+      }
+      .bgline {
+          width: 12rpx;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+      }
+      .left-line {
+          background-color: #107E7D;
+      }
+      .list-name {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+  }
+  // 海报列表
+  .right {
+      width: 568rpx;
+      display: flex;
+      padding-top: 30rpx;
+      .posterLeft {
+          display: flex;
+          flex-direction: column;
+      }
+      .posterRight {
+          display: flex;
+          flex-direction: column;
+      }
+      .poster-img {
+          width: 242rpx;
+          height: 432rpx;
+          border-radius: 10rpx;
+          box-shadow: 8rpx 8rpx 6rpx 0 #ccc;
+      }
+      .left-img {
+          margin-left: 30rpx;
+          margin-bottom: 20rpx;
+      }
+      .right-img {
+          margin-left: 24rpx;
+          margin-bottom: 20rpx;
+      }
+      .right-pad {
+          margin-top: 60rpx;
+      }
+  }
+  // 查看详情
+  .posterDel {
+      position: fixed;
+      height: 1092rpx;
+      top: 0rpx;
+      background-color: rgba(00, 00, 00, 0.5);
+      text-align: center;
+      width: 100%;
+      z-index: 1;
+      height: 100%;
+      .delimg {
+          width: 550rpx;
+          height: 982rpx;
+          border-radius: 10rpx;
+          margin-top: 20rpx;
+          margin-bottom: 30rpx;
+      }
+      .usePoster {
+          width: 550rpx;
+          height: 84rpx;
+          background-color: #107E7D;
+          color: #fff;
+          border-radius: 10rpx;
+          margin: 0 auto;
+          font-size: 30rpx;
+          line-height: 84rpx;
+      }
+  }
+  // 没有更多
+  .noMore {
+      height: 102rpx;
+      font-family: PingFangSC-Thin;
+      font-size: 30rpx;
+      color: #888888;
+      text-align: center;
+      line-height: 102rpx;
+  }
+  .noData {
+    padding-top: 40%;
+    padding-right: 36rpx;
+    font-family: PingFangSC-Thin;
+    font-size: 30rpx;
+    color: #888888;
+    text-align: center;
+  }
+}
+.ellipsisThree {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  word-break: break-all;
+}

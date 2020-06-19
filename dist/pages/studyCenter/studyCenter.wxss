@@ -1,0 +1,151 @@
+.studyCenter {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 97rpx;
+}
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 105rpx;
+  border-bottom: 3rpx solid #f5f5f5;
+  background-color: #fff;
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.66);
+}
+.tabs .tab {
+  height: 100%;
+  font-size: 32rpx;
+  color: rgba(0, 0, 0, 0.66);
+  line-height: 105rpx;
+}
+.tabs .tab.active {
+  color: #ff9d00;
+  position: relative;
+}
+.tabs .tab.active .tag {
+  position: absolute;
+  width: 46rpx;
+  height: 9rpx;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-23rpx);
+  border-radius: 4rpx;
+  background: linear-gradient(-90deg, #ff9d00, #ffbe00);
+  box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255, 211, 82, 0.75);
+}
+.tip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 131rpx;
+  vertical-align: bottom;
+  border-bottom: 2rpx solid #f5f5f5;
+  background: #ffffff;
+  font-size: 24rpx;
+  color: #9b9b9b;
+}
+.tip .num {
+  margin: 0 12rpx 0 16rpx;
+  font-size: 56rpx;
+  font-family: Arial;
+  color: #ff9e00;
+}
+.list-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 32rpx;
+  background-color: #fff;
+}
+.list-title .label {
+  font-size: 26rpx;
+  color: #7d7d7d;
+}
+.list-title .flex-end-cen {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.list-title .all-num {
+  font-size: 26rpx;
+  color: #ffa700;
+  margin-right: 15rpx;
+}
+.list-title .arrow {
+  width: 17rpx;
+  height: 29rpx;
+}
+.list {
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.list .item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 217rpx;
+  margin-left: 32rpx;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.78);
+}
+.list .item:nth-last-of-type(1) {
+  border-bottom: none;
+}
+.list .item-left {
+  width: 214rpx;
+  height: 146rpx;
+  margin-right: 37rpx;
+  border-radius: 10rpx;
+}
+.list .item-right {
+  width: 430rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.list .item-right .txt {
+  margin-bottom: 17rpx;
+  font-size: 30rpx;
+  color: rgba(40, 40, 40, 0.8);
+}
+.list .item-right .time {
+  margin-top: 7rpx;
+  font-size: 20rpx;
+  color: #979797;
+}
+.no-data {
+  font-size: 30rpx;
+  color: rgba(40, 40, 40, 0.8);
+  text-align: center;
+  margin-top: 300rpx;
+}
+.bottom-btn {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 97rpx;
+  left: 0;
+  bottom: 0;
+}
+.bottom-btn .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 98rpx;
+  background: #69abff;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 98rpx;
+}
+.bottom-btn .btn.my {
+  background: #ffae19;
+}
+.bottom-btn .btn-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 15rpx;
+}

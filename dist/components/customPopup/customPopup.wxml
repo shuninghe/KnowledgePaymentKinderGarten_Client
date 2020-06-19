@@ -1,0 +1,78 @@
+<view class="mask" wx:if="{{!(mode === 1 && isPay)}}">
+  <block wx:if="{{ mode === 6 }}">
+    <view class="custom-popup">
+      <image src="../../images/popup2.png" class="popup-amaz" />
+      <view class="tips">
+        <view class="line">
+          当前操作需授权获取用户信息
+        </view>
+      </view>
+      <view class="btn-box">
+        <view class="btn btn-gray-right" bindtap="handleCancel">
+          暂不授权
+        </view>
+        <button class="btn default-btn" style="{{styleColor?'background:'+styleColor+';':''}}" open-type="getUserInfo"  bindgetuserinfo="onGotUserInfo">
+          立即授权
+        </button>
+      </view>
+    </view> 
+  </block>
+  <block wx:else>
+    <view class="custom-popup {{mode === 4 ? 'custom-popup-active': ''}}">
+      <image src="../../images/popup1.png" class="popup-people" wx:if="{{mode === 1 || mode === 2 || mode === 3}}"/>
+      <image src="../../images/popup2.png" class="popup-amaz" wx:else/>
+      <view class="tips">
+          <view class="line" wx:if="{{mode === 1}}">
+            {{price ? '还未购买该课程呦～，确认购买？': '免费加入学习'}}
+          </view>
+          <view class="line" wx:if="{{mode === 2}}">
+            确认放弃学习吗？
+          </view>
+          <view class="line" wx:if="{{mode === 3}}">
+            解除后如需再次绑定需联系客服，确认解除？
+          </view>
+          <view class="line" wx:if="{{mode === 4}}">
+            学习课程需获取手机号以确认用户身份
+          </view>
+          <view class="line" wx:if="{{mode === 5}}">
+            当前操作需授权获取用户信息
+          </view>
+      </view>
+      <view class="btn-box {{mode === 1 ? price ? '': 'btn-box-center' : ''}}" wx:if="{{mode === 1 || mode === 2 || mode === 3}}">
+        <block wx:if="{{mode === 3}}">
+          <view class="btn btn-gray-right" bindtap="handleConfirm">
+          {{ mode === 1 ? price ? btnTxt[mode-1] : '确认' :btnTxt[mode-1]}}
+          </view>
+          <view class="btn btn-yellow-left" style="{{styleColor?'background:'+styleColor+';':''}}" wx:if="{{!(mode === 1 && !price)}}">
+          {{btnTxtCancel[mode-1]}}
+          </view>
+        </block>
+        <block wx:else>
+          <view class="btn btn-yellow-left" style="{{styleColor?'background:'+styleColor+';':''}}" bindtap="handleConfirm">
+          {{ mode === 1 ? price ? btnTxt[mode-1] : '确认' :btnTxt[mode-1]}}
+          </view>
+          <view class="btn btn-gray-right" bindtap="handleCancel" wx:if="{{!(mode === 1 && !price)}}">
+          {{btnTxtCancel[mode-1]}}
+          </view>
+        </block>
+      </view>
+      <view class="btn-box" wx:if="{{ mode === 4 }}">
+          <button class="default-btn" style="{{styleColor?'background:'+styleColor+';':''}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+            一键获取
+          </button>
+          <view class="btn btn-gray-right btn-large" bindtap="toBindPhone">
+            绑定其他手机号
+          </view>
+      </view>
+      <view class="btn-box" wx:if="{{ mode === 5 }}">
+        <view class="btn btn-gray-right" bindtap="handleCancel">
+          暂不授权
+        </view>
+        <button class="btn default-btn" style="{{styleColor?'background:'+styleColor+';':''}}" open-type="getUserInfo"  bindgetuserinfo="onGotUserInfo">
+          立即授权
+        </button>
+      </view>
+      <image src="../../images/close.png" class="close" bindtap="handleCancel"/>
+    </view> 
+  </block>
+</view>

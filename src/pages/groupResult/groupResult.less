@@ -1,0 +1,89 @@
+@import "../../templates/group/group.less";
+page {
+    background-color: #F2F2F2;
+    padding: 21rpx 25rpx;
+}
+.course {
+    width: 710rpx;
+    height: 278rpx;
+    background: #ffff;
+    box-shadow: 3rpx 5rpx 2r1px 0rpx rgba(224,224,224,0.75);
+    border-radius:10rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 28rpx;
+    .course-pic {
+        border-radius: 10rpx;
+        width: 327rpx;
+        height: 222rpx;
+        margin-right: 37rpx;
+    }
+    .course-detail {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        max-width: 280rpx;
+        .title {
+            max-width: 280rpx;
+            font-size: 28rpx;
+            color: rgba(40,40,40,1);
+            line-height: 39rpx;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .num-container {
+            margin-top: 22rpx;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .group-num {
+                font-size: 24rpx;
+                background:rgba(243,106,84,1);
+                color: #ffffff;
+                padding: 7rpx 10rpx;
+                margin-right: 11rpx;
+            }
+            .count-num {
+                font-size: 20rpx;
+                color:rgba(41,41,41,1);
+            }
+        }
+        .finall-fel {
+            margin-top: 34rpx;
+            font-size: 30rpx;
+            color:rgba(255,144,0,1);
+        }
+        .all-fel {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            .all-fel-left {
+                font-size: 24rpx;
+                text-decoration: line-through;
+                color:rgba(153,153,153,1);
+            }
+            .all-fel-txt {
+                font-size:30rpx;
+                color:rgba(255,144,0,1);
+               
+            }
+        }
+        
+    }
+}
+.invite-btn {
+    position: fixed;
+    bottom: 28rpx;
+    left: 28rpx;
+    width: 694rpx;
+    height: 85rpx;
+    background:rgba(68,147,252,1);
+    border-radius: 10rpx;
+    font-size: 30rpx;
+    color:rgba(255,255,255,1);
+}

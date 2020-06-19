@@ -1,0 +1,5 @@
+<!-- 分销系统-邀请下级、园长海报 -->
+<view class="codePoster">
+  <image wx:if="{{bgImg}}" class="poster-canvas" src="{{bgImg}}" mode="widthFix" bindlongpress="savePostImg" data-url='{{bgImg}}'></image>
+  <canvas wx:else type="2d" canvas-id="posterCanvas" class="poster-canvas"></canvas>
+</view>

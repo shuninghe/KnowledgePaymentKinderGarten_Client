@@ -1,0 +1,49 @@
+<view class="tabClass">
+  <!-- 班级圈 -->
+  <view class="banner flex-col-bet-sta">
+    <view class="top flex-bet-cen">
+      <view class="flex-sta-cen" bindtap="toSwitchRole">
+        <text class="name ellipsisOne">{{curRoleInfo.name}}{{curRoleInfo.type === 2 ? curRoleInfo.relation : ''}}</text>
+        <image class="icon40" src="../../images/ClassModule/h_switch_40.png"></image>
+      </view>
+      <view class="flex-sta-cen" wx:if="{{curRoleInfo.class_user_id}}" bindtap="toClassManage">
+        <text>老师{{curRoleInfo.teacher_num}}人, 学生{{curRoleInfo.baby_num}}人</text>
+        <image class="icon40" src="../../images/ClassModule/h_arrow_40.png"></image>
+      </view>
+      <view class="flex-sta-cen" wx:else>
+        <text>暂无班级</text>
+      </view>
+    </view>
+    <view class="tabs flex-bet-cen">
+      <view class="tab {{index === curIndex ? 'bg' : ''}}" wx:for="{{tabList}}" wx:key="index"
+        bindtap="changeTab" data-index="{{index}}">
+        <view class="tip"></view>{{item}}
+      </view>
+    </view>
+  </view>
+  <view class="no-data" wx:if="{{noClass}}">
+    <view>宝宝还未加入班级哦！</view>
+    <view>请联系老师发起邀请。</view>
+  </view>
+  <block wx:else>
+    <!-- tab内容 -->
+    <classHome wx:if="{{curIndex===0}}" conHeight="{{conHeight}}" curRoleInfo="{{curRoleInfo}}"></classHome>
+    <notice wx:if="{{curIndex===1}}" conHeight="{{conHeight}}" curRoleInfo="{{curRoleInfo}}"></notice>
+    <album wx:if="{{curIndex===2}}" conHeight="{{conHeight}}" curRoleInfo="{{curRoleInfo}}"></album>
+    <study wx:if="{{curIndex===3}}" conHeight="{{conHeight}}" curRoleInfo="{{curRoleInfo}}"></study>
+    <posterList wx:if="{{curIndex===4}}" conHeight="{{conHeight}}" curRoleInfo="{{curRoleInfo}}"></posterList>
+  </block>
+  <!-- 发布悬浮框 -->
+  <view class="fabu flex-col-cen-cen" bindtap="openDialog" wx:if="{{curRoleInfo.type === 1}}">
+    <image class="icon44" src="../../images/ClassModule/h_fabu_44.png"></image>
+    <text class="txt">发布</text>
+  </view>
+  <view class="mask" wx:if="{{showDialog}}" bindtap="closeDialog"></view>
+  <view class="dialog flex-aro-cen" wx:if="{{showDialog}}">
+    <image class="icon32" bindtap="closeDialog" src="../../images/ClassModule/h_close_32.png"></image>
+    <view class="flex-col-cen-cen" wx:for="{{dialog}}" wx:key="index" bindtap="toPage" data-page="{{item.page}}">
+      <image class="icon104" src="{{item.icon}}"></image>
+      <text class="txt">{{item.txt}}</text>
+    </view>
+  </view>
+</view>

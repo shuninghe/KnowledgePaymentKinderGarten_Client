@@ -1,0 +1,64 @@
+<!-- 沃职教-首页 -->
+<view class='tabZhiJiao'>
+  <!-- banner -->
+  <block wx:if="{{bannerList.length}}">
+    <view class="header"></view>
+    <view wx:if="{{bannerList.length === 1}}" class="banner">
+      <image class='banner-img' src='{{bannerList[0].pic}}' bindtap="toPage" data-item="{{bannerList[0]}}"></image>
+    </view>
+    <swiper wx:else class='banner' autoplay circular>
+      <swiper-item wx:for="{{bannerList}}" wx:key="index">
+        <image class='banner-img' src='{{item.pic}}' bindtap="toPage" data-item="{{item}}"></image>
+      </swiper-item>
+    </swiper>
+  </block>
+  <!-- 菜单导航 -->
+  <block wx:if="{{classifyList.length}}">
+    <view class="menuList {{meunShowType === 1 ? 'type-scroll' : 'type-tiling'}}">
+      <view class='item row-4' wx:for="{{classifyList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+        <image class='item-img' src='{{item.icon}}' />
+        <view class='item-name'>{{item.name}}</view>
+      </view>
+    </view>
+  </block>
+  <!-- 助力课程 -->
+  <view class="courseList" wx:if="{{!isForceEnroll && helpCourseList.length}}">
+    <view class="course-name">
+      <text class="tip"></text>
+      <view class="txt ellipsisOne">助力一起学</view>
+    </view>
+    <view class="course">
+      <view class="item" wx:for="{{helpCourseList}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+        <image class='item-img' src='{{item.square_course_pic || item.pic}}' />
+        <view class='item-name ellipsisTwo'>{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 课程配置 -->
+  <view class='courseList' wx:for="{{classAreasData}}" wx:key="index" wx:for-item="classify">
+    <view class="course-name">
+      <text class="tip"></text>
+      <view class="txt ellipsisOne">{{classify.name}}</view>
+    </view>
+    <!-- 课程长布局 -->
+    <view class='special' wx:if="{{classify.advert.length}}">
+      <view class='special-left'>
+        <view class='long-img' wx:for="{{classify.advert}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+          <image class='limg' src='{{item.icon}}' />
+        </view>
+      </view>
+      <view class='special-right'>
+        <view class="active-img" wx:for="{{classify.classify[0].course}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+          <image class='aimg' src='{{item.square_course_pic || item.pic}}' />
+        </view>
+      </view>
+    </view>
+    <!-- 课程正常布局 -->
+    <view class="course" wx:else>
+      <view class="item" wx:for="{{classify.classify[0].course}}" wx:key="index" bindtap="toPage" data-item="{{item}}">
+        <image class='item-img' src='{{item.square_course_pic || item.pic}}' />
+        <view class='item-name ellipsisTwo'>{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+</view>

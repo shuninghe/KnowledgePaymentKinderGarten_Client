@@ -1,0 +1,39 @@
+<!-- 奖学金-提现详情 -->
+<view class="withdrawDetail">
+    <view class="top">
+        <view>
+            <image class="wallet-icon" src="../../../images/jiayuantong/wallet.png" />
+            <text class="withdraw-msg">提现金额（元）</text>
+        </view>
+        <view class="withdraw-money">{{withdrawDetail.money}}</view>
+    </view>
+    <view class="main">
+        <view class="list">
+            <view class="list-left">
+                状态：
+            </view>
+            <view class="list-right {{withdrawDetail.status === 0? 'fail-color': withdrawDetail.status === 1? 'exam-color':''}}">
+                {{withdrawDetail.status === 0? '提现失败': withdrawDetail.status === 1? '审核中':'提现成功'}}
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-left">
+                提现时间：
+            </view>
+            <view class="list-right">
+                {{withdrawDetail.date}}
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-left">
+                提现流水号：
+            </view>
+            <view class="list-right">
+                {{withdrawDetail.serialNumber}}
+            </view>
+        </view>
+    </view>
+    <button class="footer" open-type="contact">
+        联系客服
+    </button>
+</view>

@@ -1,0 +1,5 @@
+<view class="saleEntrance">
+  <image class="img" bindtap="handOpen" animation="{{animationData}}" style="opacity:0;" bindload="showPicture" src="{{imgs[type-1]}}" mode="widthFix" lazy-load="{{true}}" />
+  <!-- <image class="img" src="{{imgs[type-1]}}" mode="widthFix" lazy-load="true"></image> -->
+  <!-- <view class="btn-wrap" bindtap="handOpen"></view> -->
+</view>

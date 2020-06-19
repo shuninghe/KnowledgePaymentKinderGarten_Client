@@ -1,0 +1,21 @@
+<view class="editClassInfo">
+  <!-- 班级信息/新建班级 -->
+  <view class="item flex-bet-cen" wx:if="{{mode===2}}">
+    <view class="item-left">园所编码</view>
+    <view class="item-right">
+      <input type="text" placeholder="请输入园所编码" class="input-txt" value="{{cdk}}" bindinput="inputText" data-name="cdk" />
+    </view>
+  </view>
+  <view class="item flex-bet-cen">
+    <view class="item-left">班级名称</view>
+    <view class="item-right">
+      <input type="text" placeholder="请输入班级名称" class="input-txt" value="{{name}}" bindinput="inputText" data-name="name" />
+    </view>
+  </view>
+  <view class="choise-wrap">
+    <view class="choise-btn {{item._id===type_id?'active':''}}" wx:for="{{types}}" wx:key="index" bindtap="choiseType" data-id="{{item._id}}">{{item.name}}</view>
+  </view>
+  <view class="btn flex-cen-cen" bindtap="saveInfo">保存</view>
+  <view class="small-btn flex-cen-cen" wx:if="{{mode!==2}}" bindtap="delClass">解散班级</view>
+</view>
+  

@@ -1,0 +1,157 @@
+.tabZhiJiao {
+  background-color: #f4f4f4;
+  padding-bottom: 97rpx;
+}
+.tabZhiJiao .header {
+  background: #feb218;
+  height: 130rpx;
+  border-radius: 0 0 36rpx 36rpx;
+}
+.banner {
+  margin: -120rpx 30rpx 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.banner .banner-img {
+  width: 690rpx;
+  height: 280rpx;
+  border-radius: 20rpx;
+  vertical-align: middle;
+}
+.menuList {
+  display: flex;
+  border-radius: 20rpx;
+  background: #fff;
+  margin: 0 30rpx 40rpx;
+}
+.menuList .item {
+  width: 172rpx;
+  margin: 28rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.menuList .item-img {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 24rpx;
+  vertical-align: middle;
+}
+.menuList .item-name {
+  width: 144rpx;
+  font-size: 24rpx;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.menuList.type-scroll {
+  width: 690rpx;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+.menuList.type-scroll .item.row-4 {
+  padding: 0 40rpx;
+}
+.menuList.type-tiling {
+  flex-wrap: wrap;
+}
+.menuList.type-tiling .item.row-4 {
+  margin-left: -2rpx;
+}
+.menuList.type-tiling .item.row-4:nth-of-type(4n) {
+  margin-right: 0;
+}
+.courseList {
+  background: #fff;
+  padding: 30rpx 30rpx 0;
+  margin-bottom: 30rpx;
+}
+.courseList .course-name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  height: 30rpx;
+  font-size: 28rpx;
+}
+.courseList .course-name .tip {
+  width: 6rpx;
+  height: 28rpx;
+  border-radius: 6rpx;
+  background-color: #ffa32b;
+  margin-right: 14rpx;
+}
+.courseList .course-name .txt {
+  width: 98%;
+}
+.courseList .course {
+  width: 640rpx;
+  margin: 0 auto;
+  padding-top: 20rpx;
+}
+.courseList .course .item {
+  display: inline-flex;
+  width: 200rpx;
+  margin-right: 20rpx;
+  flex-wrap: wrap;
+}
+.courseList .course .item:nth-of-type(3n) {
+  margin-right: 0;
+}
+.courseList .course .item-img {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 16rpx;
+  vertical-align: middle;
+}
+.courseList .course .item-name {
+  font-size: 24rpx;
+  width: 200rpx;
+  margin: 30rpx 0 40rpx;
+}
+.courseList .special {
+  padding-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.courseList .special .special-left .long-img {
+  margin-bottom: 30rpx;
+}
+.courseList .special .special-left .limg {
+  width: 230rpx;
+  height: 430rpx;
+  border-radius: 16rpx;
+  vertical-align: middle;
+}
+.courseList .special .special-right {
+  width: 430rpx;
+}
+.courseList .special .special-right .active-img {
+  display: inline-block;
+  margin-bottom: 30rpx;
+  margin-right: 30rpx;
+}
+.courseList .special .special-right .active-img:nth-of-type(2n) {
+  margin-right: 0;
+}
+.courseList .special .special-right .active-img .aimg {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 16rpx;
+  vertical-align: middle;
+}
+.ellipsisTwo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+}
+.ellipsisOne {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

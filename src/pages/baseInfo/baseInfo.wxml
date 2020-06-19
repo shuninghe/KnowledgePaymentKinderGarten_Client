@@ -1,0 +1,125 @@
+<view class="container" >
+  <view class="list">
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title" >
+          {{type_name}}名称
+          <image src="../../images/star.png" class="star"/>
+        </view>
+      </view>
+      <view class="item-right" >
+          <input type="text" placeholder="待补全" class="input-txt" data-mode="name" bindinput="handleInput" value="{{name}}"/>
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title" >
+          {{type_name}}简称
+        </view>
+      </view>
+      <view class="item-right" >
+          <input type="text" placeholder="待补全" class="input-txt" data-mode="abbreviation" bindinput="handleInput" value="{{abbreviation}}"/>
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title" >
+          负责人
+          <image src="../../images/star.png" class="star"/>
+        </view>
+      </view>
+      <view class="item-right" >
+          <input type="text" placeholder="待补全" class="input-txt" data-mode="liable" bindinput="handleInput" value="{{liable}}"/>
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title" >
+          手机号
+          <image src="../../images/star.png" class="star"/>
+        </view>
+      </view>
+      <view class="item-right" >
+          <input type="number" placeholder="待补全" class="input-txt" value="{{phone}}" data-mode="phone" bindinput="handleInput" />
+      </view>
+    </view>
+     <view class="list-item">
+      <view class="item-left">
+        <view class="title" >
+          地区
+          <image src="../../images/star.png" class="star"/>
+        </view>
+      </view>
+      <view class="item-right" >
+          <picker mode="multiSelector" bindchange="bindPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="{{'name'}}">
+            <view class="picker-box">
+              <text class="address-input" wx:if="{{isEdit}}">{{region}}</text>
+              <text class="address-input" wx:if="{{!isEdit}}">{{multiArray[0][multiIndex[0]].name}} {{ multiArray[1][multiIndex[1]].name }} {{multiArray[2][multiIndex[2]].name}}</text>
+              <image class="picker-icon" src="../../images/db_arr.png"></image>
+            </view> 
+          </picker>
+          
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title" >
+          详细地址
+          <image src="../../images/star.png" class="star"/>
+        </view>
+      </view>
+      <view class="item-right" >
+        <view class="txt-box" bindtap="goAddressDetail" wx:if="{{!address.length}}">
+          待补全
+        </view>
+        <view class="txt-box" bindtap="goAddressDetail" wx:if="{{address.length}}">
+          {{address}}
+        </view>
+        <!-- <input type="text" name="addr" placeholder="待补全" data-addr="{{true}}" class="input-txt" bindfocus="goAddressDetail"/>-->
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title" >
+          学生规模
+        </view>
+      </view>
+      <view class="item-right" >
+          <input type="number" placeholder="待补全" value="{{studentNum}}" data-mode="studentNum" bindinput="handleInput" class="input-txt"/>
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title" >
+          教师人数
+        </view>
+      </view>
+      <view class="item-right" >
+          <input type="number" placeholder="待补全" value="{{teacherNum}}" data-mode="teacherNum" bindinput="handleInput" class="input-txt"/>
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title" >
+          客服
+        </view>
+      </view>
+      <view class="item-right" >
+          <input type="text" placeholder="待补全" value="{{service}}" data-mode="service" bindinput="handleInput" class="input-txt"/>
+      </view>
+    </view>
+    <view class="list-item">
+      <view class="item-left">
+        <view class="title" >
+          客服电话
+        </view>
+      </view>
+      <view class="item-right" >
+          <input type="number" placeholder="待补全" value="{{servicePhone}}" data-mode="servicePhone" bindinput="handleInput" class="input-txt"/>
+      </view>
+    </view>
+  </view>
+  <view class="btn-bottom" bindtap="handleSubmit">
+    提交
+  </view>
+</view>

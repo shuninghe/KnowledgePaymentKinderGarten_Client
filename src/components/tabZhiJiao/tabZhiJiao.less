@@ -1,0 +1,165 @@
+.tabZhiJiao {
+  background-color: #f4f4f4;
+  padding-bottom: 97rpx;
+  .header {
+    // background: linear-gradient(to right, #fea818, #fec318);
+    background: #feb218;
+    height: 130rpx;
+    border-radius: 0 0 36rpx 36rpx;
+  }
+}
+.banner {
+  margin: -120rpx 30rpx 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  .banner-img {
+    width: 690rpx;
+    height: 280rpx;
+    border-radius: 20rpx;
+    vertical-align: middle;
+  }
+}
+// 菜单导航
+.menuList {
+  display: flex;
+  border-radius: 20rpx;
+  background: #fff;
+  margin: 0 30rpx 40rpx;
+  .item {
+    width: 172rpx;
+    margin: 28rpx 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &-img {
+      width: 60rpx;
+      height: 60rpx;
+      margin-bottom: 24rpx;
+      vertical-align: middle;
+    }
+    &-name {
+      width: 144rpx;
+      font-size: 24rpx;
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+  // 滑动
+  &.type-scroll {
+    width: 690rpx;
+    overflow: hidden;;
+    overflow-x: scroll;
+    .item.row-4 {
+      padding: 0 40rpx;
+    }
+  }
+  // 平铺
+  &.type-tiling {
+    flex-wrap: wrap;
+    .item.row-4 {
+      margin-left: -2rpx;
+      &:nth-of-type(4n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.courseList {
+  background: #fff;
+  padding: 30rpx 30rpx 0;
+  margin-bottom: 30rpx;
+  .course-name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20rpx;
+    height: 30rpx;
+    font-size: 28rpx;
+    .tip {
+      width: 6rpx;
+      height: 28rpx;
+      border-radius: 6rpx;
+      background-color: #ffa32b;
+      margin-right: 14rpx;
+    }
+    .txt {
+      width: 98%;
+    }
+  }
+  .course {
+    width: 640rpx;
+    margin: 0 auto;
+    padding-top: 20rpx;
+    .item {
+      width: 200rpx;
+      display: inline-flex;
+      width: 200rpx;
+      margin-right: 20rpx;
+      flex-wrap: wrap;
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      &-img {
+        width: 200rpx;
+        height: 200rpx;
+        border-radius: 16rpx;
+        vertical-align: middle;
+      }
+      &-name {
+        font-size: 24rpx;
+        width: 200rpx;
+        margin: 30rpx 0 40rpx;
+      }
+    }
+  }
+  .special {
+    padding-top: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    .special-left {
+      .long-img {
+        margin-bottom: 30rpx;
+      }
+      .limg {
+        width: 230rpx;
+        height: 430rpx;
+        border-radius: 16rpx;
+        vertical-align: middle;
+      }
+    }
+    .special-right {
+      width: 430rpx;
+      .active-img {
+        display: inline-block;
+        margin-bottom: 30rpx;
+        margin-right: 30rpx;
+        &:nth-of-type(2n) {
+          margin-right: 0;
+        }
+        .aimg {
+          width: 200rpx;
+          height: 200rpx;
+          border-radius: 16rpx;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+
+.ellipsisTwo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+}
+.ellipsisOne {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

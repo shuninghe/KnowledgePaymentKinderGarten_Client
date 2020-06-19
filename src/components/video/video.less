@@ -1,0 +1,177 @@
+// 视频
+.component-video {
+  .video {
+      width: 100%; 
+      height: 422rpx;
+      vertical-align: middle;
+  }
+  .title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100rpx;
+  }
+  .course-title {
+      margin-left: 32rpx;
+      font-size: 32rpx;
+      color: rgba(0, 0, 0, .8);
+  }
+  .line {
+      height: 26rpx;
+      background-color: #f5f5f5;
+  }
+  // 分享悬浮按钮
+  .share-wrap {
+    position: fixed;
+    width: 135rpx;
+    height: 72rpx;
+    right: 0;
+    bottom: 120rpx;
+    background: none;
+    background: linear-gradient(-90deg,rgba(255,157,0,1),rgba(255,190,0,1));
+    box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255,211,82,0.75);
+    border-radius: 36rpx 0 0 36rpx;
+    display: flex;
+    align-items: center;
+    &.mode2 {
+      width: 85rpx;
+      background: #57cf6e;
+      box-shadow: none;
+    }
+    .share-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: none;
+      padding: 10rpx 0;
+      margin-left: 10rpx;
+      &::after {
+        border: none;
+      }
+      .icon-share {
+        width: 44rpx;
+        height: 44rpx;
+      }
+      .icon-txt {
+        font-size: 30rpx;
+        color: #fff;
+      }
+    }
+  }
+}
+// 视频-课程目录
+.course-tree {
+  .tree-name {
+      padding: 30rpx 32rpx 20rpx 32rpx;
+      font-size: 32rpx;
+      color: rgba(0, 0, 0, .66);
+  }
+  .course {
+      &-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-left: 80rpx;
+          &.active {
+              .course-name {
+                  color: #ff9d00;
+              }
+          }
+      }
+      &-info {
+          display: flex;
+          align-items: center;
+      }
+      &-icon {
+          width: 30rpx;
+          height: 30rpx;
+          margin-right: 15rpx;
+      }
+      &-name {
+          max-width: 490rpx;    // 无试听、无点评
+          font-size: 28rpx;
+          color: rgba(0, 0, 0, .8);
+          line-height: 54rpx;
+          margin-right: 20rpx;
+          &.max-w426 {
+            max-width: 426rpx;  // 有试听、无点评
+          }
+          &.max-w270 {
+            max-width: 270rpx   // 无试听、有点评
+          }
+          &.max-w216 {
+            max-width: 200rpx;  // 有试听、有点评
+          }
+      }
+      &-tag {
+          display: inline-block;
+          border-radius: 4rpx;
+          padding: 3rpx;
+          margin-right: 10rpx;
+          font-size: 20rpx;
+          color: #fff;
+          line-height: 21rpx;
+          background: linear-gradient(-90deg,rgba(255,157,0,1),rgba(255,190,0,1));
+          box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(255,211,82,0.75);
+          &.blue {
+              background: linear-gradient(-90deg,rgba(88,161,255,1),rgba(110,220,255,1));
+              box-shadow: 3rpx 5rpx 21rpx 0rpx rgba(106,209,255,0.75);
+              opacity: 0.9;
+          }
+          &.green {
+              background:linear-gradient(-90deg,rgba(0,197,74,1),rgba(146,242,183,1));
+              box-shadow:3px 5px 21px 0px rgba(47,211,108,0.75);
+              opacity:0.9;
+          }
+      }
+      &-commit {
+          font-size:  24rpx;
+          color:  rgba(106,176,255,1);
+          margin-right: 22rpx;
+          .icon-right {
+              width: 20rpx;
+              height: 23rpx;
+          }
+      }
+  }
+}
+// 课时资源
+.section-wrap {
+  display: flex;
+  padding: 30rpx 10rpx 0;
+  .source {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-img {
+      width: 88rpx;
+      height: 88rpx;
+      margin-bottom: 20rpx;
+    }
+    &-txt {
+      font-size: 22rpx;
+      color: #282828;
+    }
+  }
+}
+// 课时详情
+.section-intro {
+  padding: 24rpx;
+}
+// 处理富文本图片宽度问题
+.uploadImage { // 作用于上传的的超宽图片
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.ellipsisOne {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

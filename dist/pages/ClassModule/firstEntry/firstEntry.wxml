@@ -1,0 +1,25 @@
+<view class="firstEntry">
+  <view class="mid-wrap">
+    <image class="mid-img" src="{{allData[mode].midImg}}" mode="widthFix" lazy-load></image>
+    <view class="mid-text" style="top:{{mode?100:200}}rpx;">
+      <text class="message" wx:for="{{allData[mode].textList}}" wx:key="index">{{item}}</text>
+      <view class="subtitle" wx:if="{{allData[mode].subtitle}}" style="color:{{allData[mode].color}};">{{allData[mode].subtitle}}</view>
+      <view class="message-wrap" wx:if="{{allData[mode].textList2}}">
+        <text class="message" wx:for="{{allData[mode].textList2}}" wx:key="index">{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <image class="top-img" src="{{allData[mode].topImg}}" mode="widthFix" lazy-load></image>
+  <view class="bt-wrap">
+    <image class="bt-img" src="{{allData[mode].botImg}}" mode="widthFix" lazy-load></image>
+    <!-- <view class="bt-btn" style="background-color:{{allData[mode].color}};" bindtap="getAuthorized">立即授权</view> -->
+    <view class="choise">
+      <view class="option" bindtap="choiseRole" data-role="1">我是老师</view>
+      <view class="option active" bindtap="choiseRole" data-role="2">我是家长</view>
+    </view>
+    <view class="text-next" bindtap="choiseNext">
+      <view style="z-index:1000;">下次选择</view>
+    </view>
+  </view>
+</view>
+  

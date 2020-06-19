@@ -1,0 +1,121 @@
+@import "../../styles/custom/text.less";
+.tabMy {
+  // 处理button按钮样式
+  .btn {
+    background-color: #fff;
+    border: none;
+    border-radius: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    border: none;
+    &.userinfo-wrap {
+      background-color: transparent;
+    }
+    &::after {
+      border: none;
+    }
+  }
+}
+// 用户信息
+.my-info {
+  height: 200rpx;
+  padding-left: 34rpx;
+  background-image: url('https://woxue-dev.oss-cn-beijing.aliyuncs.com/1587193457554.5542tabMy-bgTree.png');
+  background-repeat: no-repeat;
+  background-size: 200rpx 200rpx;
+  background-position: 550rpx 0;
+  background-color: #fff;
+  .avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    margin-right: 28rpx;
+    .img {
+      width: 100rpx;
+      height: 100rpx;
+      border-radius: 50%;
+    }
+  }
+  .info {
+    .name {
+      max-width: 350rpx;
+      font-size: 34rpx;
+      color: #000000;
+      font-weight: bold;
+    }
+    .edit {
+      height: 50rpx;
+      margin-left: 42rpx;
+      font-size: 22rpx;
+      &-icon {
+        width: 22rpx;
+        height: 20rpx;
+        margin-right: 6rpx;
+        font-size: 22rpx;
+        color: #282828;
+      }
+    }  
+    .vip-wrap {
+      margin-top: 22rpx;
+    }
+    .vip {
+      padding: 0 20rpx;
+      height: 35rpx;
+      background:rgba(255,255,255,1);
+      border: 1px solid #FFCA2C;
+      border-radius: 36rpx;
+      margin-right: 22rpx;
+      &-icon {
+        width: 28rpx;
+        height: 26rpx;
+        margin-right: 7rpx;
+      }
+      &-name {
+        display: inline-block;
+        max-width: 200rpx;
+      }
+    }
+    .txt {
+      font-size: 22rpx;
+      color: #202020;
+    }
+  }
+}
+// 横向tab
+.tab {
+  height: 146rpx;
+  margin-top: 14rpx;
+  background-color: #fff;
+  text-align: center;
+  border-bottom: 2rpx solid #f3f3f3;
+  .tab-icon {
+    width: 55rpx;
+    height: 55rpx;
+  }
+  .text {
+    font-size: 22rpx;
+    color: #282828;
+    line-height: 1.2;
+  }
+}
+// 竖项列表
+.list {
+  padding-left: 43rpx;
+  background-color: #fff;
+  .item {
+    height: 100rpx;
+    padding-right: 46rpx;
+    border-bottom: 2rpx solid #f3f3f3;
+    font-size: 28rpx;
+    .icon {
+      width: 50rpx;
+      height:50rpx;
+      margin-right: 28rpx; 
+    }
+    .right {
+      width: 20rpx;
+      height: 26rpx;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+.myCard {
+  background: #f5f5f5;
+  padding: 0 28rpx;
+}
+.myCard .card-top {
+  display: flex;
+  align-items: center;
+  margin: 30rpx 0;
+  position: relative;
+}
+.myCard .card-top .card-icon {
+  width: 48rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+.myCard .card-top .num {
+  font-size: 28rpx;
+}
+.myCard .footer {
+  width: 700rpx;
+  height: 84rpx;
+  background: #48c05f;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 84rpx;
+  border-radius: 10rpx;
+  position: fixed;
+  bottom: 30rpx;
+}
+.content {
+  width: 700rpx;
+  margin-top: 22rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.content .card {
+  display: flex;
+  align-items: center;
+  height: 140rpx;
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+.content .card .card-logo {
+  width: 50rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  background-repeat: no-repeat;
+}
+.content .card .cardInfo .name {
+  font-size: 26rpx;
+  margin-bottom: 16rpx;
+}
+.content .card .cardInfo .number {
+  font-size: 20rpx;
+}
+.content .card .tip {
+  color: #cecece;
+  font-size: 24rpx;
+  position: absolute;
+  right: 38rpx;
+}
+.content .tip-border {
+  border: 2rpx solid #48c05f;
+}

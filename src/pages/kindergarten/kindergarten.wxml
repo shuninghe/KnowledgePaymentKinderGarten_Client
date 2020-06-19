@@ -1,0 +1,40 @@
+
+<import src="../../templates/kindGarten/kindGarten.wxml" />
+<view class="container" >
+  <template is="kindGarten" data="{{url}}"></template>
+  <view class="btn-box">
+    <view class="child-box" data-num="1" bindtap="handleClick">
+      <image src="../../images/ren.png" class="ren"/>
+      <view class="txt">{{type_name}}介绍</view>
+    </view>
+    <view class="child-box" data-num="2" bindtap="handleClick">
+      <image src="../../images/book.png" class="book"/>
+      <view class="txt">教研提升</view>
+    </view>
+    <view class="child-box" data-num="3" bindtap="handleClick">
+      <image src="../../images/people.png" class="people"/>
+      <view class="txt">招生信息</view>
+    </view>
+  </view>
+  <view class="btn-box">
+    <view class="child-box" data-num="4" bindtap="handleClick">
+      <image src="../../images/plane.png" class="plane"/>
+      <view class="txt">{{type_name}}动态</view>
+    </view>
+    <view class="child-box" data-num="5" bindtap="handleClick">
+      <image src="../../images/picture.png" class="picture"/>
+      <view class="txt">活动作品</view>
+    </view>
+    <view class="child-box" wx:if="{{!isShowManage}}" data-num="6" bindtap="handleClick">
+      <image src="../../images/wechat.png" class="wechat"/>
+      <view class="txt">联系我们</view>
+    </view>
+    <view class="child-box" wx:if="{{isShowManage}}" data-num="7" bindtap="handleClick">
+      <image src="../../images/info.png" class="info"/>
+      <view class="txt">信息管理</view>
+    </view>
+  </view>
+</view>
+<view class="blank">
+    
+  </view>

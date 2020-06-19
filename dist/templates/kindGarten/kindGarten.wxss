@@ -1,0 +1,5 @@
+.top-box {
+  width: 750rpx;
+  height: 372rpx;
+  background-color: pink;
+}

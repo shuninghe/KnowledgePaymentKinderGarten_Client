@@ -1,0 +1,28 @@
+<view class="tabAllGame">
+  <!-- 游戏库 -->
+  <view class="resourceBase" wx:if="{{classData.length}}">
+    <scroll-view scroll-y class="left-wrap" style="height:{{conHeight}}rpx;">
+      <view class="nav-item {{classifyActive===index?'active':''}}" wx:for="{{classData}}" wx:key="index"
+        catchtap='chooseType' data-index="{{index}}">
+        <text class="ellipsisThree">{{item.name}}</text>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y class="right-wrap" style='height:{{conHeight}}rpx;' 
+      scroll-into-view="{{contentActive}}" scroll-with-animation 
+      bindscroll="onScroll">
+      <view class="right-content">
+        <view class='tab-content contlist' wx:for="{{classData}}" wx:key="idx" 
+          wx:for-item="class" wx:for-index="idx" id='type{{idx}}'>
+          <view class='tab-content-title'>{{class.name}}</view>
+          <block wx:for="{{class.classify}}" wx:key="index" wx:for-item="classify">
+            <view class='course' wx:for="{{classify.course}}" wx:key="index" bindtap="toCourseDetail" data-url="{{item.url}}">
+              <image class="course-img" src="{{item.square_course_pic||item.pic}}" mode="aspectFill"></image>
+              <text class="course-name ellipsisTwo">{{item.name}}</text>
+            </view>
+          </block>
+        </view> 
+      </view>
+    </scroll-view>
+  </view>
+  <view class="no-data" wx:else>暂无分类数据</view>
+</view>

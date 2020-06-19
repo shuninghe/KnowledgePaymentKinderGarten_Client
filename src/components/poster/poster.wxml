@@ -1,0 +1,5 @@
+<!-- 课程分享海报 -->
+<view class="c-post">  
+    <image wx:if="{{bgImg}}" class="poster-canvas" src="{{bgImg}}" mode="widthFix" bindlongpress="savePostImg" data-url='{{bgImg}}'></image>
+    <canvas wx:else canvas-id="posterCanvas" class="poster-canvas"></canvas>
+</view>

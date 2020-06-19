@@ -1,0 +1,7 @@
+
+{
+  "navigationBarTitleText": "拼团信息",
+  "usingComponents": {
+    "custom-popup": "../../components/customPopup/customPopup"
+  }
+}

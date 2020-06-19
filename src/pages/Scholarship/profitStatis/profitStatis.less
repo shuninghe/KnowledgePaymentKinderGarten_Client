@@ -1,0 +1,304 @@
+.profitStatis {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .title {
+    width: 100%;
+    height: 321rpx;
+    padding-top: 10rpx;
+    box-sizing: border-box;
+    background: #57c36d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .title .time {
+    display: flex;
+    height: 50rpx;
+    border-radius: 10rpx;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16rpx;
+    background: rgba(255,255,255,.3);
+  }
+  .title .time .yearMonth {
+    color: #f5f5f5;
+    font-size: 24rpx;
+    margin-right: 22rpx;
+  }
+  .title .time .icon {
+    width: 32rpx;
+    height: 32rpx;
+    opacity: .7;
+  }
+  .title .income {
+    margin-top: 30rpx;
+    font-size: 24rpx;
+    color: #b1deba;
+  }
+  .title .money {
+    color: #f5f5f5;
+    font-size: 64rpx;
+    font-weight: 500;
+  }
+  // 饼状图
+  .conts {
+    width: 100%;
+    padding: 0 28rpx;
+    position: absolute;
+    top: 249rpx;
+    left: 0;
+  }
+  .content {
+    width: 100%;
+    background: #fff;
+    border-radius: 20rpx;
+    padding: 10rpx 0;
+  }
+  // 排行榜
+  .ranking {
+    width: 100%;
+    background: #fff;
+    border-radius: 20rpx;
+    padding: 39rpx 38rpx 0;
+    margin: 20rpx 0;
+  }
+  .ranking .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 46rpx;
+  }
+  .ranking .top .icon {
+    width: 32rpx;
+    height: 29rpx;
+    margin-right: 16rpx;
+  }
+  .ranking .top .text {
+    color: #272727;
+    font-size: 28rpx;
+    font-weight: 500;
+  }
+  // 排行榜列表
+  .detail-text {
+    display: flex;
+    justify-content: space-between; 
+  }
+  .detail-text .left {
+    display: flex;
+  }
+  .detail-text .left .text {
+    margin-left: 24rpx;
+  }
+  .detail-text .left .text .message{
+    color: #282828;
+    font-size: 26rpx;
+  }
+  .detail-text .left .text .time {
+    margin: 20rpx 0;
+    color: #969696;
+    font-size: 24rpx;
+  }
+  // 左
+  .left .leftLine .cricle {
+    width: 12rpx;
+    height: 12rpx;
+    border-radius: 50%;
+    background: #e5e5e5;
+  //   border: 2px solid #FF9B37;
+    margin-top: 10rpx;
+  }
+  .leftLine .dashed {
+    margin-left: 6rpx;
+    min-height: calc(100% - 8rpx);
+    width: 2rpx;
+    border-left: 2rpx solid #eeeeee;
+  }
+  .rightText {
+    font-size: 30rpx;
+    color: #ffba00;
+  }
+  
+  
+  /* 组件 */
+  .chooseBox {
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    bottom:0;
+    left:0;
+    z-index: 100;
+  }
+  .btnBox {
+    width: 100%;
+    height: 88rpx;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30rpx;
+    // line-height: 88rpx;
+    position: absolute;
+    bottom: 438rpx; 
+  }
+  .btnBox .btnL {
+    color:#4773B2;
+  }
+  .btnBox .btnName {
+    font-family: PingFangSC-Regular;
+    color: #000000;
+  }
+  .btnBox .btnR {
+    color:#4773B2;
+  }
+  // 按年/按月
+  .selectBtn {
+    width: 100%;
+    height: 88rpx;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30rpx;
+    // line-height: 88rpx;
+    position: absolute;
+    bottom: 350rpx; 
+  }
+  .selectBtn .btn {
+    // height: 46rpx;
+    padding: 5rpx 45rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #efefef;
+    border-radius: 100rpx;
+    font-size: 30rpx;
+  }
+  .selectBtn .btn.select {
+    border: 1rpx solid #76d689;
+    color: #76d689;
+  }
+  .selectBtn .btnl {
+    margin-right: 30rpx;
+  }
+  .selectBtn .btnr {
+    margin-left: 30rpx;
+  }
+  .popBox {
+    width: 100%;
+    padding: 0 150rpx;
+    box-sizing: border-box;
+    height: 350rpx;
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 999999;
+  }
+  .chooseBox .gradePop {
+    height: 90rpx;
+  }
+  .clearfix::before,
+  .clearfix::after {
+    content: '';
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+  }
+  .clearfix {
+    zoom: 1;
+  }
+  .chooseItem{
+    height: 90rpx!important;
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 90rpx;
+    font-weight: 500;
+    color: rgb(134, 131, 131);
+    letter-spacing: 2.04rpx;
+  }
+  .chooseItem1 {
+    font-size: 34rpx;
+    color: #76d689;
+    letter-spacing: 2.18rpx;
+  }
+  .mask{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.65);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 80rpx;
+    box-sizing: border-box;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mask .alert{
+    position: relative;
+    width: 100%;
+    height: 485rpx;
+    box-sizing: border-box;
+  }
+  .mask .alert .icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .mask .alert .title{
+    position: absolute;
+    top: 181rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 36rpx;
+    color: #333333;
+    font-weight: 500;
+  }
+  .mask .alert .tip{
+    position: absolute;
+    top: 263rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30rpx;
+    color: #8B8B8B;
+    line-height: 48rpx;
+    height: 96rpx;
+    width: 377rpx;
+  }
+  .mask .alert .button{
+    position: absolute;
+    top: 408rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FF634F;
+    box-shadow: 0 0 8px 0 rgba(254,169,158,0.50);
+    border-radius: 100rpx;
+    height: 84rpx;
+    line-height: 84rpx;
+    width: 280rpx;
+    font-size: 32rpx;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  canvas {
+    width: 100%;
+    height: 150px;
+    display: block;
+    position: relative;
+  }
+  // 暂无提现记录
+  .noList {
+    color: #666;
+    line-height: 120rpx;
+    text-align: center;
+  }
+    

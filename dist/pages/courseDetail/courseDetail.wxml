@@ -1,0 +1,158 @@
+<!-- 沃家园通课程详情 -->
+<import src="../../templates/catalogTree/catalogTree.wxml"/>
+<import src="../../templates/group/group.wxml" />
+<wxs module="filters" src="../../utils/common.wxs"></wxs>
+  
+<view class="courseDetail">
+  <!-- 课程信息 -->
+  <view class="course" style="background-image:url({{category.square_pic || categoryBg}});">
+    <image class="course-img" src="{{square_course_pic || pic}}"></image>
+    <view class="course-info flex-col-bew-sta">
+      <text class="title ellipsisOne">{{name}}</text>
+      <view>
+        <view class="flex-sta-cen">
+          <image class="icon" src="/images/study/time1_03.png"></image>
+          <text class="txt">共 {{sections_num}} 课时</text>
+        </view>
+        <view class="flex-sta-cen">
+          <image class="icon" src="/images/study/person_03.png"></image>
+          <text class="txt">共 {{studying_num}} 人加入学习</text>
+        </view>
+      </view>
+    </view>
+    <button class="course-share flex-cen-cen" style="background-color: {{theme.themeColorOne}}" open-type="getUserInfo" bindgetuserinfo="toSharePost">
+      <image class="icon-share" src="/images/study/course-share.png" />
+      <text class="icon-txt">海报分享</text>
+    </button>
+  </view>
+  <!-- 活动倒计时 -->
+  <view class="count-down" hover-class="none" wx:if="{{activityType && !isbuy}}">
+    <view class="line"></view>
+    <count-down wx:if="{{activityType && !isShare}}" time="{{activityInfo.closure_time}}" dark="{{2}}"></count-down>
+    <template is="assemble_doing_view" wx:if="{{activityType === 1}}" data="{{allPintuanList, allPintuanNum, buttonClicked, pintuanList}}"></template>
+    <template is="assemble_join_view" wx:if="{{activityType === 1 && isShare}}" data="{{...pintuanInfo, smallJoin}}"></template>
+  </view>
+  <view class="content-wrap {{activityType && isbuy || (!activityType)? 'isbuy': ''}}">
+  <view class="line"></view>
+  <!-- tab栏 -->
+  <view class="tabs">
+    <view wx:if="{{activeTab === 0}}" style="color: {{theme.themeColorOne}}" class="tab {{activeTab === 0 ? 'active' : ''}}" bindtap="changeTab" data-index="0">目录<view class="tag" style="background-color: {{theme.themeColorTwo}}"></view></view>
+    <view wx:else class="tab {{activeTab === 0 ? 'active' : ''}}" bindtap="changeTab" data-index="0">目录<view class="tag"></view></view>
+    <view wx:if="{{activeTab === 1}}" style="color: {{theme.themeColorOne}}" class="tab {{activeTab === 1 ? 'active' : ''}}" bindtap="changeTab" data-index="1">简介<view class="tag" style="background-color: {{theme.themeColorTwo}}"></view></view>
+    <view wx:else class="tab {{activeTab === 1 ? 'active' : ''}}" bindtap="changeTab" data-index="1">简介<view class="tag"></view></view>
+    <view wx:if="{{commentConfig && activeTab === 2}}" style="color: {{theme.themeColorOne}}" class="tab {{activeTab === 2 ? 'active' : ''}}" bindtap="changeTab" data-index="2">评价<view class="tag" style="background-color: {{theme.themeColorTwo}}"></view></view>
+    <view wx:if="{{commentConfig && activeTab !== 2}}" class="tab {{activeTab === 2 ? 'active' : ''}}" bindtap="changeTab" data-index="2">评价<view class="tag"></view></view>
+  </view>
+  <!-- 课程目录 -->
+  <view class="course-tree" wx:if="{{activeTab === 0}}">
+    <template is="catelog_tree2_tpl" data="{{trees, isbuy, is_series, backPic}}"></template>
+  </view>
+  <!-- 课程介绍 -->
+  <view class="course-intro" wx:if="{{activeTab === 1}}">
+    <rich-text nodes="{{filters.replaceImgSize(course_detail)}}"></rich-text>
+  </view>
+  <!-- 课程评价 -->
+  <view class="comment-list" wx:if="{{activeTab === 2 && commentConfig}}">
+    <block wx:if="{{dynamicList.length}}">
+      <view class="item" wx:for="{{dynamicList}}" wx:key="index">
+        <view class="item-title flex-bet-cen">
+          <view class="item-title-left flex-sta-cen">
+            <image class="head-pic" src="{{item.head_pic || '/images/default_head.png'}}" />
+            <view class="head-name">{{item.remark_name}}</view>
+            <view class="culling" wx:if="{{item.type === 1}}">精选</view>
+          </view>
+          <view class="item-title-right">{{filters.timestampToTime(item.ctime,'Y-M-D')}}</view>
+        </view>
+        <view class="item-content">{{item.content}}</view>
+        <view class="item-delete-btn" data-index="{{index}}" data-id="{{item._id}}" bindtap="deleteComment" wx:if="{{item.status === 1}}">[删除]</view>
+      </view> 
+    </block>
+    <view class="no-data" wx:else>暂无评价</view>
+  </view>
+  </view>
+</view>
+<!-- 底部按钮 -->
+<view class="bottom-btn" wx:if="{{(activeTab !== 2 && isbuy) || !isbuy}}">
+  <button class="kefu btn" open-type="contact">
+    <image class="icon" src="../../images/cus_03.png"></image>  
+    <text class="text">咨询客服</text>
+  </button>
+  <view class="flex-bet-cen">
+    <!-- 没买&未报名 && (IOS机型&开启IOS报名 || 安卓机型&开启安卓报名) -->
+    <block wx:if="{{!isbuy && !hasSignUp && (isIOS&&iosConfig || !isIOS&&androidConfig)}}">
+      <navigator class="btn-item" style="background:{{theme.buttonColorOne.background}};color:{{theme.buttonColorOne.backColor}}"
+        open-type="navigate" url="/pages/signUpInfo/signUpInfo?id={{course_id}}">立即报名</navigator>
+    </block>
+    <!-- 已买 || vip可看 || 没买&助力课&已助力&助力价格=0 -->
+    <block wx:elif="{{isbuy || type===1&&vipInfo || !isbuy&&isHelp&&pal_assistant.status===2&&pal_assistant.price===0}}">
+      <navigator class="btn-item" style="background:{{theme.buttonColorOne.background}};color:{{theme.buttonColorOne.backColor}}"
+        open-type="redirect" url="/pages/studyCenter/studyCenter">我的学习中心</navigator>
+    </block>
+    <!-- 没买&已报名&&(IOS机型&开启IOS报名||安卓机型&开启安卓报名) -->
+    <block wx:elif="{{!isbuy&&hasSignUp&&(isIOS&&iosConfig||!isIOS&&androidConfig)}}">
+      <view class="btn-item" style="background:#ccc;color:#fff;">已报名，点击左侧立即咨询客服</view>
+    </block>
+    <!-- 没买 && (IOS机型&关闭IOS报名 || 安卓机型&关闭安卓报名) -->
+    <block wx:elif="{{!isbuy && (isIOS&&!iosConfig || !isIOS&&!androidConfig)}}">
+      <block wx:if="{{activityType || isHelp}}">
+        <view class="btn-item w270" 
+          style="background:{{theme.buttonColorTwo.background}};color:{{theme.buttonColorTwo.backcolor}}"
+          bindtap="judgeBindPhone">{{price ? '我要学习 ¥'+filters.handlePrice(price) : '免费加入学习'}}</view>
+        <view wx:if="{{activityType===1 && isShare < 1}}" class="btn-item w270" 
+          style="background:{{theme.buttonColorOne.background}};color:{{theme.buttonColorOne.backcolor}}"
+          bindtap="handleApply" data-btntype="3">拼团学习 ¥{{filters.handlePrice(finalFee * 100)}}起</view>
+          <view wx:if="{{activityType===1 && isShare > 0}}" class="btn-item w270" 
+            style="background:{{theme.buttonColorOne.background}};color:{{theme.buttonColorOne.backcolor}}"
+            bindtap="handleApply" data-btntype="2">参与好友的拼团</view>
+        <view wx:if="{{activityType===2}}" class="btn-item w270" 
+          style="background:{{theme.buttonColorOne.background}};color:{{theme.buttonColorOne.backcolor}}"
+          bindtap="handleApply" data-btntype="4">立即秒杀 ¥{{filters.handlePrice(finalFee * 100)}}</view>
+        <view wx:if="{{activityType===3||isHelp}}" class="btn-item w270" 
+          style="background:{{theme.buttonColorOne.background}};color:{{theme.buttonColorOne.backcolor}}"
+          bindtap="needFriendHelp">邀请好友助力免费学</view>
+      </block>
+      <block wx:elif="{{vipGoodId && type===1}}">
+        <view class="btn-item w270" style="background:{{theme.buttonColorTwo.background}};color:{{theme.buttonColorTwo.backcolor}}"
+          bindtap="judgeBindPhone">{{price ? '我要学习 ¥'+filters.handlePrice(price) : '免费加入学习'}}</view>
+        <view class="btn-item w270" style="background:{{theme.buttonColorOne.background}};color:{{theme.buttonColorOne.backcolor}}"
+          bindtap="toPaymentOrder">{{'开通VIP会员 ¥'+vipGoodPrice}}</view>          
+      </block>
+      <block wx:else>
+        <view class="btn-item" style="background:{{theme.buttonColorOne.background}};color:{{theme.buttonColorOne.backColor}}"
+          bindtap="judgeBindPhone">{{price ? '我要学习 ¥'+filters.handlePrice(price) : '免费加入学习'}}</view>
+      </block>
+    </block>
+  </view>
+</view> 
+<!-- 评价输入框 -->
+<view class="input-bottom-mask {{isShowMask ? 'input-bottom-mask-active' : ''}}" wx:if="{{activeTab === 2 && isbuy }}">
+  <view class="input-bottom {{isShowMask ? 'input-bottom-active': ''}}">
+    <input type="text" class="comment-input" value="{{contentValue}}" placeholder-style="#B3B3B3" placeholder="说点什么呢..."
+      confirm-type="search" cursor-spacing="10" bindinput="setInputValue" bindfocus="setInputClass" bindblur="blurInput"/>
+    <view class="send-btn flex-cen-cen" bindtap="publishDynamic">发表</view>
+  </view>
+</view>
+
+<!-- 购买绑定手机号弹窗 -->
+<custom-popup mode="4" wx:if="{{showPhonePopup}}" 
+  styleColor="{{theme.themeColorOne}}"
+  bindgetWxPhone="getWxPhone" 
+  bindtoBindPhone="toBindPhone" 
+  bindhandleCancel="closePhonePopup">
+</custom-popup>
+<!-- 未购买提示弹窗 -->
+<custom-popup mode="1" price="{{price}}" wx:if="{{showBuyPopup}}" 
+  styleColor="{{theme.themeColorOne}}"
+  bindhandleConfirm="confirmBuy" 
+  bindhandleCancel="cancelBuy">
+</custom-popup> 
+<!-- 蒙版 -->
+<view class="mark" catchtouchmove="preventTouchMove" catchtap='setShowWinwos' wx:if="{{isShowAssemble}}"></view>
+<!-- 正在拼团弹窗 -->
+<view class="assemble-container" wx:if="{{isShowAssemble}}">
+  <view class="head-wrap">
+    <view class="head-title">正在拼团</view>
+    <image class="close-btn" data-flag="3" catchtap='setShowWinwos' src="../../images/details_icon_g.png"></image>
+  </view>
+  <template is="assemble_more_view" data="{{pintuanList, buttonClicked}}"></template>
+</view>
